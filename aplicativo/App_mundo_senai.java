@@ -92,27 +92,55 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		 janela.getContentPane().removeAll();
-		 // reset layout e background
-		 janela.getContentPane().setBackground(Color.BLACK);
-		 janela.setLayout(null);//trocar qnd desing for enviado
-		 // reseta a janela
-		 janela.revalidate();
-		 janela.repaint();
+		janela.getContentPane().removeAll();
+		// reset layout e background
+		janela.getContentPane().setBackground(Color.BLACK);
+		janela.setLayout(null);//trocar qnd desing for enviado
+		// reseta a janela
+		janela.revalidate();
+		janela.repaint();
 	}
 
 	public void Loja_pnts(){
 		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
+		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
+		janela.getContentPane().removeAll();
+		// reset layout e background
+		janela.getContentPane().setBackground(Color.BLACK);
+		janela.setLayout(null);//trocar qnd desing for enviado
+		// reseta a janela
+		janela.revalidate();
+		janela.repaint();
+	}
+
+	public void dados_pessoais(){
+		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
+		janela.setMinimumSize(new Dimension(100,100));
+		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		 janela.getContentPane().removeAll();
-		 // reset layout e background
-		 janela.getContentPane().setBackground(Color.BLACK);
-		 janela.setLayout(null);//trocar qnd desing for enviado
-		 // reseta a janela
-		 janela.revalidate();
-		 janela.repaint();
+		janela.getContentPane().removeAll();
+		// reset layout e background
+		janela.getContentPane().setBackground(Color.BLACK);
+		janela.setLayout(null);//trocar qnd desing for enviado
+		// reseta a janela
+		janela.revalidate();
+		janela.repaint();
+	}
+
+	public void quests(){
+		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
+		janela.setMinimumSize(new Dimension(100,100));
+		janela.setSize(new Dimension(1000, 500));
+		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		janela.getContentPane().removeAll();
+		// reset layout e background
+		janela.getContentPane().setBackground(Color.BLACK);
+		janela.setLayout(null);//trocar qnd desing for enviado
+		// reseta a janela
+		janela.revalidate();
+		janela.repaint();
 	}
 
 	public void dados_pessoais(){
@@ -121,29 +149,17 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		 janela.getContentPane().removeAll();
-		 // reset layout e background
-		 janela.getContentPane().setBackground(Color.BLACK);
-		 janela.setLayout(null);//trocar qnd desing for enviado
-		 // reseta a janela
-		 janela.revalidate();
-		 janela.repaint();
+		// reset layout e background
+		janela.getContentPane().setBackground(Color.BLACK);
+		janela.setLayout(null);//trocar qnd desing for enviado
+		// reseta a janela
+		janela.revalidate();
+		janela.repaint();
 	}
 
-	public void quests(){
-		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
-		janela.setMinimumSize(new Dimension(100,100));
-		janela.setSize(new Dimension(1000, 500));
-		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		 janela.getContentPane().removeAll();
-		 // reset layout e background
-		 janela.getContentPane().setBackground(Color.BLACK);
-		 janela.setLayout(null);//trocar qnd desing for enviado
-		 // reseta a janela
-		 janela.revalidate();
-		 janela.repaint();
-	}
 	//para o botão funcionar tem que estar no mesmo arquivo e ser em java sumida esta com a parte do backend mas está parte é do frontend 
 	//pois tenho que adicionar a funcionalidade pelo frontend o mesmo pro skip da parte de login se estiver salvo na máquina funcionamento do botão
+	//funcionamento de botões
 	@Override
 	public void actionPerformed(ActionEvent e){
         if(e.getSource() == Logar){
