@@ -11,10 +11,8 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
 
-		//adicionar parte do login (salvar em um arquivo txt e sempre que iniciar)
-		//ler este arquivo e ver se login foi salvo
-		///se sim ja pula este metodo e vai direto pro app
-		/// se não manter na tela de login
+		//adicionar parte do login (salvar em um arquivo txt e sempre que iniciar) ler este arquivo e ver se login foi salvo
+		///se sim ja pula este metodo e vai direto pro app se não manter na tela de login
 		/// usar java.io para isso
 		/// o resto da funcionalidade em python que o sumida vai fazer
 		
@@ -36,7 +34,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setVisible(true);
 	}
 	public void menu(){
-		//metodo ⬆️ para o menu
+		//metodo ⬆️ para o menu 
 		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
@@ -48,8 +46,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		//add save de info de login em info.txt e assim na inicialização
 		//se ja tiver informação de login salva pular metodo de login
 
-		//verificar se o arquivo de informações existe
-		//cria se não tiver
+		//verificar se o arquivo de informações existe cria se não tiver
 		if(info.exists()){
             System.out.println("arquivo existente");
         }else{System.out.println("arquivo inexistente");
@@ -68,6 +65,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		}else{
 		login();}
 		 */
+
 		//temporario ⬇️
 		login();
 	}
@@ -87,7 +85,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 			janela.revalidate();
 			janela.repaint();
 			//dos ir pro menu
-			menu();
+			//menu();
 		}
 	}
 	//inicializa o aplicativo
