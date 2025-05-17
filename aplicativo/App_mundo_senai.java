@@ -43,10 +43,10 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		
 		/*if(){
 		Menu();
-		}else if(){
+		}else (){
 		login();}
 		 */
-
+		//este abixo é temporario
 		login();
 	}
 	//para o botão funcionar tem que estar no mesmo arquivo e ser em java
