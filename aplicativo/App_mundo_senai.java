@@ -51,8 +51,9 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	}
 	//para o botão funcionar tem que estar no mesmo arquivo e ser em java
 	//sumida esta com a parte do backend mas está parte é do frontend 
-	//pois tenho que adicionar a funcionalidade pelo front
-
+	//pois tenho que adicionar a funcionalidade pelo frontend
+	//o mesmo pro skip da parte de login se estiver salvo na máquina
+	
 	//funcionamento do botão
 	@Override
 	public void actionPerformed(ActionEvent e){
