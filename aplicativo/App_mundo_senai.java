@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-//AQUI NO BRENCH MAIN
-// teste
 
 public class App_mundo_senai extends JFrame implements ActionListener{
 	//salvo_sim
