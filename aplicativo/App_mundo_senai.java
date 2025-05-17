@@ -5,7 +5,6 @@ import java.io.*;
 public class App_mundo_senai extends JFrame implements ActionListener{
 	//salvo_sim
 	//skip de login acima(tem que estar em info.txt)
-
 	//componentes globais
 	JFrame janela = new JFrame();
 	JButton Logar = new JButton();
@@ -14,7 +13,6 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	JTextField senha_login = new JTextField("digite sua senha");
 	JPanel Deco = new JPanel();//painel onde ficara a parte visial do Login
 	JPanel dados = new JPanel();//painel para por infos para Logar
-
 	//código do aplicativo
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
@@ -104,7 +102,6 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	//sumida esta com a parte do backend mas está parte é do frontend 
 	//pois tenho que adicionar a funcionalidade pelo frontend
 	//o mesmo pro skip da parte de login se estiver salvo na máquina
-	
 	//funcionamento do botão
 	@Override
 	public void actionPerformed(ActionEvent e){
@@ -123,4 +120,5 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	//inicializa o aplicativo
 	public static void main(String[]args) {
 		new App_mundo_senai();
-	}}
+	}
+}
