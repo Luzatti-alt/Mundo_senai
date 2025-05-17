@@ -11,25 +11,24 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
 		
-		//aspectos da janela
+		//aspectos da janela 
 		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		janela.setLayout(null);//definir layout após miguel mandar o desing
-
 		//adicionando o botão de login
 		Logar.setFocusable(false);
 		Logar.setText("Logar");
 		janela.add(Logar);
 		Logar.setBounds(100,100,100,100);
 		Logar.addActionListener(this);
-
 		//visibilidade de tudo
 		janela.setVisible(true);
 	}
 	public void menu(){
-		//metodo ⬆️ para o menu 
+		//metodo ⬆️ para o menu
+		//aspectos da janela 
 		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
@@ -42,12 +41,12 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	public App_mundo_senai() {
 		//obj ⬆️ para inicializar
 		//add save de info de login em info.txt e assim na inicialização
-		//se ja tiver informação de login salva pular metodo de login
 
 		//verificar se o arquivo de informações existe cria se não tiver
 		if(info.exists()){
             System.out.println("arquivo existente");
-        }else{System.out.println("arquivo inexistente");
+        }else{
+			System.out.println("arquivo inexistente");}
             try{
                 FileWriter info = new FileWriter("info.txt");
                 //cria o arquuvo
@@ -57,7 +56,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
             }catch (IOException e) {
             e.printStackTrace();//sem o catch nn vai funcionar a craição do arquivo
         }}
-		//verificação de existir um login salvo na máquina
+		//se ja tiver informação de login salva pular metodo de login
 			String validador_login = "salvo_sim";//palavra no arquivo que se está lá ja pula pra página principal
 			try {
             BufferedReader leitor = new BufferedReader(new FileReader(info));
@@ -77,7 +76,6 @@ public class App_mundo_senai extends JFrame implements ActionListener{
             e.printStackTrace();
         }
 	}
-
 	//para o botão funcionar tem que estar no mesmo arquivo e ser em java
 	//sumida esta com a parte do backend mas está parte é do frontend 
 	//pois tenho que adicionar a funcionalidade pelo frontend
@@ -101,4 +99,3 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	public static void main(String[]args) {
 		new App_mundo_senai();
 	}
-}
