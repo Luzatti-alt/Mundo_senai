@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+
+// teste
+
 public class App_mundo_senai extends JFrame implements ActionListener{
 	//salvo_sim
 	//skip de login acima(tem que estar em info.txt)
