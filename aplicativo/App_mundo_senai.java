@@ -7,15 +7,9 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	JFrame janela = new JFrame();
 	JButton Logar = new JButton();
 	File info = new File("info.txt");
-	
 
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
-
-		//adicionar parte do login (salvar em um arquivo txt e sempre que iniciar) ler este arquivo e ver se login foi salvo
-		///se sim ja pula este metodo e vai direto pro app se não manter na tela de login
-		/// usar java.io para isso
-		/// o resto da funcionalidade em python que o sumida vai fazer
 		
 		//aspectos da janela
 		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
@@ -41,7 +35,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		janela.getContentPane().setBackground(Color.BLACK);
-		//o geContentane() é que qacco fun
+		//o geContentane() é o que troca o funco
 		janela.setLayout(null);
 		janela.setVisible(true);
 	}
@@ -57,35 +51,33 @@ public class App_mundo_senai extends JFrame implements ActionListener{
             try{
                 FileWriter info = new FileWriter("info.txt");
                 //cria o arquuvo
-                info.write("add info de login talvez via pipe");
+                info.write("add info de login talvez via pipe");//na parte com o server
                 info.close();//metodo de fechar o arquivo e salvar 
                 //é necessario sair do arquivo para q o conteudo esteja nele
             }catch (IOException e) {
             e.printStackTrace();//sem o catch nn vai funcionar a craição do arquivo
         }}
-		//adicionar a verificação de existir um login salvo na máquina
-			String validador_login = "salvo_sim";
-			boolean login_state = false;
+		//verificação de existir um login salvo na máquina
+			String validador_login = "salvo_sim";//palavra no arquivo que se está lá ja pula pra página principal
 			try {
             BufferedReader leitor = new BufferedReader(new FileReader(info));
             String linha;
 			//o login_state tem que estar na primeira linha
             while ((linha = leitor.readLine()) != null) {
                 if (linha.equals(validador_login)) {
-                    login_state = true;
 					menu();
-                    break; // para de procurar
+                    break; 
                 }else{
 					login();
 					break;
 				}
             }
-
             leitor.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
+
 	//para o botão funcionar tem que estar no mesmo arquivo e ser em java
 	//sumida esta com a parte do backend mas está parte é do frontend 
 	//pois tenho que adicionar a funcionalidade pelo frontend
