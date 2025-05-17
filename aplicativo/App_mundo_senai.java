@@ -54,10 +54,13 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		janela.getContentPane().setBackground(Color.BLACK);
-		//o geContentane() é o que troca o funco
-		janela.setLayout(null);
-		janela.setVisible(true);
+		 janela.getContentPane().removeAll();
+		 // reset layout e background
+		 janela.getContentPane().setBackground(Color.BLACK);
+		 janela.setLayout(null);
+		 // reseta a janela
+		 janela.revalidate();
+		 janela.repaint();
 	}
 	public App_mundo_senai() {
 		//obj ⬆️ para inicializar
@@ -109,6 +112,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 			//apertar botão logar e adicionat condição valido pra fazer isto
 			System.out.println("logando");
 			janela.remove(dados);
+			janela.getContentPane().setBackground(Color.BLACK);
 			//atualiza/refresh na janela sem isso congela(visualmente) o botão
 			janela.revalidate();
 			janela.repaint();
