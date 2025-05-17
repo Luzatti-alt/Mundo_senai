@@ -3,20 +3,29 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 public class App_mundo_senai extends JFrame implements ActionListener{
+	//salvo_sim
+	//skip de login acima(tem que estar em info.txt)
 	//componentes globais
 	JFrame janela = new JFrame();
 	JButton Logar = new JButton();
 	File info = new File("info.txt");
+	JTextField usuario_login = new JTextField("digite seu usuario");
+	JTextField senha_login = new JTextField("digite sua senha");
+
 
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
-		
 		//aspectos da janela 
 		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		janela.setLayout(null);//definir layout após miguel mandar o desing
+		janela.setLayout(new FlowLayout());//definir layout após miguel mandar o desing
+		//entrada de dados
+		usuario_login.setPreferredSize(new Dimension(100,100));
+		senha_login.setPreferredSize(new Dimension(100,100));
+		janela.add(usuario_login);//var+senha = senha.getText() e salvar no arquivo
+		janela.add(senha_login);
 		//adicionando o botão de login
 		Logar.setFocusable(false);
 		Logar.setText("Logar");
@@ -89,6 +98,8 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 			//apertar botão logar e adicionat condição valido pra fazer isto
 			System.out.println("logando");
 			janela.remove(Logar);
+			janela.remove(usuario_login);
+			janela.remove(senha_login);
 			//atualiza/refresh na janela sem isso congela(visualmente) o botão
 			janela.revalidate();
 			janela.repaint();
