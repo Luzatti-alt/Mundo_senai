@@ -42,6 +42,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.getContentPane().setBackground(Color.BLACK);
 		//o geContentane() é que qacco fun
 		janela.setLayout(null);
+		janela.setVisible(true);
 	}
 	public App_mundo_senai() {
 		//obj ⬆️ para inicializar
@@ -61,15 +62,14 @@ public class App_mundo_senai extends JFrame implements ActionListener{
             }catch (IOException e) {
             e.printStackTrace();//sem o catch nn vai funcionar a craição do arquivo
         }}
+
+		boolean login_state = true;
 		//adicionar a verificação de existir um login salvo na máquina
-		/*if(){
-		Menu();
+		//logica esta implementada no código mas não ao arquivo e sua leitura
+		if(login_state == true){
+		menu();
 		}else{
 		login();}
-		 */
-
-		//temporario ⬇️
-		login();
 	}
 	//para o botão funcionar tem que estar no mesmo arquivo e ser em java
 	//sumida esta com a parte do backend mas está parte é do frontend 
