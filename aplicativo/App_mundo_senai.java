@@ -7,6 +7,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	JFrame janela = new JFrame();
 	JButton Logar = new JButton();
 	File info = new File("info.txt");
+	
 
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
@@ -54,22 +55,36 @@ public class App_mundo_senai extends JFrame implements ActionListener{
             System.out.println("arquivo existente");
         }else{System.out.println("arquivo inexistente");
             try{
-                FileWriter novo_arquivo = new FileWriter("info.txt");
+                FileWriter info = new FileWriter("info.txt");
                 //cria o arquuvo
-                novo_arquivo.write("add info de login talvez via pipe");
-                novo_arquivo.close();//metodo de fechar o arquivo e salvar 
+                info.write("add info de login talvez via pipe");
+                info.close();//metodo de fechar o arquivo e salvar 
                 //é necessario sair do arquivo para q o conteudo esteja nele
             }catch (IOException e) {
             e.printStackTrace();//sem o catch nn vai funcionar a craição do arquivo
         }}
-
-		boolean login_state = true;
 		//adicionar a verificação de existir um login salvo na máquina
-		//logica esta implementada no código mas não ao arquivo e sua leitura
-		if(login_state == true){
-		menu();
-		}else{
-		login();}
+			String validador_login = "salvo_sim";
+			boolean login_state = false;
+			try {
+            BufferedReader leitor = new BufferedReader(new FileReader(info));
+            String linha;
+			//o login_state tem que estar na primeira linha
+            while ((linha = leitor.readLine()) != null) {
+                if (linha.equals(validador_login)) {
+                    login_state = true;
+					menu();
+                    break; // para de procurar
+                }else{
+					login();
+					break;
+				}
+            }
+
+            leitor.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 	//para o botão funcionar tem que estar no mesmo arquivo e ser em java
 	//sumida esta com a parte do backend mas está parte é do frontend 
