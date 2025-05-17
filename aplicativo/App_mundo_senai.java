@@ -11,25 +11,28 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	File info = new File("info.txt");
 	JTextField usuario_login = new JTextField("digite seu usuario");
 	JTextField senha_login = new JTextField("digite sua senha");
-
-
+	JPanel Deco = new JPanel();//painel onde ficara a parte visial do Login
+	JPanel dados = new JPanel();//painel para por infos para Logar
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
 		//aspectos da janela 
+		janela.add(Deco);
 		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		janela.setLayout(new FlowLayout());//definir layout após miguel mandar o desing
+		janela.setLayout(new GridLayout(1,2));//definir layout após miguel mandar o desing
 		//entrada de dados
-		usuario_login.setPreferredSize(new Dimension(100,100));
-		senha_login.setPreferredSize(new Dimension(100,100));
-		janela.add(usuario_login);//var+senha = senha.getText() e salvar no arquivo
-		janela.add(senha_login);
+		dados.setLayout(new GridLayout(3,1));
+		dados.add(usuario_login);
+		dados.add(senha_login);
+		dados.add(Logar);
+		usuario_login.setPreferredSize(new Dimension(500,100));
+		senha_login.setPreferredSize(new Dimension(500,100));
+		janela.add(dados);
 		//adicionando o botão de login
 		Logar.setFocusable(false);
 		Logar.setText("Logar");
-		janela.add(Logar);
 		Logar.setBounds(100,100,100,100);
 		Logar.addActionListener(this);
 		//visibilidade de tudo
@@ -50,7 +53,6 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	public App_mundo_senai() {
 		//obj ⬆️ para inicializar
 		//add save de info de login em info.txt e assim na inicialização
-
 		//verificar se o arquivo de informações existe cria se não tiver
 		if(info.exists()){
             System.out.println("arquivo existente");
@@ -97,9 +99,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
         if(e.getSource() == Logar){
 			//apertar botão logar e adicionat condição valido pra fazer isto
 			System.out.println("logando");
-			janela.remove(Logar);
-			janela.remove(usuario_login);
-			janela.remove(senha_login);
+			janela.remove(dados);
 			//atualiza/refresh na janela sem isso congela(visualmente) o botão
 			janela.revalidate();
 			janela.repaint();
