@@ -46,7 +46,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		if(info.exists()){
             System.out.println("arquivo existente");
         }else{
-			System.out.println("arquivo inexistente");}
+			System.out.println("arquivo inexistente");
             try{
                 FileWriter info = new FileWriter("info.txt");
                 //cria o arquuvo
@@ -57,7 +57,8 @@ public class App_mundo_senai extends JFrame implements ActionListener{
             e.printStackTrace();//sem o catch nn vai funcionar a craição do arquivo
         }}
 		//se ja tiver informação de login salva pular metodo de login
-			String validador_login = "salvo_sim";//palavra no arquivo que se está lá ja pula pra página principal
+			String validador_login = "salvo_sim";
+			//palavra no arquivo que se está lá ja pula pra página principal
 			try {
             BufferedReader leitor = new BufferedReader(new FileReader(info));
             String linha;
@@ -98,4 +99,4 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	//inicializa o aplicativo
 	public static void main(String[]args) {
 		new App_mundo_senai();
-	}
+	}}
