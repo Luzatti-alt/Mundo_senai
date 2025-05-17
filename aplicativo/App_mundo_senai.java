@@ -55,7 +55,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		 janela.getContentPane().removeAll();
 		 // reset layout e background
 		 janela.getContentPane().setBackground(Color.BLACK);
-		 janela.setLayout(null);
+		 janela.setLayout(null);//trocar qnd desing for enviado
 		 // reseta a janela
 		 janela.revalidate();
 		 janela.repaint();
