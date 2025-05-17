@@ -1,10 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 public class App_mundo_senai extends JFrame implements ActionListener{
 	//componentes globais
 	JFrame janela = new JFrame();
 	JButton Logar = new JButton();
+	File info = new File("info.txt");
 
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
@@ -38,15 +40,30 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	}
 	public App_mundo_senai() {
 		//obj ⬆️ para inicializar
-		//add save de info de login e assim na inicialização
+		//add save de info de login em info.txt e assim na inicialização
 		//se ja tiver informação de login salva pular metodo de login
-		
+
+		//verificar se o arquivo de informações existe
+		//cria se não tiver
+		if(info.exists()){
+            System.out.println("arquivo existente");
+        }else{System.out.println("arquivo inexistente");
+            try{
+                FileWriter novo_arquivo = new FileWriter("info.txt");
+                //cria o arquuvo
+                novo_arquivo.write("add info de login talvez via pipe");
+                novo_arquivo.close();//metodo de fechar o arquivo e salvar 
+                //é necessario sair do arquivo para q o conteudo esteja nele
+            }catch (IOException e) {
+            e.printStackTrace();//sem o catch nn vai funcionar a craição do arquivo
+        }}
+		//adicionar a verificação de existir um login salvo na máquina
 		/*if(){
 		Menu();
-		}else (){
+		}else{
 		login();}
 		 */
-		//este abixo é temporario
+		//temporario ⬇️
 		login();
 	}
 	//para o botão funcionar tem que estar no mesmo arquivo e ser em java
@@ -61,11 +78,11 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 			//apertar botão logar e adicionat condição valido pra fazer isto
 			System.out.println("logando");
 			janela.remove(Logar);
-			//atualiza/refresh na janela sem isso congela
-			//visualmente
+			//atualiza/refresh na janela sem isso congela(visualmente) o botão
 			janela.revalidate();
 			janela.repaint();
-			//muda do parte do login p/a parte principal
+			//dos ir pro menu
+			//menu();
 		}
 	}
 	//inicializa o aplicativo
