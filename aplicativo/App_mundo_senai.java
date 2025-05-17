@@ -36,7 +36,12 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setVisible(true);
 	}
 	public void menu(){
-		//metodo ⬆️ para o menu 
+		//metodo ⬆️ para o menu
+		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
+		janela.setMinimumSize(new Dimension(100,100));
+		janela.setSize(new Dimension(1000, 500));
+		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		janela.setLayout(null);
 	}
 	public App_mundo_senai() {
 		//obj ⬆️ para inicializar
@@ -82,7 +87,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 			janela.revalidate();
 			janela.repaint();
 			//dos ir pro menu
-			//menu();
+			menu();
 		}
 	}
 	//inicializa o aplicativo
