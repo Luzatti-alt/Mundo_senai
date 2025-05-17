@@ -5,6 +5,7 @@ import java.io.*;
 public class App_mundo_senai extends JFrame implements ActionListener{
 	//salvo_sim
 	//skip de login acima(tem que estar em info.txt)
+
 	//componentes globais
 	JFrame janela = new JFrame();
 	JButton Logar = new JButton();
@@ -13,6 +14,8 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	JTextField senha_login = new JTextField("digite sua senha");
 	JPanel Deco = new JPanel();//painel onde ficara a parte visial do Login
 	JPanel dados = new JPanel();//painel para por infos para Logar
+
+	//código do aplicativo
 	public void login(){
 		//metodo ⬆️ para o sistema de login 
 		//aspectos da janela 
@@ -21,22 +24,28 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		janela.setLayout(new GridLayout(1,2));//definir layout após miguel mandar o desing
-		//entrada de dados
-		dados.setLayout(new GridLayout(3,1));
+		janela.setLayout(new GridLayout(1,3));
+		//onde fica as informações p/Login
+		JPanel inv1 = new JPanel();
+		JPanel inv2 = new JPanel();
+		dados.setLayout(new GridLayout(5,1));
+		dados.add(inv1);
 		dados.add(usuario_login);
 		dados.add(senha_login);
 		dados.add(Logar);
-		usuario_login.setPreferredSize(new Dimension(500,100));
-		senha_login.setPreferredSize(new Dimension(500,100));
+		dados.add(inv2);
+		//configurando o tamanho
+		usuario_login.setPreferredSize(new Dimension(100,100));
+		senha_login.setPreferredSize(new Dimension(100,100));
 		janela.add(dados);
-		//adicionando o botão de login
 		Logar.setFocusable(false);
 		Logar.setText("Logar");
 		Logar.setBounds(100,100,100,100);
 		Logar.addActionListener(this);
 		//visibilidade de tudo
 		janela.setVisible(true);
+		JPanel inv3 = new JPanel();
+		janela.add(inv3);
 	}
 	public void menu(){
 		//metodo ⬆️ para o menu
