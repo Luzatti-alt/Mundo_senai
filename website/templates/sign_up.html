@@ -8,8 +8,13 @@
 <body>
     <h2>Sign Up</h2>
     <form method="post">
-        Usuário: <input name="usuario"><br>
-        Senha: <input name="senha" type="password"><br>
+        <!-- adicionar usuario depois -->
+        <label for="iemail">Email:</label>
+        <input name="email" id="iemail" type="email">
+        <br>
+        <label for="isenha">Senha:</label>
+        <input name="senha" id="isenha" type="password">
+        <br>
         <input type="submit">
     </form>
     <a href="{{ url_for('auth.login') }}">Já tenho conta</a>
