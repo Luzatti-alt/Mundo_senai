@@ -61,16 +61,12 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		janela.setLayout(new GridLayout(1,3));
+		janela.setLayout(null);
 		//onde fica as informações p/Login
-		JPanel inv1 = new JPanel();
-		JPanel inv2 = new JPanel();
-		dados.setLayout(new GridLayout(5,1));
-		dados.add(inv1);
+		dados.setLayout(null);
 		dados.add(usuario_login);
 		dados.add(senha_login);
 		dados.add(Logar);
-		dados.add(inv2);
 		//configurando o tamanho
 		usuario_login.setPreferredSize(new Dimension(100,100));
 		senha_login.setPreferredSize(new Dimension(100,100));
@@ -81,8 +77,6 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		Logar.addActionListener(this);
 		//visibilidade de tudo
 		janela.setVisible(true);
-		JPanel inv3 = new JPanel();
-		janela.add(inv3);
 	}
 
 	public void menu(){
@@ -93,48 +87,6 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		janela.getContentPane().removeAll();
-		// reset layout e background
-		janela.getContentPane().setBackground(Color.BLACK);
-		janela.setLayout(null);//trocar qnd desing for enviado
-		// reseta a janela
-		janela.revalidate();
-		janela.repaint();
-	}
-
-	public void Loja_pnts(){
-		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
-		janela.setMinimumSize(new Dimension(100,100));
-		janela.setSize(new Dimension(1000, 500));
-		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
-		janela.getContentPane().removeAll();
-		// reset layout e background
-		janela.getContentPane().setBackground(Color.BLACK);
-		janela.setLayout(null);//trocar qnd desing for enviado
-		// reseta a janela
-		janela.revalidate();
-		janela.repaint();
-	}
-
-	public void quests(){
-		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
-		janela.setMinimumSize(new Dimension(100,100));
-		janela.setSize(new Dimension(1000, 500));
-		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		janela.getContentPane().removeAll();
-		// reset layout e background
-		janela.getContentPane().setBackground(Color.BLACK);
-		janela.setLayout(null);//trocar qnd desing for enviado
-		// reseta a janela
-		janela.revalidate();
-		janela.repaint();
-	}
-
-	public void dados_pessoais(){
-		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
-		janela.setMinimumSize(new Dimension(100,100));
-		janela.setSize(new Dimension(1000, 500));
-		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		 janela.getContentPane().removeAll();
 		// reset layout e background
 		janela.getContentPane().setBackground(Color.BLACK);
 		janela.setLayout(null);//trocar qnd desing for enviado
