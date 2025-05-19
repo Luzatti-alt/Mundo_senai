@@ -22,7 +22,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton sobre_nos = new JButton();
 	JButton configs = new JButton();
 	//info contas
-	JPanel Info_conta = new JPanel();
 	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
 	JTextArea mes = new JTextArea("Mensal");
 	JTextArea tres_meses = new JTextArea("3 Meses");
@@ -36,6 +35,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton Pix = new JButton("Pix");
 	JButton Credito = new JButton("Crédito");
 	JButton Boleto = new JButton("Boleto");
+	JPanel dados = new JPanel();
+	JPanel Info_conta = new JPanel();
 	//skip se ja tiver uma conta logada do parte do  login
     public App_mundo_senai(){
         if (info.exists()) {
@@ -110,7 +111,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	public void Menus(){
 		 Menu = new JPanel(); // Recria o painel de menu
     Menu.setBackground(Color.white);
-    Menu.setBounds(0, 0, 1290, 28);
+    Menu.setBounds(0, 0, 1550, 28);
     Menu.setLayout(null); // Permite posicionamento absoluto
     janela.add(Menu);
 
@@ -144,62 +145,23 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     configs.addActionListener(this);
     Menu.add(configs);
 }
-
+	public void limparJanela(){
+    janela.getContentPane().removeAll();
+    janela.repaint();
+    janela.revalidate();
+}
 	//pagina info da conta
     public void Info_conta() {
     janela.setTitle("Projeto Mundo Senai: Treina Aí");
     janela.setMinimumSize(new Dimension(100, 100));
     janela.setSize(new Dimension(1000, 500));
     janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    janela.setLayout(null);
+    janela.setLayout(new BorderLayout());
 	Menu.setBackground(Color.white);
-	Menu.setBounds(0,0,1550,28);
-	//mes e valor
-	janela.add(mes);
-	mes.setEditable(false);
-	mes.setFont(new Font("Arial", Font.PLAIN, 26));
-	mes.setBounds(100,100,120,50);
-	janela.add(tres_meses);
-	tres_meses.setEditable(false);
-	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	tres_meses.setBounds(100,160,120,50);
-	janela.add(seis_meses);
-	seis_meses.setEditable(false);
-	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	seis_meses.setBounds(100,220,120,50);
-	janela.add(doze_meses);
-	doze_meses.setEditable(false);
-	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	doze_meses.setBounds(100,280,120,50);
-	janela.add(cinquentao);
-	cinquentao.setEditable(false);
-	cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
-	cinquentao.setBounds(250,100,120,50);
-	janela.add(cento_cinquente);
-	cento_cinquente.setEditable(false);
-	cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
-	cento_cinquente.setBounds(250,160,120,50);
-	janela.add(trezentos);
-	trezentos.setEditable(false);
-	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
-	trezentos.setBounds(250,220,120,50);
-	janela.add(quinhentos_quarenta);
-	quinhentos_quarenta.setEditable(false);
-	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
-	quinhentos_quarenta.setBounds(250,280,120,50);
-	//pagamento
-	janela.add(Debito);
-	Debito.setFocusable(false);
-	Debito.setBounds(100,360,120,50);
-	janela.add(Pix);
-	Pix.setFocusable(false);
-	Pix.setBounds(100,420,120,50);
-	janela.add(Credito);
-	Credito.setFocusable(false);
-	Credito.setBounds(250,360,120,50);
-	janela.add(Boleto);
-	Boleto.setFocusable(false);
-	Boleto.setBounds(250,420,120,50);
+	Info_conta.setBackground(Color.lightGray);
+	Info_conta.setLayout(null);
+	dados.setBackground(Color.gray);
+	dados.setLayout(null);
 	//titulo acima
 	ops_assinatura.setEditable(false);
 	ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -207,10 +169,58 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	ops_assinatura.setBounds(0,28,1550,30);
 	//infos da conta
 	janela.add(ops_assinatura);
-	Info_conta.setLayout(new GridLayout());
+	Info_conta.setLayout(new BorderLayout());
 	janela.add(Info_conta);
+	janela.add(Info_conta,BorderLayout.EAST);
+	janela.add(dados,BorderLayout.WEST);
 	Info_conta.setBackground(Color.gray);
-	Info_conta.setBounds(690,0,300,600);
+	Info_conta.setBounds(0,58,1550,900);
+	//mes e valor
+	Info_conta.add(mes);
+	mes.setEditable(false);
+	mes.setFont(new Font("Arial", Font.PLAIN, 26));
+	mes.setBounds(100,100,120,50);
+	Info_conta.add(tres_meses);
+	tres_meses.setEditable(false);
+	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+	tres_meses.setBounds(100,160,120,50);
+	Info_conta.add(seis_meses);
+	seis_meses.setEditable(false);
+	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+	seis_meses.setBounds(100,220,120,50);
+	Info_conta.add(doze_meses);
+	doze_meses.setEditable(false);
+	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+	doze_meses.setBounds(100,280,120,50);
+	Info_conta.add(cinquentao);
+	cinquentao.setEditable(false);
+	cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
+	cinquentao.setBounds(250,100,120,50);
+	Info_conta.add(cento_cinquente);
+	cento_cinquente.setEditable(false);
+	cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
+	cento_cinquente.setBounds(250,160,120,50);
+	Info_conta.add(trezentos);
+	trezentos.setEditable(false);
+	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
+	trezentos.setBounds(250,220,120,50);
+	Info_conta.add(quinhentos_quarenta);
+	quinhentos_quarenta.setEditable(false);
+	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
+	quinhentos_quarenta.setBounds(250,280,120,50);
+	//pagamento
+	Info_conta.add(Debito);
+	Debito.setFocusable(false);
+	Debito.setBounds(100,360,120,50);
+	Info_conta.add(Pix);
+	Pix.setFocusable(false);
+	Pix.setBounds(100,420,120,50);
+	Info_conta.add(Credito);
+	Credito.setFocusable(false);
+	Credito.setBounds(250,360,120,50);
+	Info_conta.add(Boleto);
+	Boleto.setFocusable(false);
+	Boleto.setBounds(250,420,120,50);
 	//outros
     janela.getContentPane().setBackground(Color.BLACK);
     janela.setLayout(null); 
@@ -226,63 +236,30 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == Logar) {
             System.out.println("Logando...");
-			janela.getContentPane().removeAll();
+			limparJanela();
+            Info_conta();
 			Menus();
-			Info_conta();
-			janela.revalidate();
-			janela.repaint();
-        }if(e.getSource()==esqueceu_senha){
-			//
-		}if(e.getSource()==sobre_nos){
-			//
-			janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-			janela.getContentPane().removeAll();
+        } else if (e.getSource() == esqueceu_senha) {
+            JOptionPane.showMessageDialog(janela, "Funcionalidade ainda não implementada.");
+        } else if (e.getSource() == sobre_nos) {
+            limparJanela();
+            Menus();
+        } else if (e.getSource() == produtos) {
+            limparJanela();
+            Menus();
+        } else if (e.getSource() == quests) {
+			limparJanela();
 			Menus();
-            janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-		}if(e.getSource()==produtos){
-			//
-			janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-			janela.getContentPane().removeAll();
-			Menus();
-            janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-		}if(e.getSource()==quests){
-		janela.getContentPane().setBackground(Color.BLACK);
-		janela.revalidate();
-		janela.repaint();
-			janela.getContentPane().removeAll();
-			Menus();
-            janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-			Metas();
-		}if(e.getSource()==parceiros){
-			//quests
-			janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-			janela.getContentPane().removeAll();
-			Menus();
-            janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-		}if(e.getSource()==configs){
+            Metas();
+        } else if (e.getSource() == parceiros) {
+            limparJanela();
+            Menus();
+        }if(e.getSource()==configs){
 			//adicionar pra remover todos os outros itens
             janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-			janela.getContentPane().removeAll();
+            limparJanela();
 			Menus();
             janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
 			Info_conta();
 		}
 		//em configs
