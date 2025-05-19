@@ -15,6 +15,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JTextArea senha_text = new JTextArea("Senha");
     JPanel box_login = new JPanel();
 	JPanel Menu = new JPanel();
+	//menus
+	JButton parceiros = new JButton();
+	JButton quests = new JButton();
+	JButton produtos = new JButton();
+	JButton sobre_nos = new JButton();
+	JButton configs = new JButton();
 	//info contas
 	JPanel Info_conta = new JPanel();
 	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
@@ -92,6 +98,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		esqueceu_senha.setFocusable(false);
 		esqueceu_senha.setBounds(0,0,1350,50);
 		esqueceu_senha.setText("esqueceu minha senha");
+		esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
         Logar.setBounds(200, 350, 300, 50);  
         Logar.addActionListener(this);
@@ -166,7 +173,13 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		janela.add(Info_conta);
 		Info_conta.setBackground(Color.gray);
 		Info_conta.setBounds(690,0,300,600);
-		//
+		//menus
+		parceiros.addActionListener(this);
+		quests.addActionListener(this);
+		produtos.addActionListener(this);
+		sobre_nos.addActionListener(this);
+		configs.addActionListener(this);
+		//outros
         janela.getContentPane().setBackground(Color.BLACK);
         janela.setLayout(null); 
         janela.revalidate();
@@ -185,6 +198,17 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             janela.repaint();
             Info_conta();
         }if(e.getSource()==esqueceu_senha){
+			//
+		}if(e.getSource()==sobre_nos){
+			//
+		}if(e.getSource()==produtos){
+			//
+		}if(e.getSource()==quests){
+			//
+		}if(e.getSource()==parceiros){
+			//
+			//quests
+		}if(e.getSource()==configs){
 			//
 		}if (e.getSource() == Debito) {
 			//
