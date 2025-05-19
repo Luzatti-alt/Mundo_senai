@@ -2,19 +2,17 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
-
 public class App_mundo_senai extends JFrame implements ActionListener {
     // Componentes globais
     JFrame janela = new JFrame();
     JButton Logar = new JButton();
     File info = new File("info.txt");
-    JPanel inv = new JPanel();
     JTextField usuario_login = new JTextField();
     JTextField senha_login = new JTextField();
     JTextArea usuario_text = new JTextArea("Usuario");
     JTextArea senha_text = new JTextArea("Senha");
     JPanel box_login = new JPanel();
-    JPanel Deco = new JPanel(); // Painel onde ficará a parte visual do Login
+	JPanel inv = new JPanel();
 
     // Código do aplicativo
     public App_mundo_senai() {
@@ -37,7 +35,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             String linha;
             while ((linha = leitor.readLine()) != null) {
                 if (linha.equals(validador_login)) {
-                    menu();
+                    Info_conta();
                     break;
                 } else {
                     login();
@@ -57,38 +55,40 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null); 
         box_login.setLayout(null);
-        box_login.setBounds(100, 100, 500, 500);
+        box_login.setBounds(100, 100, 500, 225);
         box_login.setBackground(Color.GRAY);
         usuario_text.setBounds(10, 10, 480, 60);
         usuario_text.setBackground(null);
         usuario_text.setEditable(false);
         usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
         box_login.add(usuario_text);
-
-        usuario_login.setBounds(10, 80, 480, 40);
+        usuario_login.setBounds(10, 50, 480, 40);
         box_login.add(usuario_login);
-
-        senha_text.setBounds(10, 140, 480, 60);
+        senha_text.setBounds(10, 100, 480, 60);
         senha_text.setBackground(null);
         senha_text.setEditable(false);
         senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
         box_login.add(senha_text);
-        senha_login.setBounds(10, 210, 480, 40); 
+        senha_login.setBounds(10, 150, 480, 40); 
         box_login.add(senha_login);
         janela.add(box_login);
         Logar.setText("Logar");
-        Logar.setBounds(200, 400, 100, 50);  
+        Logar.setBounds(200, 350, 300, 50);  
         Logar.addActionListener(this);
         janela.add(Logar);
         janela.setVisible(true);
     }
 
-    public void menu() {
+    public void Info_conta() {
         janela.setTitle("Projeto Mundo Senai: AAAAAAA");
         janela.setMinimumSize(new Dimension(100, 100));
         janela.setSize(new Dimension(1000, 500));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        janela.getContentPane().removeAll();
+        janela.setLayout(null);
+		inv.setBackground(Color.white);
+		inv.setBounds(0,0,1000,60);
+		inv.setLayout(new GridLayout(1,5));
+		janela.add(inv);
         janela.getContentPane().setBackground(Color.BLACK);
         janela.setLayout(null); 
         janela.revalidate();
@@ -104,7 +104,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             janela.getContentPane().setBackground(Color.BLACK);
             janela.revalidate();
             janela.repaint();
-            menu();
+            Info_conta();
         }
     }
     // Inicializa o aplicativo
