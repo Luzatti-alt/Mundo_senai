@@ -11,9 +11,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton esqueceu_senha = new JButton();
 	JTextField usuario_login = new JTextField();
 	JTextField senha_login = new JTextField();
-    	JTextArea usuario_text = new JTextArea("Usuario");
+    JTextArea usuario_text = new JTextArea("Usuario");
 	JTextArea senha_text = new JTextArea("Senha");
-    	JPanel box_login = new JPanel();
+    JPanel box_login = new JPanel();
 	JPanel Menu = new JPanel();
 	//menus
 	JButton parceiros = new JButton();
@@ -24,7 +24,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	//info contas
 	JPanel Info_conta = new JPanel();
 	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
-    	JTextArea mes = new JTextArea("Mensal");
+	JTextArea mes = new JTextArea("Mensal");
 	JTextArea tres_meses = new JTextArea("3 Meses");
 	JTextArea seis_meses = new JTextArea("6 Meses");
 	JTextArea doze_meses = new JTextArea("12 Meses");
@@ -37,7 +37,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton Credito = new JButton("Crédito");
 	JButton Boleto = new JButton("Boleto");
 	//skip se ja tiver uma conta logada do parte do  login
-    public App_mundo_senai() {
+    public App_mundo_senai(){
         if (info.exists()) {
             System.out.println("Arquivo existente");
         } else {
@@ -70,7 +70,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }
     }
 	//pagina login
-    public void login() {
+    public void login(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(100, 100));
         janela.setSize(new Dimension(1000, 500));
@@ -96,19 +96,19 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         box_login.add(senha_login);
         janela.add(box_login);
 	    //botões
-	janela.add(esqueceu_senha);
-	esqueceu_senha.setFocusable(false);
-	esqueceu_senha.setBounds(0,0,1350,50);
-	esqueceu_senha.setText("esqueceu minha senha");
-	esqueceu_senha.addActionListener(this);
+		janela.add(esqueceu_senha);
+		esqueceu_senha.setFocusable(false);
+		esqueceu_senha.setBounds(0,0,1350,50);
+		esqueceu_senha.setText("esqueceu minha senha");
+		esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
         Logar.setBounds(200, 350, 300, 50);  
         Logar.addActionListener(this);
         janela.add(Logar);
         janela.setVisible(true);
     }
-	public void Menus() {
-    Menu = new JPanel(); // Recria o painel de menu
+	public void Menus(){
+		 Menu = new JPanel(); // Recria o painel de menu
     Menu.setBackground(Color.white);
     Menu.setBounds(0, 0, 1290, 28);
     Menu.setLayout(null); // Permite posicionamento absoluto
@@ -147,13 +147,13 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 
 	//pagina info da conta
     public void Info_conta() {
-        janela.setTitle("Projeto Mundo Senai: Treina Aí");
-        janela.setMinimumSize(new Dimension(100, 100));
-        janela.setSize(new Dimension(1000, 500));
-        janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        janela.setLayout(null);
+    janela.setTitle("Projeto Mundo Senai: Treina Aí");
+    janela.setMinimumSize(new Dimension(100, 100));
+    janela.setSize(new Dimension(1000, 500));
+    janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    janela.setLayout(null);
 	Menu.setBackground(Color.white);
-	Menu.setBounds(0,0,1290,28);
+	Menu.setBounds(0,0,1550,28);
 	//mes e valor
 	janela.add(mes);
 	mes.setEditable(false);
@@ -204,7 +204,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	ops_assinatura.setEditable(false);
 	ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
 	ops_assinatura.setBackground(Color.BLUE);
-	ops_assinatura.setBounds(0,28,1290,30);
+	ops_assinatura.setBounds(0,28,1550,30);
 	//infos da conta
 	janela.add(ops_assinatura);
 	Info_conta.setLayout(new GridLayout());
@@ -212,10 +212,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	Info_conta.setBackground(Color.gray);
 	Info_conta.setBounds(690,0,300,600);
 	//outros
-        janela.getContentPane().setBackground(Color.BLACK);
-        janela.setLayout(null); 
-        janela.revalidate();
-        janela.repaint();
+    janela.getContentPane().setBackground(Color.BLACK);
+    janela.setLayout(null); 
+    janela.revalidate();
+    janela.repaint();
     }
 	//outra pagina
 	public void Metas(){
@@ -254,9 +254,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             janela.revalidate();
             janela.repaint();
 		}if(e.getSource()==quests){
-			janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
+		janela.getContentPane().setBackground(Color.BLACK);
+		janela.revalidate();
+		janela.repaint();
 			janela.getContentPane().removeAll();
 			Menus();
             janela.getContentPane().setBackground(Color.BLACK);
