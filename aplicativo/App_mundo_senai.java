@@ -36,7 +36,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton Pix = new JButton("Pix");
 	JButton Credito = new JButton("Crédito");
 	JButton Boleto = new JButton("Boleto");
-	// Código do aplicativo
+	//skip se ja tiver uma conta logada do parte do  login
     public App_mundo_senai() {
         if (info.exists()) {
             System.out.println("Arquivo existente");
@@ -68,6 +68,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             e.printStackTrace();
         }
     }
+	//pagina login
     public void login() {
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(100, 100));
@@ -105,7 +106,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(Logar);
         janela.setVisible(true);
     }
-
+	//pagina info da conta
     public void Info_conta() {
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(100, 100));
@@ -115,7 +116,13 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		Menu.setBackground(Color.white);
 		Menu.setBounds(0,0,1290,28);
 		Menu.setLayout(new GridLayout(1,5));
+		//menu em cima
 		janela.add(Menu);
+		janela.add(produtos);
+		janela.add(configs);
+		janela.add(sobre_nos);
+		janela.add(quests);
+		janela.add(parceiros);
 		//mes e valor
 		janela.add(mes);
 		mes.setEditable(false);
@@ -174,17 +181,28 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		Info_conta.setBackground(Color.gray);
 		Info_conta.setBounds(690,0,300,600);
 		//menus
+		parceiros.setText("Parceiros");
+		parceiros.setBounds(100, 0, 100, 28);
 		parceiros.addActionListener(this);
+		quests.setText("Metas");
 		quests.addActionListener(this);
+		quests.setBounds(200, 0, 100, 28);
+		produtos.setText("Produtos");
 		produtos.addActionListener(this);
 		sobre_nos.addActionListener(this);
+		sobre_nos.setBounds(300, 0, 100, 28);
+		sobre_nos.setText("sobre nós");
 		configs.addActionListener(this);
+		configs.setBounds(400, 0, 100, 28);
+		configs.setText("configurações");
 		//outros
         janela.getContentPane().setBackground(Color.BLACK);
         janela.setLayout(null); 
         janela.revalidate();
         janela.repaint();
     }
+	//outra pagina
+
     // Para o botão funcionar
     @Override
     public void actionPerformed(ActionEvent e) {
