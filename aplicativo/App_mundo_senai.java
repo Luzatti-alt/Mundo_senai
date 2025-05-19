@@ -57,6 +57,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             while ((linha = leitor.readLine()) != null) {
                 if (linha.equals(validador_login)) {
                     Info_conta();
+					//parte dos menus do app
                     break;
                 } else {
                     login();
@@ -106,6 +107,44 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(Logar);
         janela.setVisible(true);
     }
+	public void Menus() {
+    Menu = new JPanel(); // Recria o painel de menu
+    Menu.setBackground(Color.white);
+    Menu.setBounds(0, 0, 1290, 28);
+    Menu.setLayout(null); // Permite posicionamento absoluto
+    janela.add(Menu);
+
+    // Produtos
+    produtos = new JButton("Produtos");
+    produtos.setBounds(0, 0, 100, 28);
+    produtos.addActionListener(this);
+    Menu.add(produtos);
+
+    // Parceiros
+    parceiros = new JButton("Parceiros");
+    parceiros.setBounds(100, 0, 100, 28);
+    parceiros.addActionListener(this);
+    Menu.add(parceiros);
+
+    // Metas (Quests)
+    quests = new JButton("Metas");
+    quests.setBounds(200, 0, 100, 28);
+    quests.addActionListener(this);
+    Menu.add(quests);
+
+    // Sobre Nós
+    sobre_nos = new JButton("Sobre Nós");
+    sobre_nos.setBounds(300, 0, 100, 28);
+    sobre_nos.addActionListener(this);
+    Menu.add(sobre_nos);
+
+    // Configurações
+    configs = new JButton("Configurações");
+    configs.setBounds(400, 0, 120, 28);
+    configs.addActionListener(this);
+    Menu.add(configs);
+}
+
 	//pagina info da conta
     public void Info_conta() {
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
@@ -115,14 +154,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setLayout(null);
 		Menu.setBackground(Color.white);
 		Menu.setBounds(0,0,1290,28);
-		Menu.setLayout(new GridLayout(1,5));
-		//menu em cima
-		janela.add(Menu);
-		janela.add(produtos);
-		janela.add(configs);
-		janela.add(sobre_nos);
-		janela.add(quests);
-		janela.add(parceiros);
 		//mes e valor
 		janela.add(mes);
 		mes.setEditable(false);
@@ -180,21 +211,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		janela.add(Info_conta);
 		Info_conta.setBackground(Color.gray);
 		Info_conta.setBounds(690,0,300,600);
-		//menus
-		parceiros.setText("Parceiros");
-		parceiros.setBounds(100, 0, 100, 28);
-		parceiros.addActionListener(this);
-		quests.setText("Metas");
-		quests.addActionListener(this);
-		quests.setBounds(200, 0, 100, 28);
-		produtos.setText("Produtos");
-		produtos.addActionListener(this);
-		sobre_nos.addActionListener(this);
-		sobre_nos.setBounds(300, 0, 100, 28);
-		sobre_nos.setText("sobre nós");
-		configs.addActionListener(this);
-		configs.setBounds(400, 0, 100, 28);
-		configs.setText("configurações");
 		//outros
         janela.getContentPane().setBackground(Color.BLACK);
         janela.setLayout(null); 
@@ -205,19 +221,16 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	public void Metas(){
 		//
 	}
-
     // Para o botão funcionar
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == Logar) {
             System.out.println("Logando...");
-            janela.remove(box_login);
-            janela.remove(Logar);
-			janela.remove(esqueceu_senha);
-            janela.getContentPane().setBackground(Color.BLACK);
-            janela.revalidate();
-            janela.repaint();
-            Info_conta();
+			janela.getContentPane().removeAll();
+			Menus();
+			Info_conta();
+			janela.revalidate();
+			janela.repaint();
         }if(e.getSource()==esqueceu_senha){
 			//
 		}if(e.getSource()==sobre_nos){
@@ -225,79 +238,48 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 			janela.getContentPane().setBackground(Color.BLACK);
             janela.revalidate();
             janela.repaint();
-			janela.remove(Info_conta);
-			janela.remove(ops_assinatura);
-			janela.remove(Pix);
-			janela.remove(Debito);
-			janela.remove(Credito);
-			janela.remove(Boleto);
-			janela.remove(mes);
-			janela.remove(tres_meses);
-			janela.remove(seis_meses);
-			janela.remove(doze_meses);
-			janela.remove(cinquentao);
-			janela.remove(cento_cinquente);
-			janela.remove(trezentos);
-			janela.remove(quinhentos_quarenta);
+			janela.getContentPane().removeAll();
+			Menus();
+            janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
 		}if(e.getSource()==produtos){
 			//
 			janela.getContentPane().setBackground(Color.BLACK);
             janela.revalidate();
             janela.repaint();
-			janela.remove(Info_conta);
-			janela.remove(ops_assinatura);
-			janela.remove(Pix);
-			janela.remove(Debito);
-			janela.remove(Credito);
-			janela.remove(Boleto);
-			janela.remove(mes);
-			janela.remove(tres_meses);
-			janela.remove(seis_meses);
-			janela.remove(doze_meses);
-			janela.remove(cinquentao);
-			janela.remove(cento_cinquente);
-			janela.remove(trezentos);
-			janela.remove(quinhentos_quarenta);
+			janela.getContentPane().removeAll();
+			Menus();
+            janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
 		}if(e.getSource()==quests){
 			janela.getContentPane().setBackground(Color.BLACK);
             janela.revalidate();
             janela.repaint();
-			janela.remove(Info_conta);
-			janela.remove(ops_assinatura);
-			janela.remove(Pix);
-			janela.remove(Debito);
-			janela.remove(Credito);
-			janela.remove(Boleto);
-			janela.remove(mes);
-			janela.remove(tres_meses);
-			janela.remove(seis_meses);
-			janela.remove(doze_meses);
-			janela.remove(cinquentao);
-			janela.remove(cento_cinquente);
-			janela.remove(trezentos);
-			janela.remove(quinhentos_quarenta);
+			janela.getContentPane().removeAll();
+			Menus();
+            janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
 			Metas();
 		}if(e.getSource()==parceiros){
 			//quests
 			janela.getContentPane().setBackground(Color.BLACK);
             janela.revalidate();
             janela.repaint();
-			janela.remove(Info_conta);
-			janela.remove(ops_assinatura);
-			janela.remove(Pix);
-			janela.remove(Debito);
-			janela.remove(Credito);
-			janela.remove(Boleto);
-			janela.remove(mes);
-			janela.remove(tres_meses);
-			janela.remove(seis_meses);
-			janela.remove(doze_meses);
-			janela.remove(cinquentao);
-			janela.remove(cento_cinquente);
-			janela.remove(trezentos);
-			janela.remove(quinhentos_quarenta);
+			janela.getContentPane().removeAll();
+			Menus();
+            janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
 		}if(e.getSource()==configs){
 			//adicionar pra remover todos os outros itens
+            janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
+			janela.getContentPane().removeAll();
+			Menus();
             janela.getContentPane().setBackground(Color.BLACK);
             janela.revalidate();
             janela.repaint();
