@@ -7,14 +7,24 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JFrame janela = new JFrame();
     JButton Logar = new JButton();
     File info = new File("info.txt");
+	//login
     JTextField usuario_login = new JTextField();
     JTextField senha_login = new JTextField();
     JTextArea usuario_text = new JTextArea("Usuario");
     JTextArea senha_text = new JTextArea("Senha");
     JPanel box_login = new JPanel();
 	JPanel inv = new JPanel();
-
-    // Código do aplicativo
+	//info contas
+	JTextArea ops_assinatura = new JTextArea("Opções de assinatura");
+    JPanel mes = new JPanel();
+	JPanel tres_meses = new JPanel();
+	JPanel seis_meses = new JPanel();
+	JPanel doze_meses = new JPanel();
+	JPanel cinquentao = new JPanel();
+	JPanel cento_cinquente= new JPanel();
+	JPanel trezentos = new JPanel();
+	JPanel quinhentos_quarenta = new JPanel();
+	// Código do aplicativo
     public App_mundo_senai() {
         if (info.exists()) {
             System.out.println("Arquivo existente");
@@ -28,7 +38,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
                 e.printStackTrace();
             }
         }
-
         String validador_login = "salvo_sim";
         try {
             BufferedReader leitor = new BufferedReader(new FileReader(info));
@@ -47,7 +56,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             e.printStackTrace();
         }
     }
-
     public void login() {
         janela.setTitle("Projeto Mundo Senai: AAAAAAA");
         janela.setMinimumSize(new Dimension(100, 100));
@@ -86,9 +94,14 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null);
 		inv.setBackground(Color.white);
-		inv.setBounds(0,0,1000,60);
+		inv.setBounds(0,0,1290,60);
 		inv.setLayout(new GridLayout(1,5));
 		janela.add(inv);
+		ops_assinatura.setEditable(false);
+		ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 40));
+		ops_assinatura.setBackground(Color.BLUE);
+		ops_assinatura.setBounds(0,61,1290,40);
+		janela.add(ops_assinatura);
         janela.getContentPane().setBackground(Color.BLACK);
         janela.setLayout(null); 
         janela.revalidate();
