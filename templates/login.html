@@ -1,5 +1,30 @@
-<form method="post">
-    Usuário: <input name="usuario"><br>
-    Senha: <input name="senha" type="password"><br>
-    <input type="submit">
-</form>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Quando dar pull deixa o de baixo comentado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <!-- <link rel="stylesheet" href="../static/login.css"> -->
+    <title>Login</title>
+</head>
+<body>
+    <main>
+        <section id="login">
+            <div id="imagem">
+            </div>
+            <div id="form">
+                <form method="post">
+                <label for="iuser">Usuário:</label> 
+                <input name="usuario" id="iuser">
+                <br>
+                <label for="isenha">Senha:</label> 
+                <input name="senha" type="password" id="isenha"><br>
+                <input type="submit">
+                </form>
+                <a ref="{{ url_flor('auth.sign_up') }}">Não tenho uma conta</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
