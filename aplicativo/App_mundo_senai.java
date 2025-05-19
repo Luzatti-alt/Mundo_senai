@@ -64,6 +64,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		janela.setLayout(null);
 		//aspectos da janela 
+		//criar metodo que centralize em x conforme tamanho horizontal da tela
 		janela.add(box_login);
 		box_login.setBackground(Color.gray);
 		box_login.setBounds(100,100,500,500);
@@ -74,17 +75,13 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.add(Deco);
 		//onde fica as informações p/Login
 		janela.add(Logar);
-		//Logar.setBounds();
-		//criar metodo que centralize em x conforme tamanho horizontal da tela
-		//configurando o tamanho
+		Logar.setBounds(600,600,200,50);
 		Logar.setFocusable(false);
 		Logar.setText("Logar");
-		Logar.setSize(100,100);
 		Logar.addActionListener(this);
 		//visibilidade de tudo
 		janela.setVisible(true);
 	}
-a
 	public void menu(){
 		//metodo ⬆️ para o menu
 		//aspectos da janela 
