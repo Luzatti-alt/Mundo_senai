@@ -65,6 +65,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     "Oferecemos também metas diárias e semanais que ao serem cumpridas (comprovantes são necessários) garantem aos nossos\nclientes pontos que podem ser utilizados para adquirir os produtos da nossa loja.\r\n" + //
     "Você pode comprovar o cumprimento destas tarefas com vídeos, fotos, marcapassos, laudos médicos e também por exames realizados\npor profissionais localizados em instituições parceiras do nosso serviço");
     JPanel texto = new JPanel();
+    //parceiros
+
+    //loja
+    
     //skip se ja tiver uma conta logada do parte do  login
     public App_mundo_senai(){
         if (info.exists()) {
@@ -320,6 +324,14 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
         mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
         about.setFont(new Font("arial",Font.PLAIN,26));
+    }
+    //pagina parceiro
+    public void parceiro_page(){
+        //
+    }
+    //pagina loja
+    public void loja(){
+        //
     }
     // Para o botão funcionar
     @Override
