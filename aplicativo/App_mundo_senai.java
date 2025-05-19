@@ -1,3 +1,5 @@
+package aa;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,10 +11,11 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	JFrame janela = new JFrame();
 	JButton Logar = new JButton();
 	File info = new File("info.txt");
-	JTextField usuario_login = new JTextField("digite seu usuario");
-	JTextField senha_login = new JTextField("digite sua senha");
-	JTextArea usuario_text = new JTextArea("");
-	JTextArea senha_text = new JTextArea("");
+	JPanel inv = new JPanel();
+	JTextField usuario_login = new JTextField();
+	JTextField senha_login = new JTextField();
+	JTextArea usuario_text = new JTextArea("Usuario");
+	JTextArea senha_text = new JTextArea("Senha");
 	JPanel box_login = new JPanel();
 	JPanel Deco = new JPanel();//painel onde ficara a parte visial do Login
 	JPanel dados = new JPanel();//painel para por infos para Logar
@@ -65,18 +68,28 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.setLayout(null);
 		//aspectos da janela 
 		//criar metodo que centralize em x conforme tamanho horizontal da tela
+		box_login.setLayout(new GridLayout(4,1));
 		janela.add(box_login);
+		janela.add(Logar);
+		Logar.setBounds(100,100,100,100);
+		janela.add(inv);
+		inv.setSize(new Dimension(2,1));
 		box_login.setBackground(Color.gray);
 		box_login.setBounds(100,100,500,500);
 		box_login.add(usuario_text);
+		usuario_text.setBackground(null);
+		usuario_text.setFont(getFont());
 		box_login.add(usuario_login);
+		usuario_text.setFont(new Font("arial",Font.PLAIN,80));
 		box_login.add(senha_text);
+		senha_text.setFont(new Font("arial",Font.PLAIN,80));
+		senha_text.setBackground(null);
 		box_login.add(senha_login);
 		janela.add(Deco);
 		//onde fica as informações p/Login
-		janela.add(Logar);
-		Logar.setBounds(600,600,0,50);
 		Logar.setFocusable(false);
+		Logar.setSize(new Dimension(100,100));
+		Logar.setLocation(500, 700);
 		Logar.setText("Logar");
 		Logar.addActionListener(this);
 		//visibilidade de tudo
