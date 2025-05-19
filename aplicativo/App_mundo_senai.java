@@ -13,8 +13,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JTextArea usuario_text = new JTextArea("Usuario");
     JTextArea senha_text = new JTextArea("Senha");
     JPanel box_login = new JPanel();
-	JPanel inv = new JPanel();
+	JPanel Menu = new JPanel();
 	//info contas
+	JPanel Info_conta = new JPanel();
 	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
     JTextArea mes = new JTextArea("Mensal");
 	JTextArea tres_meses = new JTextArea("3 Meses");
@@ -24,6 +25,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JTextArea cento_cinquente= new JTextArea("R$:");
 	JTextArea trezentos = new JTextArea("R$: ");
 	JTextArea quinhentos_quarenta = new JTextArea("R$:");
+	JButton Debito = new JButton("Débito");
+	JButton Pix = new JButton("Pix");
+	JButton Credito = new JButton("Crédito");
+	JButton Boleto = new JButton("Boleto");
 	// Código do aplicativo
     public App_mundo_senai() {
         if (info.exists()) {
@@ -93,39 +98,51 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setSize(new Dimension(1000, 500));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null);
-		inv.setBackground(Color.white);
-		inv.setBounds(0,0,1290,30);
-		inv.setLayout(new GridLayout(1,5));
-		janela.add(inv);
+		Menu.setBackground(Color.white);
+		Menu.setBounds(0,0,1290,28);
+		Menu.setLayout(new GridLayout(1,5));
+		janela.add(Menu);
 		janela.add(mes);
+		mes.setFont(new Font("Arial", Font.PLAIN, 26));
 		mes.setBounds(100,100,120,50);
 		janela.add(tres_meses);
-
+		tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
 		tres_meses.setBounds(100,160,120,50);
 		janela.add(seis_meses);
-
+		seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
 		seis_meses.setBounds(100,220,120,50);
 		janela.add(doze_meses);
-
+		doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
 		doze_meses.setBounds(100,280,120,50);
 		janela.add(cinquentao);
-
+		cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
 		cinquentao.setBounds(250,100,120,50);
 		janela.add(cento_cinquente);
-
+		cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
 		cento_cinquente.setBounds(250,160,120,50);
 		janela.add(trezentos);
-
+		trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
 		trezentos.setBounds(250,220,120,50);
 		janela.add(quinhentos_quarenta);
-
+		quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
 		quinhentos_quarenta.setBounds(250,280,120,50);
-
+		janela.add(Debito);
+		Debito.setBounds(100,360,120,50);
+		janela.add(Pix);
+		Pix.setBounds(100,420,120,50);
+		janela.add(Credito);
+		Credito.setBounds(250,360,120,50);
+		janela.add(Boleto);
+		Boleto.setBounds(250,420,120,50);
 		ops_assinatura.setEditable(false);
-		ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 20));
+		ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
 		ops_assinatura.setBackground(Color.BLUE);
-		ops_assinatura.setBounds(0,31,1290,20);
+		ops_assinatura.setBounds(0,28,1290,30);
 		janela.add(ops_assinatura);
+		Info_conta.setLayout(new GridLayout());
+		janela.add(Info_conta);
+		Info_conta.setBackground(Color.gray);
+		Info_conta.setBounds(690,0,300,600);
         janela.getContentPane().setBackground(Color.BLACK);
         janela.setLayout(null); 
         janela.revalidate();
@@ -142,7 +159,15 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             janela.revalidate();
             janela.repaint();
             Info_conta();
-        }
+        }if (e.getSource() == Debito) {
+			//
+		}if (e.getSource() == Pix) {
+			//
+		}if (e.getSource() == Credito) {
+			//
+		}if (e.getSource() == Boleto) {
+			//
+		}
     }
     // Inicializa o aplicativo
     public static void main(String[] args) {
