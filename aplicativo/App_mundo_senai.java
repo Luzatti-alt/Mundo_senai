@@ -75,7 +75,7 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 		janela.add(Deco);
 		//onde fica as informações p/Login
 		janela.add(Logar);
-		Logar.setBounds(600,600,200,50);
+		Logar.setBounds(600,600,0,50);
 		Logar.setFocusable(false);
 		Logar.setText("Logar");
 		Logar.addActionListener(this);
