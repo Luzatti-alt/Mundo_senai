@@ -9,11 +9,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	//login
 	JButton Logar = new JButton();
 	JButton esqueceu_senha = new JButton();
-    JTextField usuario_login = new JTextField();
-    JTextField senha_login = new JTextField();
-    JTextArea usuario_text = new JTextArea("Usuario");
-    JTextArea senha_text = new JTextArea("Senha");
-    JPanel box_login = new JPanel();
+	JTextField usuario_login = new JTextField();
+	JTextField senha_login = new JTextField();
+    	JTextArea usuario_text = new JTextArea("Usuario");
+	JTextArea senha_text = new JTextArea("Senha");
+    	JPanel box_login = new JPanel();
 	JPanel Menu = new JPanel();
 	//menus
 	JButton parceiros = new JButton();
@@ -24,7 +24,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	//info contas
 	JPanel Info_conta = new JPanel();
 	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
-    JTextArea mes = new JTextArea("Mensal");
+    	JTextArea mes = new JTextArea("Mensal");
 	JTextArea tres_meses = new JTextArea("3 Meses");
 	JTextArea seis_meses = new JTextArea("6 Meses");
 	JTextArea doze_meses = new JTextArea("12 Meses");
@@ -95,12 +95,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         senha_login.setBounds(10, 150, 480, 40); 
         box_login.add(senha_login);
         janela.add(box_login);
-		//botões
-		janela.add(esqueceu_senha);
-		esqueceu_senha.setFocusable(false);
-		esqueceu_senha.setBounds(0,0,1350,50);
-		esqueceu_senha.setText("esqueceu minha senha");
-		esqueceu_senha.addActionListener(this);
+	    //botões
+	janela.add(esqueceu_senha);
+	esqueceu_senha.setFocusable(false);
+	esqueceu_senha.setBounds(0,0,1350,50);
+	esqueceu_senha.setText("esqueceu minha senha");
+	esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
         Logar.setBounds(200, 350, 300, 50);  
         Logar.addActionListener(this);
@@ -152,66 +152,66 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setSize(new Dimension(1000, 500));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null);
-		Menu.setBackground(Color.white);
-		Menu.setBounds(0,0,1290,28);
-		//mes e valor
-		janela.add(mes);
-		mes.setEditable(false);
-		mes.setFont(new Font("Arial", Font.PLAIN, 26));
-		mes.setBounds(100,100,120,50);
-		janela.add(tres_meses);
-		tres_meses.setEditable(false);
-		tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-		tres_meses.setBounds(100,160,120,50);
-		janela.add(seis_meses);
-		seis_meses.setEditable(false);
-		seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-		seis_meses.setBounds(100,220,120,50);
-		janela.add(doze_meses);
-		doze_meses.setEditable(false);
-		doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-		doze_meses.setBounds(100,280,120,50);
-		janela.add(cinquentao);
-		cinquentao.setEditable(false);
-		cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
-		cinquentao.setBounds(250,100,120,50);
-		janela.add(cento_cinquente);
-		cento_cinquente.setEditable(false);
-		cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
-		cento_cinquente.setBounds(250,160,120,50);
-		janela.add(trezentos);
-		trezentos.setEditable(false);
-		trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
-		trezentos.setBounds(250,220,120,50);
-		janela.add(quinhentos_quarenta);
-		quinhentos_quarenta.setEditable(false);
-		quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
-		quinhentos_quarenta.setBounds(250,280,120,50);
-		//pagamento
-		janela.add(Debito);
-		Debito.setFocusable(false);
-		Debito.setBounds(100,360,120,50);
-		janela.add(Pix);
-		Pix.setFocusable(false);
-		Pix.setBounds(100,420,120,50);
-		janela.add(Credito);
-		Credito.setFocusable(false);
-		Credito.setBounds(250,360,120,50);
-		janela.add(Boleto);
-		Boleto.setFocusable(false);
-		Boleto.setBounds(250,420,120,50);
-		//titulo acima
-		ops_assinatura.setEditable(false);
-		ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
-		ops_assinatura.setBackground(Color.BLUE);
-		ops_assinatura.setBounds(0,28,1290,30);
-		//infos da conta
-		janela.add(ops_assinatura);
-		Info_conta.setLayout(new GridLayout());
-		janela.add(Info_conta);
-		Info_conta.setBackground(Color.gray);
-		Info_conta.setBounds(690,0,300,600);
-		//outros
+	Menu.setBackground(Color.white);
+	Menu.setBounds(0,0,1290,28);
+	//mes e valor
+	janela.add(mes);
+	mes.setEditable(false);
+	mes.setFont(new Font("Arial", Font.PLAIN, 26));
+	mes.setBounds(100,100,120,50);
+	janela.add(tres_meses);
+	tres_meses.setEditable(false);
+	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+	tres_meses.setBounds(100,160,120,50);
+	janela.add(seis_meses);
+	seis_meses.setEditable(false);
+	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+	seis_meses.setBounds(100,220,120,50);
+	janela.add(doze_meses);
+	doze_meses.setEditable(false);
+	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+	doze_meses.setBounds(100,280,120,50);
+	janela.add(cinquentao);
+	cinquentao.setEditable(false);
+	cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
+	cinquentao.setBounds(250,100,120,50);
+	janela.add(cento_cinquente);
+	cento_cinquente.setEditable(false);
+	cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
+	cento_cinquente.setBounds(250,160,120,50);
+	janela.add(trezentos);
+	trezentos.setEditable(false);
+	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
+	trezentos.setBounds(250,220,120,50);
+	janela.add(quinhentos_quarenta);
+	quinhentos_quarenta.setEditable(false);
+	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
+	quinhentos_quarenta.setBounds(250,280,120,50);
+	//pagamento
+	janela.add(Debito);
+	Debito.setFocusable(false);
+	Debito.setBounds(100,360,120,50);
+	janela.add(Pix);
+	Pix.setFocusable(false);
+	Pix.setBounds(100,420,120,50);
+	janela.add(Credito);
+	Credito.setFocusable(false);
+	Credito.setBounds(250,360,120,50);
+	janela.add(Boleto);
+	Boleto.setFocusable(false);
+	Boleto.setBounds(250,420,120,50);
+	//titulo acima
+	ops_assinatura.setEditable(false);
+	ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
+	ops_assinatura.setBackground(Color.BLUE);
+	ops_assinatura.setBounds(0,28,1290,30);
+	//infos da conta
+	janela.add(ops_assinatura);
+	Info_conta.setLayout(new GridLayout());
+	janela.add(Info_conta);
+	Info_conta.setBackground(Color.gray);
+	Info_conta.setBounds(690,0,300,600);
+	//outros
         janela.getContentPane().setBackground(Color.BLACK);
         janela.setLayout(null); 
         janela.revalidate();
