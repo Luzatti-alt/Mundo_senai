@@ -15,15 +15,15 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel box_login = new JPanel();
 	JPanel inv = new JPanel();
 	//info contas
-	JTextArea ops_assinatura = new JTextArea("Opções de assinatura");
-    JPanel mes = new JPanel();
-	JPanel tres_meses = new JPanel();
-	JPanel seis_meses = new JPanel();
-	JPanel doze_meses = new JPanel();
-	JPanel cinquentao = new JPanel();
-	JPanel cento_cinquente= new JPanel();
-	JPanel trezentos = new JPanel();
-	JPanel quinhentos_quarenta = new JPanel();
+	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
+    JTextArea mes = new JTextArea("Mensal");
+	JTextArea tres_meses = new JTextArea("3 Meses");
+	JTextArea seis_meses = new JTextArea("6 Meses");
+	JTextArea doze_meses = new JTextArea("12 Meses");
+	JTextArea cinquentao = new JTextArea("R$:");
+	JTextArea cento_cinquente= new JTextArea("R$:");
+	JTextArea trezentos = new JTextArea("R$: ");
+	JTextArea quinhentos_quarenta = new JTextArea("R$:");
 	// Código do aplicativo
     public App_mundo_senai() {
         if (info.exists()) {
@@ -57,7 +57,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }
     }
     public void login() {
-        janela.setTitle("Projeto Mundo Senai: AAAAAAA");
+        janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(100, 100));
         janela.setSize(new Dimension(1000, 500));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -88,19 +88,43 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
 
     public void Info_conta() {
-        janela.setTitle("Projeto Mundo Senai: AAAAAAA");
+        janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(100, 100));
         janela.setSize(new Dimension(1000, 500));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null);
 		inv.setBackground(Color.white);
-		inv.setBounds(0,0,1290,60);
+		inv.setBounds(0,0,1290,30);
 		inv.setLayout(new GridLayout(1,5));
 		janela.add(inv);
+		janela.add(mes);
+		mes.setBounds(100,100,120,50);
+		janela.add(tres_meses);
+
+		tres_meses.setBounds(100,160,120,50);
+		janela.add(seis_meses);
+
+		seis_meses.setBounds(100,220,120,50);
+		janela.add(doze_meses);
+
+		doze_meses.setBounds(100,280,120,50);
+		janela.add(cinquentao);
+
+		cinquentao.setBounds(250,100,120,50);
+		janela.add(cento_cinquente);
+
+		cento_cinquente.setBounds(250,160,120,50);
+		janela.add(trezentos);
+
+		trezentos.setBounds(250,220,120,50);
+		janela.add(quinhentos_quarenta);
+
+		quinhentos_quarenta.setBounds(250,280,120,50);
+
 		ops_assinatura.setEditable(false);
-		ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 40));
+		ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 20));
 		ops_assinatura.setBackground(Color.BLUE);
-		ops_assinatura.setBounds(0,61,1290,40);
+		ops_assinatura.setBounds(0,31,1290,20);
 		janela.add(ops_assinatura);
         janela.getContentPane().setBackground(Color.BLACK);
         janela.setLayout(null); 
