@@ -11,8 +11,12 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	File info = new File("info.txt");
 	JTextField usuario_login = new JTextField("digite seu usuario");
 	JTextField senha_login = new JTextField("digite sua senha");
+	JTextArea usuario_text = new JTextArea("");
+	JTextArea senha_text = new JTextArea("");
+	JPanel box_login = new JPanel();
 	JPanel Deco = new JPanel();//painel onde ficara a parte visial do Login
 	JPanel dados = new JPanel();//painel para por infos para Logar
+
 	//código do aplicativo
 	public App_mundo_senai() {
 		//obj ⬆️ para inicializar
@@ -54,31 +58,33 @@ public class App_mundo_senai extends JFrame implements ActionListener{
 	}
 
 	public void login(){
-		//metodo ⬆️ para o sistema de login 
-		//aspectos da janela 
-		janela.add(Deco);
 		janela.setTitle("Projeto Mundo Senai: AAAAAAA");
 		janela.setMinimumSize(new Dimension(100,100));
 		janela.setSize(new Dimension(1000, 500));
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		janela.setLayout(null);
+		//aspectos da janela 
+		janela.add(box_login);
+		box_login.setBackground(Color.gray);
+		box_login.setBounds(100,100,500,500);
+		box_login.add(usuario_text);
+		box_login.add(usuario_login);
+		box_login.add(senha_text);
+		box_login.add(senha_login);
+		janela.add(Deco);
 		//onde fica as informações p/Login
-		dados.setLayout(null);
-		dados.add(usuario_login);
-		dados.add(senha_login);
-		dados.add(Logar);
+		janela.add(Logar);
+		//Logar.setBounds();
+		//criar metodo que centralize em x conforme tamanho horizontal da tela
 		//configurando o tamanho
-		usuario_login.setPreferredSize(new Dimension(100,100));
-		senha_login.setPreferredSize(new Dimension(100,100));
-		janela.add(dados);
 		Logar.setFocusable(false);
 		Logar.setText("Logar");
-		Logar.setBounds(100,100,100,100);
+		Logar.setSize(100,100);
 		Logar.addActionListener(this);
 		//visibilidade de tudo
 		janela.setVisible(true);
 	}
-
+a
 	public void menu(){
 		//metodo ⬆️ para o menu
 		//aspectos da janela 
@@ -103,7 +109,8 @@ public class App_mundo_senai extends JFrame implements ActionListener{
         if(e.getSource() == Logar){
 			//apertar botão logar e adicionat condição valido pra fazer isto
 			System.out.println("logando");
-			janela.remove(dados);
+			janela.remove(box_login);
+			janela.remove(Logar);
 			janela.getContentPane().setBackground(Color.BLACK);
 			//atualiza/refresh na janela sem isso congela(visualmente) o botão
 			janela.revalidate();
