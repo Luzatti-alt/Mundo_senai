@@ -57,7 +57,15 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JButton comprovar_meta_diaria = new JButton();
     JButton comprovar_meta_semanal = new JButton();
     JButton comprovar_meta_mensal = new JButton();
-	//skip se ja tiver uma conta logada do parte do  login
+    //sobre nos
+    JTextArea mais_sobre_nos = new JTextArea();
+    JTextArea _sobre_nos = new JTextArea("mais sobre nos");
+    JTextArea about = new JTextArea("Nossa plataforma tem como prioridade a saude de nossa clientela, por isso, disponibilizamos rotinas de treino \n para cada cliente em específico e que possa ser feito sem o uso de nenhum equipamento como máquinas e pesos.\n" + //
+    "Também temos disponível a venda de produtos utilizados para o melhor desempenho em atividades físicas como camisetas esportivas \ne suplementos como creatina, proteina e vitaminas por um preço menor doque o convencional.\r\n" + //
+    "Oferecemos também metas diárias e semanais que ao serem cumpridas (comprovantes são necessários) garantem aos nossos\nclientes pontos que podem ser utilizados para adquirir os produtos da nossa loja.\r\n" + //
+    "Você pode comprovar o cumprimento destas tarefas com vídeos, fotos, marcapassos, laudos médicos e também por exames realizados\npor profissionais localizados em instituições parceiras do nosso serviço");
+    JPanel texto = new JPanel();
+    //skip se ja tiver uma conta logada do parte do  login
     public App_mundo_senai(){
         if (info.exists()) {
             System.out.println("Arquivo existente");
@@ -238,7 +246,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	Boleto.setFocusable(false);
 	Boleto.setBounds(250,420,120,50);
 	//outros
-    janela.getContentPane().setBackground(Color.BLACK);
+    janela.getContentPane().setBackground(Color.gray);
     janela.revalidate();
     janela.repaint();
     }
@@ -298,6 +306,21 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         comprovar_meta_mensal.setFocusable(false);
         comprovar_meta_mensal.addActionListener(this);
 	}
+    //sobre o serviço
+    public void sobre(){
+        //trocar o layout
+        janela.setLayout(null);
+        janela.add(mais_sobre_nos);
+        mais_sobre_nos.setBounds(0,27,1550,60);
+        mais_sobre_nos.add(_sobre_nos);
+        janela.add(about);
+        about.setBounds(0,57,1550,1460);
+        mais_sobre_nos.setBackground(Color.blue);
+        mais_sobre_nos.setEditable(false);
+        mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
+        mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
+        about.setFont(new Font("arial",Font.PLAIN,26));
+    }
     // Para o botão funcionar
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -311,6 +334,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         } else if (e.getSource() == sobre_nos) {
             limparJanela();
             Menus();
+            sobre();
         } else if (e.getSource() == produtos) {
             limparJanela();
             Menus();
@@ -323,10 +347,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             Menus();
         }if(e.getSource()==configs){
 			//adicionar pra remover todos os outros itens
-            janela.getContentPane().setBackground(Color.BLACK);
+            janela.getContentPane().setBackground(Color.gray);
             limparJanela();
 			Menus();
-            janela.getContentPane().setBackground(Color.BLACK);
+            janela.getContentPane().setBackground(Color.gray);
 			Info_conta();
 		}
 		//em configs
