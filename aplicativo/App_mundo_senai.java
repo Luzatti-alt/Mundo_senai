@@ -202,6 +202,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.repaint();
     }
 	//outra pagina
+	public void Metas(){
+		//
+	}
 
     // Para o botão funcionar
     @Override
@@ -219,16 +222,89 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 			//
 		}if(e.getSource()==sobre_nos){
 			//
+			janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
+			janela.remove(Info_conta);
+			janela.remove(ops_assinatura);
+			janela.remove(Pix);
+			janela.remove(Debito);
+			janela.remove(Credito);
+			janela.remove(Boleto);
+			janela.remove(mes);
+			janela.remove(tres_meses);
+			janela.remove(seis_meses);
+			janela.remove(doze_meses);
+			janela.remove(cinquentao);
+			janela.remove(cento_cinquente);
+			janela.remove(trezentos);
+			janela.remove(quinhentos_quarenta);
 		}if(e.getSource()==produtos){
 			//
+			janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
+			janela.remove(Info_conta);
+			janela.remove(ops_assinatura);
+			janela.remove(Pix);
+			janela.remove(Debito);
+			janela.remove(Credito);
+			janela.remove(Boleto);
+			janela.remove(mes);
+			janela.remove(tres_meses);
+			janela.remove(seis_meses);
+			janela.remove(doze_meses);
+			janela.remove(cinquentao);
+			janela.remove(cento_cinquente);
+			janela.remove(trezentos);
+			janela.remove(quinhentos_quarenta);
 		}if(e.getSource()==quests){
-			//
+			janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
+			janela.remove(Info_conta);
+			janela.remove(ops_assinatura);
+			janela.remove(Pix);
+			janela.remove(Debito);
+			janela.remove(Credito);
+			janela.remove(Boleto);
+			janela.remove(mes);
+			janela.remove(tres_meses);
+			janela.remove(seis_meses);
+			janela.remove(doze_meses);
+			janela.remove(cinquentao);
+			janela.remove(cento_cinquente);
+			janela.remove(trezentos);
+			janela.remove(quinhentos_quarenta);
+			Metas();
 		}if(e.getSource()==parceiros){
-			//
 			//quests
+			janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
+			janela.remove(Info_conta);
+			janela.remove(ops_assinatura);
+			janela.remove(Pix);
+			janela.remove(Debito);
+			janela.remove(Credito);
+			janela.remove(Boleto);
+			janela.remove(mes);
+			janela.remove(tres_meses);
+			janela.remove(seis_meses);
+			janela.remove(doze_meses);
+			janela.remove(cinquentao);
+			janela.remove(cento_cinquente);
+			janela.remove(trezentos);
+			janela.remove(quinhentos_quarenta);
 		}if(e.getSource()==configs){
-			//
-		}if (e.getSource() == Debito) {
+			//adicionar pra remover todos os outros itens
+            janela.getContentPane().setBackground(Color.BLACK);
+            janela.revalidate();
+            janela.repaint();
+			Info_conta();
+		}
+		//em configs
+		if (e.getSource() == Debito) {
 			//
 		}if (e.getSource() == Pix) {
 			//
