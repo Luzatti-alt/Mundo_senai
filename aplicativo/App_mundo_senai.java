@@ -3,6 +3,8 @@ import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
 public class App_mundo_senai extends JFrame implements ActionListener {
+    int min_x = 700;
+    int min_y = 700;
     // Componentes globais
     JFrame janela = new JFrame();
     File info = new File("info.txt");
@@ -30,7 +32,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JTextArea  tipo_assinatura_txt = new JTextArea("Assinatura");
     JPanel data_cria_conta = new JPanel();
     JTextArea data_cria_conta_txt = new JTextArea("Data da criação da conta");
-	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
+     //dados da assinatura escolha
+	JPanel dados_pagamento = new JPanel();
+    JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
 	JTextArea mes = new JTextArea("Mensal");
 	JTextArea tres_meses = new JTextArea("3 Meses");
 	JTextArea seis_meses = new JTextArea("6 Meses");
@@ -43,7 +47,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton Pix = new JButton("Pix");
 	JButton Credito = new JButton("Crédito");
 	JButton Boleto = new JButton("Boleto");
-	JPanel Info_conta = new JPanel();
     //Metas
     JTextArea metas_titulo = new JTextArea("Metas");
     JPanel Sistema_metas = new JPanel();
@@ -113,8 +116,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	//pagina login
     public void login(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
-        janela.setMinimumSize(new Dimension(100, 100));
-        janela.setSize(new Dimension(1000, 500));
+        janela.setMinimumSize(new Dimension(min_x, min_y));
+        janela.setSize(new Dimension(1000, min_y));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null); 
 		//tela colocar info p /login
@@ -194,12 +197,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	//pagina info da conta
     public void Info_conta() {
     janela.setTitle("Projeto Mundo Senai: Treina Aí");
-    janela.setMinimumSize(new Dimension(100, 100));
-    janela.setSize(new Dimension(1000, 500));
+    janela.setMinimumSize(new Dimension(min_x, min_y));
+    janela.setSize(new Dimension(1000, min_y));
     janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     janela.setLayout(null);
-    Info_conta.setLayout(null);
-	Info_conta.setBackground(Color.lightGray);
 	//titulo acima
     janela.add(ops_assinatura);
 	ops_assinatura.setEditable(false);
@@ -214,9 +215,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     nome_txt.setFont(new Font("arial",Font.PLAIN,30));
     nome_txt.setEditable(false);
     nome_txt.setBounds(10, 0, 120, 30);
-    //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
+        //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
     conta.add(nome);
-    conta.setBounds(690,122,1000,1000);
+    conta.setBounds(690,60,1000,1000);
     nome.setBackground(new Color(122,159,125));
     nome.setBounds(0, 30, 1000, 60);
     conta.add(tipo_assinatura_txt);
@@ -233,54 +234,56 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     conta.add(data_cria_conta);
     data_cria_conta.setBackground(new Color(122,159,125));
     data_cria_conta.setBounds(0,240,1000,60);
-    //info da conta -> pagamento
-    janela.add(Info_conta);
-	Info_conta.setBackground(Color.gray);
-	Info_conta.setBounds(550,58,1000,1000);
+        //info da conta -> pagamento
     //mes e valor
-	janela.add(mes);
+        //mesma lógica do anterior pra dps tentar adicionar em layout
+    janela.add(dados_pagamento);
+    dados_pagamento.add(mes);
+    dados_pagamento.setBackground(Color.green);
+    dados_pagamento.setLayout(null);
+    dados_pagamento.setBounds(0,60,1000,1000);
 	mes.setEditable(false);
 	mes.setFont(new Font("Arial", Font.PLAIN, 26));
-	mes.setBounds(100,100,120,50);
-	janela.add(tres_meses);
+	mes.setBounds(50,100,120,50);
+	dados_pagamento.add(tres_meses);
 	tres_meses.setEditable(false);
 	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	tres_meses.setBounds(100,160,120,50);
-	janela.add(seis_meses);
+	tres_meses.setBounds(50,160,120,50);
+	dados_pagamento.add(seis_meses);
 	seis_meses.setEditable(false);
 	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	seis_meses.setBounds(100,220,120,50);
-	janela.add(doze_meses);
+	seis_meses.setBounds(50,220,120,50);
+	dados_pagamento.add(doze_meses);
 	doze_meses.setEditable(false);
 	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	doze_meses.setBounds(100,280,120,50);
-	janela.add(cinquentao);
+	doze_meses.setBounds(50,280,120,50);
+	dados_pagamento.add(cinquentao);
 	cinquentao.setEditable(false);
 	cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
 	cinquentao.setBounds(250,100,120,50);
-	janela.add(cento_cinquente);
+	dados_pagamento.add(cento_cinquente);
 	cento_cinquente.setEditable(false);
 	cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
 	cento_cinquente.setBounds(250,160,120,50);
-	janela.add(trezentos);
+	dados_pagamento.add(trezentos);
 	trezentos.setEditable(false);
 	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
 	trezentos.setBounds(250,220,120,50);
-	janela.add(quinhentos_quarenta);
+	dados_pagamento.add(quinhentos_quarenta);
 	quinhentos_quarenta.setEditable(false);
 	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
 	quinhentos_quarenta.setBounds(250,280,120,50);
 	//pagamento
-	janela.add(Debito);
+	dados_pagamento.add(Debito);
 	Debito.setFocusable(false);
-	Debito.setBounds(100,360,120,50);
-	janela.add(Pix);
+	Debito.setBounds(50,360,120,50);
+	dados_pagamento.add(Pix);
 	Pix.setFocusable(false);
-	Pix.setBounds(100,420,120,50);
-	janela.add(Credito);
+	Pix.setBounds(50,420,120,50);
+	dados_pagamento.add(Credito);
 	Credito.setFocusable(false);
 	Credito.setBounds(250,360,120,50);
-	janela.add(Boleto);
+	dados_pagamento.add(Boleto);
 	Boleto.setFocusable(false);
 	Boleto.setBounds(250,420,120,50);
 	//outros
@@ -290,6 +293,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
 	//pagina de metas
 	public void Metas(){
+        janela.setTitle("Projeto Mundo Senai: Treina Aí");
+        janela.setMinimumSize(new Dimension(min_x, min_y));
+        janela.setSize(new Dimension(1000, min_y));
+        janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.add(metas_titulo);
         metas_titulo.setEditable(false);
         metas_titulo.setBackground(Color.blue);
@@ -347,6 +354,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	}
     //sobre o serviço
     public void sobre(){
+        janela.setTitle("Projeto Mundo Senai: Treina Aí");
+        janela.setMinimumSize(new Dimension(min_x, min_y));
+        janela.setSize(new Dimension(1000, min_y));
+        janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //trocar o layout
         janela.setLayout(null);
         janela.add(mais_sobre_nos);
