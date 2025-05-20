@@ -1,3 +1,4 @@
+package aa;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -9,6 +10,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	//login
 	JButton Logar = new JButton();
 	JButton esqueceu_senha = new JButton();
+	JButton criar_conta = new JButton();
 	JTextField usuario_login = new JTextField();
 	JTextField senha_login = new JTextField();
     JTextArea usuario_text = new JTextArea("Usuario");
@@ -128,6 +130,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         senha_login.setBounds(10, 150, 480, 40); 
         box_login.add(senha_login);
         janela.add(box_login);
+        janela.add(criar_conta);
+        criar_conta.setFocusable(false);
+        criar_conta.setBounds(100, 430, 1000, 100);
+        criar_conta.setText("Criar conta");
 	    //botões
 		janela.add(esqueceu_senha);
 		esqueceu_senha.setFocusable(false);
@@ -257,6 +263,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	//pagina de metas
 	public void Metas(){
         janela.add(metas_titulo);
+        metas_titulo.setEditable(false);
         metas_titulo.setBackground(Color.blue);
         metas_titulo.setBounds(0, 26, 1550, 35);
         metas_titulo.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -342,7 +349,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             Info_conta();
 			Menus();
         } else if (e.getSource() == esqueceu_senha) {
-            JOptionPane.showMessageDialog(janela, "Funcionalidade ainda não implementada.");
+            
+        }else if (e.getSource() == criar_conta) {
+            //
         } else if (e.getSource() == sobre_nos) {
             limparJanela();
             Menus();
