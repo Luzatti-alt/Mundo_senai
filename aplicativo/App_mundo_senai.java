@@ -230,6 +230,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
     data_cria_conta_txt.setBounds(0,180,1000,30);
     data_cria_conta_txt.setEditable(false);
+    conta.add(data_cria_conta);
     data_cria_conta.setBackground(new Color(122,159,125));
     data_cria_conta.setBounds(0,240,1000,60);
     //info da conta -> pagamento
