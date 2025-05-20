@@ -27,4 +27,4 @@ def sign_up():
             return 'Usuário já existe'
         usuarios[user] = senha
         return redirect(url_for('auth.login'))
-    return render_template('sign_up.html')
+    return render_template('sign-up.html')
