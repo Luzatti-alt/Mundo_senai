@@ -60,4 +60,17 @@ section#login > div#form{
 div#form{
     font-size: 0.8em;
 }
-
+form > input[type=submit]{
+    display: block;
+    font-size: 1em;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(137, 137, 255);
+    color: white;
+    cursor: pointer;
+}
+form > input[type=submit]:hover{
+    background-color: rgb(106, 106, 201);
+}

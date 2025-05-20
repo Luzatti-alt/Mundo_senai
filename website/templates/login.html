@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Quando dar pull deixa o de baixo comentado!!! -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=lock" />
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">  -->
     <link rel="stylesheet" href="../static/login.css"> 
     <link rel="stylesheet" href="../static/mediaquery.css"> 
@@ -19,21 +17,15 @@
             </div>
             <div id="form">
                 <form method="post">
-                <span class="material-symbols-outlined">
-                    account_circle
-                </span>
                 <label for="iemail">Email:</label> 
                 <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com">
                 <br>
-                <span class="material-symbols-outlined">
-                    lock
-                </span>
                 <label for="isenha">Senha:</label> 
                 <input name="senha" type="password" id="isenha"  placeholder="suasenha">
                 <br>
                 <input type="submit">
+                <a href="{{ url_for('auth.sign_up') }}" >Não tenho uma conta</a>
                 </form>
-                <a href="{{ url_for('auth.sign_up') }}">Não tenho uma conta</a>
             </div>
         </section>
     </main>
