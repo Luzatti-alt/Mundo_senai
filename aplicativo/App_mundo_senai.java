@@ -1,4 +1,3 @@
-package aa;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -24,15 +23,22 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton sobre_nos = new JButton();
 	JButton configs = new JButton();
 	//info contas
+    JPanel conta = new JPanel();
+    JTextArea nome_txt = new JPanel();
+    JPanel nome = new JPanel();
+    JPanel tipo_assinatura = new JPanel();
+    JTextArea  tipo_assinatura_txt = new JPanel();
+    JPanel data_cria_conta = new JPanel();
+    JTextArea data_cria_conta_txt = new JPanel();
 	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
 	JTextArea mes = new JTextArea("Mensal");
 	JTextArea tres_meses = new JTextArea("3 Meses");
 	JTextArea seis_meses = new JTextArea("6 Meses");
 	JTextArea doze_meses = new JTextArea("12 Meses");
-	JTextArea cinquentao = new JTextArea("R$:");
-	JTextArea cento_cinquente= new JTextArea("R$:");
-	JTextArea trezentos = new JTextArea("R$: ");
-	JTextArea quinhentos_quarenta = new JTextArea("R$:");
+	JTextArea cinquentao = new JTextArea("R$:49,99");
+	JTextArea cento_cinquente= new JTextArea("R$:97,99");
+	JTextArea trezentos = new JTextArea("R$:152,99");
+	JTextArea quinhentos_quarenta = new JTextArea("R$:273,99");
 	JButton Debito = new JButton("Débito");
 	JButton Pix = new JButton("Pix");
 	JButton Credito = new JButton("Crédito");
@@ -206,6 +212,17 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	ops_assinatura.setBackground(Color.BLUE);
 	ops_assinatura.setBounds(0,26,1550,35);
     //infos da conta
+    janela.add(conta);
+    conta.setLayout(new GridLayout(6,1));
+    conta.setBounds(690,61,1000,1000);
+    conta.setBackground(Color.lightGray);
+    conta.add(nome);
+    nome.setBackground(new Color(122,159,125));
+    conta.add(tipo_assinatura);
+    tipo_assinatura.setBackground(new Color(122,159,125));
+    conta.add(data_cria_conta);
+    data_cria_conta.setBackground(new Color(122,159,125));
+    //info da conta -> pagamento
     janela.add(Info_conta);
 	Info_conta.setBackground(Color.gray);
 	Info_conta.setBounds(550,58,1000,1000);
