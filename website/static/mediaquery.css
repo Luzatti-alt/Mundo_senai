@@ -22,6 +22,9 @@ Telas Grandes: acima de 1200px
         width: 70%;
         float: right;
     }
+    div#form{
+        font-size: 1em;
+    }
 }
 @media screen and (min-width: 992px){
     section#login{
@@ -35,5 +38,8 @@ Telas Grandes: acima de 1200px
     section#login > div#form{
         float: right; 
         width: 50%;
+    }
+    div#form{
+        font-size: 1.2em;
     }
 }

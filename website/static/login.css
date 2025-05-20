@@ -57,3 +57,7 @@ section#login > div#form{
     display: block;
     padding: 10px;
 }
+div#form{
+    font-size: 0.8em;
+}
+
