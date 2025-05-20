@@ -4,7 +4,7 @@ auth = Blueprint('auth', __name__)
 
 usuarios = {}
 
-# rota de formulario de login
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -16,7 +16,8 @@ def login():
             return 'Usuário ou senha incorretos'
     return render_template('login.html')
 
-@auth.route('/signup', methods=['GET', 'POST'])
+
+@auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
         # adicionar usuario depois
