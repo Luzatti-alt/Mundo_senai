@@ -16,15 +16,21 @@
                 <h1>Login</h1>
             </div>
             <div id="form">
-                <form method="post">
-                <label for="iemail">Email:</label> 
-                <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com">
-                <br>
-                <label for="isenha">Senha:</label> 
-                <input name="senha" type="password" id="isenha"  placeholder="suasenha">
-                <br>
-                <input type="submit">
-                <a href="{{ url_for('auth.sign_up') }}" >Não tenho uma conta</a>
+                <form method="post" autocomplete="on"> 
+                    <div class="campo">
+                        <img src="../static/imagens/account.png" alt="Account image">
+                        <label for="iemail">Email:</label>
+                        <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com" required maxlength="">
+                          
+                    </div>
+                    <div class="campo">
+                        <img src="../static/imagens/lock_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="password image">
+                        <label for="isenha">Senha:</label>
+                        <input name="senha" type="password" id="isenha"  placeholder="suasenha" autocomplete="current-password">
+                    </div>      
+                    
+                    <input type="submit">
+                    <a href="{{ url_for('auth.sign_up') }}" >Não tenho uma conta</a>
                 </form>
             </div>
         </section>
