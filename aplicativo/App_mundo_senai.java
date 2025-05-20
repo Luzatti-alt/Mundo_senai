@@ -24,12 +24,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton configs = new JButton();
 	//info contas
     JPanel conta = new JPanel();
-    JTextArea nome_txt = new JPanel();
+    JTextArea nome_txt = new JTextArea("Usuario");
     JPanel nome = new JPanel();
     JPanel tipo_assinatura = new JPanel();
-    JTextArea  tipo_assinatura_txt = new JPanel();
+    JTextArea  tipo_assinatura_txt = new JTextArea("Assinatura");
     JPanel data_cria_conta = new JPanel();
-    JTextArea data_cria_conta_txt = new JPanel();
+    JTextArea data_cria_conta_txt = new JTextArea("Data da criação da conta");
 	JTextArea ops_assinatura = new JTextArea("Opções de assinatura & conta");
 	JTextArea mes = new JTextArea("Mensal");
 	JTextArea tres_meses = new JTextArea("3 Meses");
@@ -159,31 +159,26 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     Menu.setBounds(0, 0, 1550, 28);
     Menu.setLayout(null); // Permite posicionamento absoluto
     janela.add(Menu);
-
     // Produtos
     produtos = new JButton("Produtos");
     produtos.setBounds(0, 0, 100, 28);
     produtos.addActionListener(this);
     Menu.add(produtos);
-
     // Parceiros
     parceiros = new JButton("Parceiros");
     parceiros.setBounds(100, 0, 100, 28);
     parceiros.addActionListener(this);
     Menu.add(parceiros);
-
     // Metas (Quests)
     quests = new JButton("Metas");
     quests.setBounds(200, 0, 100, 28);
     quests.addActionListener(this);
     Menu.add(quests);
-
     // Sobre Nós
     sobre_nos = new JButton("Sobre Nós");
     sobre_nos.setBounds(300, 0, 100, 28);
     sobre_nos.addActionListener(this);
     Menu.add(sobre_nos);
-
     // Configurações
     configs = new JButton("Configurações");
     configs.setBounds(400, 0, 120, 28);
@@ -213,15 +208,29 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	ops_assinatura.setBounds(0,26,1550,35);
     //infos da conta
     janela.add(conta);
-    conta.setLayout(new GridLayout(6,1));
-    conta.setBounds(690,61,1000,1000);
-    conta.setBackground(Color.lightGray);
+    conta.setLayout(null);
+    conta.setBounds(690,61,1000,10000);
+    conta.add(nome_txt);
+    nome_txt.setFont(new Font("arial",Font.PLAIN,30));
+    nome_txt.setEditable(false);
+    nome_txt.setBounds(10, 0, 120, 30);
+    //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
     conta.add(nome);
     nome.setBackground(new Color(122,159,125));
-    conta.add(tipo_assinatura);
+    nome.setBounds(10, 30, 120, 30);
+    conta.add(tipo_assinatura_txt);
+    tipo_assinatura_txt.setFont(new Font("arial",Font.PLAIN,30));
+    tipo_assinatura_txt.setEditable(false);
+    conta.setBounds(690,122,1000,30);
+    janela.add(tipo_assinatura);
     tipo_assinatura.setBackground(new Color(122,159,125));
-    conta.add(data_cria_conta);
+    tipo_assinatura.setBounds(0,152,1000,30);
+    conta.add(data_cria_conta_txt);
+    data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
+    data_cria_conta_txt.setBounds(690,182,1000,30);
+    data_cria_conta_txt.setEditable(false);
     data_cria_conta.setBackground(new Color(122,159,125));
+    data_cria_conta.setBounds(690,212,1000,30);
     //info da conta -> pagamento
     janela.add(Info_conta);
 	Info_conta.setBackground(Color.gray);
