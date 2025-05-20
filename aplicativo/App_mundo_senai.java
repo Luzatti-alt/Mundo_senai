@@ -216,21 +216,22 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     nome_txt.setBounds(10, 0, 120, 30);
     //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
     conta.add(nome);
+    conta.setBounds(690,122,1000,1000);
     nome.setBackground(new Color(122,159,125));
-    nome.setBounds(10, 30, 120, 30);
+    nome.setBounds(0, 30, 1000, 60);
     conta.add(tipo_assinatura_txt);
     tipo_assinatura_txt.setFont(new Font("arial",Font.PLAIN,30));
+    tipo_assinatura_txt.setBounds(0, 90,1000,30);
     tipo_assinatura_txt.setEditable(false);
-    conta.setBounds(690,122,1000,30);
-    janela.add(tipo_assinatura);
+    conta.add(tipo_assinatura);
     tipo_assinatura.setBackground(new Color(122,159,125));
-    tipo_assinatura.setBounds(0,152,1000,30);
+    tipo_assinatura.setBounds(0, 120,1000,60);
     conta.add(data_cria_conta_txt);
     data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
-    data_cria_conta_txt.setBounds(690,182,1000,30);
+    data_cria_conta_txt.setBounds(0,180,1000,30);
     data_cria_conta_txt.setEditable(false);
     data_cria_conta.setBackground(new Color(122,159,125));
-    data_cria_conta.setBounds(690,212,1000,30);
+    data_cria_conta.setBounds(0,240,1000,60);
     //info da conta -> pagamento
     janela.add(Info_conta);
 	Info_conta.setBackground(Color.gray);
