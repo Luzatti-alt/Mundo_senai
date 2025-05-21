@@ -221,7 +221,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(ops_assinatura);
         ops_assinatura.setEditable(false);
         ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
-        ops_assinatura.setBackground(Color.BLUE);
+        ops_assinatura.setBackground(new Color(61, 153, 32));
         ops_assinatura.setBounds(0,26,1550,35);
         //infos da conta
         janela.add(conta);
@@ -255,38 +255,46 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //mesma lógica do anterior pra dps tentar adicionar em layout
         janela.add(dados_pagamento);
         dados_pagamento.add(mes);
-        dados_pagamento.setBackground(Color.green);
+        dados_pagamento.setBackground(Color.lightGray);
         dados_pagamento.setLayout(null);
         dados_pagamento.setBounds(0,60,1000,1000);
     	mes.setEditable(false);
+        mes.setBackground(new Color(200, 255, 206));
     	mes.setFont(new Font("Arial", Font.PLAIN, 26));
     	mes.setBounds(50,100,120,50);
     	dados_pagamento.add(tres_meses);
     	tres_meses.setEditable(false);
+        tres_meses.setBackground(new Color(200, 255, 206));
     	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	tres_meses.setBounds(50,160,120,50);
     	dados_pagamento.add(seis_meses);
     	seis_meses.setEditable(false);
+        seis_meses.setBackground(new Color(200, 255, 206));
     	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	seis_meses.setBounds(50,220,120,50);
     	dados_pagamento.add(doze_meses);
     	doze_meses.setEditable(false);
+        doze_meses.setBackground(new Color(200, 255, 206));
     	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	doze_meses.setBounds(50,280,120,50);
     	dados_pagamento.add(cinquentao);
     	cinquentao.setEditable(false);
+        cinquentao.setBackground(new Color(122,159,125));
 	    cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
     	cinquentao.setBounds(250,100,120,50);
 	    dados_pagamento.add(cento_cinquente);
 	    cento_cinquente.setEditable(false);
+        cento_cinquente.setBackground(new Color(122,159,125));
 	    cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
 	    cento_cinquente.setBounds(250,160,120,50);
     	dados_pagamento.add(trezentos);
 	    trezentos.setEditable(false);
+        trezentos.setBackground(new Color(122,159,125));
     	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
 	    trezentos.setBounds(250,220,120,50);
     	dados_pagamento.add(quinhentos_quarenta);
 	    quinhentos_quarenta.setEditable(false);
+        quinhentos_quarenta.setBackground(new Color(122,159,125));
     	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
         quinhentos_quarenta.setBounds(250,280,120,50);
     	//pagamento
@@ -315,7 +323,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.add(metas_titulo);
         metas_titulo.setEditable(false);
-        metas_titulo.setBackground(Color.blue);
+        metas_titulo.setBackground(new Color(61, 153, 32));
         metas_titulo.setBounds(0, 26, 1550, 35);
         metas_titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         janela.add(Sistema_metas);
@@ -381,9 +389,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         mais_sobre_nos.add(_sobre_nos);
         janela.add(about);
         about.setBounds(0,57,1550,1460);
-        mais_sobre_nos.setBackground(Color.blue);
-        mais_sobre_nos.setEditable(false);
-        mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
+        _sobre_nos.setBackground(new Color(61, 153, 32));
+        _sobre_nos.setEditable(false);
+        _sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
         mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
         about.setFont(new Font("arial",Font.PLAIN,26));
     }
@@ -393,7 +401,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         parça.setBounds(0, 61, 1000, 1000);
         parça.setBackground(Color.lightGray);
         janela.add(instituicoes);
-        instituicoes.setBackground(Color.blue);
+        instituicoes.setBackground(new Color(61, 153, 32));
         instituicoes.setEditable(false);
         instituicoes.setBounds(0,26,1550,35);
         instituicoes.setFont(new Font("arial",Font.PLAIN,30));
