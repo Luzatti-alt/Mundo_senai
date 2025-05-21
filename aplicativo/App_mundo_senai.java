@@ -96,8 +96,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JTextArea nome_e_dist_aca_5 = new JTextArea("academia 5");
     JTextArea endereco_aca_5 = new JTextArea("endereço rua 5 , num");
     //loja
-    
-    //skip se ja tiver uma conta logada do parte do  login
     public App_mundo_senai(){
         if (info.exists()) {
             System.out.println("Arquivo existente");
@@ -118,7 +116,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             while ((linha = leitor.readLine()) != null) {
                 if (linha.equals(validador_login)) {
                     Info_conta();
-					//parte dos menus do app
                     break;
                 } else {
                     login();
