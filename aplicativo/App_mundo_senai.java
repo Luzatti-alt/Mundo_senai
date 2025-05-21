@@ -7,6 +7,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     int min_x = 700;
     int min_y = 700;
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
+    int largura = tamanho_tela.width;   // só a largura da tela
+    int altura = tamanho_tela.height;   
     JPanel tela_configs = new JPanel();
     JPanel Top_ui = new JPanel();
     // Componentes globais
@@ -23,11 +25,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel box_login = new JPanel();
 	JPanel Menu = new JPanel();
 	//menus
-	JButton parceiros = new JButton();
-	JButton quests = new JButton();
-	JButton produtos = new JButton();
-	JButton sobre_nos = new JButton();
-	JButton configs = new JButton();
+	JButton parceiros = new JButton("Parceiros");
+	JButton quests = new JButton("Metas");
+	JButton produtos = new JButton("Produtos");
+	JButton sobre_nos = new JButton("Sobre nos");
+	JButton configs = new JButton("Configurações");
 	//info contas
     JPanel cont_tela = new JPanel();
     JPanel conta = new JPanel();
@@ -242,27 +244,28 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //menu do topo
         Menu = new JPanel(); // Recria o painel de menu
         Menu.setBackground(Color.white);
-        Menu.setBounds(0, 0, 1500, 28);
+        Menu.setSize(largura,altura);
         Menu.setLayout(null); // Permite posicionamento centrlizado
         janela.add(Menu);// Produtos
-        produtos = new JButton("Produtos");
-        produtos.setBounds(100, 0, 100, 28);
+        produtos.setSize(100, 28);
+        produtos.setLocation(largura-600, 0);
         produtos.addActionListener(this);
         Menu.add(produtos); // Parceiros
-        parceiros = new JButton("Parceiros");
-        parceiros.setBounds(200, 0, 100, 28);
+        parceiros.setSize(100, 28);
+        parceiros.setLocation(largura-500, 0);
         parceiros.addActionListener(this);
         Menu.add(parceiros);// Metas (Quests)
-        quests = new JButton("Metas");
-        quests.setBounds(300, 0, 100, 28);
+        quests.setSize(100, 28);
+        quests.setLocation(largura/2, 0);
         quests.addActionListener(this);
         Menu.add(quests);// Sobre Nós
-        sobre_nos = new JButton("Sobre Nós");
-        sobre_nos.setBounds(400, 0, 100, 28);
+        sobre_nos.setSize(100, 28);
+        sobre_nos.setLocation(largura-200, 0);
         sobre_nos.addActionListener(this);
         Menu.add(sobre_nos);// Configurações
-        configs = new JButton("Configurações");
-        configs.setBounds(500, 0, 120, 28);
+        configs.setSize(100,28);
+        configs.setLocation(largura-100, 0);
+        configs.setContentAreaFilled(false);
         configs.addActionListener(this);
         Menu.add(configs);//qual seção
         ops_assinatura.setEditable(false);
