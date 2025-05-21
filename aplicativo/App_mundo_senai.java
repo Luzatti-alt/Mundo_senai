@@ -207,11 +207,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         quests.setBounds(300, 0, 100, 28);
         quests.addActionListener(this);
         Menu.add(quests);
-        // Sobre Nós
-        sobre_nos = new JButton("Sobre Nós");
-        sobre_nos.setBounds(400, 0, 100, 28);
-        sobre_nos.addActionListener(this);
-        Menu.add(sobre_nos);
         // Configurações
         configs = new JButton("Configurações");
         configs.setBounds(500, 0, 120, 28);
@@ -259,11 +254,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         quests.setSize(100, 28);
         quests.setLocation(largura_atual/2, 0);
         quests.addActionListener(this);
-        Menu.add(quests);// Sobre Nós
-        sobre_nos.setSize(100, 28);
-        sobre_nos.setLocation(largura_atual-200, 0);
-        sobre_nos.addActionListener(this);
-        Menu.add(sobre_nos);// Configurações
+        Menu.add(quests);// Configurações
         configs.setSize(100,28);
         configs.setLocation(largura_atual-100, 0);
         configs.setContentAreaFilled(false);
@@ -282,6 +273,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         cont_tela.setLayout(new GridLayout(1,2));
         conta.setLayout(null);
         conta.setBounds(690,61,1000,10000);
+        sobre_nos.setSize(100, 28);
+        sobre_nos.setBounds(0,300,800,30);
+        sobre_nos.addActionListener(this);
+        conta.add(sobre_nos);
         conta.add(nome_txt);
         nome_txt.setBackground(null);
         nome_txt.setFont(new Font("arial",Font.PLAIN,30));
@@ -525,8 +520,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     //pagina loja
     public void loja(){
         //
-    }
-    // Para o botão funcionar
+    } // Para o botão funcionar
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == Logar) {
@@ -558,8 +552,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 			Menus();
             janela.getContentPane().setBackground(Color.gray);
 			Info_conta();
-		}
-		//em configs parte do funcionamento
+		}//em configs parte do funcionamento
 		if (e.getSource() == Debito) {
 			//
 		}if (e.getSource() == Pix) {
