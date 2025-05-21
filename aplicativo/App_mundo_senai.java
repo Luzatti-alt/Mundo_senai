@@ -139,13 +139,15 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		//tela colocar info p /login
         box_login.setLayout(null);
         box_login.setBounds(100, 100, 500, 225);
-        box_login.setBackground(Color.GRAY);
+        box_login.setBackground(Color.lightGray);
         usuario_text.setBounds(10, 10, 480, 60);
         usuario_text.setBackground(null);
         usuario_text.setEditable(false);
         usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
         box_login.add(usuario_text);
         usuario_login.setBounds(10, 50, 480, 40);
+        //ver como desativar as bordas ao redor do input
+        usuario_login.setBackground(new Color(200, 255, 206));
         box_login.add(usuario_login);
         senha_text.setBounds(10, 100, 480, 60);
         senha_text.setBackground(null);
@@ -153,19 +155,23 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
         box_login.add(senha_text);
         senha_login.setBounds(10, 150, 480, 40); 
+        senha_login.setBackground(new Color(200, 255, 206));
         box_login.add(senha_login);
         janela.add(box_login);
         janela.add(criar_conta);
+        criar_conta.setBackground(new Color(122,159,125));
         criar_conta.setFocusable(false);
         criar_conta.setBounds(100, 430, 1000, 100);
         criar_conta.setText("Criar conta");
 	    //botões
 		janela.add(esqueceu_senha);
+        esqueceu_senha.setBackground(new Color(122,159,125));
 		esqueceu_senha.setFocusable(false);
 		esqueceu_senha.setBounds(0,0,1350,50);
 		esqueceu_senha.setText("esqueceu minha senha");
 		esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
+        Logar.setBackground(new Color(122,159,125));
         Logar.setBounds(200, 350, 300, 50);  
         Logar.addActionListener(this);
         janela.add(Logar);
@@ -299,15 +305,19 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         quinhentos_quarenta.setBounds(250,280,120,50);
     	//pagamento
     	dados_pagamento.add(Debito);
+        Debito.setBackground(new Color(73, 207, 78));
     	Debito.setFocusable(false);
     	Debito.setBounds(50,360,120,50);
     	dados_pagamento.add(Pix);
+        Pix.setBackground(new Color(73, 207, 78));
     	Pix.setFocusable(false);
     	Pix.setBounds(50,420,120,50);
     	dados_pagamento.add(Credito);
+        Credito.setBackground(new Color(73, 207, 78));
     	Credito.setFocusable(false);
     	Credito.setBounds(250,360,120,50);
     	dados_pagamento.add(Boleto);
+        Boleto.setBackground(new Color(73, 207, 78));
     	Boleto.setFocusable(false);
     	Boleto.setBounds(250,420,120,50);
     	//outros
@@ -395,6 +405,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         _sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
         mais_sobre_nos.setBounds(0,27,1550, 30);
         janela.add(about);
+        about.setBackground(new Color(200, 255, 206));
         about.setBounds(0,57,1550,1460);
         _sobre_nos.setBackground(new Color(61, 153, 32));
         mais_sobre_nos.setEditable(false);
