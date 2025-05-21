@@ -13,14 +13,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     int min_x = 700;
     int min_y = 700;
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
-    int largura = tamanho_tela.width;   // só a largura da tela
-    int altura = tamanho_tela.height;
-    while(ligado!=false){
-        int largura_atual = janela.getWidth();
-                int altura_atual = janela.getHeight();
-                System.out.println("Nova largura: " + largura_atual + ", Nova altura: " + altura_atual);
-                break;            
-            }
+    int largura_atual = tamanho_tela.width;   // só a largura da tela
+    int altura_atual = tamanho_tela.height;
 	//login
 	JButton Logar = new JButton();
 	JButton esqueceu_senha = new JButton();
@@ -251,7 +245,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //menu do topo
         Menu = new JPanel(); // Recria o painel de menu
         Menu.setBackground(Color.white);
-        Menu.setSize(largura,28);
+        Menu.setSize(largura_atual,28);
         Menu.setLayout(null); // Permite posicionamento centrlizado
         janela.add(Menu);// Produtos
         produtos.setSize(100, 28);
