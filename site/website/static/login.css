@@ -85,3 +85,21 @@ form > a.botao{
     border: 1px solid rgb(137, 137, 255);
     border-radius: 5px;
 }
+
+form input{
+    font-size: 0.8em;
+    height: 1em;
+    border-style: none;
+    display: block;
+}
+
+div.campo {
+    border: 2px solid rgba(0, 0, 0, 0.226);
+    border-radius: 5px;
+    margin: 10px 20px;
+    padding: 5px 20px;
+}
+
+div label {
+    font-size: 0.8em;
+}
