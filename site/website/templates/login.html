@@ -17,21 +17,22 @@
                 <h1>Login</h1>
             </div>
             <div id="form">
-                <form method="post" autocomplete="on"> 
-                    <div class="campo">
-                        <label for="iemail">Email:</label>
-                        <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com" required minlength="5" required maxlength="50">
-                    </div>
-                    <div class="campo">
-                        <label for="isenha">Senha:</label>
-                        <input name="senha" type="password" id="isenha"  placeholder="Senha" autocomplete="current-password" required minlength="8" required maxlength="50">
-                    </div>
-                    
-                    <div id="botoes">
-                    <input type="submit" class="botao">
-                    <a href="{{ url_for('auth.sign_up') }}" class="botao">Não tenho uma conta</a>
-                    </div>
-                </form>
+                <div id="content">
+                    <form method="post" autocomplete="on">
+                        <div class="campo">
+                            <label for="iemail">Email:</label>
+                            <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com" required minlength="5" required maxlength="50">
+                        </div>
+                        <div class="campo">
+                            <label for="isenha">Senha:</label>
+                            <input name="senha" type="password" id="isenha"  placeholder="Senha" autocomplete="current-password" required minlength="8" required maxlength="50">
+                        </div>
+                        <div id="botoes">
+                            <input type="submit" class="botao" value="Entrar">
+                            <a href="{{ url_for('auth.sign_up') }}" class="botao">Inscreva-se</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>

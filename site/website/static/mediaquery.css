@@ -24,6 +24,7 @@ Telas Grandes: acima de 1200px
     }
     div#form{
         font-size: 1em;
+        height: 100%;
     }
     form input{
         font-size: 1em;
@@ -47,6 +48,7 @@ Telas Grandes: acima de 1200px
     }
     div#form{
         font-size: 1.2em;
+        height: 100%;
     }
     form input{
         font-size: 1em;
