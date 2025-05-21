@@ -4,16 +4,23 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 public class App_mundo_senai extends JFrame implements ActionListener {
-    int min_x = 700;
-    int min_y = 700;
-    Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
-    int largura = tamanho_tela.width;   // só a largura da tela
-    int altura = tamanho_tela.height;   
+    boolean ligado = true;
     JPanel tela_configs = new JPanel();
     JPanel Top_ui = new JPanel();
     // Componentes globais
     JFrame janela = new JFrame();
     File info = new File("info.txt");
+    int min_x = 700;
+    int min_y = 700;
+    Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
+    int largura = tamanho_tela.width;   // só a largura da tela
+    int altura = tamanho_tela.height;
+    while(ligado!=false){
+        int largura_atual = janela.getWidth();
+                int altura_atual = janela.getHeight();
+                System.out.println("Nova largura: " + largura_atual + ", Nova altura: " + altura_atual);
+                break;            
+            }
 	//login
 	JButton Logar = new JButton();
 	JButton esqueceu_senha = new JButton();
@@ -244,27 +251,27 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //menu do topo
         Menu = new JPanel(); // Recria o painel de menu
         Menu.setBackground(Color.white);
-        Menu.setSize(largura,altura);
+        Menu.setSize(largura,28);
         Menu.setLayout(null); // Permite posicionamento centrlizado
         janela.add(Menu);// Produtos
         produtos.setSize(100, 28);
-        produtos.setLocation(largura-600, 0);
+        produtos.setLocation(largura_atual-600, 0);
         produtos.addActionListener(this);
         Menu.add(produtos); // Parceiros
         parceiros.setSize(100, 28);
-        parceiros.setLocation(largura-500, 0);
+        parceiros.setLocation(largura_atual-500, 0);
         parceiros.addActionListener(this);
         Menu.add(parceiros);// Metas (Quests)
         quests.setSize(100, 28);
-        quests.setLocation(largura/2, 0);
+        quests.setLocation(largura_atual/2, 0);
         quests.addActionListener(this);
         Menu.add(quests);// Sobre Nós
         sobre_nos.setSize(100, 28);
-        sobre_nos.setLocation(largura-200, 0);
+        sobre_nos.setLocation(largura_atual-200, 0);
         sobre_nos.addActionListener(this);
         Menu.add(sobre_nos);// Configurações
         configs.setSize(100,28);
-        configs.setLocation(largura-100, 0);
+        configs.setLocation(largura_atual-100, 0);
         configs.setContentAreaFilled(false);
         configs.addActionListener(this);
         Menu.add(configs);//qual seção
@@ -575,8 +582,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             //
         }
     }
-    // Inicializa o aplicativo
-    public static void main(String[] args) {
+
+         // Inicializa o aplicativo
+
+         public static void main(String[] args) {
         new App_mundo_senai();
     }
 }
