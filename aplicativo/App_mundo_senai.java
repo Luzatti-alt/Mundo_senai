@@ -77,7 +77,23 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     "Você pode comprovar o cumprimento destas tarefas com vídeos, fotos, marcapassos, laudos médicos e também por exames realizados\npor profissionais localizados em instituições parceiras do nosso serviço");
     JPanel texto = new JPanel();
     //parceiros
-
+    JPanel parça = new JPanel();
+    JTextArea instituicoes = new JTextArea("Instituições parceiras");
+    JPanel academia_1 = new JPanel();
+    JTextArea nome_e_dist_aca_1 = new JTextArea("academia 1");
+    JTextArea endereco_aca_1 = new JTextArea("endereço rua 1 , num");
+    JPanel academia_2 = new JPanel();
+    JTextArea nome_e_dist_aca_2 = new JTextArea("academia 2");
+    JTextArea endereco_aca_2 = new JTextArea("endereço rua 2 , num");
+    JPanel academia_3 = new JPanel();
+    JTextArea nome_e_dist_aca_3 = new JTextArea("academia 3");
+    JTextArea endereco_aca_3 = new JTextArea("endereço rua 3 , num");
+    JPanel academia_4 = new JPanel();
+    JTextArea nome_e_dist_aca_4 = new JTextArea("academia 4");
+    JTextArea endereco_aca_4 = new JTextArea("endereço rua 4 , num");
+    JPanel academia_5 = new JPanel();
+    JTextArea nome_e_dist_aca_5 = new JTextArea("academia 5");
+    JTextArea endereco_aca_5 = new JTextArea("endereço rua 5 , num");
     //loja
     
     //skip se ja tiver uma conta logada do parte do  login
@@ -373,7 +389,60 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
     //pagina parceiro
     public void parceiro_page(){
-        //
+        janela.add(parça);
+        parça.setBounds(0, 61, 1000, 1000);
+        parça.setBackground(Color.lightGray);
+        janela.add(instituicoes);
+        instituicoes.setBackground(Color.blue);
+        instituicoes.setEditable(false);
+        instituicoes.setBounds(0,26,1550,35);
+        instituicoes.setFont(new Font("arial",Font.PLAIN,30));
+        parça.setLayout(new GridLayout(5,1));
+        //1 academia
+        parça.add(academia_1);
+        academia_1.setLayout(new GridLayout(2,1));
+        academia_1.add(nome_e_dist_aca_1);
+        nome_e_dist_aca_1.setEditable(false);
+        nome_e_dist_aca_1.setFont(new Font("arial",Font.PLAIN,30));
+        academia_1.add(endereco_aca_1);
+        endereco_aca_1.setEditable(false);
+        endereco_aca_1.setFont(new Font("arial",Font.PLAIN,30));
+         //2 academia
+        parça.add(academia_2);
+        academia_2.setLayout(new GridLayout(2,1));
+        academia_2.add(nome_e_dist_aca_2);
+        nome_e_dist_aca_2.setEditable(false);
+        nome_e_dist_aca_2.setFont(new Font("arial",Font.PLAIN,30));
+        academia_2.add(endereco_aca_2);
+        endereco_aca_2.setEditable(false);
+        endereco_aca_2.setFont(new Font("arial",Font.PLAIN,30));
+         //3 academia
+        parça.add(academia_3);
+        academia_3.setLayout(new GridLayout(2,1));
+        academia_3.add(nome_e_dist_aca_3);
+        nome_e_dist_aca_3.setEditable(false);
+        nome_e_dist_aca_3.setFont(new Font("arial",Font.PLAIN,30));
+        academia_3.add(endereco_aca_3);
+        endereco_aca_3.setEditable(false);
+        endereco_aca_3.setFont(new Font("arial",Font.PLAIN,30));
+         //4 academia
+        parça.add(academia_4);
+        academia_4.setLayout(new GridLayout(2,1));
+        academia_4.add(nome_e_dist_aca_4);
+        nome_e_dist_aca_4.setEditable(false);
+        nome_e_dist_aca_4.setFont(new Font("arial",Font.PLAIN,30));
+        academia_4.add(endereco_aca_4);
+        endereco_aca_4.setEditable(false);
+        endereco_aca_4.setFont(new Font("arial",Font.PLAIN,30));
+         //5 academia
+        parça.add(academia_5);
+        academia_5.setLayout(new GridLayout(2,1));
+        academia_5.add(nome_e_dist_aca_5);
+        nome_e_dist_aca_5.setEditable(false);
+        nome_e_dist_aca_5.setFont(new Font("arial",Font.PLAIN,30));
+        academia_5.add(endereco_aca_5);
+        endereco_aca_5.setEditable(false);
+        endereco_aca_5.setFont(new Font("arial",Font.PLAIN,30));
     }
     //pagina loja
     public void loja(){
@@ -405,6 +474,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         } else if (e.getSource() == parceiros) {
             limparJanela();
             Menus();
+            parceiro_page();
         }if(e.getSource()==configs){
 			//adicionar pra remover todos os outros itens
             janela.getContentPane().setBackground(Color.gray);
