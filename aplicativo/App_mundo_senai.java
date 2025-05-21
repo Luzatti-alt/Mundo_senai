@@ -2,9 +2,13 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 public class App_mundo_senai extends JFrame implements ActionListener {
     int min_x = 700;
     int min_y = 700;
+    Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
+    JPanel tela_configs = new JPanel();
+    JPanel Top_ui = new JPanel();
     // Componentes globais
     JFrame janela = new JFrame();
     File info = new File("info.txt");
@@ -179,6 +183,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
 	//menu em cima
     public void Menus(){
+        //menu do topo
         Menu = new JPanel(); // Recria o painel de menu
         Menu.setBackground(Color.white);
         Menu.setBounds(0, 0, 1500, 28);
@@ -218,19 +223,55 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }
 	//pagina info da conta
     public void Info_conta() {
+        //definindo janela
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
         janela.setSize(new Dimension(1000, min_y));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null);
-        //titulo acima
-        janela.add(ops_assinatura);
+        janela.add(tela_configs);
+        System.out.println(tamanho_tela);
+        tela_configs.setSize(tamanho_tela);
+        tela_configs.setLayout(new BorderLayout());
+        //Ui no topo
+        janela.add(Top_ui);
+        Top_ui.setLayout(new GridLayout(2,1));
+        Top_ui.add(Menu);
+        Top_ui.add(ops_assinatura);
+        //Menu titulo acima
+        //menu do topo
+        Menu = new JPanel(); // Recria o painel de menu
+        Menu.setBackground(Color.white);
+        Menu.setBounds(0, 0, 1500, 28);
+        Menu.setLayout(null); // Permite posicionamento centrlizado
+        janela.add(Menu);// Produtos
+        produtos = new JButton("Produtos");
+        produtos.setBounds(100, 0, 100, 28);
+        produtos.addActionListener(this);
+        Menu.add(produtos); // Parceiros
+        parceiros = new JButton("Parceiros");
+        parceiros.setBounds(200, 0, 100, 28);
+        parceiros.addActionListener(this);
+        Menu.add(parceiros);// Metas (Quests)
+        quests = new JButton("Metas");
+        quests.setBounds(300, 0, 100, 28);
+        quests.addActionListener(this);
+        Menu.add(quests);// Sobre Nós
+        sobre_nos = new JButton("Sobre Nós");
+        sobre_nos.setBounds(400, 0, 100, 28);
+        sobre_nos.addActionListener(this);
+        Menu.add(sobre_nos);// Configurações
+        configs = new JButton("Configurações");
+        configs.setBounds(500, 0, 120, 28);
+        configs.addActionListener(this);
+        Menu.add(configs);//qual seção
         ops_assinatura.setEditable(false);
         ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
         ops_assinatura.setBackground(new Color(61, 153, 32));
         ops_assinatura.setBounds(0,26,1550,35);
         //infos da conta
-        janela.add(cont_tela);
+        tela_configs.add(Top_ui,BorderLayout.NORTH);
+        tela_configs.add(cont_tela,BorderLayout.CENTER);
         cont_tela.setBackground(Color.blue);
         cont_tela.setBounds(0,53,1550,1550);
         cont_tela.add(conta);
@@ -263,9 +304,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         conta.add(data_cria_conta);
         data_cria_conta.setBackground(new Color(122,159,125));
         data_cria_conta.setBounds(0,200,1000,60);
-        //info da conta -> pagamento
         //mes e valor
-        //mesma lógica do anterior pra dps tentar adicionar em layout
         cont_tela.add(dados_pagamento);
         dados_pagamento.add(mes);
         dados_pagamento.setBackground(Color.lightGray);
@@ -331,6 +370,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.getContentPane().setBackground(Color.gray);
         janela.revalidate();
         janela.repaint();
+        janela.setVisible(true);
         }
 	//pagina de metas
 	public void Metas(){
@@ -488,7 +528,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         if (e.getSource() == Logar) {
             System.out.println("Logando...");
 			limparJanela();
-            Menus();
             Info_conta();
         } else if (e.getSource() == esqueceu_senha) {
             
