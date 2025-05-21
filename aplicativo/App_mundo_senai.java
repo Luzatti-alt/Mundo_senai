@@ -184,32 +184,32 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     public void Menus(){
         Menu = new JPanel(); // Recria o painel de menu
         Menu.setBackground(Color.white);
-        Menu.setBounds(0, 0, 1550, 28);
-        Menu.setLayout(null); // Permite posicionamento absoluto
+        Menu.setBounds(0, 0, 1500, 28);
+        Menu.setLayout(new FlowLayout()); // Permite posicionamento absoluto
         janela.add(Menu);
         // Produtos
         produtos = new JButton("Produtos");
-        produtos.setBounds(0, 0, 100, 28);
+        produtos.setBounds(100, 0, 100, 28);
         produtos.addActionListener(this);
         Menu.add(produtos);
         // Parceiros
         parceiros = new JButton("Parceiros");
-        parceiros.setBounds(100, 0, 100, 28);
+        parceiros.setBounds(200, 0, 100, 28);
         parceiros.addActionListener(this);
         Menu.add(parceiros);
         // Metas (Quests)
         quests = new JButton("Metas");
-        quests.setBounds(200, 0, 100, 28);
+        quests.setBounds(300, 0, 100, 28);
         quests.addActionListener(this);
         Menu.add(quests);
         // Sobre Nós
         sobre_nos = new JButton("Sobre Nós");
-        sobre_nos.setBounds(300, 0, 100, 28);
+        sobre_nos.setBounds(400, 0, 100, 28);
         sobre_nos.addActionListener(this);
         Menu.add(sobre_nos);
         // Configurações
         configs = new JButton("Configurações");
-        configs.setBounds(400, 0, 120, 28);
+        configs.setBounds(500, 0, 120, 28);
         configs.addActionListener(this);
         Menu.add(configs);
         }
