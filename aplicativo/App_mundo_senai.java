@@ -378,20 +378,24 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	}
     //sobre o serviço
     public void sobre(){
+        //arrumar o texto em cima
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
         janela.setSize(new Dimension(1000, min_y));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //trocar o layout
         janela.setLayout(null);
-        janela.add(mais_sobre_nos);
-        mais_sobre_nos.setBounds(0,27,1550,60);
-        mais_sobre_nos.add(_sobre_nos);
+        janela.add(_sobre_nos);
+        _sobre_nos.setBounds(0,26,1550,35);
+        janela.add(_sobre_nos);
+        _sobre_nos.setEditable(false);
+        _sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
+        mais_sobre_nos.setBounds(0,27,1550, 30);
         janela.add(about);
         about.setBounds(0,57,1550,1460);
         _sobre_nos.setBackground(new Color(61, 153, 32));
-        _sobre_nos.setEditable(false);
-        _sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
+        mais_sobre_nos.setEditable(false);
+        mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
         mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
         about.setFont(new Font("arial",Font.PLAIN,26));
     }
