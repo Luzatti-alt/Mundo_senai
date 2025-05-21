@@ -234,7 +234,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         ops_assinatura.setBounds(0,26,1550,35);
         //infos da conta
         janela.add(cont_tela);
-        cont_tela.setBounds(0,51,1550,1550);
+        cont_tela.setBackground(Color.blue);
+        cont_tela.setBounds(0,53,1550,1550);
         cont_tela.add(conta);
         cont_tela.setLayout(new GridLayout(1,2));
         conta.setLayout(null);
@@ -519,7 +520,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             janela.getContentPane().setBackground(Color.gray);
 			Info_conta();
 		}
-		//em configs
+		//em configs parte do funcionamento
 		if (e.getSource() == Debito) {
 			//
 		}if (e.getSource() == Pix) {
