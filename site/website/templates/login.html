@@ -4,33 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Quando dar pull deixa o de baixo comentado!!! -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}"> 
-    <link rel="stylesheet" href="{{ url_for('static', filename='mediaquery.css') }}"> 
-    <!-- <link rel="stylesheet" href="../static/login.css"> 
-    <link rel="stylesheet" href="../static/mediaquery.css">  -->
-    <title>Login | Treina aí</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='mediaquery.css') }}">  -->
+    <link rel="stylesheet" href="../static/login.css"> 
+    <link rel="stylesheet" href="../static/mediaquery.css"> 
+    <title>Entrar | Treina aí</title>
 </head>
 <body>
     <main>
         <section id="login">
             <div id="titulo">
-                <h1>Login</h1>
+                <h1>Entrar</h1>
             </div>
             <div id="form">
-                <form method="post" autocomplete="on"> 
-                    <div class="campo">
-                        <img src="../static/imagens/account.png" alt="Account image">
-                        <label for="iemail">Email:</label>
-                        <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com" required minlength="5" required maxlength="50">
-                    </div>
-                    <div class="campo">
-                        <img src="../static/imagens/lock_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="password image">
-                        <label for="isenha">Senha:</label>
-                        <input name="senha" type="password" id="isenha"  placeholder="Senha" autocomplete="current-password" required minlength="8" required maxlength="50">
-                    </div>
-                    <input type="submit">
-                    <a href="{{ url_for('auth.sign_up') }}" class="botao">Não tenho uma conta</a>
-                </form>
+                <div id="content">
+                    <form method="post" autocomplete="on">
+                        <div class="campo">
+                            <label for="iemail">Email:</label>
+                            <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com" required minlength="5" required maxlength="50">
+                        </div>
+                        <div class="campo">
+                            <label for="isenha">Senha:</label>
+                            <input name="senha" type="password" id="isenha"  placeholder="Senha" autocomplete="current-password" required minlength="8" required maxlength="50">
+                        </div>
+                        <div id="botoes">
+                            <input type="submit" class="botao" value="Entrar">
+                            <a href="{{ url_for('auth.sign_up') }}" class="botao">Inscreva-se</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
