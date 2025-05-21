@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/*
+    Cores e Fontes
+*/
+
+
+/*Configurações Gerais*/
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+
+    margin: 0px;
+    padding: 0px;
+
+    box-sizing: border-box;
+}
+
+body, html{
+    background-color: rgb(173, 253, 149);
+
+    height: 100vh;
+    width: 100vw;
+}
+main{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+section#login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+
+    width: 250px;
+    height: 500px;
+
+    background-color: white;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.226);
+    border-radius: 20px;
+
+    transition: width .3s, height .3s;
+    transition-timing-function: ease;
+}
+section#login > div#titulo{
+    background-color: rgb(137, 137, 255);
+    height: 200px;
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+section#login > div#form{
+    display: block;
+    padding: 10px;
+}
+div#form{
+    font-size: 0.8em;
+    margin: auto;
+}
+div.campo{
+    border: 2px solid rgba(0, 0, 0, 0.226);
+    border-radius: 5px;
+    margin: 10px 20px;
+    padding: 10px 20px
+}
+#botoes > .botao{
+    display: inline-block;
+    
+    width: 40%;
+    height: 40px;
+    
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+}
+#botoes > input[type=submit]{
+    margin: 10px 0px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: rgb(137, 137, 255);
+    color: white;
+
+    cursor: pointer;
+}
+#botoes > input[type=submit]:hover{
+    background-color: rgb(106, 106, 201);
+}
+#botoes > a.botao{
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    border: 2px solid rgb(137, 137, 255);
+    border-radius: 5px;
+
+    background-color: white;
+    color: rgb(137, 137, 255);
+}
+form > a.botao:hover{
+    background-color: rgb(222, 222, 247);
+}
+form input{
+    font-size: 0.8em;
+}
+form label{
+    font-size: 0.8em;
+}
+.campo input{
+    height: 1.1em;
+    margin-top: 10px;
+    border-style: none;
+    display: block;
+    outline: none;
+
+}
+#botoes{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    width: 80%;
+    /* height: 10%;
+    margin: auto; */
+}
