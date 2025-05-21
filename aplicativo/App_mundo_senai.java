@@ -25,6 +25,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton sobre_nos = new JButton();
 	JButton configs = new JButton();
 	//info contas
+    JPanel cont_tela = new JPanel();
     JPanel conta = new JPanel();
     JTextArea nome_txt = new JTextArea("Usuario");
     JPanel nome = new JPanel();
@@ -145,7 +146,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         usuario_text.setEditable(false);
         usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
         box_login.add(usuario_text);
-        usuario_login.setBounds(10, 50, 480, 40);
+        usuario_login.setBorder(BorderFactory.createEmptyBorder());
+        usuario_login.setBounds(10, 60, 480, 40);
         //ver como desativar as bordas ao redor do input
         usuario_login.setBackground(new Color(200, 255, 206));
         box_login.add(usuario_login);
@@ -154,6 +156,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         senha_text.setEditable(false);
         senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
         box_login.add(senha_text);
+        senha_login.setBorder(BorderFactory.createEmptyBorder());
         senha_login.setBounds(10, 150, 480, 40); 
         senha_login.setBackground(new Color(200, 255, 206));
         box_login.add(senha_login);
@@ -230,19 +233,24 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         ops_assinatura.setBackground(new Color(61, 153, 32));
         ops_assinatura.setBounds(0,26,1550,35);
         //infos da conta
-        janela.add(conta);
+        janela.add(cont_tela);
+        cont_tela.setBounds(0,51,1550,1550);
+        cont_tela.add(conta);
+        cont_tela.setLayout(new GridLayout(1,2));
         conta.setLayout(null);
         conta.setBounds(690,61,1000,10000);
         conta.add(nome_txt);
+        nome_txt.setBackground(null);
         nome_txt.setFont(new Font("arial",Font.PLAIN,30));
         nome_txt.setEditable(false);
-        nome_txt.setBounds(10, 0, 120, 30);
+        nome_txt.setBounds(0, 0, 120, 30);
         //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
         conta.add(nome);
         conta.setBounds(690,60,1000,1000);
         nome.setBackground(new Color(122,159,125));
         nome.setBounds(0, 30, 1000, 60);
         conta.add(tipo_assinatura_txt);
+        tipo_assinatura_txt.setBackground(null);
         tipo_assinatura_txt.setFont(new Font("arial",Font.PLAIN,30));
         tipo_assinatura_txt.setBounds(0, 90,1000,30);
         tipo_assinatura_txt.setEditable(false);
@@ -250,16 +258,17 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         tipo_assinatura.setBackground(new Color(122,159,125));
         tipo_assinatura.setBounds(0, 120,1000,60);
         conta.add(data_cria_conta_txt);
+        data_cria_conta_txt.setBackground(null);
         data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
         data_cria_conta_txt.setBounds(0,180,1000,30);
         data_cria_conta_txt.setEditable(false);
         conta.add(data_cria_conta);
         data_cria_conta.setBackground(new Color(122,159,125));
-        data_cria_conta.setBounds(0,240,1000,60);
+        data_cria_conta.setBounds(0,200,1000,60);
         //info da conta -> pagamento
         //mes e valor
         //mesma lógica do anterior pra dps tentar adicionar em layout
-        janela.add(dados_pagamento);
+        cont_tela.add(dados_pagamento);
         dados_pagamento.add(mes);
         dados_pagamento.setBackground(Color.lightGray);
         dados_pagamento.setLayout(null);
