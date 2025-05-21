@@ -333,6 +333,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //diarias
         Sistema_metas.add(Meta_diario);
         Meta_diario.add(Metas_diarias_txt);
+        Metas_diarias_txt.setBackground(new Color(61, 153, 32));
         Metas_diarias_txt.setEditable(false);
         Metas_diarias_txt.setFont(new Font("Arial", Font.PLAIN, 30));
         Meta_diario.setLayout(new GridLayout(3,1));
@@ -348,6 +349,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //semanal
         Sistema_metas.add(Meta_semanal);
         Meta_semanal.add(Metas_semanais_txt);
+        Metas_semanais_txt.setBackground(new Color(61, 153, 32));
         Metas_semanais_txt.setEditable(false);
         Metas_semanais_txt.setFont(new Font("Arial", Font.PLAIN, 30));
         Meta_semanal.setLayout(new GridLayout(3,1));
@@ -363,6 +365,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //mensal
         Sistema_metas.add(Meta_mensal);
         Meta_mensal.add(Metas_mensais_txt);
+        Metas_mensais_txt.setBackground(new Color(61, 153, 32));
         Metas_mensais_txt.setEditable(false);
         Metas_mensais_txt.setFont(new Font("Arial", Font.PLAIN, 30));
         Meta_mensal.setLayout(new GridLayout(3,1));
