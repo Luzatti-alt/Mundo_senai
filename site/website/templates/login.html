@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='mediaquery.css') }}"> 
     <!-- <link rel="stylesheet" href="../static/login.css"> 
     <link rel="stylesheet" href="../static/mediaquery.css">  -->
-    <title>Login</title>
+    <title>Login | Treina aí</title>
 </head>
 <body>
     <main>
@@ -21,15 +21,13 @@
                     <div class="campo">
                         <img src="../static/imagens/account.png" alt="Account image">
                         <label for="iemail">Email:</label>
-                        <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com" required maxlength="30">
-                          
+                        <input name="email" type="email" id="iemail" autocomplete="email" placeholder="seuemail@gmail.com" required minlength="5" required maxlength="50">
                     </div>
                     <div class="campo">
                         <img src="../static/imagens/lock_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="password image">
                         <label for="isenha">Senha:</label>
-                        <input name="senha" type="password" id="isenha"  placeholder="suasenha" autocomplete="current-password" required minlength="8">
-                    </div>      
-                    
+                        <input name="senha" type="password" id="isenha"  placeholder="Senha" autocomplete="current-password" required minlength="8" required maxlength="50">
+                    </div>
                     <input type="submit">
                     <a href="{{ url_for('auth.sign_up') }}" class="botao">Não tenho uma conta</a>
                 </form>
