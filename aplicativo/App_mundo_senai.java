@@ -161,13 +161,13 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(criar_conta);
         criar_conta.setBackground(new Color(122,159,125));
         criar_conta.setFocusable(false);
-        criar_conta.setBounds(100, 430, 1000, 100);
+        criar_conta.setBounds(200, 450, 300, 50);  
         criar_conta.setText("Criar conta");
 	    //botões
 		janela.add(esqueceu_senha);
         esqueceu_senha.setBackground(new Color(122,159,125));
 		esqueceu_senha.setFocusable(false);
-		esqueceu_senha.setBounds(0,0,1350,50);
+		esqueceu_senha.setBounds(0,600,1350,50);
 		esqueceu_senha.setText("esqueceu minha senha");
 		esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
@@ -405,6 +405,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         _sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
         mais_sobre_nos.setBounds(0,27,1550, 30);
         janela.add(about);
+        about.setEditable(false);
         about.setBackground(new Color(200, 255, 206));
         about.setBounds(0,57,1550,1460);
         _sobre_nos.setBackground(new Color(61, 153, 32));
