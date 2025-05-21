@@ -27,6 +27,10 @@
                             <label for="isenha">Senha:</label>
                             <input name="senha" type="password" id="isenha"  placeholder="Senha" autocomplete="current-password" required minlength="8" required maxlength="50">
                         </div>
+                        <div class="checkbox">
+                            <input name="lembrar" type="checkbox" id="icheck">
+                            <label for="icheck" style="font-size: 0.8em;">Lembrar de mim</label>
+                        </div>
                         <div id="botoes">
                             <input type="submit" class="botao" value="Entrar">
                             <a href="{{ url_for('auth.sign_up') }}" class="botao">Inscreva-se</a>

@@ -73,13 +73,18 @@ div#content{
 }
 form{
     padding: 0px 20px;
-    width: 100%
+    width: 100%;
+    transform: translate(0%, 10%);
 }
 div.campo{
     border: 2px solid rgba(0, 0, 0, 0.226);
     border-radius: 5px;
     margin: 10px 0px;
-    padding: 10px 20px;
+    padding: 5px 10px;
+}
+.checkbox *{
+    vertical-align: middle;
+    margin-right: 5px;
 }
 #botoes > .botao{
     display: block;
@@ -125,7 +130,7 @@ form label{
 }
 .campo input{
     height: 1.1em;
-    margin-top: 10px;
+    margin-top: 5px;
     border-style: none;
     display: block;
     outline: none;

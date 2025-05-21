@@ -26,6 +26,15 @@ Telas Grandes: acima de 1200px
         font-size: 1em;
         height: 100%;
     }
+    form{
+        transform: translate(0%, 0%);
+    }
+    div.campo{
+    padding: 10px 20px;
+    }
+    .campo input{
+        margin-top: 10px;
+    }
     form input{
         font-size: 1em;
     }
@@ -49,6 +58,15 @@ Telas Grandes: acima de 1200px
     div#form{
         font-size: 1.2em;
         height: 100%;
+    }
+    form{
+        transform: translate(0%, 0%);
+    }
+    div.campo{
+        padding: 10px 20px;
+    }
+    .campo input{
+        margin-top: 10px;
     }
     form input{
         font-size: 1em;

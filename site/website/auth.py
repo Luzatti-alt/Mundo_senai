@@ -1,22 +1,26 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.exceptions import BadRequestKeyError
 from . import db
 from .models import User
 
 auth = Blueprint('auth', __name__)
 
 
+# FAZER COM QUE LOGIN E SIGN-UP SEJAM INACESSIVEIS CASO O USUARIO JA ESTEJA LOGADO
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form['email']
-        senha = request.form['senha']
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        lembrar = request.form.get('lembrar') == 'on'
 
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.senha, senha):
             flash('Logado com uscesso!', category='success')
-            login_user(user, remember=True)
+            # LEMBRAR DE MIM NÃO FUNCIONANDO, CONSERTAR DEPOIS
+            login_user(user, remember=lembrar)
             return redirect(url_for('views.home'))
             
     flash('Email ou senha incorreto, tente novamente!', category='error')
@@ -32,10 +36,10 @@ def logout():
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
-        nome = request.form['nome']
-        email = request.form['email']
-        senha1 = request.form['senha1']
-        senha2 = request.form['senha2']
+        nome = request.form.get('nome')
+        email = request.form.get('email')
+        senha1 = request.form.get('senha1')
+        senha2 = request.form.get('senha2')
 
         user = User.query.filter_by(email=email).first()
         if user:
@@ -63,8 +67,7 @@ def sign_up():
             new_user = User(nome=nome, email=email, senha=generate_password_hash(senha1))
             db.session.add(new_user)
             db.session.commit()
-            login_user(new_user, remember=True)
             flash('Conta criada com sucesso!', category='success')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('auth.login'))
         
     return render_template('sign-up.html', user=current_user)
