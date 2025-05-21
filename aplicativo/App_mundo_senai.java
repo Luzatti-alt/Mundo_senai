@@ -157,140 +157,140 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
 	//menu em cima
     public void Menus(){
-	Menu = new JPanel(); // Recria o painel de menu
-    Menu.setBackground(Color.white);
-    Menu.setBounds(0, 0, 1550, 28);
-    Menu.setLayout(null); // Permite posicionamento absoluto
-    janela.add(Menu);
-    // Produtos
-    produtos = new JButton("Produtos");
-    produtos.setBounds(0, 0, 100, 28);
-    produtos.addActionListener(this);
-    Menu.add(produtos);
-    // Parceiros
-    parceiros = new JButton("Parceiros");
-    parceiros.setBounds(100, 0, 100, 28);
-    parceiros.addActionListener(this);
-    Menu.add(parceiros);
-    // Metas (Quests)
-    quests = new JButton("Metas");
-    quests.setBounds(200, 0, 100, 28);
-    quests.addActionListener(this);
-    Menu.add(quests);
-    // Sobre Nós
-    sobre_nos = new JButton("Sobre Nós");
-    sobre_nos.setBounds(300, 0, 100, 28);
-    sobre_nos.addActionListener(this);
-    Menu.add(sobre_nos);
-    // Configurações
-    configs = new JButton("Configurações");
-    configs.setBounds(400, 0, 120, 28);
-    configs.addActionListener(this);
-    Menu.add(configs);
-}
+        Menu = new JPanel(); // Recria o painel de menu
+        Menu.setBackground(Color.white);
+        Menu.setBounds(0, 0, 1550, 28);
+        Menu.setLayout(null); // Permite posicionamento absoluto
+        janela.add(Menu);
+        // Produtos
+        produtos = new JButton("Produtos");
+        produtos.setBounds(0, 0, 100, 28);
+        produtos.addActionListener(this);
+        Menu.add(produtos);
+        // Parceiros
+        parceiros = new JButton("Parceiros");
+        parceiros.setBounds(100, 0, 100, 28);
+        parceiros.addActionListener(this);
+        Menu.add(parceiros);
+        // Metas (Quests)
+        quests = new JButton("Metas");
+        quests.setBounds(200, 0, 100, 28);
+        quests.addActionListener(this);
+        Menu.add(quests);
+        // Sobre Nós
+        sobre_nos = new JButton("Sobre Nós");
+        sobre_nos.setBounds(300, 0, 100, 28);
+        sobre_nos.addActionListener(this);
+        Menu.add(sobre_nos);
+        // Configurações
+        configs = new JButton("Configurações");
+        configs.setBounds(400, 0, 120, 28);
+        configs.addActionListener(this);
+        Menu.add(configs);
+        }
 	//resetar elementos
     public void limparJanela(){
-    janela.getContentPane().removeAll();
-    janela.repaint();
-    janela.revalidate();
-}
+        janela.getContentPane().removeAll();
+        janela.repaint();
+        janela.revalidate();
+        }
 	//pagina info da conta
     public void Info_conta() {
-    janela.setTitle("Projeto Mundo Senai: Treina Aí");
-    janela.setMinimumSize(new Dimension(min_x, min_y));
-    janela.setSize(new Dimension(1000, min_y));
-    janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    janela.setLayout(null);
-	//titulo acima
-    janela.add(ops_assinatura);
-	ops_assinatura.setEditable(false);
-	ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
-	ops_assinatura.setBackground(Color.BLUE);
-	ops_assinatura.setBounds(0,26,1550,35);
-    //infos da conta
-    janela.add(conta);
-    conta.setLayout(null);
-    conta.setBounds(690,61,1000,10000);
-    conta.add(nome_txt);
-    nome_txt.setFont(new Font("arial",Font.PLAIN,30));
-    nome_txt.setEditable(false);
-    nome_txt.setBounds(10, 0, 120, 30);
+        janela.setTitle("Projeto Mundo Senai: Treina Aí");
+        janela.setMinimumSize(new Dimension(min_x, min_y));
+        janela.setSize(new Dimension(1000, min_y));
+        janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        janela.setLayout(null);
+        //titulo acima
+        janela.add(ops_assinatura);
+        ops_assinatura.setEditable(false);
+        ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
+        ops_assinatura.setBackground(Color.BLUE);
+        ops_assinatura.setBounds(0,26,1550,35);
+        //infos da conta
+        janela.add(conta);
+        conta.setLayout(null);
+        conta.setBounds(690,61,1000,10000);
+        conta.add(nome_txt);
+        nome_txt.setFont(new Font("arial",Font.PLAIN,30));
+        nome_txt.setEditable(false);
+        nome_txt.setBounds(10, 0, 120, 30);
         //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
-    conta.add(nome);
-    conta.setBounds(690,60,1000,1000);
-    nome.setBackground(new Color(122,159,125));
-    nome.setBounds(0, 30, 1000, 60);
-    conta.add(tipo_assinatura_txt);
-    tipo_assinatura_txt.setFont(new Font("arial",Font.PLAIN,30));
-    tipo_assinatura_txt.setBounds(0, 90,1000,30);
-    tipo_assinatura_txt.setEditable(false);
-    conta.add(tipo_assinatura);
-    tipo_assinatura.setBackground(new Color(122,159,125));
-    tipo_assinatura.setBounds(0, 120,1000,60);
-    conta.add(data_cria_conta_txt);
-    data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
-    data_cria_conta_txt.setBounds(0,180,1000,30);
-    data_cria_conta_txt.setEditable(false);
-    conta.add(data_cria_conta);
-    data_cria_conta.setBackground(new Color(122,159,125));
-    data_cria_conta.setBounds(0,240,1000,60);
+        conta.add(nome);
+        conta.setBounds(690,60,1000,1000);
+        nome.setBackground(new Color(122,159,125));
+        nome.setBounds(0, 30, 1000, 60);
+        conta.add(tipo_assinatura_txt);
+        tipo_assinatura_txt.setFont(new Font("arial",Font.PLAIN,30));
+        tipo_assinatura_txt.setBounds(0, 90,1000,30);
+        tipo_assinatura_txt.setEditable(false);
+        conta.add(tipo_assinatura);
+        tipo_assinatura.setBackground(new Color(122,159,125));
+        tipo_assinatura.setBounds(0, 120,1000,60);
+        conta.add(data_cria_conta_txt);
+        data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
+        data_cria_conta_txt.setBounds(0,180,1000,30);
+        data_cria_conta_txt.setEditable(false);
+        conta.add(data_cria_conta);
+        data_cria_conta.setBackground(new Color(122,159,125));
+        data_cria_conta.setBounds(0,240,1000,60);
         //info da conta -> pagamento
-    //mes e valor
+        //mes e valor
         //mesma lógica do anterior pra dps tentar adicionar em layout
-    janela.add(dados_pagamento);
-    dados_pagamento.add(mes);
-    dados_pagamento.setBackground(Color.green);
-    dados_pagamento.setLayout(null);
-    dados_pagamento.setBounds(0,60,1000,1000);
-	mes.setEditable(false);
-	mes.setFont(new Font("Arial", Font.PLAIN, 26));
-	mes.setBounds(50,100,120,50);
-	dados_pagamento.add(tres_meses);
-	tres_meses.setEditable(false);
-	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	tres_meses.setBounds(50,160,120,50);
-	dados_pagamento.add(seis_meses);
-	seis_meses.setEditable(false);
-	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	seis_meses.setBounds(50,220,120,50);
-	dados_pagamento.add(doze_meses);
-	doze_meses.setEditable(false);
-	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
-	doze_meses.setBounds(50,280,120,50);
-	dados_pagamento.add(cinquentao);
-	cinquentao.setEditable(false);
-	cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
-	cinquentao.setBounds(250,100,120,50);
-	dados_pagamento.add(cento_cinquente);
-	cento_cinquente.setEditable(false);
-	cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
-	cento_cinquente.setBounds(250,160,120,50);
-	dados_pagamento.add(trezentos);
-	trezentos.setEditable(false);
-	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
-	trezentos.setBounds(250,220,120,50);
-	dados_pagamento.add(quinhentos_quarenta);
-	quinhentos_quarenta.setEditable(false);
-	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
-	quinhentos_quarenta.setBounds(250,280,120,50);
-	//pagamento
-	dados_pagamento.add(Debito);
-	Debito.setFocusable(false);
-	Debito.setBounds(50,360,120,50);
-	dados_pagamento.add(Pix);
-	Pix.setFocusable(false);
-	Pix.setBounds(50,420,120,50);
-	dados_pagamento.add(Credito);
-	Credito.setFocusable(false);
-	Credito.setBounds(250,360,120,50);
-	dados_pagamento.add(Boleto);
-	Boleto.setFocusable(false);
-	Boleto.setBounds(250,420,120,50);
-	//outros
-    janela.getContentPane().setBackground(Color.gray);
-    janela.revalidate();
-    janela.repaint();
-    }
+        janela.add(dados_pagamento);
+        dados_pagamento.add(mes);
+        dados_pagamento.setBackground(Color.green);
+        dados_pagamento.setLayout(null);
+        dados_pagamento.setBounds(0,60,1000,1000);
+    	mes.setEditable(false);
+    	mes.setFont(new Font("Arial", Font.PLAIN, 26));
+    	mes.setBounds(50,100,120,50);
+    	dados_pagamento.add(tres_meses);
+    	tres_meses.setEditable(false);
+    	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+    	tres_meses.setBounds(50,160,120,50);
+    	dados_pagamento.add(seis_meses);
+    	seis_meses.setEditable(false);
+    	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+    	seis_meses.setBounds(50,220,120,50);
+    	dados_pagamento.add(doze_meses);
+    	doze_meses.setEditable(false);
+    	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+    	doze_meses.setBounds(50,280,120,50);
+    	dados_pagamento.add(cinquentao);
+    	cinquentao.setEditable(false);
+	    cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
+    	cinquentao.setBounds(250,100,120,50);
+	    dados_pagamento.add(cento_cinquente);
+	    cento_cinquente.setEditable(false);
+	    cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
+	    cento_cinquente.setBounds(250,160,120,50);
+    	dados_pagamento.add(trezentos);
+	    trezentos.setEditable(false);
+    	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
+	    trezentos.setBounds(250,220,120,50);
+    	dados_pagamento.add(quinhentos_quarenta);
+	    quinhentos_quarenta.setEditable(false);
+    	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
+        quinhentos_quarenta.setBounds(250,280,120,50);
+    	//pagamento
+    	dados_pagamento.add(Debito);
+    	Debito.setFocusable(false);
+    	Debito.setBounds(50,360,120,50);
+    	dados_pagamento.add(Pix);
+    	Pix.setFocusable(false);
+    	Pix.setBounds(50,420,120,50);
+    	dados_pagamento.add(Credito);
+    	Credito.setFocusable(false);
+    	Credito.setBounds(250,360,120,50);
+    	dados_pagamento.add(Boleto);
+    	Boleto.setFocusable(false);
+    	Boleto.setBounds(250,420,120,50);
+    	//outros
+        janela.getContentPane().setBackground(Color.gray);
+        janela.revalidate();
+        janela.repaint();
+        }
 	//pagina de metas
 	public void Metas(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
