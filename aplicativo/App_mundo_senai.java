@@ -66,9 +66,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel dividir_dia = new JPanel();
     JPanel dividir_semana = new JPanel();
     JPanel dividir_mes = new JPanel();
-    JButton comprovar_meta_diaria = new JButton();
-    JButton comprovar_meta_semanal = new JButton();
-    JButton comprovar_meta_mensal = new JButton();
+    JButton comprovar_meta_diaria = new JButton("Comprovar meta");
+    JButton comprovar_meta_semanal = new JButton("Comprovar meta");
+    JButton comprovar_meta_mensal = new JButton("Comprovar meta");
     //sobre nos
     JTextArea mais_sobre_nos = new JTextArea();
     JTextArea _sobre_nos = new JTextArea("mais sobre nos");
@@ -491,8 +491,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         if (e.getSource() == Logar) {
             System.out.println("Logando...");
 			limparJanela();
+            Menus();
             Info_conta();
-			Menus();
         } else if (e.getSource() == esqueceu_senha) {
             
         }else if (e.getSource() == criar_conta) {
@@ -514,7 +514,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             parceiro_page();
         }if(e.getSource()==configs){
 			//adicionar pra remover todos os outros itens
-            janela.getContentPane().setBackground(Color.gray);
             limparJanela();
 			Menus();
             janela.getContentPane().setBackground(Color.gray);
