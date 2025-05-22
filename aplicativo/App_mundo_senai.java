@@ -150,19 +150,21 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         System.out.println(altura_atual+" altura");
         System.out.println(largura_atual+" largura");
         box_login.setBounds(largura_atual/2, 100, 500, 225);
+        usuario_login.setBounds(largura_atual/2, 60, 480, 40);
+        senha_login.setBounds(largura_atual/2, 150, 480, 40);
+        criar_conta.setBounds(largura_atual/2, 450, 300, 50);  
     }
     });
 		//tela colocar info p /login
         box_login.setLayout(null);
         box_login.setBackground(Color.lightGray);
-        usuario_text.setBounds(10, 10, 480, 60);
         usuario_text.setBackground(null);
         usuario_text.setEditable(false);
         usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
         box_login.add(usuario_text);
         usuario_login.setBorder(BorderFactory.createEmptyBorder());
-        usuario_login.setBounds(10, 60, 480, 40);
         //ver como desativar as bordas ao redor do input
+        usuario_text.setBounds(largura_atual/2, 10, 480, 60);
         usuario_login.setBackground(new Color(200, 255, 206));
         box_login.add(usuario_login);
         senha_text.setBounds(10, 100, 480, 60);
@@ -170,15 +172,13 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         senha_text.setEditable(false);
         senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
         box_login.add(senha_text);
-        senha_login.setBorder(BorderFactory.createEmptyBorder());
-        senha_login.setBounds(10, 150, 480, 40); 
+        senha_login.setBorder(BorderFactory.createEmptyBorder()); 
         senha_login.setBackground(new Color(200, 255, 206));
         box_login.add(senha_login);
         janela.add(box_login);
         janela.add(criar_conta);
         criar_conta.setBackground(new Color(122,159,125));
         criar_conta.setFocusable(false);
-        criar_conta.setBounds(200, 450, 300, 50);  
         criar_conta.setText("Criar conta");
 	    //botões
 		janela.add(esqueceu_senha);
