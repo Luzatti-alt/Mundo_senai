@@ -1,3 +1,5 @@
+package aaa;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -220,19 +222,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }
 	//pagina info da conta
     public void Info_conta() {
-    	try {
-        	while(true) {
-            	Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
-            	//faz o tamanho da tela ao inves do componentes
-                int largura_atual = janela.getWidth();  
-                int altura_atual = janela.getHeight();
-                System.out.println(largura_atual);
-                System.out.println(altura_atual);
-                Thread.sleep(100);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         //definindo janela
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
@@ -384,6 +373,20 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.revalidate();
         janela.repaint();
         janela.setVisible(true);
+        try {
+        	while(true) {
+            	Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
+            	//faz o tamanho da tela ao inves do componentes
+                int largura_atual = janela.getWidth();  
+                int altura_atual = janela.getHeight();
+                System.out.println(largura_atual);
+                System.out.println(altura_atual);
+                Thread.sleep(100);
+                limparJanela();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         }
 	//pagina de metas
 	public void Metas(){
