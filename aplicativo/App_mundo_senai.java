@@ -1,12 +1,9 @@
-package aaa;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 public class App_mundo_senai extends JFrame implements ActionListener {
-    boolean ligado = true;
     JPanel tela_configs = new JPanel();
     JPanel Top_ui = new JPanel();
     // Componentes globais
@@ -15,7 +12,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     int min_x = 700;
     int min_y = 700;
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
-    int largura_atual = tamanho_tela.width;   // só a largura da tela
+    int largura_atual = tamanho_tela.width;  
     int altura_atual = tamanho_tela.height;
 	//login
 	JButton Logar = new JButton();
@@ -576,5 +573,19 @@ public class App_mundo_senai extends JFrame implements ActionListener {
          // Inicializa o aplicativo
     public static void main(String[] args) {
         new App_mundo_senai();
+        try {
+        	while(true) {
+            	Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
+            	//faz o tamanho da tela ao inves do componentes
+                int largura_atual = tamanho_tela.width;  
+                int altura_atual = tamanho_tela.height;
+                System.out.println(largura_atual);
+                System.out.println(altura_atual);
+                Thread.sleep(100);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //ccriar maneita de sempre atualizar estes valores abaixo
     }
 }
