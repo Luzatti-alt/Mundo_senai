@@ -273,8 +273,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         cont_tela.setLayout(new GridLayout(1,2));
         conta.setLayout(null);
         conta.setBounds(690,61,1000,10000);
-        sobre_nos.setSize(100, 28);
-        sobre_nos.setBounds(0,300,800,30);
+        sobre_nos.setBounds(0,300,960,30);
         sobre_nos.addActionListener(this);
         conta.add(sobre_nos);
         conta.add(nome_txt);
