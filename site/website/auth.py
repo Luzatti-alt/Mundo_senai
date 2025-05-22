@@ -8,9 +8,11 @@ from .models import User
 auth = Blueprint('auth', __name__)
 
 
-# FAZER COM QUE LOGIN E SIGN-UP SEJAM INACESSIVEIS CASO O USUARIO JA ESTEJA LOGADO
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('views.home'))
+    
     if request.method == 'POST':
         email = request.form.get('email')
         senha = request.form.get('senha')
@@ -35,6 +37,9 @@ def logout():
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
+    if current_user.is_authenticated:
+        return redirect(url_for('views.home'))
+    
     if request.method == 'POST':
         nome = request.form.get('nome')
         email = request.form.get('email')
