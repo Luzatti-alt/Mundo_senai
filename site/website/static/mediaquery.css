@@ -11,12 +11,15 @@ Telas Grandes: acima de 1200px
 
 @media screen and (min-width: 768px) and (max-width: 992px){
     section#login{
-        width: 80vw;
+        width: 90vw;
     }
     section#login > div#titulo{
         width: 30%;
         height: 100%;
         float: left;
+
+        background-image: url(images/logo/banner.png);
+        background-size: cover;
     }
     section#login > div#form{
         width: 70%;
