@@ -142,6 +142,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setSize(new Dimension(min_x, min_y));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null); 
+	    //com isso atualiza os valores/faz o resize da tela
         janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
