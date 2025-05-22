@@ -137,7 +137,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     public void login(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
-        janela.setSize(new Dimension(largura_atual, altura_atual));
+        janela.setSize(new Dimension(min_x, min_y));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null); 
 		//tela colocar info p /login
@@ -220,6 +220,19 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }
 	//pagina info da conta
     public void Info_conta() {
+    	try {
+        	while(true) {
+            	Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
+            	//faz o tamanho da tela ao inves do componentes
+                int largura_atual = janela.getWidth();  
+                int altura_atual = janela.getHeight();
+                System.out.println(largura_atual);
+                System.out.println(altura_atual);
+                Thread.sleep(100);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //definindo janela
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
@@ -581,7 +594,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
                 int altura_atual = tamanho_tela.height;
                 System.out.println(largura_atual);
                 System.out.println(altura_atual);
-                Thread.sleep(100);
+                Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
