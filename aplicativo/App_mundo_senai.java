@@ -138,7 +138,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     public void login(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
-        janela.setSize(new Dimension(1000, min_y));
+        janela.setSize(new Dimension(largura_atual, altura_atual));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null); 
 		//tela colocar info p /login
@@ -174,8 +174,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		janela.add(esqueceu_senha);
         esqueceu_senha.setBackground(new Color(122,159,125));
 		esqueceu_senha.setFocusable(false);
-		esqueceu_senha.setBounds(0,600,1350,50);
-		esqueceu_senha.setText("esqueceu minha senha");
+		esqueceu_senha.setBounds(0,600,largura_atual,50);
+		esqueceu_senha.setText("esqueceu sua senha");
 		esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
         Logar.setBackground(new Color(122,159,125));
@@ -224,7 +224,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //definindo janela
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
-        janela.setSize(new Dimension(1000, min_y));
+        janela.setSize(new Dimension(largura_atual, altura_atual));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null);
         janela.add(tela_configs);
@@ -244,26 +244,29 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         Menu.setLayout(null); // Permite posicionamento centrlizado
         janela.add(Menu);// Produtos
         produtos.setSize(100, 28);
+        produtos.setBackground(Color.WHITE);
         produtos.setLocation(largura_atual/2+100, 0);
         produtos.addActionListener(this);
         Menu.add(produtos); // Parceiros
         parceiros.setSize(100, 28);
+        parceiros.setBackground(Color.WHITE);
         parceiros.setLocation(largura_atual/2-100, 0);
         parceiros.addActionListener(this);
         Menu.add(parceiros);// Metas (Quests)
         quests.setSize(100, 28);
+        quests.setBackground(Color.WHITE);
         quests.setLocation(largura_atual/2, 0);
         quests.addActionListener(this);
         Menu.add(quests);// Configurações
         configs.setSize(100,28);
         configs.setLocation(largura_atual/2-200, 0);
-        configs.setContentAreaFilled(false);
+        configs.setBackground(Color.WHITE);
         configs.addActionListener(this);
         Menu.add(configs);//qual seção
         ops_assinatura.setEditable(false);
         ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
         ops_assinatura.setBackground(new Color(61, 153, 32));
-        ops_assinatura.setBounds(0,26,1550,35);
+        ops_assinatura.setBounds(0,24,1550,35);
         //infos da conta
         tela_configs.add(Top_ui,BorderLayout.NORTH);
         tela_configs.add(cont_tela,BorderLayout.CENTER);
@@ -374,7 +377,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	public void Metas(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
-        janela.setSize(new Dimension(1000, min_y));
+        janela.setSize(new Dimension(largura_atual, altura_atual));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.add(metas_titulo);
         metas_titulo.setEditable(false);
@@ -439,7 +442,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //arrumar o texto em cima
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
-        janela.setSize(new Dimension(1000, min_y));
+        janela.setSize(new Dimension(largura_atual, altura_atual));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //trocar o layout
         janela.setLayout(null);
