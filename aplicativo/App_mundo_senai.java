@@ -1,3 +1,5 @@
+package aaa;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -188,7 +190,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //menu do topo
         Menu = new JPanel(); // Recria o painel de menu
         Menu.setBackground(Color.white);
-        Menu.setBounds(0, 0, 1500, 28);
+        Menu.setBounds(largura_atual, altura_atual/30, 1500, 28);
         Menu.setLayout(new FlowLayout()); // Permite posicionamento absoluto
         janela.add(Menu);
         // Produtos
@@ -375,7 +377,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	public void Metas(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
-        janela.setSize(new Dimension(largura_atual, altura_atual));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.add(metas_titulo);
         metas_titulo.setEditable(false);
@@ -440,7 +441,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //arrumar o texto em cima
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
-        janela.setSize(new Dimension(largura_atual, altura_atual));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //trocar o layout
         janela.setLayout(null);
@@ -529,10 +529,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 			Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
-            System.out.println("largura"+largura_atual);
-            System.out.println("altura"+altura_atual);
+            System.out.println("largura: "+largura_atual);
+            System.out.println("altura: "+altura_atual);
             Info_conta();
-            janela.setSize(largura_atual,altura_atual);
         } else if (e.getSource() == esqueceu_senha) {
             
         }else if (e.getSource() == criar_conta) {
