@@ -12,8 +12,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     int min_x = 700;
     int min_y = 700;
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
-    int largura_atual = tamanho_tela.width;  
-    int altura_atual = tamanho_tela.height;
+    int largura = tamanho_tela.width;  
+    int altura = tamanho_tela.height;
+    int largura_atual = janela.getWidth();  
+    int altura_atual = janela.getHeight();
 	//login
 	JButton Logar = new JButton();
 	JButton esqueceu_senha = new JButton();
@@ -140,9 +142,18 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setSize(new Dimension(min_x, min_y));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null); 
+        janela.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = janela.getWidth();
+        int altura_atual = janela.getHeight();
+        System.out.println(altura_atual+" altura");
+        System.out.println(largura_atual+" largura");
+        box_login.setBounds(largura_atual/2, 100, 500, 225);
+    }
+    });
 		//tela colocar info p /login
         box_login.setLayout(null);
-        box_login.setBounds(100, 100, 500, 225);
         box_login.setBackground(Color.lightGray);
         usuario_text.setBounds(10, 10, 480, 60);
         usuario_text.setBackground(null);
@@ -229,8 +240,16 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         System.out.println(tamanho_tela);
         tela_configs.setSize(tamanho_tela);
         tela_configs.setLayout(new BorderLayout());
+        janela.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = janela.getWidth();
+        int altura_atual = janela.getHeight();
+    }
+    });
         //Ui no topo
         janela.add(Top_ui);
+        Top_ui.setSize(largura_atual,altura_atual/40);
         Top_ui.setLayout(new GridLayout(2,1));
         Top_ui.add(Menu);
         Top_ui.add(ops_assinatura);
@@ -273,7 +292,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         cont_tela.add(conta);
         cont_tela.setLayout(new GridLayout(1,2));
         conta.setLayout(null);
-        conta.setBounds(690,61,1000,10000);
+        conta.setBounds(largura_atual,61,1000,10000);
         sobre_nos.setBounds(0,300,960,30);
         sobre_nos.addActionListener(this);
         conta.add(sobre_nos);
@@ -575,19 +594,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
          // Inicializa o aplicativo
     public static void main(String[] args) {
         new App_mundo_senai();
-        try {
-        	while(true) {
-            	Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
-            	//faz o tamanho da tela ao inves do componentes
-                int largura_atual = tamanho_tela.width;  
-                int altura_atual = tamanho_tela.height;
-                System.out.println(largura_atual);
-                System.out.println(altura_atual);
-                Thread.sleep(1000);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         //ccriar maneita de sempre atualizar estes valores abaixo
     }
 }
