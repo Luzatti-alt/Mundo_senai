@@ -46,7 +46,9 @@ section#login{
     transition-timing-function: ease;
 }
 section#login > div#titulo{
-    background-color: rgb(137, 137, 255);
+    background-color: rgb(141, 255, 137);
+    background: url(../static/images/logo/logo5.png) no-repeat center center;
+    background-size: cover;
     height: 200px;
     
     justify-content: center;
@@ -101,26 +103,29 @@ div.campo{
     border: none;
     border-radius: 5px;
 
-    background-color: rgb(137, 137, 255);
+    background-color: #68df68;
     color: white;
 
     cursor: pointer;
 }
 #botoes > input[type=submit]:hover{
-    background-color: rgb(106, 106, 201);
+    background-color: #3e9c3e;
+    color: white;
 }
 #botoes > a.botao{
     text-align: center;
 
     padding: 10px;
-    border: 2px solid rgb(137, 137, 255);
+    border: 2px solid #68df68;
     border-radius: 5px;
 
     background-color: white;
-    color: rgb(137, 137, 255);
+    color: #68df68;
 }
-form > a.botao:hover{
-    background-color: rgb(222, 222, 247);
+#botoes > a.botao:hover{
+
+    background-color: #68df68;
+    color: white;
 }
 form input{
     font-size: 0.8em;
