@@ -1,3 +1,5 @@
+package aaa;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -244,11 +246,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         Menu.setLayout(null); // Permite posicionamento centrlizado
         janela.add(Menu);// Produtos
         produtos.setSize(100, 28);
-        produtos.setLocation(largura_atual-600, 0);
+        produtos.setLocation(largura_atual/2+100, 0);
         produtos.addActionListener(this);
         Menu.add(produtos); // Parceiros
         parceiros.setSize(100, 28);
-        parceiros.setLocation(largura_atual-500, 0);
+        parceiros.setLocation(largura_atual/2-100, 0);
         parceiros.addActionListener(this);
         Menu.add(parceiros);// Metas (Quests)
         quests.setSize(100, 28);
@@ -256,7 +258,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         quests.addActionListener(this);
         Menu.add(quests);// Configurações
         configs.setSize(100,28);
-        configs.setLocation(largura_atual-100, 0);
+        configs.setLocation(largura_atual/2-200, 0);
         configs.setContentAreaFilled(false);
         configs.addActionListener(this);
         Menu.add(configs);//qual seção
@@ -569,10 +571,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             //
         }
     }
-
          // Inicializa o aplicativo
-
-         public static void main(String[] args) {
+    public static void main(String[] args) {
         new App_mundo_senai();
     }
 }
