@@ -155,6 +155,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
         Logar.setBounds((largura_atual/2)-150, 350, 300, 50);  
         esqueceu_senha.setBounds(0, 600,largura_atual,50);
+        janela.repaint();
+        janela.revalidate();
     }
     });
 		//tela colocar info p /login
