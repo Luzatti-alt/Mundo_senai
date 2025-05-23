@@ -549,6 +549,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             System.out.println("largura: "+largura_atual);
             System.out.println("altura: "+altura_atual);
             Info_conta();
+            Menus();
         } else if (e.getSource() == esqueceu_senha) {
             
         }else if (e.getSource() == criar_conta) {
