@@ -142,7 +142,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setSize(new Dimension(min_x, min_y));
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null); 
-	    //com isso atualiza os valores/faz o resize da tela
         janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
@@ -150,10 +149,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         int altura_atual = janela.getHeight();
         System.out.println(altura_atual+" altura");
         System.out.println(largura_atual+" largura");
-        box_login.setBounds(largura_atual/2, 100, 500, 225);
-        usuario_login.setBounds(largura_atual/2, 60, 480, 40);
-        senha_login.setBounds(largura_atual/2, 150, 480, 40);
-        criar_conta.setBounds(largura_atual/2, 450, 300, 50);  
+        box_login.setBounds((largura_atual/2)-250, 100, 500, 225);
+        usuario_login.setBounds(10, 60, 480, 40);
+        senha_login.setBounds(10, 150, 480, 40);  
+        criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
+        Logar.setBounds((largura_atual/2)-150, 350, 300, 50);  
+        esqueceu_senha.setBounds(0, 600,largura_atual,50);
     }
     });
 		//tela colocar info p /login
@@ -168,7 +169,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         usuario_text.setBounds(largura_atual/2, 10, 480, 60);
         usuario_login.setBackground(new Color(200, 255, 206));
         box_login.add(usuario_login);
-        senha_text.setBounds(10, 100, 480, 60);
+        senha_text.setBounds(0, 100, 480, 60);
         senha_text.setBackground(null);
         senha_text.setEditable(false);
         senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
@@ -185,12 +186,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		janela.add(esqueceu_senha);
         esqueceu_senha.setBackground(new Color(122,159,125));
 		esqueceu_senha.setFocusable(false);
-		esqueceu_senha.setBounds(0,600,largura_atual,50);
 		esqueceu_senha.setText("esqueceu sua senha");
 		esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
         Logar.setBackground(new Color(122,159,125));
-        Logar.setBounds(200, 350, 300, 50);  
         Logar.addActionListener(this);
         janela.add(Logar);
         janela.setVisible(true);
