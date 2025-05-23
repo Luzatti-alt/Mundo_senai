@@ -12,8 +12,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     int min_x = 700;
     int min_y = 700;
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
-    int largura = tamanho_tela.width;  
-    int altura = tamanho_tela.height;
     int largura_atual = janela.getWidth();  
     int altura_atual = janela.getHeight();
 	//login
@@ -241,6 +239,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	//pagina info da conta
     public void Info_conta() {
         //definindo janela
+        Menu = new JPanel(); // Recria o painel de menu
         janela.add(Menu);
         janela.add(ops_assinatura);
         janela.add(cont_tela);
@@ -250,6 +249,25 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(tela_configs);
         System.out.println(tamanho_tela);
         tela_configs.setSize(tamanho_tela);
+        Menu.setBackground(Color.white);
+        Menu.setLayout(null); // Permite posicionamento absoluto
+        // Produtos
+        produtos = new JButton("Produtos");
+        produtos.addActionListener(this);
+        Menu.add(produtos);
+        // Parceiros
+        parceiros = new JButton("Parceiros");
+        parceiros.addActionListener(this);
+        Menu.add(parceiros);
+        // Metas (Quests)
+        quests = new JButton("Metas");
+        quests.addActionListener(this);
+        Menu.add(quests);
+        // Configurações
+        configs = new JButton("Configurações");
+        configs.addActionListener(this);
+        Menu.add(configs);
+        //
         tela_configs.setLayout(new BorderLayout());
         janela.addComponentListener(new ComponentAdapter() {
         @Override
@@ -259,19 +277,21 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         tela_configs.setBounds(0, 0, largura_atual, 28);
         ops_assinatura.setBounds(0,24,largura_atual,35);
         cont_tela.setBounds(0, 60, largura_atual, altura_atual-60);
-        Menus();
+        Menu.setBounds(largura_atual, 0, largura_atual, 28);
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
+        parceiros.setBounds((largura_atual/2)-100, 0, 100, 28);
+        quests.setBounds((largura_atual/2), 0, 100, 28);
+        configs.setBounds((largura_atual/2)+100, 0, 120, 28);
     }
     });
-        //Ui no topo
         //Menu titulo acima
         //menu do topo
-        Menu = new JPanel(); // Recria o painel de menu
         ops_assinatura.setEditable(false);
         ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
         ops_assinatura.setBackground(new Color(61, 153, 32));
         //infos da conta
-        cont_tela.setBackground(Color.blue);
         cont_tela.add(conta);
+        cont_tela.add(dados_pagamento);
         cont_tela.setLayout(new GridLayout(1,2));
         conta.setLayout(null);
         conta.setBounds(largura_atual,61,1000,10000);
@@ -305,7 +325,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         data_cria_conta.setBackground(new Color(122,159,125));
         data_cria_conta.setBounds(0,200,1000,60);
         //mes e valor
-        cont_tela.add(dados_pagamento);
         dados_pagamento.add(mes);
         dados_pagamento.setBackground(Color.lightGray);
         dados_pagamento.setLayout(null);
@@ -380,7 +399,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(metas_titulo);
         metas_titulo.setEditable(false);
         metas_titulo.setBackground(new Color(61, 153, 32));
-        metas_titulo.setBounds(0, 26, 1550, 35);
+        metas_titulo.setBounds(0, 26, largura_atual, 35);
         metas_titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         janela.add(Sistema_metas);
         Sistema_metas.setBackground(Color.white);
