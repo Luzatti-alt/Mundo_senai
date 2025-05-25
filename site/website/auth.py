@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.exceptions import BadRequestKeyError
@@ -23,9 +23,9 @@ def login():
             flash('Logado com uscesso!', category='success')
             # LEMBRAR DE MIM NÃO FUNCIONANDO, CONSERTAR DEPOIS
             login_user(user, remember=lembrar)
-            return redirect(url_for('views.home'))
-            
-    flash('Email ou senha incorreto, tente novamente!', category='error')
+            return redirect(url_for('views.home'))  
+        flash('Email ou senha incorreto, tente novamente!', category='error')
+    
     return render_template('login.html', user=current_user)
 
 

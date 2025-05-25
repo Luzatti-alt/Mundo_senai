@@ -18,7 +18,7 @@ Telas Grandes: acima de 1200px
         height: 100%;
         float: left;
 
-        background-image: url(images/logo/banner.png);
+        background-image: url(../images/logo/banner.png);
         background-size: cover;
     }
     section#login > div#form{
