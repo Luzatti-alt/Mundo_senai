@@ -4,17 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Quando dar pull deixa o de baixo comentado!!! -->
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}"> 
-    <link rel="stylesheet" href="{{ url_for('static', filename='mediaquery.css') }}">  -->
-    <link rel="stylesheet" href="../static/login.css"> 
-    <link rel="stylesheet" href="../static/mediaquery.css"> 
-    <title>Login | Treina aí</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/mediaquery.css') }}">  -->
+    <link rel="stylesheet" href="../static/styles/login.css"> 
+    <link rel="stylesheet" href="../static/styles/mediaquery.css">
+    <link rel="shortcut icon" href="../static/images/favicon/favicon-dumbbell.ico" type="image/x-icon">
+    <title>Entrar | Treina aí</title>
 </head>
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == "error" %}
+                <div class="mensagem erro">
+                    {{ message }}
+                    <button type="button" class="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% else %}
+                <div class="mensagem sucesso">
+                    {{ message }}
+                    <button type="button" class="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
     <main>
         <section id="login">
             <div id="titulo">
-                <h1>Login</h1>
             </div>
             <div id="form">
                 <div id="content">
@@ -27,6 +48,10 @@
                             <label for="isenha">Senha:</label>
                             <input name="senha" type="password" id="isenha"  placeholder="Senha" autocomplete="current-password" required minlength="8" required maxlength="50">
                         </div>
+                        <div class="checkbox">
+                            <input name="lembrar" type="checkbox" id="icheck">
+                            <label for="icheck" style="font-size: 0.8em;">Lembrar de mim</label>
+                        </div>
                         <div id="botoes">
                             <input type="submit" class="botao" value="Entrar">
                             <a href="{{ url_for('auth.sign_up') }}" class="botao">Inscreva-se</a>
@@ -36,5 +61,7 @@
             </div>
         </section>
     </main>
+
+    <script src="../static/scripts/script.js"></script>
 </body>
 </html>
