@@ -544,11 +544,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         if (e.getSource() == Logar) {
             System.out.println("Logando...");
 			limparJanela();
-			Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
-            System.out.println("largura: "+largura_atual);
-            System.out.println("altura: "+altura_atual);
             Info_conta();
             janela.setSize(largura_atual+1,altura_atual);
             tela_configs.setBounds(0, 0, largura_atual+1, 28);
@@ -582,11 +579,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             limparJanela();
         } else if (e.getSource() == quests) {
 			limparJanela();
-            Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
-            System.out.println("largura: "+largura_atual);
-            System.out.println("altura: "+altura_atual);
             Metas();
             janela.setSize(largura_atual+1,altura_atual);
             Sistema_metas.setBounds(0, 28, largura_atual+1, 28);
@@ -600,11 +594,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         } else if (e.getSource() == parceiros) {
             limparJanela();
             janela.remove(metas_titulo);
-            Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
-            System.out.println("largura: "+largura_atual);
-            System.out.println("altura: "+altura_atual);
             parceiro_page();
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
@@ -614,11 +605,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }if(e.getSource()==configs){
 			//adicionar pra remover todos os outros itens
             limparJanela();
-            Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
-            System.out.println("largura: "+largura_atual);
-            System.out.println("altura: "+altura_atual);
 			Info_conta();
             janela.setSize(largura_atual+1,altura_atual);
             tela_configs.setBounds(0, 0, largura_atual+1, 28);
@@ -650,6 +638,5 @@ public class App_mundo_senai extends JFrame implements ActionListener {
          // Inicializa o aplicativo
     public static void main(String[] args) {
         new App_mundo_senai();
-        //ccriar maneita de sempre atualizar estes valores abaixo
     }
 }
