@@ -200,12 +200,16 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
-        int altura_atual = janela.getHeight();
+        Menu.setBounds(largura_atual, 0, largura_atual+1, 28);
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
+        parceiros.setBounds((largura_atual/2)-100, 0, 100, 28);
+        quests.setBounds((largura_atual/2), 0, 100, 28);
+        configs.setBounds((largura_atual/2)+100, 0, 120, 28);
     }
     }); 
         //menu do topo
         Menu = new JPanel(); // Recria o painel de menu
-        Menu.setBackground(Color.white);
+        Menu.setBackground(Color.blue);
         Menu.setBounds(largura_atual, 0, largura_atual, 28);
         Menu.setLayout(new FlowLayout()); // Permite posicionamento absoluto
         // Produtos
@@ -248,24 +252,22 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(tela_configs);
         System.out.println(tamanho_tela);
         tela_configs.setSize(tamanho_tela);
-        Menu.setBackground(Color.white);
-        Menu.setLayout(null); // Permite posicionamento absoluto
         // Produtos
         produtos = new JButton("Produtos");
         produtos.addActionListener(this);
-        Menu.add(produtos);
+        tela_configs.add(produtos);
         // Parceiros
         parceiros = new JButton("Parceiros");
         parceiros.addActionListener(this);
-        Menu.add(parceiros);
+        tela_configs.add(parceiros);
         // Metas (Quests)
         quests = new JButton("Metas");
         quests.addActionListener(this);
-        Menu.add(quests);
+        tela_configs.add(quests);
         // Configurações
         configs = new JButton("Configurações");
         configs.addActionListener(this);
-        Menu.add(configs);
+        tela_configs.add(configs);
         //
         tela_configs.setLayout(new BorderLayout());
         cont_tela.add(conta);
@@ -276,12 +278,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
+
         tela_configs.setBounds(0, 0, largura_atual, 28);
-        ops_assinatura.setBounds(0,24,largura_atual,35);
-        cont_tela.setBounds(0, 60, largura_atual, altura_atual-60);
-        Menu.setBounds(largura_atual, 0, largura_atual, 28);
+        ops_assinatura.setBounds(0,29,largura_atual,35);
+        cont_tela.setBounds(0, 64, largura_atual, altura_atual-64);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
-        parceiros.setBounds((largura_atual/2)-100, 0, 100, 28);
+        parceiros.setBounds((largura_atual/2)-200, 0, 100, 28);
         quests.setBounds((largura_atual/2), 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 120, 28);
     }
@@ -548,13 +550,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             int altura_atual = janela.getHeight();
             System.out.println("largura: "+largura_atual);
             System.out.println("altura: "+altura_atual);
-            Menus();
             Info_conta();
             janela.setSize(largura_atual+1,altura_atual);
             tela_configs.setBounds(0, 0, largura_atual+1, 28);
             ops_assinatura.setBounds(0,24,largura_atual+1,35);
             cont_tela.setBounds(0, 60, largura_atual+1, altura_atual-60);
-            Menu.setBounds(0, 0, largura_atual+1, 28);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             parceiros.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
