@@ -2,7 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
-import javax.swing.border.*;
 public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel tela_configs = new JPanel();
     JPanel Top_ui = new JPanel();
@@ -269,6 +268,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         Menu.add(configs);
         //
         tela_configs.setLayout(new BorderLayout());
+        cont_tela.add(conta);
+        cont_tela.add(dados_pagamento);
+        cont_tela.setLayout(new GridLayout(1,2));
         janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
@@ -290,9 +292,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         ops_assinatura.setFont(new Font("Arial", Font.PLAIN, 30));
         ops_assinatura.setBackground(new Color(61, 153, 32));
         //infos da conta
-        cont_tela.add(conta);
-        cont_tela.add(dados_pagamento);
-        cont_tela.setLayout(new GridLayout(1,2));
         conta.setLayout(null);
         conta.setBounds(largura_atual,61,1000,10000);
         sobre_nos.setBounds(0,300,largura_atual/2,30);
@@ -551,6 +550,15 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             System.out.println("altura: "+altura_atual);
             Menus();
             Info_conta();
+            janela.setSize(largura_atual+1,altura_atual);
+            tela_configs.setBounds(0, 0, largura_atual+1, 28);
+            ops_assinatura.setBounds(0,24,largura_atual+1,35);
+            cont_tela.setBounds(0, 60, largura_atual+1, altura_atual-60);
+            Menu.setBounds(0, 0, largura_atual+1, 28);
+            produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
+            parceiros.setBounds((largura_atual/2)-100, 0, 100+1, 28);
+            quests.setBounds((largura_atual/2), 0, 100+1, 28);
+            configs.setBounds((largura_atual/2)+100, 0, 120+1, 28);
             janela.repaint();
             janela.revalidate();
         } else if (e.getSource() == esqueceu_senha) {
