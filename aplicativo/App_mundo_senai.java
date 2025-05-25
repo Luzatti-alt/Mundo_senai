@@ -539,6 +539,15 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     public void loja(){
         //
     } // Para o botão funcionar
+    public void carrinho(){
+        //
+    }
+    public void comprove(){
+        //
+    }
+    public void descricao(){
+        //
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == Logar) {
