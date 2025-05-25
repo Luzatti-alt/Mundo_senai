@@ -431,9 +431,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
-        parceiros.setBounds((largura_atual/2)-200, 0, 100, 28);
-        quests.setBounds((largura_atual/2), 0, 100, 28);
+        parceiros.setBounds((largura_atual/2), 0, 100, 28);
+        quests.setBounds((largura_atual/2)-200, 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
+        _sobre_nos.setBounds(0,26,largura_atual,35);
+        about.setBounds(0,57,largura_atual,1460);
     }
     });
     janela.add(produtos);
@@ -443,7 +445,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         //trocar o layout
         janela.setLayout(null);
         janela.add(_sobre_nos);
-        _sobre_nos.setBounds(0,26,1550,35);
         janela.add(_sobre_nos);
         _sobre_nos.setEditable(false);
         _sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
@@ -451,7 +452,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(about);
         about.setEditable(false);
         about.setBackground(new Color(200, 255, 206));
-        about.setBounds(0,57,1550,1460);
         _sobre_nos.setBackground(new Color(61, 153, 32));
         mais_sobre_nos.setEditable(false);
         mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
@@ -566,6 +566,18 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         } else if (e.getSource() == sobre_nos) {
             limparJanela();
             sobre();
+            int largura_atual = janela.getWidth();  
+            int altura_atual = janela.getHeight();
+            System.out.println("largura: "+largura_atual);
+            System.out.println("altura: "+altura_atual);
+            Metas();
+            janela.setSize(largura_atual+1,altura_atual);
+            quests.setBounds((largura_atual/2)-200, 0, 100+1, 28);
+            produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
+            parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
+            configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
+            janela.repaint();
+            janela.revalidate();
         } else if (e.getSource() == produtos) {
             limparJanela();
         } else if (e.getSource() == quests) {
