@@ -242,9 +242,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         ops_assinatura.setBounds(0,29,largura_atual,35);
         cont_tela.setBounds(0, 64, largura_atual, altura_atual-64);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
-        parceiros.setBounds((largura_atual/2)-200, 0, 100, 28);
+        parceiros.setBounds((largura_atual/2)+100, 0, 100, 28);
         quests.setBounds((largura_atual/2), 0, 100, 28);
-        configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         sobre_nos.setBounds(0,300,largura_atual/2,30);
     }
     });
@@ -359,8 +358,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
         produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
-        parceiros.setBounds((largura_atual/2)-200, 0, 100, 28);
-        quests.setBounds((largura_atual/2), 0, 100, 28);
+        parceiros.setBounds((largura_atual/2), 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         metas_titulo.setBounds(0, 26, largura_atual, 35);
         Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
@@ -368,7 +366,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }); 
         janela.add(produtos);
         janela.add(parceiros);
-        janela.add(quests);
         janela.add(configs);
         janela.add(metas_titulo);
         metas_titulo.setEditable(false);
@@ -462,7 +459,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         about.setFont(new Font("arial",Font.PLAIN,26));
     }
     //pagina parceiro
-    public void parceiro_page(){janela.addComponentListener(new ComponentAdapter() {
+    public void parceiro_page(){
+        janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
@@ -557,9 +555,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             ops_assinatura.setBounds(0,24,largura_atual+1,35);
             cont_tela.setBounds(0, 60, largura_atual+1, altura_atual-60);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
-            parceiros.setBounds((largura_atual/2)-200, 0, 100+1, 28);
+            parceiros.setBounds((largura_atual/2)+100, 0, 100+1, 28);
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
-            configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
             janela.repaint();
             janela.revalidate();
         } else if (e.getSource() == esqueceu_senha) {
@@ -582,8 +579,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             janela.setSize(largura_atual+1,altura_atual);
             Sistema_metas.setBounds(0, 28, largura_atual+1, 28);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
-            parceiros.setBounds((largura_atual/2)-200, 0, 100+1, 28);
-            quests.setBounds((largura_atual/2), 0, 100+1, 28);
+            parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
             metas_titulo.setBounds(0, 26, largura_atual+1, 35);
             Sistema_metas.setBounds(0,60,largura_atual+1,altura_atual-63);
@@ -599,7 +595,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             System.out.println("altura: "+altura_atual);
             parceiro_page();
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
-            parceiros.setBounds((largura_atual/2)-200, 0, 100+1, 28);
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
             instituicoes.setBounds(0,26,largura_atual+1,35);
