@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/homemobile.css') }}"> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/homemobile.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon/favicon-dumbbell.ico') }}" type="image/x-icon"> -->
     <link rel="stylesheet" href="../static/styles/homemobile.css">
+    <link rel="shortcut icon" href="../static/images/favicon/favicon-dumbbell.ico" type="image/x-icon">
     <title>Dashboard</title>
 </head>
 <body>
     <header>
         <nav>
-            <a href="">Entre</a>
-            <a href="">Inscreva-se</a>
+            <a href="#">Placeholder1</a>
+            <a href="#">Placeholder2</a>
+            <a href="#">Placeholder3</a>
         </nav>
     </header>
     <main>
+        <h1>Bem-vindo, {{ user.nome }}!</h1>
         <section id="tarefas">
 
         </section>
