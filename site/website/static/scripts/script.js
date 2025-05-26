@@ -1,4 +1,3 @@
-// FAZER FUNCIONAR POSTERIORNETE
 const botoesFechar = document.querySelectorAll('.close');
 
 botoesFechar.forEach(function(botao) {
