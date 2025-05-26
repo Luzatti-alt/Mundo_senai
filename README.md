@@ -5,4 +5,4 @@ App prótotipo, falta página da loja, comprovante, carrinho, descrição do pro
 
 Adecionar o scroll dentro do app, otimizar algumas partes se possível e mexer no layout.
 
-A função resize funciona nas áreas que já estão completas.
+A função resize funciona nas áreas que já estão completas no app.
