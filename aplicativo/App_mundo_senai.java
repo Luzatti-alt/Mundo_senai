@@ -120,6 +120,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel item = new JPanel();
     JPanel desc = new JPanel();
     JButton dinheiro = new JButton("Comprar");
+    JTextArea desc_txt = new JTextArea("Descrição do produto");
     JButton volte = new JButton("voltar");
     //temporario
     JButton temp = new JButton();
@@ -632,8 +633,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
-        item.setBounds(50,30,largura_atual/2-50,altura_atual/2);
-        desc.setBounds(largura_atual/2+50,30,largura_atual/2-100,altura_atual/2);
+        item.setBounds(50,50,largura_atual/2-50,altura_atual/2);
+        desc.setBounds(largura_atual/2+50,50,largura_atual/2-100,altura_atual/2);
+        desc_txt.setBounds(0,0,largura_atual,30);
         dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
         volte.setBounds(0,altura_atual-100,largura_atual,60);
     }
@@ -643,6 +645,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(desc);
         desc.setBackground(Color.gray);
         janela.add(dinheiro);
+        janela.add(desc_txt);
+        desc_txt.setBackground(Color.green);
+        desc_txt.setFont(new Font("Arial", Font.PLAIN, 30));
+        desc_txt.setEditable(false);
         janela.add(volte);
     }
     @Override
@@ -767,8 +773,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             descricao();
             int largura_atual = janela.getWidth();
             int altura_atual = janela.getHeight();
-            item.setBounds(50,30,largura_atual/2-50,altura_atual/2);
-            desc.setBounds(largura_atual/2+50,30,largura_atual/2-100,altura_atual/2);
+            item.setBounds(50,50,largura_atual/2-50,altura_atual/2);
+            desc.setBounds(largura_atual/2+50,50,largura_atual/2-100,altura_atual/2);
+            desc_txt.setBounds(0,0,largura_atual,30);
             dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
             volte.setBounds(0,altura_atual-100,largura_atual,60);
             janela.repaint();
