@@ -104,6 +104,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JButton Carrinho_bot = new JButton("carrinho");
     JTextField pesquisa = new JTextField("pesquise aqui o seu produto");
     JTextArea pontuacao = new JTextArea("Pontos");
+    JTextArea produtos_venda = new JTextArea("Produtos a venda");
     //criar conta
     JButton criar_nova_conta_botao = new JButton("Criar conta");
     JPanel conta_criando = new JPanel();
@@ -596,9 +597,13 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         pesquisa.setBounds(0,60,largura_atual,30);
         pontuacao.setBounds(0,30,largura_atual/2,30);
         Carrinho_bot.setBounds(largura_atual/2,30,largura_atual/2,30);
+        produtos_venda.setBounds(0,0,largura_atual,30);
     }
     });
         janela.add(Carrinho_bot);
+        janela.add(produtos_venda);
+        produtos_venda.setEditable(false);
+        produtos_venda.setBackground(Color.green);
         Carrinho_bot.addActionListener(this);
         janela.add(pesquisa);
         janela.add(pontuacao);
@@ -640,7 +645,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
             conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
             Criar_nova_conta();
-            
         } else if (e.getSource() == sobre_nos) {
             limparJanela();
             sobre();
@@ -665,6 +669,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
             pesquisa.setBounds(0,30,(largura_atual)+1,30);
+            produtos_venda.setBounds(0,0,largura_atual+1,30);
             pontuacao.setBounds(0,60,(largura_atual/2)+1,30);
             Carrinho_bot.setBounds(largura_atual/2,60,(largura_atual/2)+1,30);
             janela.repaint();
@@ -724,6 +729,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             //
         }if(e.getSource()==comprovar_meta_mensal){
             //
+        }if(e.getSource()==Carrinho_bot){
+            limparJanela();
+            carrinho();
         }
     }
          // Inicializa o aplicativo
