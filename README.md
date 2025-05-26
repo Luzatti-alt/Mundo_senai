@@ -1,7 +1,8 @@
 # Mundo_senai
-frontend & backend no mesmo diretorio
+Front-enD & Back-enD no mesmo diretório.
 
-app prótotipo falta pagina da falta loja,comprovante,carrinho,descrição produto, as funcionalidades sem ser botões, colocar algumas academias ao invez dos texto temporario,as imagens nos botoes
-tenho que ver o scroll do app,optimizar algumas partes se posssivel e ver sobre layout
+App prótotipo, falta página da loja, comprovante, carrinho, descrição do produto, as funcionalidades fora os botões, colocar algumas academias no lugar dos placeholders, e colocar imagens nos botões.
 
-resize funciona nas áreas que já estão completas
+Adecionar o scroll dentro do app, otimizar algumas partes se possível e mexer no layout.
+
+A função resize funciona nas áreas que já estão completas.
