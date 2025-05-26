@@ -101,6 +101,17 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JTextArea nome_e_dist_aca_5 = new JTextArea("academia 5");
     JTextArea endereco_aca_5 = new JTextArea("endereço rua 5 , num");
     //loja
+    //criar conta
+    JButton criar_nova_conta_botao = new JButton("Criar conta");
+    JPanel conta_criando = new JPanel();
+    JTextArea nome_conta = new JTextArea("digite seu nome: ");
+    JTextField entrar_nome = new JTextField();
+    JTextArea email = new JTextArea("digite seu email:");
+    JTextField entrar_email = new JTextField();
+    JTextArea senha_criar = new JTextArea("digite sua senha:");
+    JTextField entrar_senha_criando = new JTextField();
+    JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
+    JTextField entrar_confirma_senha = new JTextField();
     public App_mundo_senai(){
         if (info.exists()) {
             System.out.println("Arquivo existente");
@@ -188,6 +199,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		esqueceu_senha.setText("esqueceu sua senha");
 		esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
+        criar_conta.addActionListener(this);
         Logar.setBackground(new Color(122,159,125));
         Logar.addActionListener(this);
         janela.add(Logar);
@@ -535,6 +547,38 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         endereco_aca_5.setEditable(false);
         endereco_aca_5.setFont(new Font("arial",Font.PLAIN,30));
     }
+    public void Criar_nova_conta(){
+        janela.add(criar_nova_conta_botao);
+        janela.add(conta_criando);
+        conta_criando.setBackground(Color.lightGray);
+        janela.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = janela.getWidth();
+        int altura_atual = janela.getHeight();
+        criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+        conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
+    }
+    });
+    conta_criando.setLayout(new GridLayout(8,1));//nome email senha confirma_senha
+    conta_criando.add(nome_conta);
+    nome_conta.setEditable(false);
+    conta_criando.add(entrar_nome);
+    nome_conta.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(email);
+    email.setEditable(false);
+    email.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_email);
+    conta_criando.add(senha_criar);
+    senha_criar.setEditable(false);
+    senha_criar.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_senha_criando);
+    conta_criando.add(confirmar_senha);
+    confirmar_senha.setEditable(false);
+    confirmar_senha.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_confirma_senha);
+    criar_nova_conta_botao.setBackground(Color.green);
+    }
     //pagina loja
     public void loja(){
         //
@@ -565,10 +609,17 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
             janela.repaint();
             janela.revalidate();
-        } else if (e.getSource() == esqueceu_senha) {
-            
+        } else if (e.getSource() == esqueceu_senha) {//
         }else if (e.getSource() == criar_conta) {
-            //
+            limparJanela();
+            int largura_atual = janela.getWidth();  
+            int altura_atual = janela.getHeight();
+            System.out.println("largura: "+largura_atual);
+            System.out.println("altura: "+altura_atual);
+            criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+            conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
+            Criar_nova_conta();
+            
         } else if (e.getSource() == sobre_nos) {
             limparJanela();
             sobre();
@@ -588,7 +639,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             limparJanela();
         } else if (e.getSource() == quests) {
 			limparJanela();
-            int largura_atual = janela.getWidth();  
+            int largura_atual = janela.getWidth(); 
             int altura_atual = janela.getHeight();
             Metas();
             janela.setSize(largura_atual+1,altura_atual);
@@ -604,7 +655,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             limparJanela();
             janela.remove(metas_titulo);
             int largura_atual = janela.getWidth();  
-            int altura_atual = janela.getHeight();
             parceiro_page();
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
