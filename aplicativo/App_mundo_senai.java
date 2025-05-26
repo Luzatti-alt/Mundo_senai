@@ -122,6 +122,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JButton dinheiro = new JButton("Comprar");
     JTextArea desc_txt = new JTextArea("Descrição do produto");
     JButton volte = new JButton("voltar");
+    //comprovar
     //temporario
     JButton temp = new JButton();
     public App_mundo_senai(){
@@ -760,11 +761,14 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 		}if (e.getSource() == Boleto) {
 			//
 		}if(e.getSource()==comprovar_meta_diaria){
-            //
+            limparJanela();
+            comprove();
         }if(e.getSource()==comprovar_meta_semanal){
-            //
+            limparJanela();
+            comprove();
         }if(e.getSource()==comprovar_meta_mensal){
-            //
+            limparJanela();
+            comprove();
         }if(e.getSource()==Carrinho_bot){
             limparJanela();
             carrinho();
