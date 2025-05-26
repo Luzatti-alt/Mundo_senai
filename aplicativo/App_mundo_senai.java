@@ -119,8 +119,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     //descrição
     JPanel item = new JPanel();
     JPanel desc = new JPanel();
-    JButton dinheiro = new JButton();
-    JButton volte = new JButton();
+    JButton dinheiro = new JButton("Comprar");
+    JButton volte = new JButton("voltar");
     //temporario
     JButton temp = new JButton();
     public App_mundo_senai(){
@@ -632,11 +632,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
-        item.setBounds(0,30,100,altura_atual/2);
-        desc.setBounds(200,30,largura_atual/2,altura_atual/2);
-        //largura_atual/2
-        dinheiro.setBounds(0,altura_atual-300,100,100);
-        volte.setBounds(0,altura_atual-100,100,100);
+        item.setBounds(50,30,largura_atual/2-50,altura_atual/2);
+        desc.setBounds(largura_atual/2+50,30,largura_atual/2-100,altura_atual/2);
+        dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
+        volte.setBounds(0,altura_atual-100,largura_atual,60);
     }
     }); 
         janela.add(item);
@@ -700,6 +699,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             produtos_venda.setBounds(0,0,largura_atual+1,30);
             pontuacao.setBounds(0,60,(largura_atual/2)+1,30);
             Carrinho_bot.setBounds(largura_atual/2,60,(largura_atual/2)+1,30);
+            //pro temp
+            temp.setBounds((largura_atual/2)-100, 500, 100+1, 30);
+
             janela.repaint();
             janela.revalidate();
         } else if (e.getSource() == quests) {
@@ -740,10 +742,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             parceiros.setBounds((largura_atual/2)-200, 0, 100+1, 28);
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
-
-            //pro temp
-            temp.setBounds((largura_atual/2)-100, 500, 100+1, 30);
-            
             janela.repaint();
             janela.revalidate();
 		}//em configs parte do funcionamento
@@ -769,13 +767,15 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             descricao();
             int largura_atual = janela.getWidth();
             int altura_atual = janela.getHeight();
-            item.setBounds(0,30,largura_atual/2,altura_atual/2);
-            desc.setBounds(0,30,largura_atual/2,altura_atual/2);
-            dinheiro.setBounds(0,altura_atual-300,100,100);
-            volte.setBounds(0,altura_atual-100,100,100);
+            item.setBounds(50,30,largura_atual/2-50,altura_atual/2);
+            desc.setBounds(largura_atual/2+50,30,largura_atual/2-100,altura_atual/2);
+            dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
+            volte.setBounds(0,altura_atual-100,largura_atual,60);
             janela.repaint();
             janela.revalidate();
-        }
+        }else if(e.getSource()==volte){
+        limparJanela();
+        loja();}
     }
          // Inicializa o aplicativo
     public static void main(String[] args) {
