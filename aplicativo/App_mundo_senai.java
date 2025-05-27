@@ -600,8 +600,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         quests.setBounds((largura_atual/2), 0, 100, 30);
         configs.setBounds((largura_atual/2)+100, 0, 100, 30);
         pesquisa.setBounds(0,90,largura_atual,30);
-        pontuacao.setBounds(0,60,largura_atual/2,30);
-        Carrinho_bot.setBounds(largura_atual/2,30,largura_atual/2,30);
+        pontuacao.setBounds(largura_atual/2,60,largura_atual/2,30);
+        Carrinho_bot.setBounds(0,60,largura_atual/2,30);
         titulo.setBounds(0,30,largura_atual,30);
     }
     });
@@ -626,17 +626,27 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
+        parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
+        quests.setBounds((largura_atual/2), 0, 100, 30);
+        configs.setBounds((largura_atual/2)+100, 0, 100, 30);
         titulo.setBounds(0, 30, largura_atual, 30);
         volte.setBounds(0,altura_atual-100,largura_atual,60);
         dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
         valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
-        fundo.setBounds(0, altura_atual-600, largura_atual, altura_atual/2);
+        fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
     }
     });
+        janela.add(produtos);
+        janela.add(parceiros);
+        janela.add(quests);
+        janela.add(configs);
         janela.add(titulo);
         janela.add(fundo);
         fundo.setBackground(Color.LIGHT_GRAY);
         janela.add(valor_a_pagar);
+        valor_a_pagar.setBackground(Color.green);
+        valor_a_pagar.setFont(new Font("Arial", Font.PLAIN, 56));
         janela.add(volte);
         janela.add(dinheiro);
         titulo.setBackground(Color.green);
@@ -727,10 +737,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             parceiros.setBounds((largura_atual/2)-200, 0, 100+1, 28);
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
-            pesquisa.setBounds(0,60,(largura_atual)+1,30);
+            pesquisa.setBounds(0,90,(largura_atual)+1,30);
             titulo.setBounds(0,30,largura_atual+1,30);
-            pontuacao.setBounds(0,90,(largura_atual/2)+1,30);
-            Carrinho_bot.setBounds(largura_atual/2,60,(largura_atual/2)+1,30);
+            pontuacao.setBounds(largura_atual/2,60,(largura_atual/2)+1,30);
+            Carrinho_bot.setBounds(0,60,(largura_atual/2)+1,30);
             //temporario
             temp.setBounds((largura_atual/2)-100, 500, 100+1, 30);
         } else if (e.getSource() == quests) {
@@ -789,9 +799,16 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }if(e.getSource()==Carrinho_bot){
             limparJanela();
             carrinho();
-            titulo.setBounds(0, 30, largura_atual, 30);
-            volte.setBounds(0,altura_atual-100,largura_atual,60);
-            dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
+            //corrigir aqui
+            produtos.setBounds((largura_atual/2)-100, 0, 100+1, 30);
+            parceiros.setBounds((largura_atual/2)-200, 0, 100+1, 30);
+            quests.setBounds((largura_atual/2), 0, 100+1, 30);//+1
+            configs.setBounds((largura_atual/2)+100, 0, 100+1, 30);
+            titulo.setBounds(0, 31, largura_atual+1, 30);
+            volte.setBounds(0,altura_atual-100,largura_atual+1,60);
+            dinheiro.setBounds(0,altura_atual-175,largura_atual+1,60);
+            valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
+            fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
             janela.repaint();
             janela.revalidate();
         }if(e.getSource()==temp){
