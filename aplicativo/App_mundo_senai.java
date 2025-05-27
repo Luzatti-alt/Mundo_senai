@@ -121,7 +121,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     //carrinho
     JPanel fundo = new JPanel();
     JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
-    JButton comprar = new JButton();
     //temporario
     JButton temp = new JButton();
     public App_mundo_senai(){
@@ -155,7 +154,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             e.printStackTrace();
         }
     }
-	//pagina login
     public void login(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(min_x, min_y));
@@ -223,7 +221,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.repaint();
         janela.revalidate();
         }
-	//pagina info da conta
     public void Info_conta() {
         //definindo janela
         Menu = new JPanel(); // Recria o painel de menu
@@ -375,7 +372,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.repaint();
         janela.setVisible(true);
         }
-	//pagina de metas
 	public void Metas(){
         janela.addComponentListener(new ComponentAdapter() {
         @Override
@@ -450,7 +446,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         comprovar_meta_mensal.setFocusable(false);
         comprovar_meta_mensal.addActionListener(this);
 	}
-    //sobre o serviço
     public void sobre(){
         janela.addComponentListener(new ComponentAdapter() {
         @Override
@@ -485,7 +480,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
         about.setFont(new Font("arial",Font.PLAIN,26));
     }
-    //pagina parceiro
     public void parceiro_page(){
         janela.addComponentListener(new ComponentAdapter() {
         @Override
@@ -592,7 +586,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     conta_criando.add(entrar_confirma_senha);
     criar_nova_conta_botao.setBackground(Color.green);
     }
-    //pagina loja
     public void loja(){
         janela.add(temp);
         temp.addActionListener(this);
@@ -601,17 +594,21 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
-        temp.setBounds((largura_atual/2)-100, 500, 100, 30);
+        temp.setBounds((largura_atual/2)+200, 500, 100, 30);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
         parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
         quests.setBounds((largura_atual/2), 0, 100, 30);
         configs.setBounds((largura_atual/2)+100, 0, 100, 30);
-        pesquisa.setBounds(0,60,largura_atual,30);
-        pontuacao.setBounds(0,30,largura_atual/2,30);
+        pesquisa.setBounds(0,90,largura_atual,30);
+        pontuacao.setBounds(0,60,largura_atual/2,30);
         Carrinho_bot.setBounds(largura_atual/2,30,largura_atual/2,30);
-        titulo.setBounds(0,0,largura_atual,30);
+        titulo.setBounds(0,30,largura_atual,30);
     }
     });
+        janela.add(produtos);
+        janela.add(quests);
+        janela.add(configs);
+        janela.add(titulo);
         janela.add(Carrinho_bot);
         janela.add(titulo);
         titulo.setEditable(false);
@@ -623,29 +620,60 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         pontuacao.setEditable(false);
     } // Para o botão funcionar
     public void carrinho(){
-        //
+        //arrumar qnd vai a esta parte
+        janela.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = janela.getWidth();
+        int altura_atual = janela.getHeight();
+        titulo.setBounds(0, 30, largura_atual, 30);
+        volte.setBounds(0,altura_atual-100,largura_atual,60);
+        dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
+        valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
+        fundo.setBounds(0, altura_atual-600, largura_atual, altura_atual/2);
+    }
+    });
+        janela.add(titulo);
+        janela.add(fundo);
+        fundo.setBackground(Color.LIGHT_GRAY);
+        janela.add(valor_a_pagar);
+        janela.add(volte);
+        janela.add(dinheiro);
+        titulo.setBackground(Color.green);
+        titulo.setText("carrinho");
     }
     public void comprove(){
         //
     }
     public void descricao(){
         //
+        janela.add(produtos);
+        janela.add(quests);
+        janela.add(configs);
+        janela.add(titulo);
         janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
-        item.setBounds(50,50,largura_atual/2-50,altura_atual/2);
-        desc.setBounds(largura_atual/2+50,50,largura_atual/2-100,altura_atual/2);
-        titulo.setBounds(0,0,largura_atual,30);
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
+        parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
+        quests.setBounds((largura_atual/2), 0, 100, 30);
+        configs.setBounds((largura_atual/2)+100, 0, 100, 30);
+        item.setBounds(50,80,largura_atual/2-50,altura_atual/2);
+        desc.setBounds(largura_atual/2+50,80,largura_atual/2-100,altura_atual/2);
+        titulo .setBounds(0,30,largura_atual,30);
         dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
         volte.setBounds(0,altura_atual-100,largura_atual,60);
     }
     }); 
         janela.add(item);
+        volte.addActionListener(this);
         item.setBackground(Color.lightGray);
+        //item.add();//imagem do item
         janela.add(desc);
         desc.setBackground(Color.gray);
+        //desc.add();//descrição do produto
         janela.add(dinheiro);
         janela.add(titulo);
         titulo.setBackground(Color.green);
@@ -699,9 +727,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             parceiros.setBounds((largura_atual/2)-200, 0, 100+1, 28);
             quests.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
-            pesquisa.setBounds(0,30,(largura_atual)+1,30);
-            titulo.setBounds(0,0,largura_atual+1,30);
-            pontuacao.setBounds(0,60,(largura_atual/2)+1,30);
+            pesquisa.setBounds(0,60,(largura_atual)+1,30);
+            titulo.setBounds(0,30,largura_atual+1,30);
+            pontuacao.setBounds(0,90,(largura_atual/2)+1,30);
             Carrinho_bot.setBounds(largura_atual/2,60,(largura_atual/2)+1,30);
             //temporario
             temp.setBounds((largura_atual/2)-100, 500, 100+1, 30);
@@ -761,11 +789,20 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }if(e.getSource()==Carrinho_bot){
             limparJanela();
             carrinho();
+            titulo.setBounds(0, 30, largura_atual, 30);
+            volte.setBounds(0,altura_atual-100,largura_atual,60);
+            dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
+            janela.repaint();
+            janela.revalidate();
         }if(e.getSource()==temp){
             limparJanela();
             descricao();
             int largura_atual = janela.getWidth();
             int altura_atual = janela.getHeight();
+            produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
+            parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
+            quests.setBounds((largura_atual/2), 0, 100, 30);
+            configs.setBounds((largura_atual/2)+100, 0, 100, 30);
             item.setBounds(50,50,largura_atual/2-50,altura_atual/2);
             desc.setBounds(largura_atual/2+50,50,largura_atual/2-100,altura_atual/2);
             titulo.setBounds(0,0,largura_atual,30);
