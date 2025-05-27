@@ -52,7 +52,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton Credito = new JButton("Crédito");
 	JButton Boleto = new JButton("Boleto");
     //Metas
-    JPanel Sistema_metas = new JPanel();
     JPanel Meta_diario = new JPanel();
     JPanel Meta_semanal = new JPanel();
     JPanel Meta_mensal = new JPanel();
@@ -380,7 +379,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         parceiros.setBounds((largura_atual/2), 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         titulo.setBounds(0, 26, largura_atual, 35);
-        Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
+        fundo.setBounds(0,60,largura_atual,altura_atual-63);
     }
     }); 
         janela.add(produtos);
@@ -392,11 +391,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         titulo.setBackground(Color.LIGHT_GRAY);//new Color(61, 153, 32
         //tentarei uma cor mais clara
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
-        janela.add(Sistema_metas);
-        Sistema_metas.setBackground(Color.white);
-        Sistema_metas.setLayout(new GridLayout(3,1));
+        janela.add(fundo);
+        fundo.setBackground(Color.white);
+        fundo.setLayout(new GridLayout(3,1));
         //diarias
-        Sistema_metas.add(Meta_diario);
+        fundo.add(Meta_diario);
         Meta_diario.add(Metas_diarias_txt);
         Metas_diarias_txt.setBackground(new Color(61, 153, 32));
         Metas_diarias_txt.setEditable(false);
@@ -412,7 +411,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         comprovar_meta_diaria.setFocusable(false);
         comprovar_meta_diaria.addActionListener(this);
         //semanal
-        Sistema_metas.add(Meta_semanal);
+        fundo.add(Meta_semanal);
         Meta_semanal.add(Metas_semanais_txt);
         Metas_semanais_txt.setBackground(new Color(61, 153, 32));
         Metas_semanais_txt.setEditable(false);
@@ -428,7 +427,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         comprovar_meta_semanal.setFocusable(false);
         comprovar_meta_semanal.addActionListener(this);
         //mensal
-        Sistema_metas.add(Meta_mensal);
+        fundo.add(Meta_mensal);
         Meta_mensal.add(Metas_mensais_txt);
         Metas_mensais_txt.setBackground(new Color(61, 153, 32));
         Metas_mensais_txt.setEditable(false);
@@ -488,7 +487,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         quests.setBounds((largura_atual/2), 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         titulo.setBounds(0, 26, largura_atual, 35);
-        Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
+        fundo.setBounds(0,60,largura_atual,altura_atual-63);
         titulo.setBounds(0,26,largura_atual,35);
         parça.setBounds(0, 61, largura_atual, 1000);
     }
@@ -655,8 +654,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         titulo.setBackground(Color.green);
         janela.getContentPane().setBackground(Color.lightGray);
         janela.add(vid);
+        vid.setBackground(Color.green);
         janela.add(laudo);
+        laudo.setBackground(Color.green);
         janela.add(cons_profi);
+        cons_profi.setBackground(Color.green);
         janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
@@ -763,12 +765,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             int altura_atual = janela.getHeight();
             Metas();
             janela.setSize(largura_atual+1,altura_atual);
-            Sistema_metas.setBounds(0, 28, largura_atual+1, 28);
+            fundo.setBounds(0, 28, largura_atual+1, 28);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
             titulo.setBounds(0, 26, largura_atual+1, 35);
-            Sistema_metas.setBounds(0,60,largura_atual+1,altura_atual-63);
+            fundo.setBounds(0,60,largura_atual+1,altura_atual-63);
         } else if (e.getSource() == parceiros) {
             limparJanela();
             int largura_atual = janela.getWidth();  
