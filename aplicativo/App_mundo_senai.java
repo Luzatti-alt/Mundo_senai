@@ -19,8 +19,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JButton sobre_nos = new JButton("Sobre nos");
 	JButton configs = new JButton("Configurações");
     //componentes abaixo podem ser alterados ou substituidos
-    //exetoJButtons por conta de como funcionam
-	//login
+    //menos os JButtons por conta de como funcionam
 	JButton Logar = new JButton();
 	JButton esqueceu_senha = new JButton();
 	JButton criar_conta = new JButton();
