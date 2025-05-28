@@ -630,7 +630,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
-        scroll_bar.setBounds(1,90,1000,altura_atual);
+        scroll_bar.setBounds(0,90,(largura_atual)-largura_atual/15,altura_atual-90);
         temp.setBounds((largura_atual/2)+200, 500, 100, 30);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
         parceiros.setBounds((largura_atual/2)+300, 0, 100, 30);
@@ -642,7 +642,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         titulo.setBounds(0,30,largura_atual,30);
     }
     });
-        janela.add(scroll_bar);
         janela.add(produtos);
         janela.add(quests);
         janela.add(configs);
@@ -660,6 +659,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         Carrinho_bot.addActionListener(this);
         janela.add(pesquisa);
         janela.add(pontuacao);
+        janela.add(scroll_bar);
         pontuacao.setEditable(false);
     }
     public void carrinho(){
@@ -810,6 +810,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             titulo.setBounds(0,30,largura_atual+1,30);
             pontuacao.setBounds(largura_atual/2,60,(largura_atual/2)+1,30);
             Carrinho_bot.setBounds(0,60,(largura_atual/2)+1,30);
+            scroll_bar.setBounds(0,90,(largura_atual)-largura_atual/15,altura_atual-90);
             //temporario
             temp.setBounds((largura_atual/2)-100, 500, 100+1, 30);
         } else if (e.getSource() == quests) {
@@ -892,8 +893,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             titulo.setBounds(0, 31, largura_atual+1, 30);
             volte.setBounds(0,altura_atual-100,largura_atual+1,60);
             dinheiro.setBounds(0,altura_atual-175,largura_atual+1,60);
-            valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
-            fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
+            valor_a_pagar.setBounds(0, altura_atual-250, largura_atual+1, 60);
+            fundo.setBounds(0, altura_atual-625, largura_atual+1, (altura_atual/2)-50);
             janela.repaint();
             janela.revalidate();
         }if(e.getSource()==temp){
