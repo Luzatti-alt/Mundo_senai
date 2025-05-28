@@ -6,19 +6,20 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel tela_configs = new JPanel();
     JPanel Top_ui = new JPanel();
     //ImageIcon nome = new ImageIcon(path);
-    ImageIcon carrinho_original = new ImageIcon(getClass().getResource("Imagens/Carrinho-removebg.png"));
+    //imagem tem que estar numa mesma pasta que src/código esta se o codigo esta numa parte e a img tbm vai dar erro
+    ImageIcon carrinho_original = new ImageIcon(getClass().getResource("/imagens/Carrinho-removebg.png"));
     Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
-    ImageIcon Config_original = new ImageIcon(getClass().getResource("Imagens/Configs-removebg.png"));
+    ImageIcon Config_original = new ImageIcon(getClass().getResource("/imagens/Configs-removebg.png"));
     Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Config_icon = new ImageIcon(Config_img);
-    ImageIcon Metas_original = new ImageIcon(getClass().getResource("Imagens/Metas-removebg.png"));
+    ImageIcon Metas_original = new ImageIcon(getClass().getResource("/imagens/Metas-removebg.png"));
     Image Metas_img = Metas_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Metas_icon = new ImageIcon(Metas_img);
-    ImageIcon Parca_original = new ImageIcon(getClass().getResource("Imagens/Parceiros-removebg.png"));
+    ImageIcon Parca_original = new ImageIcon(getClass().getResource("/imagens/Parceiros-removebg.png"));
     Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Parca_icon = new ImageIcon(Parca_img);
-    ImageIcon Loja_original = new ImageIcon(getClass().getResource("Imagens/logo_loja.PNG"));
+    ImageIcon Loja_original = new ImageIcon(getClass().getResource("/imagens/logo_loja.png"));
     Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Loja_icon = new ImageIcon(Loja_img);
     JFrame janela = new JFrame();
@@ -819,12 +820,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             int altura_atual = janela.getHeight();
             Metas();
             janela.setSize(largura_atual+1,altura_atual);
-            Sistema_metas.setBounds(0, 28, largura_atual+1, 28);
+            Sistema_metas.setBounds(0,60,largura_atual+1,altura_atual-63);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
             titulo.setBounds(0, 26, largura_atual+1, 35);
-            fundo.setBounds(0,60,largura_atual+1,altura_atual-63);
+            fundo.setBounds(0,60,largura_atual+1,altura_atual);
         } else if (e.getSource() == parceiros) {
             limparJanela();
             int largura_atual = janela.getWidth();  
