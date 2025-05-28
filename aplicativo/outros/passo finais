@@ -3,4 +3,10 @@ ir para descrição x aparecendo imagem do produto x na tela de descrição
 comecei a optimizar, mesmo que o codigo ja rode bem,fazer isso meio  que por ultimo agr pois nn vai mudar muito talvez de 30-50 linhas mas nn é algo muito pesado
 
 ver com o sumida sobre a parte do python para conferir db para funcionalidade entre site e app ser a mesma e acessar o mesmo db(talvez tenha que criar uma classe so da funcionalidade para usar o http para consultar os dados)
+sim é isso mesmo fazere request de dados pra login e outras funcionalidades
+
+possivel % 
+gui 95%
+funcionalidade do app 10%(request do db ja feito pelo sumida)
+
 transformar em jar assim que tudo estiver pronto
