@@ -54,8 +54,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JButton vid = new JButton("Vídeo");
     JButton laudo = new JButton("Laudo médico");
     JButton cons_profi = new JButton("Confirmação profisional parceiro da plataforma");
-    //componentes abaixo podem ser alterados ou substituidos
-    //menos os JButtons por conta de como funcionam
+    //componentes abaixo podem ser alterados ou substituidos //menos os JButtons por conta de como funcionam
 	JTextField usuario_login = new JTextField();
 	JTextField senha_login = new JTextField();
     JTextArea usuario_text = new JTextArea("Usuario");
@@ -97,10 +96,47 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel dividir_mes = new JPanel();
     //sobre nos
     JTextArea mais_sobre_nos = new JTextArea();
-    JTextArea about = new JTextArea("Nossa plataforma tem como prioridade a saude de nossa clientela, por isso, disponibilizamos rotinas de treino \n para cada cliente em específico e que possa ser feito sem o uso de nenhum equipamento como máquinas e pesos.\n" + //
-    "Também temos disponível a venda de produtos utilizados para o melhor desempenho em atividades físicas como camisetas esportivas \ne suplementos como creatina, proteina e vitaminas por um preço menor doque o convencional.\r\n" + //
-    "Oferecemos também metas diárias e semanais que ao serem cumpridas (comprovantes são necessários) garantem aos nossos\nclientes pontos que podem ser utilizados para adquirir os produtos da nossa loja.\r\n" + //
-    "Você pode comprovar o cumprimento destas tarefas com vídeos, fotos, marcapassos, laudos médicos e também por exames realizados\npor profissionais localizados em instituições parceiras do nosso serviço");
+    JTextArea about = new JTextArea(
+    "Nossa plataforma tem como prioridade a saúde de nossos clientes.\n" +
+    "Por isso, disponibilizamos rotinas de treino personalizadas para cada cliente,\n" +
+    "que podem ser feitas sem o uso de equipamentos como máquinas e pesos.\n\n" +
+
+    "Também oferecemos a venda de produtos voltados para o melhor desempenho em atividades físicas,\n" +
+    "como camisetas esportivas e suplementos (creatina, proteína e vitaminas) por preços acessíveis.\n\n" +
+
+    "Oferecemos metas diárias e semanais. Ao serem cumpridas (com comprovação),\n" +
+    "os clientes ganham pontos que podem ser utilizados para adquirir produtos em nossa loja.\n" +
+    "Você pode comprovar o cumprimento das tarefas com vídeos, fotos, marcapassos, laudos médicos\n" +
+    "ou exames realizados por profissionais de instituições parceiras do nosso serviço.\n\n" +
+
+    "Catálogo de Recompensas por Pontos:\n" +
+    "1. Produtos Fitness (Físicos):\n" +
+    " - Garrafa térmica personalizada – Mantém a bebida gelada e vem com o nome do usuário.\n" +
+    " - Camiseta de treino – Respirável, com frases motivacionais.\n" +
+    " - Faixa elástica & corda de pular – Ideais para treinos em casa e cardio.\n" +
+    " - Toalha & shaker – Práticos e com a marca do app.\n" +
+    " - Bandagens/luvas & mochila esportiva – Proteção e estilo na academia.\n\n" +
+
+    "2. Vantagens no App:\n" +
+    " - Acesso Premium (7 ou 30 dias) – Funções exclusivas liberadas.\n" +
+    " - Treino personalizado com IA – Adaptado ao seu objetivo.\n" +
+    " - Avaliação de progresso avançada – Gráficos e comparações.\n" +
+    " - Missões exclusivas com bônus – Ganhe mais pontos!\n\n" +
+
+    "3. Itens Virtuais & Motivacionais:\n" +
+    " - Medalhas & troféus digitais – Reconhecimento por conquistas.\n" +
+    " - Papéis de parede & avatares customizados – Personalização visual.\n\n" +
+
+    "4. Parcerias & Cupons:\n" +
+    " - Descontos em lojas de suplemento.\n" +
+    " - Aulas em academias (spinning, yoga etc.).\n" +
+    " - Consultorias com nutricionistas ou personal trainers (online).\n\n" +
+
+    "Extras e Gamificação:\n" +
+    " - Recompensas por nível: iniciante, intermediário, avançado.\n" +
+    " - Sistema de raridade: comum, raro, épico.\n" +
+    " - Resgates via baús surpresa e missões especiais."
+);
     //parceiros
     JPanel parça = new JPanel();
     JPanel academia_1 = new JPanel();
