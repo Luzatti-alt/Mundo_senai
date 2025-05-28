@@ -1,0 +1,5 @@
+comecei a optimizar, mesmo que o codigo ja rode bem
+add jscroll a loja, carrinho(parte interna/jpanel fundo)
+ver com o sumida sobre a parte do python para conferir db para funcionalidade entre site e app ser a mesma e acessar o mesmo db
+talvez tenha que criar uma classe so da funcionalidade para usar o http para consultar os dados
+transformar em jar
