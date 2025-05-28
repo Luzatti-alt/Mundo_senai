@@ -24,7 +24,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     ImageIcon Loja_icon = new ImageIcon(Loja_img);
     JFrame janela = new JFrame();
     File info = new File("info.txt");
-    JScrollBar scroll_bar = new JScrollBar();
+    JScrollBar scroll_bar = new JScrollBar();//add em loja e carrinho
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
     int largura_atual = janela.getWidth();  
     int altura_atual = janela.getHeight();
@@ -484,17 +484,15 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
-        //scrollSobre.setPreferredSize(new Dimension(800, altura_atual));
         produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
         parceiros.setBounds((largura_atual/2), 0, 100, 28);
         quests.setBounds((largura_atual/2)-200, 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         titulo.setBounds(0,26,largura_atual,35);
-        about.setBounds(largura_atual/12,62,(largura_atual)-largura_atual/12,1460);
-        scroll_bar.setBounds(0,62,largura_atual/12,altura_atual-65);
+        about.setBounds(0,62,largura_atual,1460);
+        about.setFont(new Font("arial",Font.PLAIN,altura_atual/55));
     }
     });
-    janela.add(scroll_bar);
     janela.add(produtos);
     janela.add(parceiros);
     janela.add(quests);
@@ -514,7 +512,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     mais_sobre_nos.setEditable(false);
     mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
     mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
-    about.setFont(new Font("arial",Font.PLAIN,26));
     }
     public void parceiro_page(){
         janela.addComponentListener(new ComponentAdapter() {
@@ -799,7 +796,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
-            scroll_bar.setBounds(0,62,largura_atual/12,altura_atual-65);
         } else if (e.getSource() == produtos) {
             limparJanela();
             loja();
