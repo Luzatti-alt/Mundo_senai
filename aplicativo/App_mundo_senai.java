@@ -2,8 +2,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
-public class App_mundo_senai extends JFrame implements ActionListener {
+public class App_mundo_senai extends JFrame implements ActionListener, AdjustmentListener {
     JPanel tela_configs = new JPanel();
+    //adjustamentlistener usado no scroll bar
     JPanel Top_ui = new JPanel();
     //ImageIcon nome = new ImageIcon(path);
     //imagem tem que estar numa mesma pasta que src/código esta se o codigo esta numa parte e a img tbm vai dar erro
@@ -662,6 +663,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(pontuacao);
         fundo.setBackground(Color.blue);
         janela.add(scroll_bar);
+        scroll_bar.addAdjustmentListener(this);
         pontuacao.setEditable(false);
     }
     public void carrinho(){
@@ -689,6 +691,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
     });
         fundo.add(scroll_bar);
+        scroll_bar.addAdjustmentListener(this);
         janela.add(produtos);
         janela.add(parceiros);
         janela.add(quests);
@@ -765,6 +768,13 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         titulo.setEditable(false);
         janela.add(volte);
     }
+    //funcionamento de scrollbar
+    @Override
+    public void adjustmentValueChanged(AdjustmentEvent arg0){
+        System.out.println("scrollbar: "+scroll_bar.getValue());
+        //criar o efeito de scroll
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == Logar) {
