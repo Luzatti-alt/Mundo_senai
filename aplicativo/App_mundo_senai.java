@@ -18,6 +18,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     ImageIcon Parca_original = new ImageIcon(getClass().getResource("Imagens/Parceiros-removebg.png"));
     Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Parca_icon = new ImageIcon(Parca_img);
+    ImageIcon Loja_original = new ImageIcon(getClass().getResource("Imagens/logo_loja.PNG"));
+    Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Loja_icon = new ImageIcon(Loja_img);
     // Componentes globais
     JFrame janela = new JFrame();
     File info = new File("info.txt");
@@ -299,6 +302,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
+        produtos.setIcon(Loja_icon);
         titulo.setEditable(false);
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         titulo.setBackground(new Color(61, 153, 32));
@@ -417,6 +421,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(titulo);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
+        produtos.setIcon(Loja_icon);
         quests.setIcon(Metas_icon);
         titulo.setText("Metas");
         titulo.setEditable(false);
@@ -495,6 +500,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     janela.add(parceiros);
     janela.add(quests);
     janela.add(configs);
+    produtos.setIcon(Loja_icon);
     janela.setLayout(null);
     janela.add(titulo);
     titulo.setText("Mais sobre nós");
@@ -532,6 +538,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(configs);
         janela.add(titulo);
         janela.add(parça);
+        produtos.setIcon(Loja_icon);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
@@ -642,6 +649,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(quests);
         janela.add(configs);
         janela.add(titulo);
+        produtos.setIcon(Loja_icon);
         janela.add(Carrinho_bot);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
@@ -661,6 +669,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
+        produtos.setIcon(Loja_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
         janela.addComponentListener(new ComponentAdapter() {
         @Override
