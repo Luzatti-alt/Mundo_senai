@@ -13,25 +13,38 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     int altura_atual = janela.getHeight();
     JTextArea titulo = new JTextArea();
     JPanel fundo = new JPanel();
+    JPanel fundo_2 = new JPanel();
     JButton parceiros = new JButton("Parceiros");
 	JButton quests = new JButton("Metas");
 	JButton produtos = new JButton("Produtos");
 	JButton sobre_nos = new JButton("Sobre nos");
 	JButton configs = new JButton("Configurações");
-    //componentes abaixo podem ser alterados ou substituidos
-    //menos os JButtons por conta de como funcionam
-	JButton Logar = new JButton();
+    JButton Logar = new JButton();
 	JButton esqueceu_senha = new JButton();
 	JButton criar_conta = new JButton();
+    JButton Debito = new JButton("Débito");
+	JButton Pix = new JButton("Pix");
+	JButton Credito = new JButton("Crédito");
+	JButton Boleto = new JButton("Boleto");
+    JButton comprovar_meta_diaria = new JButton("Comprovar meta");
+    JButton comprovar_meta_semanal = new JButton("Comprovar meta");
+    JButton comprovar_meta_mensal = new JButton("Comprovar meta");
+    JButton Carrinho_bot = new JButton("carrinho");
+    JButton criar_nova_conta_botao = new JButton("Criar conta");
+    JButton dinheiro = new JButton("Comprar");
+    JButton volte = new JButton("voltar");
+    JButton vid = new JButton("Vídeo");
+    JButton laudo = new JButton("Laudo médico");
+    JButton cons_profi = new JButton("Confirmação profisional parceiro da plataforma");
+    //componentes abaixo podem ser alterados ou substituidos
+    //menos os JButtons por conta de como funcionam
 	JTextField usuario_login = new JTextField();
 	JTextField senha_login = new JTextField();
     JTextArea usuario_text = new JTextArea("Usuario");
 	JTextArea senha_text = new JTextArea("Senha");
-    JPanel box_login = new JPanel();
 	JPanel Menu = new JPanel();
 	//info contas
     JPanel cont_tela = new JPanel();
-    JPanel conta = new JPanel();
     JTextArea nome_txt = new JTextArea("Usuario");
     JPanel nome = new JPanel();
     JPanel tipo_assinatura = new JPanel();
@@ -39,7 +52,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel data_cria_conta = new JPanel();
     JTextArea data_cria_conta_txt = new JTextArea("Data da criação da conta");
      //dados da assinatura escolha
-	JPanel dados_pagamento = new JPanel();
 	JTextArea mes = new JTextArea("Mensal");
 	JTextArea tres_meses = new JTextArea("3 Meses");
 	JTextArea seis_meses = new JTextArea("6 Meses");
@@ -48,10 +60,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
 	JTextArea cento_cinquente= new JTextArea("R$:97,99");
 	JTextArea trezentos = new JTextArea("R$:152,99");
 	JTextArea quinhentos_quarenta = new JTextArea("R$:273,99");
-	JButton Debito = new JButton("Débito");
-	JButton Pix = new JButton("Pix");
-	JButton Credito = new JButton("Crédito");
-	JButton Boleto = new JButton("Boleto");
     //Metas
     JPanel Meta_diario = new JPanel();
     JPanel Meta_semanal = new JPanel();
@@ -68,16 +76,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel dividir_dia = new JPanel();
     JPanel dividir_semana = new JPanel();
     JPanel dividir_mes = new JPanel();
-    JButton comprovar_meta_diaria = new JButton("Comprovar meta");
-    JButton comprovar_meta_semanal = new JButton("Comprovar meta");
-    JButton comprovar_meta_mensal = new JButton("Comprovar meta");
     //sobre nos
     JTextArea mais_sobre_nos = new JTextArea();
     JTextArea about = new JTextArea("Nossa plataforma tem como prioridade a saude de nossa clientela, por isso, disponibilizamos rotinas de treino \n para cada cliente em específico e que possa ser feito sem o uso de nenhum equipamento como máquinas e pesos.\n" + //
     "Também temos disponível a venda de produtos utilizados para o melhor desempenho em atividades físicas como camisetas esportivas \ne suplementos como creatina, proteina e vitaminas por um preço menor doque o convencional.\r\n" + //
     "Oferecemos também metas diárias e semanais que ao serem cumpridas (comprovantes são necessários) garantem aos nossos\nclientes pontos que podem ser utilizados para adquirir os produtos da nossa loja.\r\n" + //
     "Você pode comprovar o cumprimento destas tarefas com vídeos, fotos, marcapassos, laudos médicos e também por exames realizados\npor profissionais localizados em instituições parceiras do nosso serviço");
-    JPanel texto = new JPanel();
     //parceiros
     JPanel parça = new JPanel();
     JPanel academia_1 = new JPanel();
@@ -96,11 +100,9 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JTextArea nome_e_dist_aca_5 = new JTextArea("academia 5");
     JTextArea endereco_aca_5 = new JTextArea("endereço rua 5 , num");
     //loja
-    JButton Carrinho_bot = new JButton("carrinho");
     JTextField pesquisa = new JTextField("pesquise aqui o seu produto");
     JTextArea pontuacao = new JTextArea("Pontos");
     //criar conta
-    JButton criar_nova_conta_botao = new JButton("Criar conta");
     JPanel conta_criando = new JPanel();
     JTextArea nome_conta = new JTextArea("digite seu nome: ");
     JTextField entrar_nome = new JTextField();
@@ -113,14 +115,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     //descrição
     JPanel item = new JPanel();
     JPanel desc = new JPanel();
-    JButton dinheiro = new JButton("Comprar");
-    JButton volte = new JButton("voltar");
     //carrinho
     JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
-    //comprovante
-    JButton vid = new JButton("Vídeo");
-    JButton laudo = new JButton("Laudo médico");
-    JButton cons_profi = new JButton("Confirmação profisional parceiro da plataforma");
     //temporario
     JButton temp = new JButton();
     public App_mundo_senai(){
@@ -165,7 +161,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
-        box_login.setBounds((largura_atual/2)-250, 100, 500, 225);
+        fundo.setBounds((largura_atual/2)-250, 100, 500, 225);
         usuario_login.setBounds(10, 60, 480, 40);
         senha_login.setBounds(10, 150, 480, 40);  
         criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
@@ -176,25 +172,25 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
     });
 		//tela colocar info p /login
-        box_login.setLayout(null);
-        box_login.setBackground(Color.lightGray);
+        fundo.setLayout(null);
+        fundo.setBackground(Color.lightGray);
         usuario_text.setBackground(null);
         usuario_text.setEditable(false);
         usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
-        box_login.add(usuario_text);
+        fundo.add(usuario_text);
         usuario_login.setBorder(BorderFactory.createEmptyBorder());
         usuario_text.setBounds(largura_atual/2, 10, 480, 60);
         usuario_login.setBackground(new Color(200, 255, 206));
-        box_login.add(usuario_login);
+        fundo.add(usuario_login);
         senha_text.setBounds(0, 100, 480, 60);
         senha_text.setBackground(null);
         senha_text.setEditable(false);
         senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
-        box_login.add(senha_text);
+        fundo.add(senha_text);
         senha_login.setBorder(BorderFactory.createEmptyBorder()); 
         senha_login.setBackground(new Color(200, 255, 206));
-        box_login.add(senha_login);
-        janela.add(box_login);
+        fundo.add(senha_login);
+        janela.add(fundo);
         janela.add(criar_conta);
         criar_conta.setBackground(new Color(122,159,125));
         criar_conta.setFocusable(false);
@@ -238,8 +234,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         configs.addActionListener(this);
         tela_configs.add(configs);
         tela_configs.setLayout(new BorderLayout());
-        cont_tela.add(conta);
-        cont_tela.add(dados_pagamento);
+        cont_tela.add(fundo_2);
+        cont_tela.add(fundo);
         cont_tela.setLayout(new GridLayout(1,2));
         janela.addComponentListener(new ComponentAdapter() {
         @Override
@@ -258,94 +254,94 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         titulo.setEditable(false);
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         titulo.setBackground(new Color(61, 153, 32));
-        conta.setLayout(null);
-        conta.setBounds(largura_atual,61,1000,10000);
+        fundo_2.setLayout(null);
+        fundo_2.setBounds(largura_atual,61,1000,10000);
         sobre_nos.addActionListener(this);
-        conta.add(sobre_nos);
-        conta.add(nome_txt);
+        fundo_2.add(sobre_nos);
+        fundo_2.add(nome_txt);
         nome_txt.setBackground(null);
         nome_txt.setFont(new Font("arial",Font.PLAIN,30));
         nome_txt.setEditable(false);
         nome_txt.setBounds(0, 0, 120, 30);
         //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
-        conta.add(nome);
-        conta.setBounds(690,60,1000,1000);
+        fundo_2.add(nome);
+        fundo_2.setBounds(690,60,1000,1000);
         nome.setBackground(new Color(122,159,125));
         nome.setBounds(0, 30, 1000, 60);
-        conta.add(tipo_assinatura_txt);
+        fundo_2.add(tipo_assinatura_txt);
         tipo_assinatura_txt.setBackground(null);
         tipo_assinatura_txt.setFont(new Font("arial",Font.PLAIN,30));
         tipo_assinatura_txt.setBounds(0, 90,1000,30);
         tipo_assinatura_txt.setEditable(false);
-        conta.add(tipo_assinatura);
+        fundo_2.add(tipo_assinatura);
         tipo_assinatura.setBackground(new Color(122,159,125));
         tipo_assinatura.setBounds(0, 120,1000,60);
-        conta.add(data_cria_conta_txt);
+        fundo_2.add(data_cria_conta_txt);
         data_cria_conta_txt.setBackground(null);
         data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
         data_cria_conta_txt.setBounds(0,180,1000,30);
         data_cria_conta_txt.setEditable(false);
-        conta.add(data_cria_conta);
+        fundo_2.add(data_cria_conta);
         data_cria_conta.setBackground(new Color(122,159,125));
         data_cria_conta.setBounds(0,200,1000,60);
         //mes e valor
-        dados_pagamento.add(mes);
-        dados_pagamento.setBackground(Color.lightGray);
-        dados_pagamento.setLayout(null);
-        dados_pagamento.setBounds(0,60,1000,1000);
+        fundo.add(mes);
+        fundo.setBackground(Color.lightGray);
+        fundo.setLayout(null);
+        fundo.setBounds(0,60,1000,1000);
     	mes.setEditable(false);
         mes.setBackground(new Color(200, 255, 206));
     	mes.setFont(new Font("Arial", Font.PLAIN, 26));
     	mes.setBounds(50,100,120,50);
-    	dados_pagamento.add(tres_meses);
+    	fundo.add(tres_meses);
     	tres_meses.setEditable(false);
         tres_meses.setBackground(new Color(200, 255, 206));
     	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	tres_meses.setBounds(50,160,120,50);
-    	dados_pagamento.add(seis_meses);
+    	fundo.add(seis_meses);
     	seis_meses.setEditable(false);
         seis_meses.setBackground(new Color(200, 255, 206));
     	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	seis_meses.setBounds(50,220,120,50);
-    	dados_pagamento.add(doze_meses);
+    	fundo.add(doze_meses);
     	doze_meses.setEditable(false);
         doze_meses.setBackground(new Color(200, 255, 206));
     	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	doze_meses.setBounds(50,280,120,50);
-    	dados_pagamento.add(cinquentao);
+    	fundo.add(cinquentao);
     	cinquentao.setEditable(false);
         cinquentao.setBackground(new Color(122,159,125));
 	    cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
     	cinquentao.setBounds(250,100,120,50);
-	    dados_pagamento.add(cento_cinquente);
+	    fundo.add(cento_cinquente);
 	    cento_cinquente.setEditable(false);
         cento_cinquente.setBackground(new Color(122,159,125));
 	    cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
 	    cento_cinquente.setBounds(250,160,120,50);
-    	dados_pagamento.add(trezentos);
+    	fundo.add(trezentos);
 	    trezentos.setEditable(false);
         trezentos.setBackground(new Color(122,159,125));
     	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
 	    trezentos.setBounds(250,220,120,50);
-    	dados_pagamento.add(quinhentos_quarenta);
+    	fundo.add(quinhentos_quarenta);
 	    quinhentos_quarenta.setEditable(false);
         quinhentos_quarenta.setBackground(new Color(122,159,125));
     	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
         quinhentos_quarenta.setBounds(250,280,120,50);
     	//pagamento
-    	dados_pagamento.add(Debito);
+    	fundo.add(Debito);
         Debito.setBackground(new Color(73, 207, 78));
     	Debito.setFocusable(false);
     	Debito.setBounds(50,360,120,50);
-    	dados_pagamento.add(Pix);
+    	fundo.add(Pix);
         Pix.setBackground(new Color(73, 207, 78));
     	Pix.setFocusable(false);
     	Pix.setBounds(50,420,120,50);
-    	dados_pagamento.add(Credito);
+    	fundo.add(Credito);
         Credito.setBackground(new Color(73, 207, 78));
     	Credito.setFocusable(false);
     	Credito.setBounds(250,360,120,50);
-    	dados_pagamento.add(Boleto);
+    	fundo.add(Boleto);
         Boleto.setBackground(new Color(73, 207, 78));
     	Boleto.setFocusable(false);
     	Boleto.setBounds(250,420,120,50);
@@ -444,21 +440,21 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     janela.add(parceiros);
     janela.add(quests);
     janela.add(configs);
-        janela.setLayout(null);
-        janela.add(titulo);
-        titulo.setText("Mais sobre nós");
-        janela.add(titulo);
-        titulo.setEditable(false);
-        titulo.setFont(new Font("arial",Font.PLAIN,30));
-        mais_sobre_nos.setBounds(0,27,1550, 30);
-        janela.add(about);
-        about.setEditable(false);
-        about.setBackground(new Color(200, 255, 206));
-        titulo.setBackground(new Color(61, 153, 32));
-        mais_sobre_nos.setEditable(false);
-        mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
-        mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
-        about.setFont(new Font("arial",Font.PLAIN,26));
+    janela.setLayout(null);
+    janela.add(titulo);
+    titulo.setText("Mais sobre nós");
+    janela.add(titulo);
+    titulo.setEditable(false);
+    titulo.setFont(new Font("arial",Font.PLAIN,30));
+    mais_sobre_nos.setBounds(0,27,1550, 30);
+    janela.add(about);
+    about.setEditable(false);
+    about.setBackground(new Color(200, 255, 206));
+    titulo.setBackground(new Color(61, 153, 32));
+    mais_sobre_nos.setEditable(false);
+    mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
+    mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
+    about.setFont(new Font("arial",Font.PLAIN,26));
     }
     public void parceiro_page(){
         janela.addComponentListener(new ComponentAdapter() {
