@@ -15,15 +15,14 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     ImageIcon Metas_original = new ImageIcon(getClass().getResource("Imagens/Metas-removebg.png"));
     Image Metas_img = Metas_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Metas_icon = new ImageIcon(Metas_img);
-    ImageIcon Loja_original = new ImageIcon(getClass().getResource("Imagens/Loja-removebg.png"));
-    Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Loja_icon = new ImageIcon(Loja_img);
     ImageIcon Parca_original = new ImageIcon(getClass().getResource("Imagens/Parceiros-removebg.png"));
     Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Parca_icon = new ImageIcon(Parca_img);
     // Componentes globais
     JFrame janela = new JFrame();
     File info = new File("info.txt");
+    //JScrollPane scrollSobre = new JScrollPane(about);
+    //JScrollPane scrollLoja = new JScrollPane(janela);
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
     int largura_atual = janela.getWidth();  
     int altura_atual = janela.getHeight();
@@ -476,10 +475,14 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         comprovar_meta_mensal.addActionListener(this);
 	}
     public void sobre(){
+        //janela.add(scrollSobre);
+        //scrollSobre.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
+        int altura_atual = janela.getHeight();
+        //scrollSobre.setPreferredSize(new Dimension(800, altura_atual));
         produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
         parceiros.setBounds((largura_atual/2), 0, 100, 28);
         quests.setBounds((largura_atual/2)-200, 0, 100, 28);
