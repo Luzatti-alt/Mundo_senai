@@ -5,6 +5,22 @@ import javax.swing.*;
 public class App_mundo_senai extends JFrame implements ActionListener {
     JPanel tela_configs = new JPanel();
     JPanel Top_ui = new JPanel();
+    //ImageIcon nome = new ImageIcon(path);
+    ImageIcon carrinho_original = new ImageIcon(getClass().getResource("Imagens/Carrinho-removebg.png"));
+    Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
+    ImageIcon Config_original = new ImageIcon(getClass().getResource("Imagens/Configs-removebg.png"));
+    Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Config_icon = new ImageIcon(Config_img);
+    ImageIcon Metas_original = new ImageIcon(getClass().getResource("Imagens/Metas-removebg.png"));
+    Image Metas_img = Metas_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Metas_icon = new ImageIcon(Metas_img);
+    ImageIcon Loja_original = new ImageIcon(getClass().getResource("Imagens/Loja-removebg.png"));
+    Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Loja_icon = new ImageIcon(Loja_img);
+    ImageIcon Parca_original = new ImageIcon(getClass().getResource("Imagens/Parceiros-removebg.png"));
+    Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Parca_icon = new ImageIcon(Parca_img);
     // Componentes globais
     JFrame janela = new JFrame();
     File info = new File("info.txt");
@@ -253,6 +269,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         sobre_nos.setBounds(0,300,largura_atual/2,30);
     }
     });
+        configs.setIcon(Config_icon);
+        parceiros.setIcon(Parca_icon);
+        quests.setIcon(Metas_icon);
+        Carrinho_bot.setIcon(Carrinho_icon);
         titulo.setEditable(false);
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         titulo.setBackground(new Color(61, 153, 32));
@@ -369,6 +389,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(parceiros);
         janela.add(configs);
         janela.add(titulo);
+        configs.setIcon(Config_icon);
+        parceiros.setIcon(Parca_icon);
+        quests.setIcon(Metas_icon);
+        Carrinho_bot.setIcon(Carrinho_icon);
         titulo.setText("Metas");
         titulo.setEditable(false);
         titulo.setBackground(new Color(61, 153, 32));//new Color(61, 153, 32)
@@ -479,6 +503,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(configs);
         janela.add(titulo);
         janela.add(parça);
+        configs.setIcon(Config_icon);
+        parceiros.setIcon(Parca_icon);
+        quests.setIcon(Metas_icon);
+        Carrinho_bot.setIcon(Carrinho_icon);
         parça.setBounds(0, 61, largura_atual, 1000);
         parça.setBackground(Color.lightGray);
         janela.add(titulo);
@@ -573,7 +601,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         int largura_atual = janela.getWidth();
         temp.setBounds((largura_atual/2)+200, 500, 100, 30);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
-        parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
+        parceiros.setBounds((largura_atual/2)+300, 0, 100, 30);
         quests.setBounds((largura_atual/2), 0, 100, 30);
         configs.setBounds((largura_atual/2)+100, 0, 100, 30);
         pesquisa.setBounds(0,90,largura_atual,30);
@@ -587,6 +615,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(configs);
         janela.add(titulo);
         janela.add(Carrinho_bot);
+        configs.setIcon(Config_icon);
+        parceiros.setIcon(Parca_icon);
+        quests.setIcon(Metas_icon);
+        Carrinho_bot.setIcon(Carrinho_icon);
         janela.add(titulo);
         titulo.setEditable(false);
         titulo.setText("Produtos a venda");
@@ -598,6 +630,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
     public void carrinho(){
         //arrumar qnd vai a esta parte
+        configs.setIcon(Config_icon);
+        parceiros.setIcon(Parca_icon);
+        quests.setIcon(Metas_icon);
+        Carrinho_bot.setIcon(Carrinho_icon);
         janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
