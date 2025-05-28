@@ -404,11 +404,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
-        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
-        parceiros.setBounds((largura_atual/2), 0, 100, 28);
-        configs.setBounds((largura_atual/2)+100, 0, 100, 28);
-        titulo.setBounds(0, 26, largura_atual, 35);
-        Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
+        produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
+        parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
+        configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
+        titulo.setBounds(0, 26, largura_atual+1, 35);
+        Sistema_metas.setBounds(0,60,largura_atual+1,altura_atual-63);
     }
     }); 
         janela.add(produtos);
