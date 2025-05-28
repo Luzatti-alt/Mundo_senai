@@ -21,7 +21,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     ImageIcon Loja_original = new ImageIcon(getClass().getResource("Imagens/logo_loja.PNG"));
     Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Loja_icon = new ImageIcon(Loja_img);
-    // Componentes globais
     JFrame janela = new JFrame();
     File info = new File("info.txt");
     //JScrollPane scrollSobre = new JScrollPane(about);
@@ -430,7 +429,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(Sistema_metas);
         Sistema_metas.setBackground(Color.white);
         Sistema_metas.setLayout(new GridLayout(3,1));
-        //diarias
+        //diariasx
         Sistema_metas.add(Meta_diario);
         Meta_diario.add(Metas_diarias_txt);
         Metas_diarias_txt.setBackground(new Color(61, 153, 32));
