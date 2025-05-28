@@ -12,8 +12,10 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     int largura_atual = janela.getWidth();  
     int altura_atual = janela.getHeight();
     JTextArea titulo = new JTextArea();
+    JPanel dados_pagamento = new JPanel();
+    JPanel conta = new JPanel();
     JPanel fundo = new JPanel();
-    JPanel fundo_2 = new JPanel();
+    JPanel box_login = new JPanel();
     JButton parceiros = new JButton("Parceiros");
 	JButton quests = new JButton("Metas");
 	JButton produtos = new JButton("Produtos");
@@ -43,6 +45,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     JTextArea usuario_text = new JTextArea("Usuario");
 	JTextArea senha_text = new JTextArea("Senha");
 	JPanel Menu = new JPanel();
+    JPanel Sistema_metas = new JPanel();
 	//info contas
     JPanel cont_tela = new JPanel();
     JTextArea nome_txt = new JTextArea("Usuario");
@@ -161,7 +164,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
-        fundo.setBounds((largura_atual/2)-250, 100, 500, 225);
+        box_login.setBounds((largura_atual/2)-250, 100, 500, 225);
         usuario_login.setBounds(10, 60, 480, 40);
         senha_login.setBounds(10, 150, 480, 40);  
         criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
@@ -172,25 +175,25 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     }
     });
 		//tela colocar info p /login
-        fundo.setLayout(null);
-        fundo.setBackground(Color.lightGray);
+        box_login.setLayout(null);
+        box_login.setBackground(Color.lightGray);
         usuario_text.setBackground(null);
         usuario_text.setEditable(false);
         usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
-        fundo.add(usuario_text);
+        box_login.add(usuario_text);
         usuario_login.setBorder(BorderFactory.createEmptyBorder());
         usuario_text.setBounds(largura_atual/2, 10, 480, 60);
         usuario_login.setBackground(new Color(200, 255, 206));
-        fundo.add(usuario_login);
+        box_login.add(usuario_login);
         senha_text.setBounds(0, 100, 480, 60);
         senha_text.setBackground(null);
         senha_text.setEditable(false);
         senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
-        fundo.add(senha_text);
+        box_login.add(senha_text);
         senha_login.setBorder(BorderFactory.createEmptyBorder()); 
         senha_login.setBackground(new Color(200, 255, 206));
-        fundo.add(senha_login);
-        janela.add(fundo);
+        box_login.add(senha_login);
+        janela.add(box_login);
         janela.add(criar_conta);
         criar_conta.setBackground(new Color(122,159,125));
         criar_conta.setFocusable(false);
@@ -223,7 +226,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         janela.setLayout(null);
         janela.add(tela_configs);
-        System.out.println(tamanho_tela);
         tela_configs.setSize(tamanho_tela);
         produtos.addActionListener(this);
         tela_configs.add(produtos);
@@ -234,8 +236,8 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         configs.addActionListener(this);
         tela_configs.add(configs);
         tela_configs.setLayout(new BorderLayout());
-        cont_tela.add(fundo_2);
-        cont_tela.add(fundo);
+        cont_tela.add(conta);
+        cont_tela.add(dados_pagamento);
         cont_tela.setLayout(new GridLayout(1,2));
         janela.addComponentListener(new ComponentAdapter() {
         @Override
@@ -254,94 +256,94 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         titulo.setEditable(false);
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         titulo.setBackground(new Color(61, 153, 32));
-        fundo_2.setLayout(null);
-        fundo_2.setBounds(largura_atual,61,1000,10000);
+        conta.setLayout(null);
+        conta.setBounds(largura_atual,61,1000,10000);
         sobre_nos.addActionListener(this);
-        fundo_2.add(sobre_nos);
-        fundo_2.add(nome_txt);
+        conta.add(sobre_nos);
+        conta.add(nome_txt);
         nome_txt.setBackground(null);
         nome_txt.setFont(new Font("arial",Font.PLAIN,30));
         nome_txt.setEditable(false);
         nome_txt.setBounds(0, 0, 120, 30);
         //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
-        fundo_2.add(nome);
-        fundo_2.setBounds(690,60,1000,1000);
+        conta.add(nome);
+        conta.setBounds(690,60,1000,1000);
         nome.setBackground(new Color(122,159,125));
         nome.setBounds(0, 30, 1000, 60);
-        fundo_2.add(tipo_assinatura_txt);
+        conta.add(tipo_assinatura_txt);
         tipo_assinatura_txt.setBackground(null);
         tipo_assinatura_txt.setFont(new Font("arial",Font.PLAIN,30));
         tipo_assinatura_txt.setBounds(0, 90,1000,30);
         tipo_assinatura_txt.setEditable(false);
-        fundo_2.add(tipo_assinatura);
+        conta.add(tipo_assinatura);
         tipo_assinatura.setBackground(new Color(122,159,125));
         tipo_assinatura.setBounds(0, 120,1000,60);
-        fundo_2.add(data_cria_conta_txt);
+        conta.add(data_cria_conta_txt);
         data_cria_conta_txt.setBackground(null);
         data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
         data_cria_conta_txt.setBounds(0,180,1000,30);
         data_cria_conta_txt.setEditable(false);
-        fundo_2.add(data_cria_conta);
+        conta.add(data_cria_conta);
         data_cria_conta.setBackground(new Color(122,159,125));
         data_cria_conta.setBounds(0,200,1000,60);
         //mes e valor
-        fundo.add(mes);
-        fundo.setBackground(Color.lightGray);
-        fundo.setLayout(null);
-        fundo.setBounds(0,60,1000,1000);
+        dados_pagamento.add(mes);
+        dados_pagamento.setBackground(Color.lightGray);
+        dados_pagamento.setLayout(null);
+        dados_pagamento.setBounds(0,60,1000,1000);
     	mes.setEditable(false);
         mes.setBackground(new Color(200, 255, 206));
     	mes.setFont(new Font("Arial", Font.PLAIN, 26));
     	mes.setBounds(50,100,120,50);
-    	fundo.add(tres_meses);
+    	dados_pagamento.add(tres_meses);
     	tres_meses.setEditable(false);
         tres_meses.setBackground(new Color(200, 255, 206));
     	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	tres_meses.setBounds(50,160,120,50);
-    	fundo.add(seis_meses);
+    	dados_pagamento.add(seis_meses);
     	seis_meses.setEditable(false);
         seis_meses.setBackground(new Color(200, 255, 206));
     	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	seis_meses.setBounds(50,220,120,50);
-    	fundo.add(doze_meses);
+    	dados_pagamento.add(doze_meses);
     	doze_meses.setEditable(false);
         doze_meses.setBackground(new Color(200, 255, 206));
     	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
     	doze_meses.setBounds(50,280,120,50);
-    	fundo.add(cinquentao);
+    	dados_pagamento.add(cinquentao);
     	cinquentao.setEditable(false);
         cinquentao.setBackground(new Color(122,159,125));
 	    cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
     	cinquentao.setBounds(250,100,120,50);
-	    fundo.add(cento_cinquente);
+	    dados_pagamento.add(cento_cinquente);
 	    cento_cinquente.setEditable(false);
         cento_cinquente.setBackground(new Color(122,159,125));
 	    cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
 	    cento_cinquente.setBounds(250,160,120,50);
-    	fundo.add(trezentos);
+    	dados_pagamento.add(trezentos);
 	    trezentos.setEditable(false);
         trezentos.setBackground(new Color(122,159,125));
     	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
 	    trezentos.setBounds(250,220,120,50);
-    	fundo.add(quinhentos_quarenta);
+    	dados_pagamento.add(quinhentos_quarenta);
 	    quinhentos_quarenta.setEditable(false);
         quinhentos_quarenta.setBackground(new Color(122,159,125));
     	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
         quinhentos_quarenta.setBounds(250,280,120,50);
     	//pagamento
-    	fundo.add(Debito);
+    	dados_pagamento.add(Debito);
         Debito.setBackground(new Color(73, 207, 78));
     	Debito.setFocusable(false);
     	Debito.setBounds(50,360,120,50);
-    	fundo.add(Pix);
+    	dados_pagamento.add(Pix);
         Pix.setBackground(new Color(73, 207, 78));
     	Pix.setFocusable(false);
     	Pix.setBounds(50,420,120,50);
-    	fundo.add(Credito);
+    	dados_pagamento.add(Credito);
         Credito.setBackground(new Color(73, 207, 78));
     	Credito.setFocusable(false);
     	Credito.setBounds(250,360,120,50);
-    	fundo.add(Boleto);
+    	dados_pagamento.add(Boleto);
         Boleto.setBackground(new Color(73, 207, 78));
     	Boleto.setFocusable(false);
     	Boleto.setBounds(250,420,120,50);
@@ -360,7 +362,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         parceiros.setBounds((largura_atual/2), 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         titulo.setBounds(0, 26, largura_atual, 35);
-        fundo.setBounds(0,60,largura_atual,altura_atual-63);
+        Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
     }
     }); 
         janela.add(produtos);
@@ -371,11 +373,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         titulo.setEditable(false);
         titulo.setBackground(new Color(61, 153, 32));//new Color(61, 153, 32)
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
-        janela.add(fundo);
-        fundo.setBackground(Color.white);
-        fundo.setLayout(new GridLayout(3,1));
+        janela.add(Sistema_metas);
+        Sistema_metas.setBackground(Color.white);
+        Sistema_metas.setLayout(new GridLayout(3,1));
         //diarias
-        fundo.add(Meta_diario);
+        Sistema_metas.add(Meta_diario);
         Meta_diario.add(Metas_diarias_txt);
         Metas_diarias_txt.setBackground(new Color(61, 153, 32));
         Metas_diarias_txt.setEditable(false);
@@ -391,7 +393,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         comprovar_meta_diaria.setFocusable(false);
         comprovar_meta_diaria.addActionListener(this);
         //semanal
-        fundo.add(Meta_semanal);
+        Sistema_metas.add(Meta_semanal);
         Meta_semanal.add(Metas_semanais_txt);
         Metas_semanais_txt.setBackground(new Color(61, 153, 32));
         Metas_semanais_txt.setEditable(false);
@@ -407,7 +409,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         comprovar_meta_semanal.setFocusable(false);
         comprovar_meta_semanal.addActionListener(this);
         //mensal
-        fundo.add(Meta_mensal);
+        Sistema_metas.add(Meta_mensal);
         Meta_mensal.add(Metas_mensais_txt);
         Metas_mensais_txt.setBackground(new Color(61, 153, 32));
         Metas_mensais_txt.setEditable(false);
@@ -745,7 +747,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             int altura_atual = janela.getHeight();
             Metas();
             janela.setSize(largura_atual+1,altura_atual);
-            fundo.setBounds(0, 28, largura_atual+1, 28);
+            Sistema_metas.setBounds(0, 28, largura_atual+1, 28);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
