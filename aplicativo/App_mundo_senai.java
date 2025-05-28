@@ -24,8 +24,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     ImageIcon Loja_icon = new ImageIcon(Loja_img);
     JFrame janela = new JFrame();
     File info = new File("info.txt");
-    //JScrollPane scrollSobre = new JScrollPane(about);
-    //JScrollPane scrollLoja = new JScrollPane(janela);
+    JScrollBar scroll_bar = new JScrollBar();
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
     int largura_atual = janela.getWidth();  
     int altura_atual = janela.getHeight();
@@ -480,8 +479,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         comprovar_meta_mensal.addActionListener(this);
 	}
     public void sobre(){
-        //janela.add(scrollSobre);
-        //scrollSobre.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         janela.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
@@ -493,9 +490,11 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         quests.setBounds((largura_atual/2)-200, 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         titulo.setBounds(0,26,largura_atual,35);
-        about.setBounds(0,57,largura_atual,1460);
+        about.setBounds(largura_atual/12,62,(largura_atual)-largura_atual/12,1460);
+        scroll_bar.setBounds(0,62,largura_atual/12,altura_atual-65);
     }
     });
+    janela.add(scroll_bar);
     janela.add(produtos);
     janela.add(parceiros);
     janela.add(quests);
@@ -800,6 +799,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
+            scroll_bar.setBounds(0,62,largura_atual/12,altura_atual-65);
         } else if (e.getSource() == produtos) {
             limparJanela();
             loja();
