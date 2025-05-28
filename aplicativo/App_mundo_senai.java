@@ -683,7 +683,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
         valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
         fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
-        scroll_bar.setBounds(0,0,largura_atual/20,(altura_atual/2)-50);
+        scroll_bar.setBounds(largura_atual-50,0,largura_atual/20,(altura_atual/2)-50);
     }
     });
         fundo.add(scroll_bar);
@@ -899,7 +899,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
             dinheiro.setBounds(0,altura_atual-175,largura_atual+1,60);
             valor_a_pagar.setBounds(0, altura_atual-250, largura_atual+1, 60);
             fundo.setBounds(0, altura_atual-625, largura_atual+1, (altura_atual/2)-50);
-            scroll_bar.setBounds(0,0,largura_atual/20,altura_atual);
+            scroll_bar.setBounds(largura_atual-50,0,largura_atual/20,altura_atual);
             janela.repaint();
             janela.revalidate();
         }if(e.getSource()==temp){
