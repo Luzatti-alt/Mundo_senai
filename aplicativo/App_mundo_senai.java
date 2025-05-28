@@ -100,15 +100,12 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     "Nossa plataforma tem como prioridade a saúde de nossos clientes.\n" +
     "Por isso, disponibilizamos rotinas de treino personalizadas para cada cliente,\n" +
     "que podem ser feitas sem o uso de equipamentos como máquinas e pesos.\n\n" +
-
     "Também oferecemos a venda de produtos voltados para o melhor desempenho em atividades físicas,\n" +
     "como camisetas esportivas e suplementos (creatina, proteína e vitaminas) por preços acessíveis.\n\n" +
-
     "Oferecemos metas diárias e semanais. Ao serem cumpridas (com comprovação),\n" +
     "os clientes ganham pontos que podem ser utilizados para adquirir produtos em nossa loja.\n" +
     "Você pode comprovar o cumprimento das tarefas com vídeos, fotos, marcapassos, laudos médicos\n" +
     "ou exames realizados por profissionais de instituições parceiras do nosso serviço.\n\n" +
-
     "Catálogo de Recompensas por Pontos:\n" +
     "1. Produtos Fitness (Físicos):\n" +
     " - Garrafa térmica personalizada – Mantém a bebida gelada e vem com o nome do usuário.\n" +
@@ -116,22 +113,18 @@ public class App_mundo_senai extends JFrame implements ActionListener {
     " - Faixa elástica & corda de pular – Ideais para treinos em casa e cardio.\n" +
     " - Toalha & shaker – Práticos e com a marca do app.\n" +
     " - Bandagens/luvas & mochila esportiva – Proteção e estilo na academia.\n\n" +
-
     "2. Vantagens no App:\n" +
     " - Acesso Premium (7 ou 30 dias) – Funções exclusivas liberadas.\n" +
     " - Treino personalizado com IA – Adaptado ao seu objetivo.\n" +
     " - Avaliação de progresso avançada – Gráficos e comparações.\n" +
     " - Missões exclusivas com bônus – Ganhe mais pontos!\n\n" +
-
     "3. Itens Virtuais & Motivacionais:\n" +
     " - Medalhas & troféus digitais – Reconhecimento por conquistas.\n" +
     " - Papéis de parede & avatares customizados – Personalização visual.\n\n" +
-
     "4. Parcerias & Cupons:\n" +
     " - Descontos em lojas de suplemento.\n" +
     " - Aulas em academias (spinning, yoga etc.).\n" +
     " - Consultorias com nutricionistas ou personal trainers (online).\n\n" +
-
     "Extras e Gamificação:\n" +
     " - Recompensas por nível: iniciante, intermediário, avançado.\n" +
     " - Sistema de raridade: comum, raro, épico.\n" +
