@@ -435,7 +435,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         Meta_diario.add(Metas_diarias_txt);
         Metas_diarias_txt.setBackground(new Color(61, 153, 32));
         Metas_diarias_txt.setEditable(false);
-        Metas_diarias_txt.setFont(new Font("Arial", Font.PLAIN, 30));
+        Metas_diarias_txt.setFont(new Font("Arial", Font.PLAIN, 60));
         Meta_diario.setLayout(new GridLayout(3,1));
         Meta_diario.add(Qual_diaria);
         Qual_diaria.setEditable(false);
@@ -451,7 +451,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         Meta_semanal.add(Metas_semanais_txt);
         Metas_semanais_txt.setBackground(new Color(61, 153, 32));
         Metas_semanais_txt.setEditable(false);
-        Metas_semanais_txt.setFont(new Font("Arial", Font.PLAIN, 30));
+        Metas_semanais_txt.setFont(new Font("Arial", Font.PLAIN, 60));
         Meta_semanal.setLayout(new GridLayout(3,1));
         Meta_semanal.add(Qual_semanal);
         Qual_semanal.setEditable(false);
@@ -467,7 +467,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         Meta_mensal.add(Metas_mensais_txt);
         Metas_mensais_txt.setBackground(new Color(61, 153, 32));
         Metas_mensais_txt.setEditable(false);
-        Metas_mensais_txt.setFont(new Font("Arial", Font.PLAIN, 30));
+        Metas_mensais_txt.setFont(new Font("Arial", Font.PLAIN, 60));
         Meta_mensal.setLayout(new GridLayout(3,1));
         Meta_mensal.add(Qual_mensal);
         Qual_mensal.setEditable(false);
@@ -887,7 +887,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         }if(e.getSource()==Carrinho_bot){
             limparJanela();
             carrinho();
-            //corrigir aqui
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 30);
             parceiros.setBounds((largura_atual/2)-200, 0, 100+1, 30);
             quests.setBounds((largura_atual/2), 0, 100+1, 30);//+1
