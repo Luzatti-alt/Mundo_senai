@@ -96,7 +96,7 @@ div.listatarefa{
 }
 .produtos > div > div{
     width: 100%;
-    background: url("../images/placeholder/placeholder.png") center center;
+    background: url("../images/placeholder.png") center center;
     background-size: cover;
 }
 
