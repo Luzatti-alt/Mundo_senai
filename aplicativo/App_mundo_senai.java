@@ -226,7 +226,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         janela.add(Logar);
         janela.setVisible(true);
     }
-    //resetar elementos
     public void limparJanela(){
         janela.getContentPane().removeAll();
         janela.repaint();
@@ -272,7 +271,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
-        Carrinho_bot.setIcon(Carrinho_icon);
         titulo.setEditable(false);
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         titulo.setBackground(new Color(61, 153, 32));
@@ -392,7 +390,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
-        Carrinho_bot.setIcon(Carrinho_icon);
         titulo.setText("Metas");
         titulo.setEditable(false);
         titulo.setBackground(new Color(61, 153, 32));//new Color(61, 153, 32)
@@ -506,7 +503,6 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
-        Carrinho_bot.setIcon(Carrinho_icon);
         parça.setBounds(0, 61, largura_atual, 1000);
         parça.setBackground(Color.lightGray);
         janela.add(titulo);
