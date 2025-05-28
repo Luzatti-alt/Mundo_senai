@@ -630,6 +630,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
+        scroll_bar.setBounds(1,90,1000,altura_atual);
         temp.setBounds((largura_atual/2)+200, 500, 100, 30);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
         parceiros.setBounds((largura_atual/2)+300, 0, 100, 30);
@@ -641,6 +642,7 @@ public class App_mundo_senai extends JFrame implements ActionListener {
         titulo.setBounds(0,30,largura_atual,30);
     }
     });
+        janela.add(scroll_bar);
         janela.add(produtos);
         janela.add(quests);
         janela.add(configs);
