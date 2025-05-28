@@ -1,6 +1,7 @@
 comecei a optimizar, mesmo que o codigo ja rode bem
-add jscroll a loja, carrinho(parte interna/jpanel fundo),sobre nos por conta do texto, assim que lista com os produtos vendidos for mandada
-add em sobre nos a parte mandada hj sobre os produtos oferecidos
+add jscrollpane a loja, carrinho(parte interna/jpanel fundo),sobre nos por conta do texto, assim que lista com os produtos vendidos for mandada
+add em sobre nos a parte mandada hj sobre os produtos oferecidos e JScrollpane 
+ir para descrição x aparecendo imagem do produto x na tela de descrição 
 ver com o sumida sobre a parte do python para conferir db para funcionalidade entre site e app ser a mesma e acessar o mesmo db
 talvez tenha que criar uma classe so da funcionalidade para usar o http para consultar os dados
 transformar em jar
