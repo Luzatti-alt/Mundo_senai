@@ -1,6 +1,6 @@
 add as imagens em seus respectivos lugares
-add jscrollpane a loja, carrinho(parte interna/jpanel fundo),sobre nos por conta do texto, assim que lista com os produtos vendidos for mandada
-add em sobre nos a parte mandada hj sobre os produtos oferecidos e JScrollpane 
+add o scroll a loja, carrinho(parte interna/jpanel fundo),sobre nos por conta do texto, assim que lista com os produtos vendidos for mandada
+add em sobre nos a parte mandada hj sobre os produtos oferecidos 
 ir para descrição x aparecendo imagem do produto x na tela de descrição 
 comecei a optimizar, mesmo que o codigo ja rode bem,fazer isso meio  que por ultimo agr pois nn vai mudar muito talvez de 20-30 linhas mas nn é algo muito pesado
 
