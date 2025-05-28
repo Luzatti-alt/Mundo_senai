@@ -9,7 +9,7 @@ load_dotenv()
 
 NEWS_API_URL = 'https://newsapi.org/v2/everything'
 NEWS_API_KEY = os.getenv('NEWS_API_KEY')
-NEWS_CACHE_FILE = 'cache_noticias.json'
+NEWS_CACHE_FILE = 'site\cache_noticias.json'
 CACHE_EXPIRATION_HOURS = 8
 
 def fetch_news():
@@ -23,7 +23,6 @@ def fetch_news():
     
     print('Buscando novas notícias da API')
     url = NEWS_API_URL
-    # topico = request.args.get('fitness')
     params = {
         'q': 'fitness',
         'apiKey': NEWS_API_KEY,

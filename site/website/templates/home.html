@@ -50,14 +50,9 @@
         </section>
         <section id="noticias">
             <h2>Notícias</h2>
-            <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, harum! Mollitia, inventore animi minima eligendi dicta eius dolorum dolores beatae soluta quaerat perspiciatis nisi distinctio eum modi error provident Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga quam deserunt dignissimos recusandae assumenda pariatur.</p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero aliquam saepe, rem nihil laudantium sunt asperiores architecto impedit sint dignissimos dolores vero fugit omnis quasi sapiente unde consequatur ex consectetur?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa suscipit amet vel voluptate animi molestias nesciunt alias magni, minus doloremque inventore, perferendis quo libero fugit aliquam eum facere veritatis? Ipsam.
-            </p> -->
             {% for noticia in noticias[:10] %}
                 <div class="noticia">
-                    <h3>{{ noticia.title }}</h3>
+                    <h3><a href="{{ noticia.url }}" target="_blank">{{ noticia.title }}</a></h3>
                     <p>{{ noticia.description }}</p>
                     <small>{{ noticia.publishedAt }}</small>
                 </div>
