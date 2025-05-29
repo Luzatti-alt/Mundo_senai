@@ -1,8 +1,9 @@
+//min pra rodar
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-public class Login extends JFrame implements ActionListener, ComponentListener{
+public class Login implements ActionListener, ComponentListener{
     JFrame janela = new JFrame();
     JPanel box_login = new JPanel();
     int largura_atual = janela.getWidth();  
@@ -129,7 +130,12 @@ public void actionPerformed(ActionEvent e) {
             janela.repaint();
             janela.revalidate();
         } else if (e.getSource() == Logar) {
+        janela.getContentPane().removeAll();
         System.out.println("Logar clicado!");
+        Configuracoes configuracoes = new Configuracoes();
+        configuracoes.configuracoes();
+        janela.repaint();
+        janela.revalidate();
     } else if (e.getSource() == esqueceu_senha) {
         System.out.println("Esqueceu a senha clicado!");
     }else if (e.getSource()==voltar_login){
@@ -139,7 +145,6 @@ public void actionPerformed(ActionEvent e) {
         janela.revalidate();  
     }
 }
-
 @Override
 public void componentResized(ComponentEvent e) {
 }
@@ -149,7 +154,8 @@ public void componentMoved(ComponentEvent e) {}
 public void componentShown(ComponentEvent e) {}
 @Override
 public void componentHidden(ComponentEvent e) {}
-public void main(String[] args) {
-        new Login();  // Isso funciona se você chamar login() dentro do construtor
+public static void main(String[] args) {
+        Login login = new Login();
+        login.login();
     }
 }
