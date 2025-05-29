@@ -8,19 +8,19 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     JPanel Top_ui = new JPanel();
     //ImageIcon nome = new ImageIcon(path);
     //imagem tem que estar numa mesma pasta que src/código esta se o codigo esta numa parte e a img tbm vai dar erro
-    ImageIcon carrinho_original = new ImageIcon(getClass().getResource("/imagens/Carrinho-removebg.png"));
+    ImageIcon carrinho_original = new ImageIcon(getClass().getResource("imagens/Carrinho-removebg.png"));
     Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
-    ImageIcon Config_original = new ImageIcon(getClass().getResource("/imagens/Configs-removebg.png"));
+    ImageIcon Config_original = new ImageIcon(getClass().getResource("imagens/Configs-removebg.png"));
     Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Config_icon = new ImageIcon(Config_img);
-    ImageIcon Metas_original = new ImageIcon(getClass().getResource("/imagens/Metas-removebg.png"));
+    ImageIcon Metas_original = new ImageIcon(getClass().getResource("imagens/Metas-removebg.png"));
     Image Metas_img = Metas_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Metas_icon = new ImageIcon(Metas_img);
-    ImageIcon Parca_original = new ImageIcon(getClass().getResource("/imagens/Parceiros-removebg.png"));
+    ImageIcon Parca_original = new ImageIcon(getClass().getResource("imagens/Parceiros-removebg.png"));
     Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Parca_icon = new ImageIcon(Parca_img);
-    ImageIcon Loja_original = new ImageIcon(getClass().getResource("/imagens/logo_loja.png"));
+    ImageIcon Loja_original = new ImageIcon(getClass().getResource("imagens/logo_loja.png"));
     Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Loja_icon = new ImageIcon(Loja_img);
     JFrame janela = new JFrame();
@@ -632,7 +632,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
         int altura_atual = janela.getHeight();
-        scroll_bar.setBounds(0,90,largura_atual/15,altura_atual-90);
+        scroll_bar.setBounds(0,105,altura_atual/15,altura_atual-90);
         temp.setBounds((largura_atual/2)+200, 500, 100, 30);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
         parceiros.setBounds((largura_atual/2)+300, 0, 100, 30);
@@ -824,7 +824,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             titulo.setBounds(0,30,largura_atual+1,30);
             pontuacao.setBounds(largura_atual/2,60,(largura_atual/2)+1,30);
             Carrinho_bot.setBounds(0,60,(largura_atual/2)+1,30);
-            scroll_bar.setBounds(0,90,(largura_atual)-largura_atual/15,altura_atual-90);
+            scroll_bar.setBounds(0,105,altura_atual/15,altura_atual-90);
             //temporario
             temp.setBounds((largura_atual/2)-100, 500, 100+1, 30);
         } else if (e.getSource() == quests) {
@@ -910,7 +910,8 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             volte.setBounds(0,altura_atual-100,largura_atual+1,60);
             dinheiro.setBounds(0,altura_atual-175,largura_atual+1,60);
             valor_a_pagar.setBounds(0, altura_atual-250, largura_atual+1, 60);
-            scroll_bar.setBounds(0,90,largura_atual/15+1,altura_atual-90);
+            fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
+            scroll_bar.setBounds(largura_atual-50,0,largura_atual/20,(altura_atual/2)-50);
             janela.repaint();
             janela.revalidate();
         }if(e.getSource()==temp){
