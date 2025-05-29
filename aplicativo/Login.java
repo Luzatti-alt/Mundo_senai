@@ -3,10 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-public class Login implements ActionListener, ComponentListener{
-    JFrame janela = new JFrame();
+public class Login extends JFrame implements ActionListener, ComponentListener{
     JPanel box_login = new JPanel();
-    int largura_atual = janela.getWidth();  
+    int largura_atual = this.getWidth();  
     JButton voltar_login = new JButton("voltar a aba de login");
     JTextField usuario_login = new JTextField();
     JTextField senha_login = new JTextField();
@@ -27,23 +26,23 @@ public class Login implements ActionListener, ComponentListener{
     JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
     JTextField entrar_confirma_senha = new JTextField();
     public void login(){
-        janela.setTitle("Projeto Mundo Senai: Treina Aí");
-        janela.setMinimumSize(new Dimension(600, 300));
-        janela.setSize(new Dimension(700, 700));
-        janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        janela.setLayout(null); 
-        janela.addComponentListener(new ComponentAdapter() {
+        this.setTitle("Projeto Mundo Senai: Treina Aí");
+        this.setMinimumSize(new Dimension(600, 300));
+        this.setSize(new Dimension(700, 700));
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLayout(null); 
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
-        int largura_atual = janela.getWidth();
+        int largura_atual = Login.this.getWidth();
         box_login.setBounds((largura_atual/2)-250, 100, 500, 225);
         usuario_login.setBounds(10, 60, 480, 40);
         senha_login.setBounds(10, 150, 480, 40);  
         criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
         Logar.setBounds((largura_atual/2)-150, 350, 300, 50);  
         esqueceu_senha.setBounds(0, 600,largura_atual,50);
-        janela.repaint();
-        janela.revalidate();
+        Login. this.repaint();
+        Login.this.revalidate();
     }
     });
         voltar_login.setBackground(Color.gray);
@@ -65,12 +64,12 @@ public class Login implements ActionListener, ComponentListener{
         senha_login.setBorder(BorderFactory.createEmptyBorder()); 
         senha_login.setBackground(new Color(200, 255, 206));
         box_login.add(senha_login);
-        janela.add(box_login);
-        janela.add(criar_conta);
+        this.add(box_login);
+        this.add(criar_conta);
         criar_conta.setBackground(new Color(122,159,125));
         criar_conta.setFocusable(false);
         criar_conta.setText("Criar conta");
-		janela.add(esqueceu_senha);
+		this.add(esqueceu_senha);
         esqueceu_senha.setBackground(new Color(122,159,125));
 		esqueceu_senha.setFocusable(false);
 		esqueceu_senha.setText("esqueceu sua senha");
@@ -80,19 +79,19 @@ public class Login implements ActionListener, ComponentListener{
         voltar_login.addActionListener(this);
         Logar.setBackground(new Color(122,159,125));
         Logar.addActionListener(this);
-        janela.add(Logar);
-        janela.setVisible(true);
+        this.add(Logar);
+        this.setVisible(true);
     }
     public void Criar_nova_conta(){
-        janela.add(criar_nova_conta_botao);
-        janela.add(voltar_login);
-        janela.add(conta_criando);
+        this.add(criar_nova_conta_botao);
+        this.add(voltar_login);
+        this.add(conta_criando);
         conta_criando.setBackground(Color.lightGray);
-        janela.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
-        int largura_atual = janela.getWidth();
-        int altura_atual = janela.getHeight();
+        int largura_atual = Login.this.getWidth();
+        int altura_atual = Login.this.getHeight();
         criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
         conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
         voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
@@ -120,29 +119,29 @@ public class Login implements ActionListener, ComponentListener{
     @Override
 public void actionPerformed(ActionEvent e) {
     if (e.getSource() == criar_conta) {
-            janela.getContentPane().removeAll();
-            int largura_atual = janela.getWidth();  
-            int altura_atual = janela.getHeight();
+            this.getContentPane().removeAll();
+            int largura_atual = this.getWidth();  
+            int altura_atual = this.getHeight();
             criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
             voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
             conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
             Criar_nova_conta();
-            janela.repaint();
-            janela.revalidate();
+            this.repaint();
+            this.revalidate();
         } else if (e.getSource() == Logar) {
-        janela.getContentPane().removeAll();
+        this.getContentPane().removeAll();
         System.out.println("Logar clicado!");
         Configuracoes configuracoes = new Configuracoes();
         configuracoes.configuracoes();
-        janela.repaint();
-        janela.revalidate();
+        this.repaint();
+        this.revalidate();
     } else if (e.getSource() == esqueceu_senha) {
         System.out.println("Esqueceu a senha clicado!");
     }else if (e.getSource()==voltar_login){
-        janela.getContentPane().removeAll();
+        this.getContentPane().removeAll();
         login();      
-        janela.repaint();
-        janela.revalidate();  
+        this.repaint();
+        this.revalidate();  
     }
 }
 @Override
