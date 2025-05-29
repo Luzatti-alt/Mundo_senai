@@ -4,11 +4,9 @@ import java.io.*;
 import javax.swing.*;
 public class App_mundo_senai extends JFrame implements ActionListener, AdjustmentListener {
     JPanel tela_configs = new JPanel();
-    int raio = 0;
     //adjustamentlistener usado no scroll bar
     JPanel Top_ui = new JPanel();
-    //ImageIcon nome = new ImageIcon(path);
-    //imagem tem que estar numa mesma pasta que src/código esta se o codigo esta numa parte e a img tbm vai dar erro
+    //ImageIcon nome = new ImageIcon(path); //imagem tem que estar numa mesma pasta que src/código esta se o codigo esta numa parte e a img tbm vai dar erro
     ImageIcon carrinho_original = new ImageIcon(getClass().getResource("imagens/Carrinho-removebg.png"));
     Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
@@ -101,38 +99,14 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     //sobre nos
     JTextArea mais_sobre_nos = new JTextArea();
     JTextArea about = new JTextArea(
-    "Nossa plataforma tem como prioridade a saúde de nossos clientes.\n" +
-    "Por isso, disponibilizamos rotinas de treino personalizadas para cada cliente,\n" +
-    "que podem ser feitas sem o uso de equipamentos como máquinas e pesos.\n\n" +
-    "Também oferecemos a venda de produtos voltados para o melhor desempenho em atividades físicas,\n" +
-    "como camisetas esportivas e suplementos (creatina, proteína e vitaminas) por preços acessíveis.\n\n" +
-    "Oferecemos metas diárias e semanais. Ao serem cumpridas (com comprovação),\n" +
-    "os clientes ganham pontos que podem ser utilizados para adquirir produtos em nossa loja.\n" +
-    "Você pode comprovar o cumprimento das tarefas com vídeos, fotos, marcapassos, laudos médicos\n" +
-    "ou exames realizados por profissionais de instituições parceiras do nosso serviço.\n\n" +
-    "Catálogo de Recompensas por Pontos:\n" +
-    "1. Produtos Fitness (Físicos):\n" +
-    " - Garrafa térmica personalizada – Mantém a bebida gelada e vem com o nome do usuário.\n" +
-    " - Camiseta de treino – Respirável, com frases motivacionais.\n" +
-    " - Faixa elástica & corda de pular – Ideais para treinos em casa e cardio.\n" +
-    " - Toalha & shaker – Práticos e com a marca do app.\n" +
-    " - Bandagens/luvas & mochila esportiva – Proteção e estilo na academia.\n\n" +
-    "2. Vantagens no App:\n" +
-    " - Acesso Premium (7 ou 30 dias) – Funções exclusivas liberadas.\n" +
-    " - Treino personalizado com IA – Adaptado ao seu objetivo.\n" +
-    " - Avaliação de progresso avançada – Gráficos e comparações.\n" +
-    " - Missões exclusivas com bônus – Ganhe mais pontos!\n\n" +
-    "3. Itens Virtuais & Motivacionais:\n" +
-    " - Medalhas & troféus digitais – Reconhecimento por conquistas.\n" +
-    " - Papéis de parede & avatares customizados – Personalização visual.\n\n" +
-    "4. Parcerias & Cupons:\n" +
-    " - Descontos em lojas de suplemento.\n" +
-    " - Aulas em academias (spinning, yoga etc.).\n" +
-    " - Consultorias com nutricionistas ou personal trainers (online).\n\n" +
-    "Extras e Gamificação:\n" +
-    " - Recompensas por nível: iniciante, intermediário, avançado.\n" +
-    " - Sistema de raridade: comum, raro, épico.\n" +
-    " - Resgates via baús surpresa e missões especiais."
+    "Nossa plataforma tem como prioridade a saúde de nossos clientes.\n Por isso, disponibilizamos rotinas de treino personalizadas para cada cliente,\n" + "que podem ser feitas sem o uso de equipamentos como máquinas e pesos.\n" +
+    "Também oferecemos a venda de produtos voltados para o melhor desempenho em atividades físicas,\n como camisetas esportivas e suplementos (creatina, proteína e vitaminas) por preços acessíveis.\n" +
+    "Oferecemos metas diárias e semanais. Ao serem cumpridas (com comprovação),\n os clientes ganham pontos que podem ser utilizados para adquirir produtos em nossa loja.\n" +
+    "Você pode comprovar o cumprimento das tarefas com vídeos, fotos, marcapassos, laudos médicos\n ou exames realizados por profissionais de instituições parceiras do nosso serviço.\n Catálogo de Recompensas por Pontos:\n" + 
+    "1. Produtos Fitness (Físicos):\n - Garrafa térmica personalizada – Mantém a bebida gelada e vem com o nome do usuário.\n - Camiseta de treino – Respirável, com frases motivacionais.\n - Faixa elástica & corda de pular – Ideais para treinos em casa e cardio.\n - Toalha & shaker – Práticos e com a marca do app.\n" + " - Bandagens/luvas & mochila esportiva – Proteção e estilo na academia.\n\n" +
+    "2. Vantagens no App:\n - Acesso Premium (7 ou 30 dias) – Funções exclusivas liberadas.\n - Treino personalizado com IA – Adaptado ao seu objetivo.\n - Avaliação de progresso avançada – Gráficos e comparações.\n - Missões exclusivas com bônus – Ganhe mais pontos!\n" +
+    "3. Itens Virtuais & Motivacionais:\n - Medalhas & troféus digitais – Reconhecimento por conquistas.\n - Papéis de parede & avatares customizados – Personalização visual.\n" +
+    "4. Parcerias & Cupons:\n - Descontos em lojas de suplemento.\n - Aulas em academias (spinning, yoga etc.).\n - Consultorias com nutricionistas ou personal trainers (online).\n Extras e Gamificação:\n - Recompensas por nível: iniciante, intermediário, avançado.\n - Sistema de raridade: comum, raro, épico.\n - Resgates via baús surpresa e missões especiais."
 );
     //parceiros
     JPanel parça = new JPanel();
@@ -173,9 +147,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     JButton temp = new JButton();
     public App_mundo_senai(){
         if (info.exists()) {
-            System.out.println("Arquivo existente");
         } else {
-            System.out.println("Arquivo inexistente");
             try {
                 FileWriter info = new FileWriter("info.txt");
                 info.write("add info de login talvez via pipe");
@@ -224,7 +196,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     }
     });
         voltar_login.setBackground(Color.gray);
-		//tela colocar info p /login
         box_login.setLayout(null);
         box_login.setBackground(Color.lightGray);
         usuario_text.setBackground(null);
@@ -267,7 +238,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         janela.revalidate();
         }
     public void Info_conta() {
-        //definindo janela
         janela.add(Menu);
         janela.add(titulo);
         titulo.setText("Opções de assinatura & conta");
@@ -340,7 +310,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         conta.add(data_cria_conta);
         data_cria_conta.setBackground(new Color(122,159,125));
         data_cria_conta.setBounds(0,200,1000,60);
-        //mes e valor
         dados_pagamento.add(mes);
         dados_pagamento.setBackground(Color.lightGray);
         dados_pagamento.setLayout(null);
@@ -384,7 +353,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         quinhentos_quarenta.setBackground(new Color(122,159,125));
     	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
         quinhentos_quarenta.setBounds(250,280,120,50);
-    	//pagamento
     	dados_pagamento.add(Debito);
         Debito.setBackground(new Color(73, 207, 78));
     	Debito.setFocusable(false);
@@ -434,7 +402,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         janela.add(Sistema_metas);
         Sistema_metas.setBackground(Color.white);
         Sistema_metas.setLayout(new GridLayout(3,1));
-        //diariasx
+        //diarias
         Sistema_metas.add(Meta_diario);
         Meta_diario.add(Metas_diarias_txt);
         Metas_diarias_txt.setBackground(new Color(61, 153, 32));
@@ -673,7 +641,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         pontuacao.setEditable(false);
     }
     public void carrinho(){
-        //arrumar qnd vai a esta parte
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
@@ -778,7 +745,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     @Override
     public void adjustmentValueChanged(AdjustmentEvent arg0){
         System.out.println("scrollbar: "+scroll_bar.getValue());
-        //criar o efeito de scroll
     }
 
     @Override
@@ -810,8 +776,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             sobre();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
-            System.out.println("largura: "+largura_atual);
-            System.out.println("altura: "+altura_atual);
             janela.setSize(largura_atual+1,altura_atual);
             quests.setBounds((largura_atual/2)-200, 0, 100+1, 28);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
