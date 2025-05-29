@@ -14,6 +14,17 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     JButton esqueceu_senha = new JButton();
     JTextArea usuario_text = new JTextArea("Usuario");
     JTextArea senha_text = new JTextArea("Senha");
+    //criando conta
+    JButton criar_nova_conta_botao = new JButton("Criar conta");
+    JPanel conta_criando = new JPanel();
+    JTextArea nome_conta = new JTextArea("digite seu nome: ");
+    JTextField entrar_nome = new JTextField();
+    JTextArea email = new JTextArea("digite seu email:");
+    JTextField entrar_email = new JTextField();
+    JTextArea senha_criar = new JTextArea("digite sua senha:");
+    JTextField entrar_senha_criando = new JTextField();
+    JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
+    JTextField entrar_confirma_senha = new JTextField();
     public void login(){
         janela.setTitle("Projeto Mundo Senai: Treina Aí");
         janela.setMinimumSize(new Dimension(600, 300));
@@ -71,29 +82,74 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         janela.add(Logar);
         janela.setVisible(true);
     }
+    public void Criar_nova_conta(){
+        janela.add(criar_nova_conta_botao);
+        janela.add(voltar_login);
+        janela.add(conta_criando);
+        conta_criando.setBackground(Color.lightGray);
+        janela.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = janela.getWidth();
+        int altura_atual = janela.getHeight();
+        criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+        conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
+        voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
+    }
+    });
+    conta_criando.setLayout(new GridLayout(8,1));//nome email senha confirma_senha
+    conta_criando.add(nome_conta);
+    nome_conta.setEditable(false);
+    conta_criando.add(entrar_nome);
+    nome_conta.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(email);
+    email.setEditable(false);
+    email.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_email);
+    conta_criando.add(senha_criar);
+    senha_criar.setEditable(false);
+    senha_criar.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_senha_criando);
+    conta_criando.add(confirmar_senha);
+    confirmar_senha.setEditable(false);
+    confirmar_senha.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_confirma_senha);
+    criar_nova_conta_botao.setBackground(Color.green);
+    }
     @Override
 public void actionPerformed(ActionEvent e) {
-    // Exemplo: verifique qual botão foi clicado
     if (e.getSource() == criar_conta) {
-        System.out.println("Criar conta clicado!");
-    } else if (e.getSource() == Logar) {
+            janela.getContentPane().removeAll();
+            int largura_atual = janela.getWidth();  
+            int altura_atual = janela.getHeight();
+            criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+            voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
+            conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
+            Criar_nova_conta();
+            janela.repaint();
+            janela.revalidate();
+        } else if (e.getSource() == Logar) {
         System.out.println("Logar clicado!");
     } else if (e.getSource() == esqueceu_senha) {
         System.out.println("Esqueceu a senha clicado!");
+    }else if (e.getSource()==voltar_login){
+        janela.getContentPane().removeAll();
+        login();      
+        janela.repaint();
+        janela.revalidate();  
     }
 }
 
 @Override
 public void componentResized(ComponentEvent e) {
-    // Se quiser, pode mover a lógica de redimensionamento aqui
 }
-
 @Override
 public void componentMoved(ComponentEvent e) {}
-
 @Override
 public void componentShown(ComponentEvent e) {}
-
 @Override
 public void componentHidden(ComponentEvent e) {}
+public void main(String[] args) {
+        new Login();  // Isso funciona se você chamar login() dentro do construtor
+    }
 }
