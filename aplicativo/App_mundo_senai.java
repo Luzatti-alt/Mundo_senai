@@ -4,6 +4,7 @@ import java.io.*;
 import javax.swing.*;
 public class App_mundo_senai extends JFrame implements ActionListener, AdjustmentListener {
     JPanel tela_configs = new JPanel();
+    int raio = 0;
     //adjustamentlistener usado no scroll bar
     JPanel Top_ui = new JPanel();
     //ImageIcon nome = new ImageIcon(path);
@@ -39,6 +40,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
 	JButton produtos = new JButton("Produtos");
 	JButton sobre_nos = new JButton("Sobre nos");
 	JButton configs = new JButton("Configurações");
+    JButton voltar_login = new JButton("voltar a aba de login");
     JButton Logar = new JButton();
 	JButton esqueceu_senha = new JButton();
 	JButton criar_conta = new JButton();
@@ -221,6 +223,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         janela.revalidate();
     }
     });
+        voltar_login.setBackground(Color.gray);
 		//tela colocar info p /login
         box_login.setLayout(null);
         box_login.setBackground(Color.lightGray);
@@ -252,6 +255,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
 		esqueceu_senha.addActionListener(this);
         Logar.setText("Logar");
         criar_conta.addActionListener(this);
+        voltar_login.addActionListener(this);
         Logar.setBackground(new Color(122,159,125));
         Logar.addActionListener(this);
         janela.add(Logar);
@@ -594,6 +598,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     }
     public void Criar_nova_conta(){
         janela.add(criar_nova_conta_botao);
+        janela.add(voltar_login);
         janela.add(conta_criando);
         conta_criando.setBackground(Color.lightGray);
         janela.addComponentListener(new ComponentAdapter() {
@@ -603,6 +608,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         int altura_atual = janela.getHeight();
         criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
         conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
+        voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
     }
     });
     conta_criando.setLayout(new GridLayout(8,1));//nome email senha confirma_senha
@@ -795,9 +801,8 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             limparJanela();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
-            System.out.println("largura: "+largura_atual);
-            System.out.println("altura: "+altura_atual);
             criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+            voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
             conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
             Criar_nova_conta();
         } else if (e.getSource() == sobre_nos) {
