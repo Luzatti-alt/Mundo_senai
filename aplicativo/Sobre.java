@@ -23,7 +23,6 @@ public class Sobre extends JPanel implements ActionListener, ComponentListener{
     JButton produtos = new JButton("Produtos");
     JButton quests = new JButton("Metas");
     JButton parceiros = new JButton("Parceiros");
-	JButton sobre_nos = new JButton("Sobre nos");
 	JButton configs = new JButton("Configurações");
     JTextArea mais_sobre_nos = new JTextArea();
     JTextArea about = new JTextArea(
@@ -77,7 +76,18 @@ public Sobre() {
         about.setFont(new Font("arial",Font.PLAIN,altura_atual/55));
     }
     @Override
-public void actionPerformed(ActionEvent e) {}
+public void actionPerformed(ActionEvent e) {
+    if(e.getSource()==produtos){
+        //
+    }else  if(e.getSource()==quests){
+        //
+    }else  if(e.getSource()==parceiros){
+        //
+    }else  if(e.getSource()==configs){
+        //
+    }
+
+}
 @Override
 public void componentMoved(ComponentEvent e) {}
 @Override
