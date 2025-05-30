@@ -69,18 +69,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     JPanel dividir_dia = new JPanel();
     JPanel dividir_semana = new JPanel();
     JPanel dividir_mes = new JPanel();
-    //sobre nos
-    JTextArea mais_sobre_nos = new JTextArea();
-    JTextArea about = new JTextArea(
-    "Nossa plataforma tem como prioridade a saúde de nossos clientes.\n Por isso, disponibilizamos rotinas de treino personalizadas para cada cliente,\n" + "que podem ser feitas sem o uso de equipamentos como máquinas e pesos.\n" +
-    "Também oferecemos a venda de produtos voltados para o melhor desempenho em atividades físicas,\n como camisetas esportivas e suplementos (creatina, proteína e vitaminas) por preços acessíveis.\n" +
-    "Oferecemos metas diárias e semanais. Ao serem cumpridas (com comprovação),\n os clientes ganham pontos que podem ser utilizados para adquirir produtos em nossa loja.\n" +
-    "Você pode comprovar o cumprimento das tarefas com vídeos, fotos, marcapassos, laudos médicos\n ou exames realizados por profissionais de instituições parceiras do nosso serviço.\n Catálogo de Recompensas por Pontos:\n" + 
-    "1. Produtos Fitness (Físicos):\n - Garrafa térmica personalizada – Mantém a bebida gelada e vem com o nome do usuário.\n - Camiseta de treino – Respirável, com frases motivacionais.\n - Faixa elástica & corda de pular – Ideais para treinos em casa e cardio.\n - Toalha & shaker – Práticos e com a marca do app.\n" + " - Bandagens/luvas & mochila esportiva – Proteção e estilo na academia.\n\n" +
-    "2. Vantagens no App:\n - Acesso Premium (7 ou 30 dias) – Funções exclusivas liberadas.\n - Treino personalizado com IA – Adaptado ao seu objetivo.\n - Avaliação de progresso avançada – Gráficos e comparações.\n - Missões exclusivas com bônus – Ganhe mais pontos!\n" +
-    "3. Itens Virtuais & Motivacionais:\n - Medalhas & troféus digitais – Reconhecimento por conquistas.\n - Papéis de parede & avatares customizados – Personalização visual.\n" +
-    "4. Parcerias & Cupons:\n - Descontos em lojas de suplemento.\n - Aulas em academias (spinning, yoga etc.).\n - Consultorias com nutricionistas ou personal trainers (online).\n Extras e Gamificação:\n - Recompensas por nível: iniciante, intermediário, avançado.\n - Sistema de raridade: comum, raro, épico.\n - Resgates via baús surpresa e missões especiais."
-);
     //parceiros
     JPanel parça = new JPanel();
     JPanel academia_1 = new JPanel();
@@ -228,41 +216,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         comprovar_meta_mensal.setFocusable(false);
         comprovar_meta_mensal.addActionListener(this);
 	}
-    public void sobre(){
-        this.addComponentListener(new ComponentAdapter() {
-        @Override
-        public void componentResized(ComponentEvent e) {
-        int largura_atual = janela.getWidth();
-        int altura_atual = janela.getHeight();
-        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
-        parceiros.setBounds((largura_atual/2), 0, 100, 28);
-        quests.setBounds((largura_atual/2)-200, 0, 100, 28);
-        configs.setBounds((largura_atual/2)+100, 0, 100, 28);
-        titulo.setBounds(0,26,largura_atual,35);
-        about.setBounds(0,62,largura_atual,1460);
-        about.setFont(new Font("arial",Font.PLAIN,altura_atual/55));
-    }
-    });
-    this.add(produtos);
-    this.add(parceiros);
-    this.add(quests);
-    this.add(configs);
-    produtos.setIcon(Loja_icon);
-    this.setLayout(null);
-    this.add(titulo);
-    titulo.setText("Mais sobre nós");
-    this.add(titulo);
-    titulo.setEditable(false);
-    titulo.setFont(new Font("arial",Font.PLAIN,30));
-    mais_sobre_nos.setBounds(0,27,1550, 30);
-    this.add(about);
-    about.setEditable(false);
-    about.setBackground(new Color(200, 255, 206));
-    titulo.setBackground(new Color(61, 153, 32));
-    mais_sobre_nos.setEditable(false);
-    mais_sobre_nos.setFont(new Font("arial",Font.PLAIN,30));
-    mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
-    }
     public void parceiro_page(){
         this.addComponentListener(new ComponentAdapter() {
         @Override
@@ -495,8 +448,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         if (e.getSource() == esqueceu_senha) {
             //
         } else if (e.getSource() == sobre_nos) {
-            limparJanela();
-            sobre();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
             this.setSize(largura_atual+1,altura_atual);
@@ -505,7 +456,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
             configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
         } else if (e.getSource() == produtos) {
-            limparJanela();
             loja();
             int largura_atual = janela.getWidth();  
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
@@ -520,7 +470,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             //temporario
             temp.setBounds((largura_atual/2)-100, 500, 100+1, 30);
         } else if (e.getSource() == quests) {
-			limparJanela();
             int largura_atual = janela.getWidth(); 
             int altura_atual = janela.getHeight();
             Metas();
@@ -532,7 +481,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             titulo.setBounds(0, 26, largura_atual+1, 35);
             fundo.setBounds(0,60,largura_atual+1,altura_atual);
         } else if (e.getSource() == parceiros) {
-            limparJanela();
             int largura_atual = janela.getWidth();  
             parceiro_page();
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
@@ -544,7 +492,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             limparJanela();
             //
 		}if(e.getSource()==comprovar_meta_diaria){
-            limparJanela();
             comprove();
             int largura_atual = janela.getWidth();
             int altura_atual = janela.getHeight();
@@ -571,7 +518,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             laudo.setBounds(100,altura_atual-400,largura_atual/2,50);
             cons_profi.setBounds(100,altura_atual-300,largura_atual/2,50);
         }if(e.getSource()==Carrinho_bot){
-            limparJanela();
             carrinho();
             int largura_atual = janela.getWidth();
             int altura_atual = janela.getHeight();
@@ -588,7 +534,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             this.repaint();
             this.revalidate();
         }if(e.getSource()==temp){
-            limparJanela();
             descricao();
             int largura_atual = janela.getWidth();
             int altura_atual = janela.getHeight();
@@ -604,7 +549,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             this.repaint();
             this.revalidate();
         }else if(e.getSource()==volte){
-        limparJanela();
         loja();}
     }
     public static void main(String[] args) {
