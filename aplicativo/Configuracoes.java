@@ -31,9 +31,6 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
 	JButton Credito = new JButton("Crédito");
 	JButton Boleto = new JButton("Boleto");
     Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
-    ImageIcon carrinho_original = new ImageIcon(getClass().getResource("imagens/Carrinho-removebg.png"));
-    Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
     ImageIcon Config_original = new ImageIcon(getClass().getResource("imagens/Configs-removebg.png"));
     Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Config_icon = new ImageIcon(Config_img);
