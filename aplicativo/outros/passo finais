@@ -1,6 +1,7 @@
 add a funcinalidade ao scroll em loja e carrinho
 add ir para descrição x aparecendo imagem do produto x na tela de descrição 
 comecei a optimizar(arquivos separados) com isso vou ter que refazer o resizze
+de configs/sobrenos para parceiors até que funciona mas o jpanel fica em branco resolver isso logo
 
 ver com o sumida sobre a parte do python para conferir db para funcionalidade entre site e app ser a mesma e acessar o mesmo db(talvez tenha que criar uma classe so da funcionalidade para usar o http para consultar os dados)
 ⬆️sim é isso mesmo fazere request de dados pra login e outras funcionalidades⬆️
