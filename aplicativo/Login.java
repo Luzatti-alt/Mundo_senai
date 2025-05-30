@@ -2,7 +2,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 public class Login extends JFrame implements ActionListener, ComponentListener{
     JPanel box_login = new JPanel();
     int largura_atual = this.getWidth();  
