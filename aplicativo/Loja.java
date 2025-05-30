@@ -155,10 +155,6 @@ public void actionPerformed(ActionEvent e) {
 @Override
 public void componentResized(ComponentEvent e) {}
 @Override
-public void adjustmentValueChanged(AdjustmentEvent e) {
-    // You can add your logic here, or leave it empty if not needed
-}
-@Override
 public void componentMoved(ComponentEvent e) {}
 @Override
 public void componentShown(ComponentEvent e) {}
