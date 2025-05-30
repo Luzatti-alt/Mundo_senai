@@ -5,9 +5,6 @@ public class Metas extends JPanel implements ActionListener, ComponentListener{
     int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
     JPanel fundo = new JPanel();
-    ImageIcon carrinho_original = new ImageIcon(getClass().getResource("imagens/Carrinho-removebg.png"));
-    Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
     ImageIcon Config_original = new ImageIcon(getClass().getResource("imagens/Configs-removebg.png"));
     Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Config_icon = new ImageIcon(Config_img);
