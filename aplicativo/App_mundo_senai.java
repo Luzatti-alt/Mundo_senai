@@ -25,7 +25,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     File info = new File("info.txt");
     JScrollBar scroll_bar = new JScrollBar();//add em loja e carrinho
     int largura_atual = janela.getWidth();  
-    int altura_atual = janela.getHeight();
+    int altura_atual = this.getHeight();
     JTextArea titulo = new JTextArea();
     JPanel fundo = new JPanel();
     JPanel box_login = new JPanel();
@@ -125,12 +125,16 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             String linha;
             while ((linha = leitor.readLine()) != null) {
                 if (linha.equals(validador_login)) {
-                    Info_conta();
-                    janela.setSize(new Dimension(700, 700));
+                    Configuracoes configuracoesPanel = new Configuracoes();
+                    this.setContentPane(configuracoesPanel);
+                    this.setSize(new Dimension(700, 700));
+                    this.setVisible(true);
                     break;
-                } else {
-                    //Login logando = new Login();
-                    //janela.add(logando);
+                }else {
+                    Login logando = new Login();
+                    this.setContentPane(logando);
+                    this.setSize(new Dimension(700,700));
+                    this.setVisible(true);
                     break;
                 }
             }
@@ -140,15 +144,15 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         }
 }
     public void limparJanela(){
-        janela.getContentPane().removeAll();
-        janela.repaint();
-        janela.revalidate();
+        this.getContentPane().removeAll();
+        this.repaint();
+        this.revalidate();
         }
     public void Info_conta() {
         
         }
 	public void Metas(){
-        janela.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
@@ -160,10 +164,10 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         Sistema_metas.setBounds(0,60,largura_atual+1,altura_atual-63);
     }
     }); 
-        janela.add(produtos);
-        janela.add(parceiros);
-        janela.add(configs);
-        janela.add(titulo);
+        this.add(produtos);
+        this.add(parceiros);
+        this.add(configs);
+        this.add(titulo);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         produtos.setIcon(Loja_icon);
@@ -172,7 +176,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         titulo.setEditable(false);
         titulo.setBackground(new Color(61, 153, 32));//new Color(61, 153, 32)
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
-        janela.add(Sistema_metas);
+        this.add(Sistema_metas);
         Sistema_metas.setBackground(Color.white);
         Sistema_metas.setLayout(new GridLayout(3,1));
         //diarias
@@ -225,7 +229,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         comprovar_meta_mensal.addActionListener(this);
 	}
     public void sobre(){
-        janela.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
@@ -239,19 +243,19 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         about.setFont(new Font("arial",Font.PLAIN,altura_atual/55));
     }
     });
-    janela.add(produtos);
-    janela.add(parceiros);
-    janela.add(quests);
-    janela.add(configs);
+    this.add(produtos);
+    this.add(parceiros);
+    this.add(quests);
+    this.add(configs);
     produtos.setIcon(Loja_icon);
-    janela.setLayout(null);
-    janela.add(titulo);
+    this.setLayout(null);
+    this.add(titulo);
     titulo.setText("Mais sobre nós");
-    janela.add(titulo);
+    this.add(titulo);
     titulo.setEditable(false);
     titulo.setFont(new Font("arial",Font.PLAIN,30));
     mais_sobre_nos.setBounds(0,27,1550, 30);
-    janela.add(about);
+    this.add(about);
     about.setEditable(false);
     about.setBackground(new Color(200, 255, 206));
     titulo.setBackground(new Color(61, 153, 32));
@@ -260,7 +264,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     mais_sobre_nos.setPreferredSize(new Dimension(1550, 30));
     }
     public void parceiro_page(){
-        janela.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
@@ -275,18 +279,18 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     }
     }); 
         titulo.setText("Instituições parceiras");
-        janela.add(produtos);
-        janela.add(quests);
-        janela.add(configs);
-        janela.add(titulo);
-        janela.add(parça);
+        this.add(produtos);
+        this.add(quests);
+        this.add(configs);
+        this.add(titulo);
+        this.add(parça);
         produtos.setIcon(Loja_icon);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
         parça.setBounds(0, 61, largura_atual, 1000);
         parça.setBackground(Color.lightGray);
-        janela.add(titulo);
+        this.add(titulo);
         titulo.setBackground(new Color(61, 153, 32));
         titulo.setEditable(false);
         titulo.setFont(new Font("arial",Font.PLAIN,30));
@@ -338,9 +342,9 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         endereco_aca_5.setFont(new Font("arial",Font.PLAIN,30));
     }
     public void loja(){
-        janela.add(temp);
+        this.add(temp);
         temp.addActionListener(this);
-        janela.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
@@ -357,25 +361,25 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         titulo.setBounds(0,30,largura_atual,30);
     }
     });
-        janela.add(produtos);
-        janela.add(quests);
-        janela.add(configs);
-        janela.add(titulo);
+        this.add(produtos);
+        this.add(quests);
+        this.add(configs);
+        this.add(titulo);
         produtos.setIcon(Loja_icon);
-        janela.add(Carrinho_bot);
+        this.add(Carrinho_bot);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
-        janela.add(titulo);
+        this.add(titulo);
         titulo.setEditable(false);
         titulo.setText("Produtos a venda");
         titulo.setBackground(Color.green);
         Carrinho_bot.addActionListener(this);
-        janela.add(pesquisa);
-        janela.add(pontuacao);
+        this.add(pesquisa);
+        this.add(pontuacao);
         fundo.setBackground(Color.blue);
-        janela.add(scroll_bar);
+        this.add(scroll_bar);
         scroll_bar.addAdjustmentListener(this);
         pontuacao.setEditable(false);
     }
@@ -385,7 +389,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         quests.setIcon(Metas_icon);
         produtos.setIcon(Loja_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
-        janela.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
@@ -404,33 +408,33 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     });
         fundo.add(scroll_bar);
         scroll_bar.addAdjustmentListener(this);
-        janela.add(produtos);
-        janela.add(parceiros);
-        janela.add(quests);
-        janela.add(configs);
-        janela.add(titulo);
-        janela.add(fundo);
+        this.add(produtos);
+        this.add(parceiros);
+        this.add(quests);
+        this.add(configs);
+        this.add(titulo);
+        this.add(fundo);
         fundo.setBackground(Color.LIGHT_GRAY);
-        janela.add(valor_a_pagar);
+        this.add(valor_a_pagar);
         valor_a_pagar.setBackground(Color.green);
         valor_a_pagar.setFont(new Font("Arial", Font.PLAIN, 56));
-        janela.add(volte);
-        janela.add(dinheiro);
+        this.add(volte);
+        this.add(dinheiro);
         titulo.setBackground(Color.green);
         titulo.setText("carrinho");
     }
     public void comprove(){
-        janela.add(titulo);
+        this.add(titulo);
         titulo.setText("Métodos de comprovantes");
         titulo.setBackground(Color.green);
-        janela.getContentPane().setBackground(Color.lightGray);
-        janela.add(vid);
+        this.getContentPane().setBackground(Color.lightGray);
+        this.add(vid);
         vid.setBackground(Color.green);
-        janela.add(laudo);
+        this.add(laudo);
         laudo.setBackground(Color.green);
-        janela.add(cons_profi);
+        this.add(cons_profi);
         cons_profi.setBackground(Color.green);
-        janela.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
@@ -445,11 +449,11 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     }
     public void descricao(){
         //add funcionalidade para produtos especificos
-        janela.add(produtos);
-        janela.add(quests);
-        janela.add(configs);
-        janela.add(titulo);
-        janela.addComponentListener(new ComponentAdapter() {
+        this.add(produtos);
+        this.add(quests);
+        this.add(configs);
+        this.add(titulo);
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = janela.getWidth();
@@ -465,20 +469,20 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
         volte.setBounds(0,altura_atual-100,largura_atual,60);
     }
     }); 
-        janela.add(item);
+        this.add(item);
         volte.addActionListener(this);
         item.setBackground(Color.lightGray);
         //item.add();//imagem do item
-        janela.add(desc);
+        this.add(desc);
         desc.setBackground(Color.gray);
         //desc.add();//descrição do produto
-        janela.add(dinheiro);
-        janela.add(titulo);
+        this.add(dinheiro);
+        this.add(titulo);
         titulo.setBackground(Color.green);
         titulo.setText("Descrição do produto");
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         titulo.setEditable(false);
-        janela.add(volte);
+        this.add(volte);
     }
     //funcionamento de scrollbar
     @Override
@@ -495,7 +499,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             sobre();
             int largura_atual = janela.getWidth();  
             int altura_atual = janela.getHeight();
-            janela.setSize(largura_atual+1,altura_atual);
+            this.setSize(largura_atual+1,altura_atual);
             quests.setBounds((largura_atual/2)-200, 0, 100+1, 28);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
@@ -520,7 +524,7 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             int largura_atual = janela.getWidth(); 
             int altura_atual = janela.getHeight();
             Metas();
-            janela.setSize(largura_atual+1,altura_atual);
+            this.setSize(largura_atual+1,altura_atual);
             Sistema_metas.setBounds(0,60,largura_atual+1,altura_atual-63);
             produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
             parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
@@ -581,8 +585,8 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             valor_a_pagar.setBounds(0, altura_atual-250, largura_atual+1, 60);
             fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
             scroll_bar.setBounds(largura_atual-50,0,largura_atual/20,(altura_atual/2)-50);
-            janela.repaint();
-            janela.revalidate();
+            this.repaint();
+            this.revalidate();
         }if(e.getSource()==temp){
             limparJanela();
             descricao();
@@ -597,8 +601,8 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             titulo.setBounds(0,30,largura_atual,30);
             dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
             volte.setBounds(0,altura_atual-100,largura_atual,60);
-            janela.repaint();
-            janela.revalidate();
+            this.repaint();
+            this.revalidate();
         }else if(e.getSource()==volte){
         limparJanela();
         loja();}
