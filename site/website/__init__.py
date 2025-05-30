@@ -5,7 +5,6 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_apscheduler import APScheduler
-from .models import Usuario, Tarefa, ModeloDeTarefa
 
 load_dotenv()
 
@@ -33,7 +32,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(admin, url_prefix='/admin/')
 
-    # from .models import Usuario
+    from .models import Usuario
 
     criar_database(app)
 
@@ -67,20 +66,20 @@ def criar_database(app):
             db.create_all()
         print('Banco de dados criado!')
 
-def gerar_tarefas(app):
-    with app.app_context():
-        usuarios = Usuario.query.all()
-        modelos = ModeloDeTarefa.query.all()
+# def gerar_tarefas(app):
+#     with app.app_context():
+#         usuarios = Usuario.query.all()
+#         modelos = ModeloDeTarefa.query.all()
 
-        for usuario in usuarios:
-            for modelo in modelos:
-                nova_tarefa = Tarefa(
-                    usuario=usuario, 
-                    modelo=modelo
-                    )
-                db.session.add(nova_tarefa)
-        db.session.commit()
-        print(f'Tarefas criadas em {datetime.now(timezone.utc)}')
+#         for usuario in usuarios:
+#             for modelo in modelos:
+#                 nova_tarefa = Tarefa(
+#                     usuario=usuario, 
+#                     modelo=modelo
+#                     )
+#                 db.session.add(nova_tarefa)
+#         db.session.commit()
+#         print(f'Tarefas criadas em {datetime.now(timezone.utc)}')
 
 # def excluir_tarefa_expiradas():
 #     hoje = datetime.now(timezone.utc)
