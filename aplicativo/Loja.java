@@ -1,158 +1,153 @@
+//min pra rodar
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Loja extends JPanel implements ActionListener, ComponentListener, AdjustmentListener{
-    int largura_atual = this.getWidth();
-    int altura_atual = this.getHeight();
-    ImageIcon carrinho_original = new ImageIcon(getClass().getResource("imagens/Carrinho-removebg.png"));
-    Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
-    ImageIcon Config_original = new ImageIcon(getClass().getResource("imagens/Configs-removebg.png"));
-    Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Config_icon = new ImageIcon(Config_img);
-    ImageIcon Metas_original = new ImageIcon(getClass().getResource("imagens/Metas-removebg.png"));
-    Image Metas_img = Metas_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Metas_icon = new ImageIcon(Metas_img);
-    ImageIcon Parca_original = new ImageIcon(getClass().getResource("imagens/Parceiros-removebg.png"));
-    Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Parca_icon = new ImageIcon(Parca_img);
-    ImageIcon Loja_original = new ImageIcon(getClass().getResource("imagens/logo_loja.png"));
-    Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Loja_icon = new ImageIcon(Loja_img);
-    JTextArea titulo = new JTextArea();
-    JButton produtos = new JButton("Produtos");
-    JButton quests = new JButton("Metas");
-    JButton parceiros = new JButton("Parceiros");
-	JButton configs = new JButton("Configurações");
-    JButton Carrinho_bot = new JButton("carrinho");
-    JButton dinheiro = new JButton("Comprar");
-    JButton volte = new JButton("voltar");
-    JButton temp = new JButton();
-    JTextField pesquisa = new JTextField("pesquise aqui o seu produto");
-    JTextArea pontuacao = new JTextArea("Pontos");
-    JPanel fundo = new JPanel();
-    JScrollBar scroll_bar = new JScrollBar();//add em loja e carrinho
-    JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
-public Loja() {
-    loja();
-    this.addComponentListener(this);
-    }
-    public void loja(){
-        this.add(temp);
-        temp.addActionListener(this);
+public class Login extends JFrame implements ActionListener, ComponentListener{
+    JPanel box_login = new JPanel();
+    int largura_atual = this.getWidth();  
+    JButton voltar_login = new JButton("voltar a aba de login");
+    JTextField usuario_login = new JTextField();
+    JTextField senha_login = new JTextField();
+    JButton criar_conta = new JButton();
+    JButton Logar = new JButton();
+    JButton esqueceu_senha = new JButton();
+    JTextArea usuario_text = new JTextArea("Usuario");
+    JTextArea senha_text = new JTextArea("Senha");
+    //criando conta
+    JButton criar_nova_conta_botao = new JButton("Criar conta");
+    JPanel conta_criando = new JPanel();
+    JTextArea nome_conta = new JTextArea("digite seu nome: ");
+    JTextField entrar_nome = new JTextField();
+    JTextArea email = new JTextArea("digite seu email:");
+    JTextField entrar_email = new JTextField();
+    JTextArea senha_criar = new JTextArea("digite sua senha:");
+    JTextField entrar_senha_criando = new JTextField();
+    JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
+    JTextField entrar_confirma_senha = new JTextField();
+    public void login(){
+        this.setTitle("Projeto Mundo Senai: Treina Aí");
+        this.setMinimumSize(new Dimension(600, 300));
+        this.setSize(new Dimension(700, 700));
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLayout(null); 
         this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
-        int largura_atual = Loja.this.getWidth();
-        int altura_atual = Loja.this.getHeight();
-        produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
-        parceiros.setBounds((largura_atual/2)+300, 0, 100, 30);
-        quests.setBounds((largura_atual/2), 0, 100, 30);
-        configs.setBounds((largura_atual/2)+100, 0, 100, 30);
-        pesquisa.setBounds(0,90,largura_atual,30);
-        pontuacao.setBounds(largura_atual/2,60,largura_atual/2,30);
-        scroll_bar.setBounds(0,105,altura_atual/15,altura_atual-90);
-        temp.setBounds((largura_atual/2)+200, 500, 100, 30);
-        Carrinho_bot.setBounds(0,60,largura_atual/2,30);
-        titulo.setBounds(0,30,largura_atual,30);
-        Loja.this.revalidate();
-        Loja.this.repaint();
+        int largura_atual = Login.this.getWidth();
+        box_login.setBounds((largura_atual/2)-250, 100, 500, 225);
+        usuario_login.setBounds(10, 60, 480, 40);
+        senha_login.setBounds(10, 150, 480, 40);  
+        criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
+        Logar.setBounds((largura_atual/2)-150, 350, 300, 50);  
+        esqueceu_senha.setBounds(0, 600,largura_atual,50);
+        Login.this.repaint();
+        Login.this.revalidate();
     }
     });
-        this.add(produtos);
-        this.add(quests);
-        this.add(configs);
-        this.add(titulo);
-        produtos.setIcon(Loja_icon);
-        this.add(Carrinho_bot);
-        configs.setIcon(Config_icon);
-        parceiros.setIcon(Parca_icon);
-        quests.setIcon(Metas_icon);
-        Carrinho_bot.setIcon(Carrinho_icon);
-        this.add(titulo);
-        titulo.setEditable(false);
-        titulo.setText("Produtos a venda");
-        titulo.setBackground(Color.green);
-        Carrinho_bot.addActionListener(this);
-        this.add(pesquisa);
-        this.add(pontuacao);
-        fundo.setBackground(Color.blue);
-        this.add(scroll_bar);
-        scroll_bar.addAdjustmentListener(this);
-        pontuacao.setEditable(false);
+        voltar_login.setBackground(Color.gray);
+        box_login.setLayout(null);
+        box_login.setBackground(Color.lightGray);
+        usuario_text.setBackground(null);
+        usuario_text.setEditable(false);
+        usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
+        box_login.add(usuario_text);
+        usuario_login.setBorder(BorderFactory.createEmptyBorder());
+        usuario_text.setBounds(largura_atual/2, 10, 480, 60);
+        usuario_login.setBackground(new Color(200, 255, 206));
+        box_login.add(usuario_login);
+        senha_text.setBounds(0, 100, 480, 60);
+        senha_text.setBackground(null);
+        senha_text.setEditable(false);
+        senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
+        box_login.add(senha_text);
+        senha_login.setBorder(BorderFactory.createEmptyBorder()); 
+        senha_login.setBackground(new Color(200, 255, 206));
+        box_login.add(senha_login);
+        this.add(box_login);
+        this.add(criar_conta);
+        criar_conta.setBackground(new Color(122,159,125));
+        criar_conta.setFocusable(false);
+        criar_conta.setText("Criar conta");
+		this.add(esqueceu_senha);
+        esqueceu_senha.setBackground(new Color(122,159,125));
+		esqueceu_senha.setFocusable(false);
+		esqueceu_senha.setText("esqueceu sua senha");
+		esqueceu_senha.addActionListener(this);
+        Logar.setText("Logar");
+        criar_conta.addActionListener(this);
+        voltar_login.addActionListener(this);
+        Logar.setBackground(new Color(122,159,125));
+        Logar.addActionListener(this);
+        this.add(Logar);
+        this.setVisible(true);
     }
-    public void carrinho(){
-        configs.setIcon(Config_icon);
-        parceiros.setIcon(Parca_icon);
-        quests.setIcon(Metas_icon);
-        produtos.setIcon(Loja_icon);
-        Carrinho_bot.setIcon(Carrinho_icon);
+    public void Criar_nova_conta(){
+        this.add(criar_nova_conta_botao);
+        this.add(voltar_login);
+        this.add(conta_criando);
+        conta_criando.setBackground(Color.lightGray);
         this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
-        int largura_atual = Loja.this.getWidth();
-        int altura_atual = Loja.this.getHeight();
-        produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
-        parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
-        quests.setBounds((largura_atual/2), 0, 100, 30);
-        configs.setBounds((largura_atual/2)+100, 0, 100, 30);
-        titulo.setBounds(0, 30, largura_atual, 30);
-        volte.setBounds(0,altura_atual-100,largura_atual,60);
-        dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
-        valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
-        fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
-        scroll_bar.setBounds(largura_atual-50,0,largura_atual/20,(altura_atual/2)-50);
+        int largura_atual = Login.this.getWidth();
+        int altura_atual = Login.this.getHeight();
+        criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+        conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
+        voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
     }
     });
-        fundo.add(scroll_bar);
-        scroll_bar.addAdjustmentListener(this);
-        this.add(produtos);
-        this.add(parceiros);
-        this.add(quests);
-        this.add(configs);
-        this.add(titulo);
-        this.add(fundo);
-        fundo.setBackground(Color.LIGHT_GRAY);
-        this.add(valor_a_pagar);
-        valor_a_pagar.setBackground(Color.green);
-        valor_a_pagar.setFont(new Font("Arial", Font.PLAIN, 56));
-        this.add(volte);
-        this.add(dinheiro);
-        titulo.setBackground(Color.green);
-        titulo.setText("carrinho");
+    conta_criando.setLayout(new GridLayout(8,1));//nome email senha confirma_senha
+    conta_criando.add(nome_conta);
+    nome_conta.setEditable(false);
+    conta_criando.add(entrar_nome);
+    nome_conta.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(email);
+    email.setEditable(false);
+    email.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_email);
+    conta_criando.add(senha_criar);
+    senha_criar.setEditable(false);
+    senha_criar.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_senha_criando);
+    conta_criando.add(confirmar_senha);
+    confirmar_senha.setEditable(false);
+    confirmar_senha.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_confirma_senha);
+    criar_nova_conta_botao.setBackground(Color.green);
     }
     @Override
 public void actionPerformed(ActionEvent e) {
-    if(e.getSource()==produtos){
-        //
-    }else  if(e.getSource()==quests){
-        this.removeAll();
-        Metas metas = new Metas();
-        this.add(metas);
-        metas.setBounds(0,0,this.getWidth(), this.getHeight());
+    if (e.getSource() == criar_conta) {
+            this.getContentPane().removeAll();
+            int largura_atual = this.getWidth();  
+            int altura_atual = this.getHeight();
+            criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+            voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
+            conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
+            Criar_nova_conta();
+            this.repaint();
+            this.revalidate();
+        } else if (e.getSource() == Logar) {
+        this.getContentPane().removeAll();
+        Configuracoes configuracoesPanel = new Configuracoes();
+        this.setContentPane(configuracoesPanel);
         this.revalidate();
         this.repaint();
-    }else  if(e.getSource()==parceiros){
-        //
-    }else  if(e.getSource()==configs){
-        this.removeAll();
-        Configuracoes configuracoes = new Configuracoes();
-        this.add(configuracoes);
-        configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
+    } else if (e.getSource() == esqueceu_senha) {
+        System.out.println("Esqueceu a senha clicado!");
+    }else if (e.getSource()==voltar_login){
+        this.getContentPane().removeAll();
+        login();      
         this.repaint();
-    }else  if(e.getSource()==Carrinho_bot){
-        this.removeAll();
-        carrinho();
-        Loja.this.revalidate();
-        Loja.this.repaint();
+        this.revalidate();  
     }
 }
 @Override
-public void componentResized(ComponentEvent e) {}
+    public void adjustmentValueChanged(AdjustmentEvent arg0){
+        System.out.println("scrollbar: "+scroll_bar.getValue());
+    }
 @Override
-public void adjustmentValueChanged(AdjustmentEvent e) {
-    // You can add your logic here, or leave it empty if not needed
+public void componentResized(ComponentEvent e) {
 }
 @Override
 public void componentMoved(ComponentEvent e) {}
@@ -160,7 +155,8 @@ public void componentMoved(ComponentEvent e) {}
 public void componentShown(ComponentEvent e) {}
 @Override
 public void componentHidden(ComponentEvent e) {}
-    public static void main(String[]args){
-        //
+public static void main(String[] args) {
+        Login login = new Login();
+        login.login();
     }
 }
