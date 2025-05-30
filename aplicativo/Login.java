@@ -40,7 +40,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
         Logar.setBounds((largura_atual/2)-150, 350, 300, 50);  
         esqueceu_senha.setBounds(0, 600,largura_atual,50);
-        Login. this.repaint();
+        Login.this.repaint();
         Login.this.revalidate();
     }
     });
@@ -143,7 +143,8 @@ public void actionPerformed(ActionEvent e) {
     }
 }
 @Override
-public void componentResized(ComponentEvent e) {}
+public void componentResized(ComponentEvent e) {
+}
 @Override
 public void componentMoved(ComponentEvent e) {}
 @Override
