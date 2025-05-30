@@ -130,11 +130,10 @@ public void actionPerformed(ActionEvent e) {
             this.revalidate();
         } else if (e.getSource() == Logar) {
         this.getContentPane().removeAll();
-        System.out.println("Logar clicado!");
-        Configuracoes configuracoes = new Configuracoes();
-        configuracoes.configuracoes();
-        this.repaint();
+        Configuracoes configuracoesPanel = new Configuracoes();
+        this.setContentPane(configuracoesPanel);
         this.revalidate();
+        this.repaint();
     } else if (e.getSource() == esqueceu_senha) {
         System.out.println("Esqueceu a senha clicado!");
     }else if (e.getSource()==voltar_login){
@@ -145,8 +144,7 @@ public void actionPerformed(ActionEvent e) {
     }
 }
 @Override
-public void componentResized(ComponentEvent e) {
-}
+public void componentResized(ComponentEvent e) {}
 @Override
 public void componentMoved(ComponentEvent e) {}
 @Override
