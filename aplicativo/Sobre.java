@@ -40,9 +40,7 @@ public Sobre() {
         this.addComponentListener(this);
     }
     public void sobre(){
-        this.setLayout(null);
-        this.addComponentListener(new ComponentAdapter() {
-    });
+    this.setLayout(null);
     this.add(produtos);
     this.add(parceiros);
     this.add(quests);
@@ -74,6 +72,8 @@ public Sobre() {
         titulo.setBounds(0,26,largura_atual,35);
         about.setBounds(0,62,largura_atual,1460);
         about.setFont(new Font("arial",Font.PLAIN,altura_atual/55));
+        this.revalidate();
+        this.repaint();
     }
     @Override
 public void actionPerformed(ActionEvent e) {
@@ -84,7 +84,12 @@ public void actionPerformed(ActionEvent e) {
     }else  if(e.getSource()==parceiros){
         //
     }else  if(e.getSource()==configs){
-        //
+        this.removeAll();
+        Configuracoes configuracoes = new Configuracoes();
+        this.add(configuracoes);
+        configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
+        this.revalidate();
+        this.repaint();
     }
 
 }
@@ -95,7 +100,7 @@ public void componentShown(ComponentEvent e) {}
 @Override
 public void componentHidden(ComponentEvent e) {}
 public static void main(String[] args) {
-        Sobre sobre = new Sobre();
-        sobre.sobre();
+    Sobre sobre = new Sobre();
+    sobre.sobre();
     }
 }
