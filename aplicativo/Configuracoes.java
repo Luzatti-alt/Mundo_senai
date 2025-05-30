@@ -191,7 +191,16 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
         mes.setBounds(50,100,120,50);
         }
     @Override
-public void actionPerformed(ActionEvent e) {}
+public void actionPerformed(ActionEvent e) {
+    if(e.getSource()==sobre_nos){
+        this.removeAll();
+        Sobre sobre = new Sobre();
+        sobre.setBounds(0, 0, this.getWidth(), this.getHeight());
+        this.add(sobre);
+        this.revalidate();
+        this.repaint();
+    }
+}
 
 @Override
 public void componentMoved(ComponentEvent e) {}
