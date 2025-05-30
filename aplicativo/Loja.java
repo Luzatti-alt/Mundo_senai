@@ -32,6 +32,7 @@ public class Loja extends JPanel implements ActionListener, ComponentListener, A
     JTextArea pontuacao = new JTextArea("Pontos");
     JPanel fundo = new JPanel();
     JScrollBar scroll_bar = new JScrollBar();//add em loja e carrinho
+    JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
 public Loja() {
     loja();
     this.addComponentListener(this);
@@ -79,7 +80,47 @@ public Loja() {
         this.add(scroll_bar);
         scroll_bar.addAdjustmentListener(this);
         pontuacao.setEditable(false);
-    } 
+    }
+    public void carrinho(){
+        configs.setIcon(Config_icon);
+        parceiros.setIcon(Parca_icon);
+        quests.setIcon(Metas_icon);
+        produtos.setIcon(Loja_icon);
+        Carrinho_bot.setIcon(Carrinho_icon);
+        this.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = Loja.this.getWidth();
+        int altura_atual = Loja.this.getHeight();
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
+        parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
+        quests.setBounds((largura_atual/2), 0, 100, 30);
+        configs.setBounds((largura_atual/2)+100, 0, 100, 30);
+        titulo.setBounds(0, 30, largura_atual, 30);
+        volte.setBounds(0,altura_atual-100,largura_atual,60);
+        dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
+        valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
+        fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
+        scroll_bar.setBounds(largura_atual-50,0,largura_atual/20,(altura_atual/2)-50);
+    }
+    });
+        fundo.add(scroll_bar);
+        scroll_bar.addAdjustmentListener(this);
+        this.add(produtos);
+        this.add(parceiros);
+        this.add(quests);
+        this.add(configs);
+        this.add(titulo);
+        this.add(fundo);
+        fundo.setBackground(Color.LIGHT_GRAY);
+        this.add(valor_a_pagar);
+        valor_a_pagar.setBackground(Color.green);
+        valor_a_pagar.setFont(new Font("Arial", Font.PLAIN, 56));
+        this.add(volte);
+        this.add(dinheiro);
+        titulo.setBackground(Color.green);
+        titulo.setText("carrinho");
+    }
     @Override
 public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
@@ -100,6 +141,11 @@ public void actionPerformed(ActionEvent e) {
         configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
         this.revalidate();
         this.repaint();
+    }else  if(e.getSource()==Carrinho_bot){
+        this.removeAll();
+        carrinho();
+        Loja.this.revalidate();
+        Loja.this.repaint();
     }
 }
 @Override
