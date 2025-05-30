@@ -80,7 +80,12 @@ public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
         //
     }else  if(e.getSource()==quests){
-        //
+        this.removeAll();
+        Metas metas = new Metas();
+        this.add(metas);
+        metas.setBounds(0,0,this.getWidth(), this.getHeight());
+        this.revalidate();
+        this.repaint();
     }else  if(e.getSource()==parceiros){
         //
     }else  if(e.getSource()==configs){
@@ -91,7 +96,6 @@ public void actionPerformed(ActionEvent e) {
         this.revalidate();
         this.repaint();
     }
-
 }
 @Override
 public void componentMoved(ComponentEvent e) {}
