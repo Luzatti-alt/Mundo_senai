@@ -342,16 +342,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             scroll_bar.setBounds(0,105,altura_atual/15,altura_atual-90);
             //temporario
             temp.setBounds((largura_atual/2)-100, 500, 100+1, 30);
-        } else if (e.getSource() == quests) {
-            int largura_atual = janela.getWidth(); 
-            int altura_atual = janela.getHeight();
-            this.setSize(largura_atual+1,altura_atual);
-            Sistema_metas.setBounds(0,60,largura_atual+1,altura_atual-63);
-            produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
-            parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
-            configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
-            titulo.setBounds(0, 26, largura_atual+1, 35);
-            fundo.setBounds(0,60,largura_atual+1,altura_atual);
         } else if (e.getSource() == parceiros) {
             int largura_atual = janela.getWidth();  
             parceiro_page();
