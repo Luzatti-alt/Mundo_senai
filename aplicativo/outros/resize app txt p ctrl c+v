@@ -1,9 +1,0 @@
-janela.addComponentListener(new ComponentAdapter() {
-        @Override
-        public void componentResized(ComponentEvent e) {
-        int largura_atual = janela.getWidth();
-        int altura_atual = janela.getHeight();
-//elementos que irao atualizar
-        elemento.setBounds();
-    }
-    });
