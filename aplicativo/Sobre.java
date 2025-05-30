@@ -84,7 +84,12 @@ public void actionPerformed(ActionEvent e) {
         this.revalidate();
         this.repaint();
     }else  if(e.getSource()==parceiros){
-        //
+        this.removeAll();
+        Parceiros parceiros = new Parceiros();
+        this.add(parceiros);
+        parceiros.setBounds(0,0,this.getWidth(), this.getHeight());
+        this.revalidate();
+        this.repaint();
     }else  if(e.getSource()==configs){
         this.removeAll();
         Configuracoes configuracoes = new Configuracoes();
@@ -100,7 +105,6 @@ public void actionPerformed(ActionEvent e) {
         this.revalidate();
         this.repaint();
     }
-
 }
 @Override
 public void componentMoved(ComponentEvent e) {}
