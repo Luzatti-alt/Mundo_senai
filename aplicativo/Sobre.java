@@ -96,6 +96,7 @@ public void actionPerformed(ActionEvent e) {
         this.revalidate();
         this.repaint();
     }
+
 }
 @Override
 public void componentMoved(ComponentEvent e) {}
