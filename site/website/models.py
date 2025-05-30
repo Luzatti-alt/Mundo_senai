@@ -28,5 +28,6 @@ class Usuario(db.Model, UserMixin):
     email = db.Column(db.String(50), unique=True)
     senha = db.Column(db.String(50))
     pontos = db.Column(db.Integer, default=0)
+    admin = db.Column(db.Boolean, default=False)
 
     tarefas = db.relationship('Tarefa', back_populates='usuario')
