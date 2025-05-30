@@ -199,6 +199,13 @@ public void actionPerformed(ActionEvent e) {
         this.add(sobre);
         this.revalidate();
         this.repaint();
+    }else if (e.getSource()==quests){
+        this.removeAll();
+        Metas metas = new Metas();
+        metas.setBounds(0, 0, this.getWidth(), this.getHeight());
+        this.add(metas);
+        this.revalidate();
+        this.repaint();
     }
 }
 
