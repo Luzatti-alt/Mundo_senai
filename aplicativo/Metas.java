@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Metas extends JPanel implements ActionListener,ComponentListener{
+public class Metas extends JPanel implements ActionListener, ComponentListener{
     int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
     JPanel fundo = new JPanel();
@@ -48,23 +48,17 @@ public class Metas extends JPanel implements ActionListener,ComponentListener{
     JButton vid = new JButton("Vídeo");
     JButton laudo = new JButton("Laudo médico");
     JButton cons_profi = new JButton("Confirmação profisional parceiro da plataforma");
-    public void Metas(){
-        this.addComponentListener(new ComponentAdapter() {
-        @Override
-        public void componentResized(ComponentEvent e) {
-        int largura_atual = this.getWidth();
-        int altura_atual = this.getHeight();
-        produtos.setBounds((largura_atual/2)-100, 0, 100+1, 28);
-        parceiros.setBounds((largura_atual/2), 0, 100+1, 28);
-        configs.setBounds((largura_atual/2)+100, 0, 100+1, 28);
-        titulo.setBounds(0, 26, largura_atual+1, 35);
-        Sistema_metas.setBounds(0,60,largura_atual+1,altura_atual-63);
+    public Metas() {
+        metas();
+        this.addComponentListener(this);
     }
-    }); 
+    public void metas(){
+        this.addComponentListener(new ComponentAdapter() {});
         this.add(produtos);
         this.add(parceiros);
         this.add(configs);
         this.add(titulo);
+        this.setLayout(null);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         produtos.setIcon(Loja_icon);
@@ -127,6 +121,7 @@ public class Metas extends JPanel implements ActionListener,ComponentListener{
 	}
     public void comprove(){
         this.add(titulo);
+        this.setLayout(null);
         titulo.setText("Métodos de comprovantes");
         titulo.setBackground(Color.green);
         this.setBackground(Color.lightGray);
@@ -136,19 +131,20 @@ public class Metas extends JPanel implements ActionListener,ComponentListener{
         laudo.setBackground(Color.green);
         this.add(cons_profi);
         cons_profi.setBackground(Color.green);
-        this.addComponentListener(new ComponentAdapter() {
-        @Override
+    }
+    @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = this.getWidth();
         int altura_atual = this.getHeight();
-        titulo.setBounds(0,30,largura_atual,30);
-        fundo.setBounds(0,60,largura_atual,altura_atual-60);
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
+        parceiros.setBounds((largura_atual/2), 0, 100, 28);
+        configs.setBounds((largura_atual/2)+100, 0, 100, 28);
+        titulo.setBounds(0, 28, largura_atual, 35);
+        Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
         vid.setBounds(100,altura_atual-500,largura_atual/2,50);
         laudo.setBounds(100,altura_atual-400,largura_atual/2,50);
         cons_profi.setBounds(100,altura_atual-300,largura_atual/2,50);
-    }
-    });
-    }
+    } 
     @Override
 public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
@@ -157,15 +153,23 @@ public void actionPerformed(ActionEvent e) {
         //
     }else  if(e.getSource()==parceiros){
         //
-    }else  if(e.getSource()==configs){
+    }else if(e.getSource()==configs){
         this.removeAll();
         Configuracoes configuracoes = new Configuracoes();
         this.add(configuracoes);
         configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
         this.revalidate();
         this.repaint();
+    }else if(e.getSource()==pnts_e_comprovacao_diaria){
+        this.removeAll();
+        comprove();
+    }else if(e.getSource()==pnts_e_comprovacao_semanal){
+        this.removeAll();
+        comprove();
+    }else if(e.getSource()==pnts_e_comprovacao_mensal){
+        this.removeAll();
+        comprove();
     }
-
 }
 @Override
 public void componentMoved(ComponentEvent e) {}
@@ -173,7 +177,11 @@ public void componentMoved(ComponentEvent e) {}
 public void componentShown(ComponentEvent e) {}
 @Override
 public void componentHidden(ComponentEvent e) {}
-    public static void main(String[]args){
-        //
+public static void main(String[] args) {
+        JFrame frame = new JFrame("Metas");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setContentPane(new Metas());
+        frame.setVisible(true);
     }
 }
