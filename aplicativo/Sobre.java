@@ -92,6 +92,13 @@ public void actionPerformed(ActionEvent e) {
         configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
         this.revalidate();
         this.repaint();
+    }else  if(e.getSource()==produtos){
+        this.removeAll();
+        Loja loja = new Loja();
+        this.add(loja);
+        loja.setBounds(0,0,this.getWidth(), this.getHeight());
+        this.revalidate();
+        this.repaint();
     }
 
 }
