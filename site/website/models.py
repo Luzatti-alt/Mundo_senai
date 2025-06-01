@@ -12,7 +12,7 @@ class ModeloDeTarefa(db.Model):
 class Tarefa(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
-    tarefa_id = db.Column(db.Integer, db.ForeignKey('modelo_de_tarefa.id'))
+    modelo_id = db.Column(db.Integer, db.ForeignKey('modelo_de_tarefa.id'))
 
     data_criacao = db.Column(db.DateTime, default=datetime.now(timezone.utc))
     data_expiracao = db.Column(db.DateTime, default=datetime.now(timezone.utc) + timedelta(days=7))
@@ -27,7 +27,9 @@ class Usuario(db.Model, UserMixin):
     nome = db.Column(db.String(30))
     email = db.Column(db.String(50), unique=True)
     senha = db.Column(db.String(50))
-    pontos = db.Column(db.Integer, default=0)
+    
     admin = db.Column(db.Boolean, default=False)
+
+    pontos = db.Column(db.Integer, default=0)
 
     tarefas = db.relationship('Tarefa', back_populates='usuario')
