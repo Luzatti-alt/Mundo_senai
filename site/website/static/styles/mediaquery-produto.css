@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@media screen and (min-width: 999px){
+    #produto{
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        font-size: 1.2em;
+    }
+    #imagem{
+        flex: 1 1 80%;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    #info{
+        flex: 2 1 400px;
+    }
+    #nome{
+    margin: 20px 0px 40px 0px;
+    }
+    #valor{
+        margin-bottom: 40px;
+    }
+    #form{
+        margin-bottom: 40px;
+    }
+    #descricao{
+        margin-top: 20px;
+    }
+}
