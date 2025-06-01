@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas | Treina.Aí</title>
+</head>
+<body>
+    <h2>Tarefas Pendentes</h2>
+    <ul>
+        {% for tarefa in pendentes %}
+            <li>
+                <a href="{{ url_for('views.concluir_tarefa', tarefa_id=tarefa.id) }}">
+                    <h3>{{ tarefa.modelo.titulo }}</h3>
+                    <small>Data de expiração: {{ tarefa.data_expiracao.strftime('%d/%m %H:%M') }}</small>
+                    <p>{{ tarefa.modelo.descricao }}</p>
+                    <strong>{{ tarefa.modelo.pontos }} pontos</strong>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Tarefas Concluídas</h2>
+    <ul>
+        {% for tarefa in concluidas %}
+            <li>
+                <h3>{{ tarefa.modelo.titulo }}</h3>
+                <small>Concluída em: {{ tarefa.data_expiracao.strftime('%d/%m %H:%M') }}</small>
+                <p>{{ tarefa.modelo.descricao }}</p>
+                <strong>{{ tarefa.modelo.pontos }} pontos</strong>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
