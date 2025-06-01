@@ -6,45 +6,47 @@
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/homemobile.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon/favicon-dumbbell.ico') }}" type="image/x-icon"> -->
     <link rel="stylesheet" href="../static/styles/homemobile.css">
+    <link rel="stylesheet" href="../static/styles/mediaquery-home.css">
     <link rel="shortcut icon" href="../static/images/favicon-dumbbell.ico" type="image/x-icon">
     <title>Home | Treina.Aí</title>
 </head>
 <body>
     <header>
-        <p>imagem</p>
-        <nav>
-            <a href="#">Placeholder1</a>
-            <a href="#">Placeholder2</a>
-            <a href="#">Placeholder3</a>
-        </nav>
+        <div>
+
+        </div>
     </header>
     <main>
         <h1>Bem-vindo, {{ user.nome }}!</h1>
         <section id="tarefas">
             <h2>Tarefas</h2>
             <ul>
-                <div class="listatarefa">
-                    <li>Tarefa 1</li>
-                    <li>Tarefa 2</li>
-                    <li>Tarefa 3</li>
-                    <li>Tarefa 4</li>
-                    <li>Tarefa 5</li>
-                    <li>Tarefa 89</li>
-                </div>
+                <a href="#" target="_self" rel="internal">
+                    <div class="listatarefa">
+                        <li>Tarefa 1</li>
+                        <li>Tarefa 2</li>
+                        <li>Tarefa 3</li>
+                        <li>Tarefa 4</li>
+                        <li>Tarefa 5</li>
+                        <li>Tarefa 89</li>
+                    </div>
+                </a>
             </ul>
         </section>
         <section id="produtos">
             <h2>Produtos</h2>
             <div class="produtos">
                 <div class="coluna">
-                    <img src="../static/images/placeholder.png" alt="">
+                   
+
+                        <img src="../static/images/camisa.jpg" alt="Produto camisa" >
                 </div>
                 <div class="coluna coluna-dupla">
-                    <img src="../static/images/placeholder.png" alt="">
-                    <img src="../static/images/placeholder.png" alt="">
+                    <img src="../static/images/creatina.jpg" alt="Produto creatina" >
+                    <img src="../static/images/whey.png" alt="" >
                 </div>
                 <div class="coluna">
-                    <img src="../static/images/placeholder.png" alt="">
+                    <img src="../static/images/garrafa.jpg" alt="Produto Garrafa" >
                 </div>
             </div>
         </section>
