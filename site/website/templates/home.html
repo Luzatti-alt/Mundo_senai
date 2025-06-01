@@ -17,18 +17,17 @@
         </div>
     </header>
     <main>
-        <h1>Bem-vindo, {{ user.nome }}!</h1>
+        <h1>Bem-vindo, {{ usuario.nome }}!</h1>
         <section id="tarefas">
             <h2>Tarefas</h2>
             <ul>
-                <a href="#" target="_self" rel="internal">
+                <a href="{{ url_for('views.tarefas') }}" target="_self" rel="internal">
                     <div class="listatarefa">
-                        <li>Tarefa 1</li>
-                        <li>Tarefa 2</li>
-                        <li>Tarefa 3</li>
-                        <li>Tarefa 4</li>
-                        <li>Tarefa 5</li>
-                        <li>Tarefa 89</li>
+                        {% for tarefa in usuario.tarefas[:6] %}
+                        <li>
+                            {{ tarefa.modelo.titulo }}
+                        </li>
+                        {% endfor %}
                     </div>
                 </a>
             </ul>
@@ -37,9 +36,7 @@
             <h2>Produtos</h2>
             <div class="produtos">
                 <div class="coluna">
-                   
-
-                        <img src="../static/images/camisa.jpg" alt="Produto camisa" >
+                   <img src="../static/images/camisa.jpg" alt="Produto camisa" >
                 </div>
                 <div class="coluna coluna-dupla">
                     <img src="../static/images/creatina.jpg" alt="Produto creatina" >

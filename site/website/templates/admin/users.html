@@ -7,8 +7,11 @@
 </head>
 <body>
     {% for usuario in usuarios %}
-    <p>{{ usuario }}</p>
-    <br>
+        <li>
+            <a href="{{ url_for('admin.inspecionar_usuario', id=usuario.id) }}"><strong>{{ usuario.nome }}</strong></a> ({{ usuario.email }}) <br>
+            {% if usuario.admin == true %} Administrador {% else %} Usuário {% endif %} <br>
+            {{ usuario.pontos }} pontos
+        </li>
     {% endfor %}
 </body>
 </html>
