@@ -10,7 +10,7 @@ public class request {
         conectar.setRequestMethod("GET");
         URL url_modelos = new URL("http://10.158.152.21:5000/api/modelos");
         URL url_tarefas = new URL("http://10.158.152.21:5000/api/tarefas");
-        Socket lado_cliente = new Socket("10.158.152.21",5000);//servidor + porta
+        System.out.println("size: "+ tamanho_info);
         //configurações da conecção
         conectar.setConnectTimeout(50000); // 50 secs
         conectar.setReadTimeout(50000); 
@@ -29,7 +29,8 @@ public class request {
         if (client.exists()) {
             System.out.println("teste");
             FileWriter client_txt = new FileWriter("teste.txt");
-            client_txt.write(ler.readLine());
+            String info = ler.readLine();
+            client_txt.write(info);
             client_txt.close();
         } else {
             try {
