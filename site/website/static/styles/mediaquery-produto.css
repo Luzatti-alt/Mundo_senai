@@ -1,6 +1,14 @@
 @charset "UTF-8";
 
+@media screen and (min-width: 768px) and (max-width: 998px){
+    header div{
+        background-size: 85%;
+    }
+}
 @media screen and (min-width: 999px){
+    header div{
+        background-size: 85%;
+    }
     #produto{
         display: flex;
         gap: 20px;
@@ -8,7 +16,7 @@
         font-size: 1.2em;
     }
     #imagem{
-        flex: 1 1 80%;
+        flex: 0 1 40%;
     }
     img{
         width: 100%;
@@ -18,10 +26,10 @@
         object-fit: cover;
     }
     #info{
-        flex: 2 1 400px;
+        flex: 1 1 60%;
     }
     #nome{
-    margin: 20px 0px 40px 0px;
+        margin: 20px 0px 40px 0px;
     }
     #valor{
         margin-bottom: 40px;
