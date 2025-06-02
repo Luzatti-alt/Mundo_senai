@@ -2,7 +2,6 @@ from datetime import datetime, timedelta, timezone
 from flask_login import UserMixin
 from . import db
 
-
 class ModeloDeTarefa(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(50))

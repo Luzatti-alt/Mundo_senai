@@ -6,7 +6,6 @@ from .utils import admin_required
 
 admin = Blueprint('admin', __name__)
 
-
 @admin.route('/')
 @admin_required
 def home():
