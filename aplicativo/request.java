@@ -10,20 +10,13 @@ public class request {
         conectar.setRequestMethod("GET");
         URL url_modelos = new URL("http://10.158.152.21:5000/api/modelos");
         URL url_tarefas = new URL("http://10.158.152.21:5000/api/tarefas");
-        System.out.println("size: "+ tamanho_info);
         //configurações da conecção
         conectar.setConnectTimeout(50000); // 50 secs
         conectar.setReadTimeout(50000); 
         //ver se está conectado
         int resposta = conectar.getResponseCode();
         //401 nn foi autorizado deu 
-
-        //conectar.setRequestMethod(null);
-        //key e value para pooder ter acesso a api
-
-        //conectar.setRequestProperty("chave", "valor");
         System.out.println("resp: "+resposta);
-        //leitor de dados por enquanto preciso da  chave
         BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
         System.out.println(ler);
         if (client.exists()) {
