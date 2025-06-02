@@ -38,12 +38,12 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
                 e.printStackTrace();
             }
         }
-        String validador_login = "salvo_sim";
+        String validador_heranca = "";
         try {
             BufferedReader leitor = new BufferedReader(new FileReader(herde));
             String linha;
             while ((linha = leitor.readLine()) != null) {
-                if (linha.equals(validador_login)) {
+                if (linha.equals(validador_heranca)) {
                     this.setSize(new Dimension(700, 700));
                     this.setVisible(true);
                     break;
