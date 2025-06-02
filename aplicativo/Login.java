@@ -147,6 +147,13 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     conta_criando.add(entrar_confirma_senha);
     criar_nova_conta_botao.setBackground(Color.green);
     }
+    public void setPainelPrincipal(JPanel painel) {
+    this.getContentPane().removeAll();
+    this.setContentPane(painel);
+    painel.setBounds(0, 0, this.getWidth(), this.getHeight());
+    this.revalidate();
+    this.repaint();
+}
     @Override
 public void actionPerformed(ActionEvent e) {
     if (e.getSource() == criar_conta) {
@@ -161,11 +168,8 @@ public void actionPerformed(ActionEvent e) {
             this.revalidate();
         } else if (e.getSource() == Logar) {
         this.getContentPane().removeAll();
-        Sobre sobre = new Sobre();
-        sobre.setBounds(0, 0, this.getWidth(), this.getHeight());
-        Configuracoes configuracoesPanel = new Configuracoes();
-        this.add(sobre);
-        this.setContentPane(configuracoesPanel);
+        Loja Loja_painel = new Loja(this);
+        this.setContentPane(Loja_painel);
         this.revalidate();
         this.repaint();
     } else if (e.getSource() == esqueceu_senha) {
