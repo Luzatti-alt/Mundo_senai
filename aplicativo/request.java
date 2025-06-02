@@ -22,7 +22,7 @@ public class request {
         //key e value para pooder ter acesso a api
 
         //conectar.setRequestProperty("chave", "valor");
-        System.out.println(resposta);
+        System.out.println("resp: "+resposta);
         //leitor de dados por enquanto preciso da  chave
         BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
         System.out.println(ler);
