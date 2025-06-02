@@ -18,14 +18,12 @@ public class request {
         //metodo de request
         URL url_modelos = new URL("http://10.158.152.21:5000/api/modelos");
         URL url_tarefas = new URL("http://10.158.152.21:5000/api/tarefas");
+
         //configurações da conecção
         int tamanho = conectar.getContentLength();
         System.out.println("lenght: "+tamanho);
         conectar.setConnectTimeout(1000); // 1 secs
         conectar.setReadTimeout(1000); 
-        //401 nn foi autorizado deu 
-        //agr foi 200 agr deu
-        //leitor de dados por enquanto preciso da  chave
         if(client.exists()){
             System.out.println("arquivo nn existe criand ele");
             BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
