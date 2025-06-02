@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 public class Login extends JFrame implements ActionListener, ComponentListener{
     JPanel box_login = new JPanel();
+    boolean encontrado = false;
     int largura_atual = this.getWidth();  
     JButton voltar_login = new JButton("voltar a aba de login");
     JTextField usuario_login = new JTextField();
@@ -166,7 +167,7 @@ public void actionPerformed(ActionEvent e) {
             this.repaint();
             this.revalidate();
         } else if (e.getSource() == Logar) {
-        String val_user = usuario_login.getText();
+        String val_user = usuario_login.getText().trim();//.trim é sm espaços
         //senha_login.getText();
         //faz o request
          try {
@@ -175,29 +176,32 @@ public void actionPerformed(ActionEvent e) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
         }//tenta ver se é compativel
-        try {
-            BufferedReader leitor = new BufferedReader(new FileReader("teste.txt"));
-            String linha;
-            while ((linha = leitor.readLine()) != null) {
-                if (linha.equals(val_user)){
-                    System.out.println("user valido");
-                    this.getContentPane().removeAll();
-                    Configuracoes configuracoesPanel = new Configuracoes();
-                    this.setContentPane(configuracoesPanel);
-                    this.revalidate();
-                    this.repaint();
-                    break;
-                }else {
-                    //invalido
-                    System.out.println("user invalido");
-                    break;
-                }
-            }
-            leitor.close();
-            } catch (IOException ex) {
+        try (BufferedReader leitor = new BufferedReader(new FileReader("teste.txt"))) {
+    String linha;
+    encontrado = false;
+    while ((linha = leitor.readLine()) != null) {
+        if (linha.contains("\"email\":\"" + val_user + "\"") || linha.contains("\"nome\":\"" + val_user + "\"")) {
+            System.out.println("user valido");
+            encontrado = true;
+            break;
+        }
+    }
+
+    if (encontrado) {
+        this.getContentPane().removeAll();
+        Configuracoes configuracoesPanel = new Configuracoes();
+        this.setContentPane(configuracoesPanel);
+        this.revalidate();
+        this.repaint();
+    } else {
+        System.out.println("user invalido");
+        JOptionPane.showMessageDialog(this, "Usuário inválido!");
+    }
+} catch (IOException ex) {
     ex.printStackTrace();
-    JOptionPane.showMessageDialog(this, "usuario invalido: " + ex.getMessage());
-} 
+    JOptionPane.showMessageDialog(this, "Erro ao ler arquivo: " + ex.getMessage());
+}
+
     }else if (e.getSource() == esqueceu_senha) {
         System.out.println("Esqueceu a senha clicado!");
     }else if (e.getSource()==voltar_login){
