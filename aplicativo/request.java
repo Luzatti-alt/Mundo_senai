@@ -7,19 +7,21 @@ public class request {
         //tenta se conectar com a api 
         URL url_login = new URL("http://10.158.152.21:5000/api/usuarios");
         HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
+        conectar.setRequestMethod("GET");
         URL url_modelos = new URL("http://10.158.152.21:5000/api/modelos");
         URL url_tarefas = new URL("http://10.158.152.21:5000/api/tarefas");
-        Socket
+        Socket lado_cliente = new Socket("10.158.152.21",5000);//servidor + porta
         //configurações da conecção
-        conectar.setRequestMethod("GET");
         conectar.setConnectTimeout(50000); // 50 secs
         conectar.setReadTimeout(50000); 
         //ver se está conectado
         int resposta = conectar.getResponseCode();
         //401 nn foi autorizado deu 
-        conectar.setRequestMethod(null);
+
+        //conectar.setRequestMethod(null);
         //key e value para pooder ter acesso a api
-        conectar.setRequestProperty("chave", "valor");
+
+        //conectar.setRequestProperty("chave", "valor");
         System.out.println(resposta);
         //leitor de dados por enquanto preciso da  chave
         BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
