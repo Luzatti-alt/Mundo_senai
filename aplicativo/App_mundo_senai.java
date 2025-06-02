@@ -10,8 +10,6 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
     JScrollBar scroll_bar = new JScrollBar();// add em loja e carrinho
     int largura_atual = janela.getWidth();
     int altura_atual = this.getHeight();
-
-
     public App_mundo_senai() {
         if (info.exists()) {
         } else {
@@ -47,13 +45,17 @@ public class App_mundo_senai extends JFrame implements ActionListener, Adjustmen
             e.printStackTrace();
         }
     }
-
-
     // funcionamento de scrollbar
     @Override
     public void adjustmentValueChanged(AdjustmentEvent arg0) {
         System.out.println("scrollbar: " + scroll_bar.getValue());
     }
+    @Override
+public void actionPerformed(ActionEvent e) {
+    // Lógica a ser executada quando uma ação ocorrer
+    System.out.println("Ação realizada: " + e.getActionCommand());
+}
+
     public static void main(String[] args) {
         new App_mundo_senai();
     }
