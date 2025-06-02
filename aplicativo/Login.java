@@ -41,6 +41,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         //tenta se conectar com a api 
         URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
         HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
+        FileWriter client_txt = new FileWriter("teste.txt", true);
         //ver se está conectado
         conectar.setRequestMethod("GET");
         int resposta = conectar.getResponseCode();
@@ -51,7 +52,6 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         if(client.exists()){
             BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
             try {
-                FileWriter client_txt = new FileWriter("teste.txt", true);
             while ((linhas = ler.readLine()) != null) {
             client_txt.write(linhas + "\n");
             System.out.println(linhas);
