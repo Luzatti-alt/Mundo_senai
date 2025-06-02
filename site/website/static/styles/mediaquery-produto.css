@@ -7,7 +7,7 @@
 }
 @media screen and (min-width: 999px){
     header div{
-        background-size: 85%;
+        background-size: 50%;
     }
     #produto{
         display: flex;
