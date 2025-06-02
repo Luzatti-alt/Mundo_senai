@@ -1,9 +1,11 @@
 //min pra rodar
 import javax.swing.*;
+import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 public class Login extends JFrame implements ActionListener, ComponentListener{
     JPanel box_login = new JPanel();
+    File herde = new File("Herde.txt");
     int largura_atual = this.getWidth();  
     JButton voltar_login = new JButton("voltar a aba de login");
     JTextField usuario_login = new JTextField();
@@ -25,6 +27,36 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
     JTextField entrar_confirma_senha = new JTextField();
     public void login(){
+        if (herde.exists()){
+            System.out.println("existe");
+        } else {
+            try {
+                FileWriter herde = new FileWriter("Herde.txt");
+                herde.write("add qual janela seraherdade/jpanel");
+                herde.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        String validador_login = "salvo_sim";
+        try {
+            BufferedReader leitor = new BufferedReader(new FileReader(herde));
+            String linha;
+            while ((linha = leitor.readLine()) != null) {
+                if (linha.equals(validador_login)) {
+                    this.setSize(new Dimension(700, 700));
+                    this.setVisible(true);
+                    break;
+                } else {
+                    this.setSize(new Dimension(700, 700));
+                    this.setVisible(true);
+                    break;
+                }
+            }
+            leitor.close();
+            }catch (IOException e) {
+            e.printStackTrace();
+}
         this.setTitle("Projeto Mundo Senai: Treina Aí");
         this.setMinimumSize(new Dimension(600, 300));
         this.setSize(new Dimension(700, 700));
@@ -129,7 +161,10 @@ public void actionPerformed(ActionEvent e) {
             this.revalidate();
         } else if (e.getSource() == Logar) {
         this.getContentPane().removeAll();
+        Sobre sobre = new Sobre();
+        sobre.setBounds(0, 0, this.getWidth(), this.getHeight());
         Configuracoes configuracoesPanel = new Configuracoes();
+        this.add(sobre);
         this.setContentPane(configuracoesPanel);
         this.revalidate();
         this.repaint();
