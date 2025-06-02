@@ -2,13 +2,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
-
 public class App_mundo_senai extends JFrame implements ActionListener, AdjustmentListener {
     // adjustamentlistener usado no scroll bar
     JFrame janela = new JFrame();
     File info = new File("info.txt");
     JScrollBar scroll_bar = new JScrollBar();// add em loja e carrinho
-    int largura_atual = janela.getWidth();
+    int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
     public App_mundo_senai() {
         if (info.exists()) {
@@ -55,7 +54,6 @@ public void actionPerformed(ActionEvent e) {
     // Lógica a ser executada quando uma ação ocorrer
     System.out.println("Ação realizada: " + e.getActionCommand());
 }
-
     public static void main(String[] args) {
         new App_mundo_senai();
     }
