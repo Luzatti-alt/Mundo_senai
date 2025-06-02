@@ -1,11 +1,16 @@
 //min pra rodar
 import javax.swing.*;
-import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 public class Login extends JFrame implements ActionListener, ComponentListener{
     JPanel box_login = new JPanel();
-    File herde = new File("Herde.txt");
     int largura_atual = this.getWidth();  
     JButton voltar_login = new JButton("voltar a aba de login");
     JTextField usuario_login = new JTextField();
@@ -26,37 +31,38 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     JTextField entrar_senha_criando = new JTextField();
     JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
     JTextField entrar_confirma_senha = new JTextField();
-    public void login(){
-        if (herde.exists()){
-            System.out.println("existe");
-        } else {
-            try {
-                FileWriter herde = new FileWriter("Herde.txt");
-                herde.write("add qual janela seraherdade/jpanel");
-                herde.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void requests() throws Exception{
+        File client = new File("teste.txt");
+        String linhas;
+        if (client.exists()) {
+            System.out.println("teste");
         }
-        String validador_heranca = "";
-        try {
-            BufferedReader leitor = new BufferedReader(new FileReader(herde));
-            String linha;
-            while ((linha = leitor.readLine()) != null) {
-                if (linha.equals(validador_heranca)) {
-                    this.setSize(new Dimension(700, 700));
-                    this.setVisible(true);
-                    break;
-                } else {
-                    this.setSize(new Dimension(700, 700));
-                    this.setVisible(true);
-                    break;
-                }
-            }
-            leitor.close();
-            }catch (IOException e) {
-            e.printStackTrace();
-}
+        //tenta se conectar com a api 
+        URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
+        HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
+        //ver se está conectado
+        conectar.setRequestMethod("GET");
+        int resposta = conectar.getResponseCode();
+        System.out.println("resp: "+resposta);
+        //configurações da conecção
+        conectar.setConnectTimeout(1000); // 1 secs
+        conectar.setReadTimeout(1000); 
+        if(client.exists()){
+            BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
+            try {
+                FileWriter client_txt = new FileWriter("teste.txt", true);
+            while ((linhas = ler.readLine()) != null) {
+            client_txt.write(linhas + "\n");
+            System.out.println(linhas);
+        }
+        client_txt.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    System.out.println(ler);
+        }
+    }
+    public void login(){
         this.setTitle("Projeto Mundo Senai: Treina Aí");
         this.setMinimumSize(new Dimension(600, 300));
         this.setSize(new Dimension(700, 700));
@@ -147,13 +153,6 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     conta_criando.add(entrar_confirma_senha);
     criar_nova_conta_botao.setBackground(Color.green);
     }
-    public void setPainelPrincipal(JPanel painel) {
-    this.getContentPane().removeAll();
-    this.setContentPane(painel);
-    painel.setBounds(0, 0, this.getWidth(), this.getHeight());
-    this.revalidate();
-    this.repaint();
-}
     @Override
 public void actionPerformed(ActionEvent e) {
     if (e.getSource() == criar_conta) {
@@ -167,9 +166,15 @@ public void actionPerformed(ActionEvent e) {
             this.repaint();
             this.revalidate();
         } else if (e.getSource() == Logar) {
+         try {
+            requests();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
+        }
         this.getContentPane().removeAll();
-        Loja Loja_painel = new Loja(this);
-        this.setContentPane(Loja_painel);
+        Configuracoes configuracoesPanel = new Configuracoes();
+        this.setContentPane(configuracoesPanel);
         this.revalidate();
         this.repaint();
     } else if (e.getSource() == esqueceu_senha) {
