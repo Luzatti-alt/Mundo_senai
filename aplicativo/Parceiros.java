@@ -1,6 +1,4 @@
-package Scr;
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
 public class Parceiros extends JPanel implements ActionListener, ComponentListener{
