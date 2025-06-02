@@ -5,10 +5,10 @@ import java.awt.event.*;
 import java.net.*;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 public class Login extends JFrame implements ActionListener, ComponentListener{
     JPanel box_login = new JPanel();
     int largura_atual = this.getWidth();  
@@ -166,18 +166,39 @@ public void actionPerformed(ActionEvent e) {
             this.repaint();
             this.revalidate();
         } else if (e.getSource() == Logar) {
+        String val_user = usuario_login.getText();
+        //senha_login.getText();
+        //faz o request
          try {
             requests();
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
-        }
-        this.getContentPane().removeAll();
-        Configuracoes configuracoesPanel = new Configuracoes();
-        this.setContentPane(configuracoesPanel);
-        this.revalidate();
-        this.repaint();
-    } else if (e.getSource() == esqueceu_senha) {
+        }//tenta ver se é compativel
+        try {
+            BufferedReader leitor = new BufferedReader(new FileReader("teste.txt"));
+            String linha;
+            while ((linha = leitor.readLine()) != null) {
+                if (linha.equals(val_user)){
+                    System.out.println("user valido");
+                    this.getContentPane().removeAll();
+                    Configuracoes configuracoesPanel = new Configuracoes();
+                    this.setContentPane(configuracoesPanel);
+                    this.revalidate();
+                    this.repaint();
+                    break;
+                }else {
+                    //invalido
+                    System.out.println("user invalido");
+                    break;
+                }
+            }
+            leitor.close();
+            } catch (IOException ex) {
+    ex.printStackTrace();
+    JOptionPane.showMessageDialog(this, "usuario invalido: " + ex.getMessage());
+} 
+    }else if (e.getSource() == esqueceu_senha) {
         System.out.println("Esqueceu a senha clicado!");
     }else if (e.getSource()==voltar_login){
         this.getContentPane().removeAll();
