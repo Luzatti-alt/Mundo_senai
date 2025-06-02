@@ -5,14 +5,18 @@ public class request {
         //txt com as infos p/ver se é compativel
         File client = new File("teste.txt");
         //tenta se conectar com a api 
-        URL url = new URL("http://10.158.152.21:5000/api/usuarios");
-        HttpURLConnection conectar = (HttpURLConnection) url.openConnection();
+        URL url_login = new URL("http://10.158.152.21:5000/api/usuarios");
+        HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
+        URL url_modelos = new URL("http://10.158.152.21:5000/api/modelos");
+        URL url_tarefas = new URL("http://10.158.152.21:5000/api/tarefas");
+        Socket
         //configurações da conecção
         conectar.setRequestMethod("GET");
         conectar.setConnectTimeout(50000); // 50 secs
         conectar.setReadTimeout(50000); 
         //ver se está conectado
-        int resposta = conectar.getResponseCode();//nn foi autorizado deu 401
+        int resposta = conectar.getResponseCode();
+        //401 nn foi autorizado deu 
         conectar.setRequestMethod(null);
         //key e value para pooder ter acesso a api
         conectar.setRequestProperty("chave", "valor");
