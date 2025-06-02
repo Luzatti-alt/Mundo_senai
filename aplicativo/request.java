@@ -2,16 +2,22 @@ import java.net.*;
 import java.io.*;
 public class request {
     public static void main(String[] args) throws Exception {
+        //txt com as infos p/ver se é compativel
         File client = new File("teste.txt");
+        //tenta se conectar com a api 
         URL url = new URL("http://10.158.152.21:5000/api/usuarios");
         HttpURLConnection conectar = (HttpURLConnection) url.openConnection();
+        //configurações da conecção
         conectar.setRequestMethod("GET");
         conectar.setConnectTimeout(50000); // 50 secs
         conectar.setReadTimeout(50000); 
+        //ver se está conectado
         int resposta = conectar.getResponseCode();//nn foi autorizado deu 401
         conectar.setRequestMethod(null);
+        //key e value para pooder ter acesso a api
         conectar.setRequestProperty("chave", "valor");
         System.out.println(resposta);
+        //leitor de dados por enquanto preciso da  chave
         BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
         System.out.println(ler);
         if (client.exists()) {
