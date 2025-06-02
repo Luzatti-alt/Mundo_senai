@@ -1,4 +1,3 @@
-package Scr;
 //min pra rodar
 import javax.swing.*;
 import java.awt.*;
@@ -117,8 +116,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     criar_nova_conta_botao.setBackground(Color.green);
     }
     @Override
-public void actionPerformed(ActionEvent
- e) {
+public void actionPerformed(ActionEvent e) {
     if (e.getSource() == criar_conta) {
             this.getContentPane().removeAll();
             int largura_atual = this.getWidth();  
