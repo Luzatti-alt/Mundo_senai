@@ -3,9 +3,9 @@
 No branch main está em sua maioria o aplicativo
 No branch home-site a parte do site e api
 Github que a equipe usou no desenvolvimento do projeto
-
-
-
+![Alt text](pyhon.png)
+![Alt text](htlm.png)
+![Alt text](java.png)
 
 
 
