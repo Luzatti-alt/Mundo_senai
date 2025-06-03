@@ -129,6 +129,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
     }
     });
+    criar_nova_conta_botao.addActionListener(this);
     conta_criando.setLayout(new GridLayout(8,1));//nome email senha confirma_senha
     conta_criando.add(nome_conta);
     nome_conta.setEditable(false);
@@ -167,11 +168,9 @@ public void actionPerformed(ActionEvent e) {
         try {
     requests();
     String jsonStr = new String(Files.readAllBytes(Paths.get("teste.txt")));
-
     // Criar padrões simples para procurar email ou nome
     String emailPattern = "\"email\"\\s*:\\s*\"" + val_user + "\"";
     String nomePattern = "\"nome\"\\s*:\\s*\"" + val_user + "\"";
-
     if (jsonStr.matches("(?s).*" + emailPattern + ".*") || jsonStr.matches("(?s).*" + nomePattern + ".*")) {
         encontrado = true;
     }
@@ -179,7 +178,6 @@ public void actionPerformed(ActionEvent e) {
     ex.printStackTrace();
     JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
 }
-
 if (encontrado) {
     System.out.println("Usuário válido!");
     this.getContentPane().removeAll();
@@ -188,7 +186,7 @@ if (encontrado) {
     this.revalidate();
     this.repaint();
     // continua fluxo
-} else {
+}else {
     System.out.println("user invalido");
     JOptionPane.showMessageDialog(this, "Usuário inválido!");
 }
@@ -199,6 +197,15 @@ if (encontrado) {
         login();      
         this.repaint();
         this.revalidate();  
+    }else if(e.getSource()==criar_nova_conta_botao){
+        if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && !entrar_senha_criando.getText().isEmpty() && !entrar_confirma_senha.getText().isEmpty()){
+            Configuracoes configuracoesPanel = new Configuracoes();
+            this.setContentPane(configuracoesPanel);
+            this.revalidate();
+            this.repaint();
+}else{
+            JOptionPane.showMessageDialog(this,"algo é invalido");
+        }
     }
 }
 @Override
