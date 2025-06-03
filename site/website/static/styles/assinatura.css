@@ -53,7 +53,13 @@ body, html{
     justify-content: space-between;
     gap: 50px;              
     margin: 10px;
+    align-items: center;
+    padding: 10px 0px;
 }
 .botoes input{
    padding: 15px;
+   border-radius: 20px;
+   border-style: none;
+   background-color: var(--cor1);
+   color: white;
 }
