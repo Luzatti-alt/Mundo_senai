@@ -25,7 +25,7 @@ pip install dotenv
 ```bash
 pip install requests
 ```
-
+Java so o basico nn precisa installar nada de fora(talvez mude esta parte pro json para salvar que uma nova conta foi criada)
 
 
 
@@ -49,5 +49,4 @@ corrijir alguns problemas com o layout
 add a ligação entre a criação de conta e o db que nem no site
 add elementos na loja
 funcinalidade ao carrinho e na loja
-
 A função resize funciona nos que erdam o jframe(login,configuracoes(poi s vai de login a configuraçoes)) entao tem que criar a herança do jframe aos outros codigos
