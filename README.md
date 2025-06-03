@@ -7,10 +7,20 @@ Github que a equipe usou no desenvolvimento do projeto
 para rodar o servidor(python)
 ```bash
 pip install flask
+```
+```bash
 pip install flask-login
+```
+```bash
 pip install flask-sqlalchemy
+```
+```bash
 pip install flask-apscheduler
+```
+```bash
 pip install dotenv
+```
+```bash
 pip install requests
 ```
 
