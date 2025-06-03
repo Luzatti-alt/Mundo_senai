@@ -89,7 +89,7 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
         sobre_nos.addActionListener(this);
         conta.add(sobre_nos);
         try {
-            FileReader leitor = new FileReader("dados.txt");
+            FileReader leitor = new FileReader("nome.txt");
             BufferedReader br = new BufferedReader(leitor);
             String data = br.readLine(); // lê a primeira linha como String
             if (data != null) {
