@@ -3,12 +3,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class Login extends JFrame implements ActionListener, ComponentListener{
     JPanel box_login = new JPanel();
     boolean encontrado = false;
@@ -38,10 +36,10 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         if (client.exists()) {
             System.out.println("teste");
         }
-        //tenta se conectar com a api 
-        URL url_login = new URL("http://127.0.0.1:5000/api/usuarios");
+        //tenta se conectar com a api  //trocar ip
+        URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
         HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
-        FileWriter client_txt = new FileWriter("teste.txt", true);
+        FileWriter client_txt = new FileWriter("teste.txt", false);
         //ver se está conectado
         conectar.setRequestMethod("GET");
         int resposta = conectar.getResponseCode();
@@ -52,10 +50,9 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         if(client.exists()){
             StringBuilder Json = new StringBuilder();
             BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
-            try {
-                //salvar em json ou pelo menos na estrutura
+            try {//salvar em json ou pelo menos na estrutura
             while ((linhas = ler.readLine()) != null) {
-            Json.append(linhas);
+            Json.append(linhas+"\n");
             System.out.println(Json);
         }
         client_txt.write(Json.toString());
@@ -169,43 +166,31 @@ public void actionPerformed(ActionEvent e) {
             Criar_nova_conta();
             this.repaint();
             this.revalidate();
-        } else if (e.getSource() == Logar) {
-        String val_user = usuario_login.getText().trim();//.trim é sm espaços
+        }else if (e.getSource() == Logar) {
+        String val_user = usuario_login.getText().trim();
         //senha_login.getText();
-        //faz o request
-         try {
+        boolean encontrado = false;
+        try {
+            // chama request
             requests();
-        } catch (Exception ex) {
+            // lê como string 
+            String Json = new String(Files.readAllBytes(Paths.get("teste.txt")));
+            if (Json.contains("\"email\":\"" + val_user + "\"") || Json.contains("\"nome\":\"" + val_user + "\"")) {
+        encontrado = true;
+    }} catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
-        }//tenta ver se é compativel
-        try (
-    BufferedReader leitor = new BufferedReader(new FileReader("teste.txt"))) {
-    String linha;
-    encontrado = false;
-    while ((linha = leitor.readLine()) != null) {
-        if (linha.contains("\"email\":\"" + val_user + "\"") || linha.contains("\"nome\":\"" + val_user + "\"")) {
-            System.out.println("user valido");
-            encontrado = true;
-            break;
         }
-    }
-
-    if (encontrado) {
-        this.getContentPane().removeAll();
-        Configuracoes configuracoesPanel = new Configuracoes();
-        this.setContentPane(configuracoesPanel);
-        this.revalidate();
-        this.repaint();
-    } else {
-        System.out.println("user invalido");
-        JOptionPane.showMessageDialog(this, "Usuário inválido!");
-    }
-} catch (IOException ex) {
-    ex.printStackTrace();
-    JOptionPane.showMessageDialog(this, "Erro ao ler arquivo: " + ex.getMessage());
-}
-
+        if (encontrado=true) {
+            this.getContentPane().removeAll();
+            Configuracoes configuracoesPanel = new Configuracoes();
+            this.setContentPane(configuracoesPanel);
+            this.revalidate();
+            this.repaint();
+        } else if (encontrado=false){
+            System.out.println("user invalido");
+            JOptionPane.showMessageDialog(this, "Usuário inválido!");
+        }
     }else if (e.getSource() == esqueceu_senha) {
         System.out.println("Esqueceu a senha clicado!");
     }else if (e.getSource()==voltar_login){
