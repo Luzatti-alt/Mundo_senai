@@ -1,8 +1,14 @@
 # Mundo_senai
-Front-enD & Back-enD no mesmo diretório.
+##App prótotipo e site prototipo
+No branch main está em sua maioria o aplicativo
+No branch home-site a parte do site e api
+Github que a equipe usou no desenvolvimento do projeto
 
-App prótotipo, falta página da loja, comprovante, carrinho, descrição do produto, as funcionalidades fora os botões, colocar algumas academias no lugar dos placeholders, e colocar imagens nos botões.
+falta no aicativo:
+colocar algumas academias no lugar dos placeholders, e colocar imagens nos botões.
+corrijir alguns problemas com o layout
+add a ligação entre a criação de conta e o db que nem no site
+add elementos na loja
+funcinalidade ao carrinho e na loja
 
-Adecionar o scroll dentro do app, otimizar algumas partes se possível e mexer no layout.
-
-A função resize funciona nas áreas que já estão completas no app.
+A função resize funciona nos que erdam o jframe(login,configuracoes(poi s vai de login a configuraçoes)) entao tem que criar a herança do jframe aos outros codigos
