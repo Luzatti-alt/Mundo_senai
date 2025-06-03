@@ -39,9 +39,13 @@ public Sobre() {
     public void sobre(){
     this.setLayout(null);
     this.add(produtos);
+    produtos.addActionListener(this);
     this.add(parceiros);
+    parceiros.addActionListener(this);
     this.add(quests);
+    quests.addActionListener(this);
     this.add(configs);
+    configs.addActionListener(this);
     produtos.setIcon(Loja_icon);
     this.setLayout(null);
     this.add(titulo);
