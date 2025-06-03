@@ -1,5 +1,5 @@
 # Mundo_senai
-##App prótotipo e site prototipo
+## App prótotipo e site prototipo
 No branch main está em sua maioria o aplicativo
 No branch home-site a parte do site e api
 Github que a equipe usou no desenvolvimento do projeto
