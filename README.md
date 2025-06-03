@@ -6,7 +6,7 @@ Github que a equipe usou no desenvolvimento do projeto
 ### Api e funcionalidade do site:
 - Felipe
 ### Site:
-João
+- João
 ### aplicativo(GUI) e linkar api com o aplicativo
 - Lucas
 ### Desing,Marketing & organização
