@@ -9,7 +9,7 @@ Github que a equipe usou no desenvolvimento do projeto
 - João
 ### aplicativo(GUI) e linkar api com o aplicativo
 - Lucas
-### Desing,Marketing & organização
+## Desing,Marketing & organização
 - Miguel
 - Murilo
 - Gabriel Galo
