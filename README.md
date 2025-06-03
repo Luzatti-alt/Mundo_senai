@@ -4,6 +4,16 @@ No branch main está em sua maioria o aplicativo
 No branch home-site a parte do site e api
 Github que a equipe usou no desenvolvimento do projeto
 
+para rodar o servidor(python)
+```bash
+pip install flask
+pip install flask-login
+pip install flask-sqlalchemy
+pip install flask-apscheduler
+pip install dotenv
+pip install requests
+```
+
 falta no aicativo:
 colocar algumas academias no lugar dos placeholders, e colocar imagens nos botões.
 corrijir alguns problemas com o layout
