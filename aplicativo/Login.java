@@ -208,7 +208,8 @@ if (encontrado) {
         this.repaint();
         this.revalidate();  
     }else if(e.getSource()==criar_nova_conta_botao){
-        if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && !entrar_senha_criando.getText().isEmpty() && !entrar_confirma_senha.getText().isEmpty()){
+        if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && !entrar_senha_criando.getText().isEmpty() && entrar_confirma_senha.getText().equals(entrar_senha_criando.getText())){
+            //conexao.setRequestMethod("POST");        
             try {
         String new_acc = entrar_nome.getText();
         FileWriter dados = new FileWriter("nome.txt", false);
