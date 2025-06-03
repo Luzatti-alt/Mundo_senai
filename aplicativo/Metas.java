@@ -52,8 +52,11 @@ public class Metas extends JPanel implements ActionListener, ComponentListener{
     public void metas(){
         this.addComponentListener(new ComponentAdapter() {});
         this.add(produtos);
+        produtos.addActionListener(this);
         this.add(parceiros);
+        parceiros.addActionListener(this);
         this.add(configs);
+        configs.addActionListener(this);
         this.add(titulo);
         this.setLayout(null);
         configs.setIcon(Config_icon);
