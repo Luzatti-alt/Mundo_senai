@@ -184,7 +184,7 @@ public void actionPerformed(ActionEvent e) {
 }
 if (encontrado) {
     try {
-        FileWriter dados = new FileWriter("dados.txt", false);
+        FileWriter dados = new FileWriter("nome.txt", false);
         dados.write(val_user + "\n");//mesma coida + 
         dados.close();
     } catch (IOException ex) {
@@ -211,7 +211,7 @@ if (encontrado) {
         if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && !entrar_senha_criando.getText().isEmpty() && !entrar_confirma_senha.getText().isEmpty()){
             try {
         String new_acc = entrar_nome.getText();
-        FileWriter dados = new FileWriter("dados.txt", false);
+        FileWriter dados = new FileWriter("nome.txt", false);
         dados.write(new_acc + "\n");//mesma coida + 
         dados.close();
     } catch (IOException ex) {
