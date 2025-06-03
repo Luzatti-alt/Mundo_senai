@@ -1,9 +1,11 @@
-add a funcinalidade ao scroll em loja e carrinho
-add ir para descrição x aparecendo imagem do produto x na tela de descrição 
-de configs/sobrenos para parceiors até que funciona mas o jpanel fica em branco resolver isso logo, solução incluir a herança do JFrame aos outros arquivos 
-arrumar gui em loja e carrinho
+add a funcinalidade ao scroll em carrinho(na loja nn terá muitos produtos)
+add ir para descrição x aparecendo imagem do produto x na tela de descrição do produto x
+em algumas telas o jpanel fica em branco resolver isso logo, solução incluir a herança do JFrame aos outros arquivos 
+arrumar gui em loja e carrinho que estão bagunçadas nn sei o porque
 fazer metodo de herança a todas as janelas provavelmente via app_mundo_senai
 ver como é salvo na api as informações qnd criar conta por enquanto so pelo site/o ip:5000/api/usuarios a informação salva no db é por maquina par afazer com que as contas criadas funcionem
+
+progressão total
 gui 97%
 funcionalidade do app 32%
 
