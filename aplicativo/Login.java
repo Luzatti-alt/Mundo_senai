@@ -30,39 +30,33 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     JTextField entrar_senha_criando = new JTextField();
     JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
     JTextField entrar_confirma_senha = new JTextField();
-    public void requests() throws Exception{
-        File client = new File("teste.txt");
-        String linhas;
-        if (client.exists()) {
-            System.out.println("teste");
+    public void requests() throws Exception {
+    URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
+    HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
+    conectar.setRequestMethod("GET");
+    conectar.setConnectTimeout(5000);
+    conectar.setReadTimeout(5000);
+    
+    int resposta = conectar.getResponseCode();
+    System.out.println("resp: " + resposta);
+    
+    if (resposta == 200) {
+        BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
+        StringBuilder Json = new StringBuilder();
+        String linha;
+        while ((linha = ler.readLine()) != null) {
+            Json.append(linha).append("\n");
         }
-        //tenta se conectar com a api  //trocar ip
-        URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
-        HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
-        FileWriter client_txt = new FileWriter("teste.txt", false);
-        //ver se está conectado
-        conectar.setRequestMethod("GET");
-        int resposta = conectar.getResponseCode();
-        System.out.println("resp: "+resposta);
-        //configurações da conecção
-        conectar.setConnectTimeout(1000); // 1 secs
-        conectar.setReadTimeout(1000); 
-        if(client.exists()){
-            StringBuilder Json = new StringBuilder();
-            BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
-            try {//salvar em json ou pelo menos na estrutura
-            while ((linhas = ler.readLine()) != null) {
-            Json.append(linhas+"\n");
-            System.out.println(Json);
+        ler.close();
+        
+        // Salva o conteúdo no arquivo
+        try (FileWriter client_txt = new FileWriter("teste.txt", false)) {
+            client_txt.write(Json.toString());
         }
-        client_txt.write(Json.toString());
-        client_txt.close();
-    } catch (IOException e) {
-        e.printStackTrace();
+    } else {
+        System.out.println("Erro ao acessar API, código: " + resposta);
     }
-    System.out.println(ler);
-        }
-    }
+}
     public void login(){
         this.setTitle("Projeto Mundo Senai: Treina Aí");
         this.setMinimumSize(new Dimension(600, 300));
@@ -167,30 +161,37 @@ public void actionPerformed(ActionEvent e) {
             this.repaint();
             this.revalidate();
         }else if (e.getSource() == Logar) {
-        String val_user = usuario_login.getText().trim();
+        String val_user = usuario_login.getText();
         //senha_login.getText();
         boolean encontrado = false;
         try {
-            // chama request
-            requests();
-            // lê como string 
-            String Json = new String(Files.readAllBytes(Paths.get("teste.txt")));
-            if (Json.contains("\"email\":\"" + val_user + "\"") || Json.contains("\"nome\":\"" + val_user + "\"")) {
+    requests();
+    String jsonStr = new String(Files.readAllBytes(Paths.get("teste.txt")));
+
+    // Criar padrões simples para procurar email ou nome
+    String emailPattern = "\"email\"\\s*:\\s*\"" + val_user + "\"";
+    String nomePattern = "\"nome\"\\s*:\\s*\"" + val_user + "\"";
+
+    if (jsonStr.matches("(?s).*" + emailPattern + ".*") || jsonStr.matches("(?s).*" + nomePattern + ".*")) {
         encontrado = true;
-    }} catch (Exception ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
-        }
-        if (encontrado=true) {
-            this.getContentPane().removeAll();
-            Configuracoes configuracoesPanel = new Configuracoes();
-            this.setContentPane(configuracoesPanel);
-            this.revalidate();
-            this.repaint();
-        } else if (encontrado=false){
-            System.out.println("user invalido");
-            JOptionPane.showMessageDialog(this, "Usuário inválido!");
-        }
+    }
+} catch (Exception ex) {
+    ex.printStackTrace();
+    JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
+}
+
+if (encontrado) {
+    System.out.println("Usuário válido!");
+    this.getContentPane().removeAll();
+    Configuracoes configuracoesPanel = new Configuracoes();
+    this.setContentPane(configuracoesPanel);
+    this.revalidate();
+    this.repaint();
+    // continua fluxo
+} else {
+    System.out.println("user invalido");
+    JOptionPane.showMessageDialog(this, "Usuário inválido!");
+}
     }else if (e.getSource() == esqueceu_senha) {
         System.out.println("Esqueceu a senha clicado!");
     }else if (e.getSource()==voltar_login){
