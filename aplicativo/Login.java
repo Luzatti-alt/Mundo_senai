@@ -1,4 +1,3 @@
-//min pra rodar
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -6,7 +5,6 @@ import java.net.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 public class Login extends JFrame implements ActionListener, ComponentListener{
     JPanel box_login = new JPanel();
     boolean encontrado = false;
@@ -36,10 +34,8 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     conectar.setRequestMethod("GET");
     conectar.setConnectTimeout(5000);
     conectar.setReadTimeout(5000);
-    
     int resposta = conectar.getResponseCode();
     System.out.println("resp: " + resposta);
-    
     if (resposta == 200) {
         BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
         StringBuilder Json = new StringBuilder();
@@ -48,13 +44,22 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
             Json.append(linha).append("\n");
         }
         ler.close();
-        
         // Salva o conteúdo no arquivo
-        try (FileWriter client_txt = new FileWriter("teste.txt", false)) {
+        try (
+            FileWriter client_txt = new FileWriter("teste.txt", false)) {
             client_txt.write(Json.toString());
         }
     } else {
         System.out.println("Erro ao acessar API, código: " + resposta);
+    }
+}
+public void reset(){
+    try {
+        FileWriter client_txt = new FileWriter("teste.txt", false);
+        client_txt.write("");
+        client_txt.close();
+    } catch (IOException ex) {
+        ex.printStackTrace();
     }
 }
     public void login(){
@@ -179,15 +184,13 @@ public void actionPerformed(ActionEvent e) {
     JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
 }
 if (encontrado) {
-    System.out.println("Usuário válido!");
     this.getContentPane().removeAll();
     Configuracoes configuracoesPanel = new Configuracoes();
     this.setContentPane(configuracoesPanel);
     this.revalidate();
     this.repaint();
-    // continua fluxo
+    reset();
 }else {
-    System.out.println("user invalido");
     JOptionPane.showMessageDialog(this, "Usuário inválido!");
 }
     }else if (e.getSource() == esqueceu_senha) {
@@ -203,6 +206,7 @@ if (encontrado) {
             this.setContentPane(configuracoesPanel);
             this.revalidate();
             this.repaint();
+            reset();
 }else{
             JOptionPane.showMessageDialog(this,"algo é invalido");
         }
