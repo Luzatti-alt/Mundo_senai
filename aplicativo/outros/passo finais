@@ -2,7 +2,7 @@ add a funcinalidade ao scroll em loja e carrinho
 add ir para descrição x aparecendo imagem do produto x na tela de descrição 
 de configs/sobrenos para parceiors até que funciona mas o jpanel fica em branco resolver isso logo, solução incluir a herança do JFrame aos outros arquivos 
 
-gui 97%
-funcionalidade do app 20%
+gui 98%
+funcionalidade do app 26%
 
 transformar em jar/exe assim que tudo estiver pronto
