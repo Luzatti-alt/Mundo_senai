@@ -2,7 +2,7 @@
 ## App prótotipo e site prototipo
 No branch main está em sua maioria o aplicativo, no branch home-site a parte do site e api
 Github que a equipe usou no desenvolvimento do projeto
-##desenvolvedores
+## desenvolvedores
 - Api e funcionalidade do site:
 Felipe
 - Site:
