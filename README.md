@@ -7,6 +7,8 @@ Github que a equipe usou no desenvolvimento do projeto
 
 
 
+
+
 para rodar o servidor(python)
 ```bash
 pip install flask
