@@ -24,7 +24,24 @@ pip install dotenv
 pip install requests
 ```
 
-falta no aicativo:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+feedback a equipe sobre o aplicativo
+falta no aplicativo:
 colocar algumas academias no lugar dos placeholders, e colocar imagens nos botões.
 corrijir alguns problemas com o layout
 add a ligação entre a criação de conta e o db que nem no site
