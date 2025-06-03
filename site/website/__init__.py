@@ -1,14 +1,19 @@
 import os
+from datetime import datetime
 from dotenv import load_dotenv
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 # from flask_jwt_extended import JWTManager
+from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.schedulers import SchedulerNotRunningError
 
 load_dotenv()
 
 db = SQLAlchemy()
 DB_NAME = 'database.db'
+
+scheduler = BackgroundScheduler()
 
 def create_app():
     app = Flask(__name__)
@@ -20,6 +25,8 @@ def create_app():
 
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
+
+    iniciar_scheduler(app)
 
     from .views import views
     from .auth import auth
@@ -52,3 +59,21 @@ def criar_database(app):
         with app.app_context():
             db.create_all()
         print('Banco de dados criado!')
+
+def iniciar_scheduler(app):
+    # def job():
+    #     with app.app_context():
+    #         atualizar_usuarios()
+
+    if not scheduler.running:
+        from .tasks import atualizar_usuarios
+        scheduler.add_job(func=atualizar_usuarios, trigger='interval', weeks=1, next_run_time=datetime.now())
+        scheduler.start()
+
+    @app.teardown_appcontext
+    def shutdown_session(exception=None):
+        try:
+            if scheduler.running:
+                scheduler.shutdown(wait=False)
+        except SchedulerNotRunningError:
+            pass
