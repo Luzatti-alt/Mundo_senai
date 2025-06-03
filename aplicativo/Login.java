@@ -53,7 +53,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         System.out.println("Erro ao acessar API, código: " + resposta);
     }
 }
-public void reset(){
+    public void reset(){
     try {
         FileWriter client_txt = new FileWriter("teste.txt", false);
         client_txt.write("");
@@ -130,8 +130,8 @@ public void reset(){
         int largura_atual = Login.this.getWidth();
         int altura_atual = Login.this.getHeight();
         criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
-        conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
-        voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
+        conta_criando.setBounds((largura_atual/2)-(largura_atual/5)-50,100, (largura_atual/2), altura_atual/2);
+        voltar_login.setBounds((largura_atual/2)-(largura_atual/5),0,largura_atual/3,100);
     }
     });
     criar_nova_conta_botao.addActionListener(this);
@@ -161,8 +161,8 @@ public void actionPerformed(ActionEvent e) {
             int largura_atual = this.getWidth();  
             int altura_atual = this.getHeight();
             criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
-            voltar_login.setBounds((largura_atual/2)-200,0,largura_atual/3,100);
-            conta_criando.setBounds((largura_atual/3)-50, 100, (largura_atual/2), altura_atual/2);
+            voltar_login.setBounds((largura_atual/2)-(largura_atual/5),0,largura_atual/3,100);
+            conta_criando.setBounds((largura_atual/2)-(largura_atual/5)-50,100, (largura_atual/2), altura_atual/2);
             Criar_nova_conta();
             this.repaint();
             this.revalidate();
