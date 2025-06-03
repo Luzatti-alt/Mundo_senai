@@ -39,7 +39,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
             System.out.println("teste");
         }
         //tenta se conectar com a api 
-        URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
+        URL url_login = new URL("http://127.0.0.1:5000/api/usuarios");
         HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
         FileWriter client_txt = new FileWriter("teste.txt", true);
         //ver se está conectado
@@ -50,12 +50,15 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         conectar.setConnectTimeout(1000); // 1 secs
         conectar.setReadTimeout(1000); 
         if(client.exists()){
+            StringBuilder Json = new StringBuilder();
             BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
             try {
+                //salvar em json ou pelo menos na estrutura
             while ((linhas = ler.readLine()) != null) {
-            client_txt.write(linhas + "\n");
-            System.out.println(linhas);
+            Json.append(linhas);
+            System.out.println(Json);
         }
+        client_txt.write(Json.toString());
         client_txt.close();
     } catch (IOException e) {
         e.printStackTrace();
@@ -176,7 +179,8 @@ public void actionPerformed(ActionEvent e) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
         }//tenta ver se é compativel
-        try (BufferedReader leitor = new BufferedReader(new FileReader("teste.txt"))) {
+        try (
+    BufferedReader leitor = new BufferedReader(new FileReader("teste.txt"))) {
     String linha;
     encontrado = false;
     while ((linha = leitor.readLine()) != null) {
