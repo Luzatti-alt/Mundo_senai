@@ -1,235 +1,252 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.net.*;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-public class Login extends JFrame implements ActionListener, ComponentListener{
-    JPanel box_login = new JPanel();
-    boolean encontrado = false;
-    int largura_atual = this.getWidth();  
-    JButton voltar_login = new JButton("voltar a aba de login");
-    JTextField usuario_login = new JTextField();
-    JTextField senha_login = new JTextField();
-    JButton criar_conta = new JButton();
-    JButton Logar = new JButton();
-    JButton esqueceu_senha = new JButton();
-    JTextArea usuario_text = new JTextArea("Usuario");
-    JTextArea senha_text = new JTextArea("Senha");
-    //criando conta
-    JButton criar_nova_conta_botao = new JButton("Criar conta");
-    JPanel conta_criando = new JPanel();
-    JTextArea nome_conta = new JTextArea("digite seu nome: ");
-    JTextField entrar_nome = new JTextField();
-    JTextArea email = new JTextArea("digite seu email:");
-    JTextField entrar_email = new JTextField();
-    JTextArea senha_criar = new JTextArea("digite sua senha:");
-    JTextField entrar_senha_criando = new JTextField();
-    JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
-    JTextField entrar_confirma_senha = new JTextField();
-    public void requests() throws Exception {
-    URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
-    HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
-    conectar.setRequestMethod("GET");
-    conectar.setConnectTimeout(2000);
-    conectar.setReadTimeout(2000);
-    int resposta = conectar.getResponseCode();
-    System.out.println("resp: " + resposta);
-    if (resposta == 200) {
-        BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
-        StringBuilder Json = new StringBuilder();
-        String linha;
-        while ((linha = ler.readLine()) != null) {
-            Json.append(linha).append("\n");
-        }
-        ler.close();
-        // Salva o conteúdo no arquivo
-        try (
-            FileWriter client_txt = new FileWriter("teste.txt", false)) {
-            client_txt.write(Json.toString());
-        }
+import java.io.BufferedReader;
+import java.io.FileReader;
+public class Configuracoes extends JPanel implements ActionListener, ComponentListener{
+    JTextArea titulo = new JTextArea();
+    JPanel Menu = new JPanel();
+    JPanel tela_configs = new JPanel();
+    JPanel conta = new JPanel();
+    JPanel dados_pagamento = new JPanel();
+    JTextArea nome_txt = new JTextArea("Usuario");
+    JLabel nome = new JLabel();
+    JPanel tipo_assinatura = new JPanel();
+    JTextArea  tipo_assinatura_txt = new JTextArea("Assinatura");
+    JPanel data_cria_conta = new JPanel();
+    JTextArea data_cria_conta_txt = new JTextArea("Data da criação da conta");
+    JTextArea mes = new JTextArea("Mensal");
+	JTextArea tres_meses = new JTextArea("3 Meses");
+	JTextArea seis_meses = new JTextArea("6 Meses");
+	JTextArea doze_meses = new JTextArea("12 Meses");
+	JTextArea cinquentao = new JTextArea("R$:49,99");
+	JTextArea cento_cinquente= new JTextArea("R$:97,99");
+	JTextArea trezentos = new JTextArea("R$:152,99");
+	JTextArea quinhentos_quarenta = new JTextArea("R$:273,99");
+    JButton produtos = new JButton("Produtos");
+    JButton quests = new JButton("Metas");
+    JButton parceiros = new JButton("Parceiros");
+	JButton sobre_nos = new JButton("Sobre nos");
+	JButton configs = new JButton("Configurações");
+    JButton Debito = new JButton("Débito");
+	JButton Pix = new JButton("Pix");
+	JButton Credito = new JButton("Crédito");
+	JButton Boleto = new JButton("Boleto");
+    Dimension tamanho_tela = Toolkit.getDefaultToolkit().getScreenSize();
+    ImageIcon Config_original = new ImageIcon(getClass().getResource("imagens/Configs-removebg.png"));
+    Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Config_icon = new ImageIcon(Config_img);
+    ImageIcon Metas_original = new ImageIcon(getClass().getResource("imagens/Metas-removebg.png"));
+    Image Metas_img = Metas_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Metas_icon = new ImageIcon(Metas_img);
+    ImageIcon Parca_original = new ImageIcon(getClass().getResource("imagens/Parceiros-removebg.png"));
+    Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Parca_icon = new ImageIcon(Parca_img);
+    ImageIcon Loja_original = new ImageIcon(getClass().getResource("imagens/logo_loja.png"));
+    Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Loja_icon = new ImageIcon(Loja_img);
+    public Configuracoes() {
+        configuracoes();
+        this.addComponentListener(this);
     }
-}
-    public void reset(){
-    try {
-        FileWriter client_txt = new FileWriter("teste.txt", false);
-        client_txt.write("");
-        client_txt.close();
-    } catch (IOException ex) {
-        ex.printStackTrace();
-    }
-}
-    public void login(){
-        this.setTitle("Projeto Mundo Senai: Treina Aí");
+    public void configuracoes(){
+        this.setLayout(null);
+        int largura_atual = this.getWidth();
+        int altura_atual = this.getHeight();
+        tela_configs.setBounds(0, 0, largura_atual, 28);
+        titulo.setBounds(0,29,largura_atual,35);
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
+        parceiros.setBounds((largura_atual/2)+100, 0, 100, 28);
+        quests.setBounds((largura_atual/2), 0, 100, 28);
+        sobre_nos.setBounds(0,300,largura_atual/2,30);
+        this.add(Menu);
+        this.add(titulo);
+        titulo.setText("Opções de assinatura & conta");
+        this.add(conta);
+        this.add(dados_pagamento);
         this.setMinimumSize(new Dimension(600, 300));
-        this.setSize(new Dimension(700, 700));
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setLayout(null); 
-        this.addComponentListener(new ComponentAdapter() {
-        @Override
-        public void componentResized(ComponentEvent e) {
-        int largura_atual = Login.this.getWidth();
-        box_login.setBounds((largura_atual/2)-250, 100, 500, 225);
-        usuario_login.setBounds(10, 60, 480, 40);
-        senha_login.setBounds(10, 150, 480, 40);  
-        criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
-        Logar.setBounds((largura_atual/2)-150, 350, 300, 50);  
-        esqueceu_senha.setBounds(0, 600,largura_atual,50);
-        Login.this.repaint();
-        Login.this.revalidate();
-    }
-    });
-        voltar_login.setBackground(Color.gray);
-        box_login.setLayout(null);
-        box_login.setBackground(Color.lightGray);
-        usuario_text.setBackground(null);
-        usuario_text.setEditable(false);
-        usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
-        box_login.add(usuario_text);
-        usuario_login.setBorder(BorderFactory.createEmptyBorder());
-        usuario_text.setBounds(largura_atual/2, 10, 480, 60);
-        usuario_login.setBackground(new Color(200, 255, 206));
-        box_login.add(usuario_login);
-        senha_text.setBounds(0, 100, 480, 60);
-        senha_text.setBackground(null);
-        senha_text.setEditable(false);
-        senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
-        box_login.add(senha_text);
-        senha_login.setBorder(BorderFactory.createEmptyBorder()); 
-        senha_login.setBackground(new Color(200, 255, 206));
-        box_login.add(senha_login);
-        this.add(box_login);
-        this.add(criar_conta);
-        criar_conta.setBackground(new Color(122,159,125));
-        criar_conta.setFocusable(false);
-        criar_conta.setText("Criar conta");
-		this.add(esqueceu_senha);
-        esqueceu_senha.setBackground(new Color(122,159,125));
-		esqueceu_senha.setFocusable(false);
-		esqueceu_senha.setText("esqueceu sua senha");
-		esqueceu_senha.addActionListener(this);
-        Logar.setText("Logar");
-        criar_conta.addActionListener(this);
-        voltar_login.addActionListener(this);
-        Logar.setBackground(new Color(122,159,125));
-        Logar.addActionListener(this);
-        this.add(Logar);
-        this.setVisible(true);
-    }
-    public void Criar_nova_conta(){
-        this.add(criar_nova_conta_botao);
-        this.add(voltar_login);
-        this.add(conta_criando);
-        conta_criando.setBackground(Color.white);
-        this.addComponentListener(new ComponentAdapter() {
-        @Override
-        public void componentResized(ComponentEvent e) {
-        int largura_atual = Login.this.getWidth();
-        int altura_atual = Login.this.getHeight();
-        criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
-        conta_criando.setBounds((largura_atual/2)-(largura_atual/5)-50,100, (largura_atual/2), altura_atual/2);
-        voltar_login.setBounds((largura_atual/2)-(largura_atual/5),0,largura_atual/3,100);
-    }
-    });
-    criar_nova_conta_botao.addActionListener(this);
-    conta_criando.setLayout(new GridLayout(8,1));//nome email senha confirma_senha
-    conta_criando.add(nome_conta);
-    nome_conta.setEditable(false);
-    conta_criando.add(entrar_nome);
-    nome_conta.setFont(new Font("Arial", Font.PLAIN, 30));
-    conta_criando.add(email);
-    email.setEditable(false);
-    email.setFont(new Font("Arial", Font.PLAIN, 30));
-    conta_criando.add(entrar_email);
-    conta_criando.add(senha_criar);
-    senha_criar.setEditable(false);
-    senha_criar.setFont(new Font("Arial", Font.PLAIN, 30));
-    conta_criando.add(entrar_senha_criando);
-    conta_criando.add(confirmar_senha);
-    confirmar_senha.setEditable(false);
-    confirmar_senha.setFont(new Font("Arial", Font.PLAIN, 30));
-    conta_criando.add(entrar_confirma_senha);
-    criar_nova_conta_botao.setBackground(Color.green);
+        this.setLayout(null);
+        this.add(tela_configs);
+        tela_configs.setSize(tamanho_tela);
+        produtos.addActionListener(this);
+        tela_configs.add(produtos);
+        parceiros.addActionListener(this);
+        tela_configs.add(parceiros);
+        quests.addActionListener(this);
+        tela_configs.add(quests);
+        configs.addActionListener(this);
+        tela_configs.add(configs);
+        tela_configs.setLayout(new BorderLayout());
+        configs.setIcon(Config_icon);
+        parceiros.setIcon(Parca_icon);
+        quests.setIcon(Metas_icon);
+        produtos.setIcon(Loja_icon);
+        titulo.setEditable(false);
+        titulo.setFont(new Font("Arial", Font.PLAIN, 30));
+        titulo.setBackground(new Color(61, 153, 32));
+        conta.setLayout(null);
+        conta.setBounds(0,61,largura_atual/2,altura_atual-61 );
+        sobre_nos.addActionListener(this);
+        conta.add(sobre_nos);
+        try {
+            FileReader leitor = new FileReader("dados.txt");
+            BufferedReader br = new BufferedReader(leitor);
+            String data = br.readLine(); // lê a primeira linha como String
+            if (data != null) {
+            nome.setText(data);
+            }
+            br.close();
+            leitor.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                nome_txt.setText("Usuario: (erro ao ler)");}
+        conta.add(nome_txt);
+        nome_txt.setBackground(null);
+        nome_txt.setFont(new Font("arial",Font.PLAIN,30));
+        nome_txt.setEditable(false);
+        nome_txt.setBounds(0, 0, 120, 30);
+        //num JPanel a cordenada em setBounds considera 0,0 o topo do JPanel
+        conta.add(nome);
+        nome.setOpaque(true);
+        nome.setBackground(new Color(122,159,125));
+        nome.setBounds(0, 30, 1000, 60);
+        nome.setFont(new Font("arial",Font.PLAIN,30));
+        conta.add(tipo_assinatura_txt);
+        tipo_assinatura_txt.setBackground(null);
+        tipo_assinatura_txt.setFont(new Font("arial",Font.PLAIN,30));
+        tipo_assinatura_txt.setBounds(0, 90,1000,30);
+        tipo_assinatura_txt.setEditable(false);
+        conta.add(tipo_assinatura);
+        tipo_assinatura.setBackground(new Color(122,159,125));
+        tipo_assinatura.setBounds(0, 120,1000,60);
+        conta.add(data_cria_conta_txt);
+        data_cria_conta_txt.setBackground(null);
+        data_cria_conta_txt.setFont(new Font("arial",Font.PLAIN,30));
+        data_cria_conta_txt.setBounds(0,180,1000,30);
+        data_cria_conta_txt.setEditable(false);
+        conta.add(data_cria_conta);
+        data_cria_conta.setBackground(new Color(122,159,125));
+        data_cria_conta.setBounds(0,200,1000,60);
+        dados_pagamento.add(mes);
+        dados_pagamento.setBackground(Color.lightGray);
+        dados_pagamento.setLayout(null);
+        dados_pagamento.setBounds(largura_atual/2,61,largura_atual/2,altura_atual-61);
+    	mes.setEditable(false);
+        mes.setBackground(new Color(200, 255, 206));
+    	mes.setFont(new Font("Arial", Font.PLAIN, 26));
+    	dados_pagamento.add(tres_meses);
+    	tres_meses.setEditable(false);
+        tres_meses.setBackground(new Color(200, 255, 206));
+    	tres_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+    	tres_meses.setBounds(50,160,120,50);
+    	dados_pagamento.add(seis_meses);
+    	seis_meses.setEditable(false);
+        seis_meses.setBackground(new Color(200, 255, 206));
+    	seis_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+    	seis_meses.setBounds(50,220,120,50);
+    	dados_pagamento.add(doze_meses);
+    	doze_meses.setEditable(false);
+        doze_meses.setBackground(new Color(200, 255, 206));
+    	doze_meses.setFont(new Font("Arial", Font.PLAIN, 26));
+    	doze_meses.setBounds(50,280,120,50);
+    	dados_pagamento.add(cinquentao);
+    	cinquentao.setEditable(false);
+        cinquentao.setBackground(new Color(122,159,125));
+	    cinquentao.setFont(new Font("Arial", Font.PLAIN, 26));
+    	cinquentao.setBounds(250,100,120,50);
+	    dados_pagamento.add(cento_cinquente);
+	    cento_cinquente.setEditable(false);
+        cento_cinquente.setBackground(new Color(122,159,125));
+	    cento_cinquente.setFont(new Font("Arial", Font.PLAIN, 26));
+	    cento_cinquente.setBounds(250,160,120,50);
+    	dados_pagamento.add(trezentos);
+	    trezentos.setEditable(false);
+        trezentos.setBackground(new Color(122,159,125));
+    	trezentos.setFont(new Font("Arial", Font.PLAIN, 26));
+	    trezentos.setBounds(250,220,120,50);
+    	dados_pagamento.add(quinhentos_quarenta);
+	    quinhentos_quarenta.setEditable(false);
+        quinhentos_quarenta.setBackground(new Color(122,159,125));
+    	quinhentos_quarenta.setFont(new Font("Arial", Font.PLAIN, 26));
+        quinhentos_quarenta.setBounds(250,280,120,50);
+    	dados_pagamento.add(Debito);
+        Debito.setBackground(new Color(73, 207, 78));
+    	Debito.setFocusable(false);
+    	Debito.setBounds(50,360,120,50);
+    	dados_pagamento.add(Pix);
+        Pix.setBackground(new Color(73, 207, 78));
+    	Pix.setFocusable(false);
+    	Pix.setBounds(50,420,120,50);
+    	dados_pagamento.add(Credito);
+        Credito.setBackground(new Color(73, 207, 78));
+    	Credito.setFocusable(false);
+    	Credito.setBounds(250,360,120,50);
+    	dados_pagamento.add(Boleto);
+        Boleto.setBackground(new Color(73, 207, 78));
+    	Boleto.setFocusable(false);
+    	Boleto.setBounds(250,420,120,50);
+        this.setVisible(true);   
+        this.repaint();
+        this.revalidate();
     }
     @Override
-public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == criar_conta) {
-            this.getContentPane().removeAll();
-            int largura_atual = this.getWidth();  
-            int altura_atual = this.getHeight();
-            criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
-            voltar_login.setBounds((largura_atual/2)-(largura_atual/5),0,largura_atual/3,100);
-            conta_criando.setBounds((largura_atual/2)-(largura_atual/5)-50,100, (largura_atual/2), altura_atual/2);
-            Criar_nova_conta();
-            this.repaint();
-            this.revalidate();
-        }else if (e.getSource() == Logar) {
-        String val_user = usuario_login.getText();
-        //senha_login.getText();
-        boolean encontrado = false;
-        //em login_salvo.txt add nome data de criação e tipo de assinatura conta fazer o skip do login
-        try {
-    requests();
-    String jsonStr = new String(Files.readAllBytes(Paths.get("teste.txt")));
-    // Criar padrões simples para procurar email ou nome
-    String emailPattern = "\"email\"\\s*:\\s*\"" + val_user + "\"";
-    String nomePattern = "\"nome\"\\s*:\\s*\"" + val_user + "\"";
-    if (jsonStr.matches("(?s).*" + emailPattern + ".*") || jsonStr.matches("(?s).*" + nomePattern + ".*")) {
-        encontrado = true;
-    }
-} catch (Exception ex) {
-    ex.printStackTrace();
-    JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
-}
-if (encontrado) {
-    try {
-        FileWriter dados = new FileWriter("dados.txt", false);
-        dados.write(val_user + "\n");//mesma coida + 
-        dados.close();
-    } catch (IOException ex) {
-        ex.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Erro ao salvar dados: " + ex.getMessage());
-    }
-    this.getContentPane().removeAll();
-    Configuracoes configuracoesPanel = new Configuracoes();
-    this.setContentPane(configuracoesPanel);
-    this.revalidate();
-    this.repaint();
-    reset();
-}else {
-    JOptionPane.showMessageDialog(this, "Usuário inválido!");
-}
-    }else if (e.getSource() == esqueceu_senha) {
-        JOptionPane.showMessageDialog(this,"Esqueceu a senha");//ver se vamos criar automação de email no futuro
-    }else if (e.getSource()==voltar_login){
-        this.getContentPane().removeAll();
-        login();      
-        this.repaint();
-        this.revalidate();  
-    }else if(e.getSource()==criar_nova_conta_botao){
-        if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && !entrar_senha_criando.getText().isEmpty() && !entrar_confirma_senha.getText().isEmpty()){
-            Configuracoes configuracoesPanel = new Configuracoes();
-            this.setContentPane(configuracoesPanel);
-            this.revalidate();
-            this.repaint();
-            reset();
-}else{
-            JOptionPane.showMessageDialog(this,"algo é invalido");
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = this.getWidth();
+        int altura_atual = this.getHeight();
+        tela_configs.setBounds(0, 0, largura_atual, 28);
+        titulo.setBounds(0,29,largura_atual,35);
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
+        parceiros.setBounds((largura_atual/2)+100, 0, 100, 28);
+        quests.setBounds((largura_atual/2), 0, 100, 28);
+        sobre_nos.setBounds(0,300,largura_atual/2,30);
+        conta.setBounds(0,61,largura_atual/2,altura_atual-61);
+        dados_pagamento.setBounds(largura_atual/2,61,largura_atual/2,altura_atual-61);
+        mes.setBounds(50,100,120,50);
         }
+    @Override
+public void actionPerformed(ActionEvent e) {
+    if(e.getSource()==sobre_nos){
+        this.removeAll();
+        Sobre sobre = new Sobre();
+        sobre.setBounds(0, 0, this.getWidth(), this.getHeight());
+        this.add(sobre);
+        this.revalidate();
+        this.repaint();
+    }else if (e.getSource()==quests){
+        this.removeAll();
+        Metas metas = new Metas();
+        metas.setBounds(0, 0, this.getWidth(), this.getHeight());
+        this.add(metas);
+        this.revalidate();
+        this.repaint();
+    }else if (e.getSource()==produtos){
+        this.removeAll();
+        Loja loja = new Loja();
+        loja.setBounds(0, 0, this.getWidth(), this.getHeight());
+        this.add(loja);
+        this.revalidate();
+        this.repaint();
+    }else if (e.getSource()==parceiros){
+        this.removeAll();
+        Parceiros parceiros = new Parceiros();
+        parceiros.setBounds(0, 0, this.getWidth(), this.getHeight());
+        this.add(parceiros);
+        this.revalidate();
+        this.repaint();
     }
 }
-@Override
-public void componentResized(ComponentEvent e) {
-}
+
 @Override
 public void componentMoved(ComponentEvent e) {}
+
 @Override
-public void componentShown(ComponentEvent e) {}
+public void componentShown(ComponentEvent e) {
+}
 @Override
-public void componentHidden(ComponentEvent e) {}
+public void componentHidden(ComponentEvent e) {
+}
 public static void main(String[] args) {
-        Login login = new Login();
-        login.login();
+        Configuracoes configuracoes = new Configuracoes();
+        configuracoes.configuracoes();
     }
 }
