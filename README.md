@@ -3,14 +3,20 @@
 No branch main está em sua maioria o aplicativo, no branch home-site a parte do site e api
 Github que a equipe usou no desenvolvimento do projeto
 ## desenvolvedores
-- Api e funcionalidade do site:
+### Api e funcionalidade do site:
 - Felipe
 ### Site:
 João
-- aplicativo(GUI) e linkar api com o aplicativo
+### aplicativo(GUI) e linkar api com o aplicativo
 - Lucas
-Desing,Marketing & organização
-- leonardo
+### Desing,Marketing & organização
+- Miguel
+- Murilo
+- Gabriel Galo
+- Leonardo
+- Eduardo
+- Gabriel Berti
+- Hugo
 ## para rodar o servidor(python)
 ```bash
 pip install flask
