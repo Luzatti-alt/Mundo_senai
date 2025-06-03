@@ -19,27 +19,41 @@ body, html{
     width: 100vw;
 }
 #container{
-    
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 #assinatura{
     background-color: black;
     width: 80%;
-    margin: auto;
+    
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
 }
-#tituto{
+#titulo{
     padding: 10px;
+    text-align: center;
 }
-#assinatura > h1{
+#titulo h1{
     color: white;
+    
 }
-#assinatura  #content{
-    display: block;
+#assinatura #content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: var(--cor3);
     padding: 20px;
 }
-#assinatura .tipo{
+#content div{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    max-width: 50%;
-    margin: 20px 0px;
+    gap: 50px;              
+    margin: 10px;
+}
+.botoes input{
+   padding: 15px;
 }
