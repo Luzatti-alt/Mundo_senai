@@ -168,6 +168,7 @@ public void actionPerformed(ActionEvent e) {
         String val_user = usuario_login.getText();
         //senha_login.getText();
         boolean encontrado = false;
+        //em login_salvo.txt add nome data de criação e tipo de assinatura conta fazer o skip do login
         try {
     requests();
     String jsonStr = new String(Files.readAllBytes(Paths.get("teste.txt")));
@@ -182,6 +183,14 @@ public void actionPerformed(ActionEvent e) {
     JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
 }
 if (encontrado) {
+    try {
+        FileWriter dados = new FileWriter("dados.txt", false);
+        dados.write(val_user + "\n");//mesma coida + 
+        dados.close();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Erro ao salvar dados: " + ex.getMessage());
+    }
     this.getContentPane().removeAll();
     Configuracoes configuracoesPanel = new Configuracoes();
     this.setContentPane(configuracoesPanel);
@@ -200,6 +209,15 @@ if (encontrado) {
         this.revalidate();  
     }else if(e.getSource()==criar_nova_conta_botao){
         if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && !entrar_senha_criando.getText().isEmpty() && !entrar_confirma_senha.getText().isEmpty()){
+            try {
+        String new_acc = entrar_nome.getText();
+        FileWriter dados = new FileWriter("dados.txt", false);
+        dados.write(new_acc + "\n");//mesma coida + 
+        dados.close();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Erro ao salvar dados: " + ex.getMessage());
+    }
             Configuracoes configuracoesPanel = new Configuracoes();
             this.setContentPane(configuracoesPanel);
             this.revalidate();
