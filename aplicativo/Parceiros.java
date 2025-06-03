@@ -56,8 +56,11 @@ public class Parceiros extends JPanel implements ActionListener, ComponentListen
     }); 
         titulo.setText("Instituições parceiras");
         this.add(produtos);
+        produtos.addActionListener(this);
         this.add(quests);
+        quests.addActionListener(this);
         this.add(configs);
+        configs.addActionListener(this);
         this.add(titulo);
         this.add(parça);
         produtos.setIcon(Loja_icon);
