@@ -14,8 +14,11 @@ public class Descricao extends JPanel implements ActionListener, ComponentListen
     public void descricao(){
         //add funcionalidade para produtos especificos
         this.add(produtos);
+        produtos.addActionListener(this);
         this.add(quests);
+        quests.addActionListener(this);
         this.add(configs);
+        configs.addActionListener(this);
         this.add(titulo);
         this.addComponentListener(new ComponentAdapter() {
         @Override
