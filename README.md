@@ -3,6 +3,8 @@
 No branch main está em sua maioria o aplicativo
 No branch home-site a parte do site e api
 Github que a equipe usou no desenvolvimento do projeto
+![image](https://github.com/user-attachments/assets/66a2629d-8e9c-4d3f-a6b9-863107a1189e)
+
 
 para rodar o servidor(python)
 ```bash
