@@ -1,1 +1,0 @@
-add info de login talvez via pipe
