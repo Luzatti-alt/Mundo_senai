@@ -32,8 +32,8 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
     HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
     conectar.setRequestMethod("GET");
-    conectar.setConnectTimeout(5000);
-    conectar.setReadTimeout(5000);
+    conectar.setConnectTimeout(2000);
+    conectar.setReadTimeout(2000);
     int resposta = conectar.getResponseCode();
     System.out.println("resp: " + resposta);
     if (resposta == 200) {
@@ -49,8 +49,6 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
             FileWriter client_txt = new FileWriter("teste.txt", false)) {
             client_txt.write(Json.toString());
         }
-    } else {
-        System.out.println("Erro ao acessar API, código: " + resposta);
     }
 }
     public void reset(){
@@ -123,7 +121,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         this.add(criar_nova_conta_botao);
         this.add(voltar_login);
         this.add(conta_criando);
-        conta_criando.setBackground(Color.lightGray);
+        conta_criando.setBackground(Color.white);
         this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
@@ -194,7 +192,7 @@ if (encontrado) {
     JOptionPane.showMessageDialog(this, "Usuário inválido!");
 }
     }else if (e.getSource() == esqueceu_senha) {
-        System.out.println("Esqueceu a senha clicado!");
+        JOptionPane.showMessageDialog(this,"Esqueceu a senha");//ver se vamos criar automação de email no futuro
     }else if (e.getSource()==voltar_login){
         this.getContentPane().removeAll();
         login();      
