@@ -9,9 +9,7 @@ Felipe
 João
 - aplicativo(GUI) e linkar api com o aplicativo
 Lucas
-
-
-para rodar o servidor(python)
+## para rodar o servidor(python)
 ```bash
 pip install flask
 ```
