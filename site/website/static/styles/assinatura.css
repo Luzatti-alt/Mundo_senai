@@ -48,35 +48,33 @@ body, html{
     color: white;
     
 }
-#assinatura #content{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+#content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 80px);
+    gap: 20px;
+
+    padding: 10px;
+
     background-color: white;
-    padding: 20px;
-    font-size: 1.1em;
+    font-size: 0.9em;
     font-weight: bold;
+
+    text-align: center;
 }
-#content div{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 50px;              
-    margin: 10px;
-    align-items: center;
-    padding: 10px 0px;
-    flex: 1;
+#content *{
+    margin: auto;
 }
-.botoes input{
-   padding: 15px;
-   border-radius: 20px;
-   border-style: none;
-   background-color: var(--cor4);
-   color: white;
-   cursor: pointer;
-   font-weight: bold;
-   font-size: 1.1em;
+#content input{
+    padding: 15px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: var(--cor4);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
 }
-.botoes input:hover{
+#content input:hover{
     background-color: var(--cor2);
 }

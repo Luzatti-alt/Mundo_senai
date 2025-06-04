@@ -3,9 +3,10 @@
 
 @media screen and (min-width: 999px){
    #assinatura{
-    width: 50%;
+      width: 50%;
    }
-   #assinatura content{
-    font-size: 1.2em;
+   #content{
+      padding: 20px;
+      font-size: 1.2em;
    }
 }

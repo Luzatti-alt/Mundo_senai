@@ -8,9 +8,6 @@
 
     box-sizing: border-box;
 }
-body, html{
-    /*Vocês são legais*/
-}
 header{
     width: 100%;
     height: 30vh;
@@ -23,16 +20,16 @@ header div{
     height: 100%;
     width: 100%;
 }
-main{
-    /*Tu é foda main*/
-}
 .tarefas{
     padding: 20px;
     width: 90%;
-    margin: auto;
+    /* margin: auto; */
 }
 .pendentes{
     background-color: #8cda8c;
+}
+.pendentes a{
+    color: black;
 }
 .concluidas{
     background-color: #0d5f0d;
@@ -44,6 +41,9 @@ main{
     border-radius: 10px;
     margin: 10px 0px;
     list-style-type: none;
+}
+.tarefas li a{
+    text-decoration: none;
 }
 .tarefas h3{
     margin: 8px 0px;

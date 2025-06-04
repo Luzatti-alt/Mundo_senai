@@ -15,11 +15,8 @@ NEWS_CACHE_FILE = os.path.join(SITE_DIR, 'cache_noticias.json')
 CACHE_EXPIRATION_HOURS = 8
 
 def fetch_news():
-    print(f"Verificando arquivo: {os.path.abspath(NEWS_CACHE_FILE)}")
-    print("Existe?", os.path.exists(NEWS_CACHE_FILE))
     if os.path.exists(NEWS_CACHE_FILE):
         with open(NEWS_CACHE_FILE, 'r') as f:
-            print(json.load(f))
             cache = json.load(f)
             timestamp = datetime.fromisoformat(cache['timestamp'])
             if datetime.now() - timestamp < timedelta(hours=CACHE_EXPIRATION_HOURS):
