@@ -2,8 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class Loja extends JPanel implements ActionListener, ComponentListener, AdjustmentListener{
-    int largura_atual = this.getWidth();
-    int altura_atual = this.getHeight();
+    JPanel fundo_1 = new JPanel();
+    int largura_atual = fundo_1.getWidth();
+    int altura_atual = fundo_1.getHeight();
     ImageIcon carrinho_original = new ImageIcon(getClass().getResource("imagens/Carrinho-removebg.png"));
     Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
@@ -35,11 +36,11 @@ public class Loja extends JPanel implements ActionListener, ComponentListener, A
     JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
 public Loja() {
     loja();
-    this.add(this);
-    this.addComponentListener(this);
+    this.add(fundo_1);
+    fundo_1.addComponentListener(this);
     }
     public void loja(){
-        this.add(temp);
+        fundo_1.add(temp);
         temp.addActionListener(this);
         this.addComponentListener(new ComponentAdapter() {
         @Override
@@ -60,28 +61,28 @@ public Loja() {
         Loja.this.repaint();
     }
     });
-        this.add(produtos);
+        fundo_1.add(produtos);
         produtos.addActionListener(this);
-        this.add(quests);
+        fundo_1.add(quests);
         quests.addActionListener(this);
-        this.add(configs);
+        fundo_1.add(configs);
         configs.addActionListener(this);
-        this.add(titulo);
+        fundo_1.add(titulo);
         produtos.setIcon(Loja_icon);
-        this.add(Carrinho_bot);
+        fundo_1.add(Carrinho_bot);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
-        this.add(titulo);
+        fundo_1.add(titulo);
         titulo.setEditable(false);
         titulo.setText("Produtos a venda");
         titulo.setBackground(Color.green);
         Carrinho_bot.addActionListener(this);
-        this.add(pesquisa);
-        this.add(pontuacao);
+        fundo_1.add(pesquisa);
+        fundo_1.add(pontuacao);
         fundo.setBackground(Color.blue);
-        this.add(scroll_bar);
+        fundo_1.add(scroll_bar);
         scroll_bar.addAdjustmentListener(this);
         pontuacao.setEditable(false);
     }
@@ -91,7 +92,7 @@ public Loja() {
         quests.setIcon(Metas_icon);
         produtos.setIcon(Loja_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
-        this.addComponentListener(new ComponentAdapter() {
+        fundo_1.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = Loja.this.getWidth();
@@ -110,22 +111,22 @@ public Loja() {
     });
         fundo.add(scroll_bar);
         scroll_bar.addAdjustmentListener(this);
-        this.add(produtos);
+        fundo_1.add(produtos);
         produtos.addActionListener(this);
-        this.add(parceiros);
+        fundo_1.add(parceiros);
         parceiros.addActionListener(this);
-        this.add(quests);
+        fundo_1.add(quests);
         quests.addActionListener(this);
-        this.add(configs);
+        fundo_1.add(configs);
         configs.addActionListener(this);
-        this.add(titulo);
-        this.add(fundo);
+        fundo_1.add(titulo);
+        fundo_1.add(fundo);
         fundo.setBackground(Color.LIGHT_GRAY);
-        this.add(valor_a_pagar);
+        fundo_1.add(valor_a_pagar);
         valor_a_pagar.setBackground(Color.green);
         valor_a_pagar.setFont(new Font("Arial", Font.PLAIN, 56));
-        this.add(volte);
-        this.add(dinheiro);
+        fundo_1.add(volte);
+        fundo_1.add(dinheiro);
         titulo.setBackground(Color.green);
         titulo.setText("carrinho");
     }
@@ -134,23 +135,23 @@ public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
         //
     }else  if(e.getSource()==quests){
-        this.removeAll();
+        fundo_1.removeAll();
         Metas metas = new Metas();
-        this.add(metas);
+        fundo_1.add(metas);
         metas.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        fundo_1.revalidate();
+        fundo_1.repaint();
     }else  if(e.getSource()==parceiros){
         //
     }else  if(e.getSource()==configs){
-        this.removeAll();
+        fundo_1.removeAll();
         Configuracoes configuracoes = new Configuracoes();
-        this.add(configuracoes);
+        fundo_1.add(configuracoes);
         configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        fundo_1.revalidate();
+        fundo_1.repaint();
     }else  if(e.getSource()==Carrinho_bot){
-        this.removeAll();
+        fundo_1.removeAll();
         carrinho();
         Loja.this.revalidate();
         Loja.this.repaint();
