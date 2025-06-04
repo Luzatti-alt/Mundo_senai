@@ -37,7 +37,7 @@ def get_modelos():
     
     return jsonify(resultado)
 
-@api.route('/tarefas', methods=['get'])
+@api.route('/tarefas', methods=['GET'])
 # @jwt_required()
 def get_tarefas():
     tarefas = Tarefa.query.all()
