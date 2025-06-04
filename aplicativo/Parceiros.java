@@ -12,20 +12,19 @@ public class Parceiros extends JFrame implements ActionListener, ComponentListen
     JPanel parça = new JPanel();
     JPanel academia_1 = new JPanel();
     JTextArea nome_e_dist_aca_1 = new JTextArea("academia 1");
-    JTextArea endereco_aca_1 = new JTextArea("endereço rua 1 , num");
+    JTextArea endereco_aca_1 = new JTextArea("Rua principal, 1000");
     JPanel academia_2 = new JPanel();
     JTextArea nome_e_dist_aca_2 = new JTextArea("academia 2");
-    JTextArea endereco_aca_2 = new JTextArea("endereço rua 2 , num");
+    JTextArea endereco_aca_2 = new JTextArea("Rua principal, 1200");
     JPanel academia_3 = new JPanel();
     JTextArea nome_e_dist_aca_3 = new JTextArea("academia 3");
-    JTextArea endereco_aca_3 = new JTextArea("endereço rua 3 , num");
+    JTextArea endereco_aca_3 = new JTextArea("Rua fitness, 508");
     JPanel academia_4 = new JPanel();
     JTextArea nome_e_dist_aca_4 = new JTextArea("academia 4");
-    JTextArea endereco_aca_4 = new JTextArea("endereço rua 4 , num");
+    JTextArea endereco_aca_4 = new JTextArea("Rua Sesi, 41");
     JPanel academia_5 = new JPanel();
     JTextArea nome_e_dist_aca_5 = new JTextArea("academia 5");
-    JTextArea endereco_aca_5 = new JTextArea("endereço rua 5 , num");
-    JPanel fundo = new JPanel();
+    JTextArea endereco_aca_5 = new JTextArea("Rua centro, 97");
     ImageIcon Config_original = new ImageIcon(getClass().getResource("imagens/Configs-removebg.png"));
     Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Config_icon = new ImageIcon(Config_img);
@@ -53,8 +52,7 @@ public class Parceiros extends JFrame implements ActionListener, ComponentListen
         produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
         quests.setBounds((largura_atual/2), 0, 100, 28);
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
-        titulo.setBounds(0, 26, largura_atual, 35);
-        fundo.setBounds(0,60,largura_atual,altura_atual-63);
+        titulo.setBounds(0, 29, largura_atual, 35);
         parça.setBounds(0, 61, largura_atual, altura_atual-61);
     }
     }); 
