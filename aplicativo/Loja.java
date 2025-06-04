@@ -35,6 +35,7 @@ public class Loja extends JPanel implements ActionListener, ComponentListener, A
     JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
 public Loja() {
     loja();
+    this.add(this);
     this.addComponentListener(this);
     }
     public void loja(){
