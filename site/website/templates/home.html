@@ -20,14 +20,23 @@
         <h1>Bem-vindo, {{ usuario.nome }}!</h1>
         <section id="tarefas">
             <h2>Tarefas</h2>
+            <div id="pontos">
+                        Pontos: {{ usuario.pontos }}
+            </div>
             <ul>
                 <a href="{{ url_for('views.tarefas') }}" target="_self" rel="internal">
                     <div class="listatarefa">
-                        {% for tarefa in usuario.tarefas[:6] %}
+                        <!-- {% for tarefa in usuario.tarefas[:6] %}
                         <li>
                             {{ tarefa.modelo.titulo }}
                         </li>
-                        {% endfor %}
+                        {% endfor %} -->
+                        <li>listitem1</li>
+                        <li>listitem2</li>
+                        <li>listitem3</li>
+                        <li>listitem4</li>
+                        <li>listitem5</li>
+                        <li>listitem89</li>
                     </div>
                 </a>
             </ul>

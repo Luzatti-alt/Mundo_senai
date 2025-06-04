@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+.tarefas{
+    flex: 1 1 500px;
+}

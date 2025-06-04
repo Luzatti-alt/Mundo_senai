@@ -55,18 +55,22 @@ h2{
 #tarefas h2{
     margin-bottom: 20px;
 }
-ul li{
-    list-style-type: none;
-    border: 1px solid black;
-
-    padding: 5px;
+div#pontos{
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 div.listatarefa{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: rgb(119, 0, 255);
-    color: white;
+    color: black;
+    
 }
+ul li{
+    padding: 5px;
+    list-style-position: inside;
+}
+
 
 /*Seção Produto*/
 
