@@ -93,7 +93,6 @@ public class Parceiros extends JFrame implements ActionListener, ComponentListen
         nome_e_dist_aca_1.setEditable(false);
         academia_1.add(endereco_aca_1);
         endereco_aca_1.setEditable(false);
-        endereco_aca_1.setFont(new Font("arial",Font.PLAIN,30));
          //2 academia
         parça.add(academia_2);
         academia_2.setLayout(new GridLayout(2,1));
@@ -101,7 +100,6 @@ public class Parceiros extends JFrame implements ActionListener, ComponentListen
         nome_e_dist_aca_2.setEditable(false);
         academia_2.add(endereco_aca_2);
         endereco_aca_2.setEditable(false);
-        endereco_aca_2.setFont(new Font("arial",Font.PLAIN,30));
          //3 academia
         parça.add(academia_3);
         academia_3.setLayout(new GridLayout(2,1));
@@ -109,7 +107,6 @@ public class Parceiros extends JFrame implements ActionListener, ComponentListen
         nome_e_dist_aca_3.setEditable(false);
         academia_3.add(endereco_aca_3);
         endereco_aca_3.setEditable(false);
-        endereco_aca_3.setFont(new Font("arial",Font.PLAIN,30));
          //4 academia
         parça.add(academia_4);
         academia_4.setLayout(new GridLayout(2,1));
@@ -117,7 +114,6 @@ public class Parceiros extends JFrame implements ActionListener, ComponentListen
         nome_e_dist_aca_4.setEditable(false);
         academia_4.add(endereco_aca_4);
         endereco_aca_4.setEditable(false);
-        endereco_aca_4.setFont(new Font("arial",Font.PLAIN,30));
          //5 academia
         parça.add(academia_5);
         academia_5.setLayout(new GridLayout(2,1));
@@ -125,7 +121,6 @@ public class Parceiros extends JFrame implements ActionListener, ComponentListen
         nome_e_dist_aca_5.setEditable(false);
         academia_5.add(endereco_aca_5);
         endereco_aca_5.setEditable(false);
-        endereco_aca_5.setFont(new Font("arial",Font.PLAIN,30));
     }
     @Override
 public void actionPerformed(ActionEvent e) {
