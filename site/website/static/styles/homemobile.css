@@ -108,6 +108,25 @@ ul li{
     width: calc(50% - 3px);
 }
 
+/*Seção notícias*/
+.noticia{
+    width: 80%;
+}
+.noticia > h3 > a{
+    text-decoration: none;
+    color: var(--cor1);
+}
+.noticia h3{
+    margin: 10px 0px;
+}
+.noticia p{
+    margin: 10px 0px;
+}
+.noticia small{
+    display: block;
+    margin-bottom: 15px;
+}
+
 /*Rodapé*/
 
 footer#rodape{
