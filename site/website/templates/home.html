@@ -3,27 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/homemobile.css') }}"> -->
-    <link rel="stylesheet" href="../static/styles/homemobile.css">
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/styles/home.css">
+    <link rel="stylesheet" href="../static/styles/mediaquery-home.css">
+    <link rel="shortcut icon" href="../static/images/favicon-dumbbell.ico" type="image/x-icon">
+    <title>Home | Treina.Aí</title>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="">Entre</a>
-            <a href="">Inscreva-se</a>
-        </nav>
+        <div></div>
     </header>
     <main>
+        <h1>Bem-vindo, {{ usuario.nome }}!</h1>
         <section id="tarefas">
-
+            <h2>Tarefas</h2>
+            <div id="pontos">
+                Pontos: {{ usuario.pontos }}
+            </div>
+            <ul>
+                <a href="{{ url_for('views.tarefas') }}" target="_self" rel="internal">
+                    <div class="listatarefa">
+                        {% for tarefa in usuario.tarefas[:6] %}
+                        <li>
+                            {{ tarefa.modelo.titulo }}
+                        </li>
+                        {% endfor %}
+                        <!-- <li>listitem1</li>
+                        <li>listitem2</li>
+                        <li>listitem3</li>
+                        <li>listitem4</li>
+                        <li>listitem5</li>
+                        <li>listitem89</li> -->
+                    </div>
+                </a>
+            </ul>
         </section>
         <section id="produtos">
-
+            <h2>Produtos</h2>
+            <div class="produtos-grid">
+                <a href="produtos/camisa.html"><img src="../static/images/camisaesportiva.jpg" alt="Produto camisa"></a>
+                <a href="produtos/creatina.html"><img src="../static/images/creatina.jpg" alt="Produto creatina"></a>
+                <a href="produtos/whey.html"><img src="../static/images/whey.png" alt="Produto whey"></a>
+                <a href="produtos/garrafa.html"><img src="../static/images/garrafaesportiva.png" alt="Produto garrafa"></a>
+                <!-- <img src="../static/images/camisaesportiva.jpg" alt="Produto camisa">
+                <img src="../static/images/creatina.jpg" alt="Produto creatina">
+                <img src="../static/images/whey.png" alt="Produto whey">
+                <img src="../static/images/garrafaesportiva.png" alt="Produto garrafa"> -->
+            </div>
+        </section>
+        <section id="noticias">
+            <h2>Notícias</h2>
+            {% for noticia in noticias[:10] %}
+                <div class="noticia">
+                    <h3><a href="{{ noticia.url }}" target="_blank">{{ noticia.title }}</a></h3>
+                    <p>{{ noticia.description }}</p>
+                    <small>{{ noticia.publishedAt }}</small>
+                </div>
+                {% if not loop.last %}
+                    <hr>
+                {% endif %}
+            {% endfor %}
+            <!-- <div class="noticia">
+                <h3><a href="#" target="_blank">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</a></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quo autem illo totam? Voluptatum earum, sequi iste laborum fugit ipsam quo praesentium sed quod!</p>
+                <small>??/??/???? ??:??</small>
+                <hr>
+            </div>
+            <div class="noticia">
+                <h3><a href="#" target="_blank">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</a></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quo autem illo totam? Voluptatum earum, sequi iste laborum fugit ipsam quo praesentium sed quod!</p>
+                <small>??/??/???? ??:??</small>
+                <hr>
+            </div>
+            <div class="noticia">
+                <h3><a href="#" target="_blank">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</a></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quo autem illo totam? Voluptatum earum, sequi iste laborum fugit ipsam quo praesentium sed quod!</p>
+                <small>??/??/???? ??:??</small>
+            </div> -->
         </section>
     </main>
-    <footer>
-
+    <!--Terminar os conteúdos do footer--> 
+    <footer id="rodape">
+        <p>Treina.Aí é um projeto corporativo desenvolvido por uma equipe de desenvolvedores juvenis que atualmente não possuem espaço no mercado de trabalho, no entanto, a partir deste projeto, que tem o foco de proporcionar uma melhor qualidade de vida através de uma assinatura que disponibiliza diversos benefícios como: tarefas semanais envolvendo o tipo de treino que você precisa para alcançar suas metas de vida, pontos adquiríveis que podem ser gastos em produtos para treino ou uso comum, que se não forem comprados por meio de pontos, possuem um ótimo desconto em relação ao seu preço original no mercado. </p>
+        <hr>
+        <p>Treina.Aí &#169; 2025 - todos os direitos reservados  
+            <br>
+            <br>
+            Treina.Aí S.A
+            <br>
+            CNPJ: 99.999.999/0001-51
+            <br>
+            Endereço: Avenida Aguaçu, 079
+        </p>
+        <img src="../static/images/logo4.svg" alt="logo Treina Aí">
     </footer>
 </body>
 </html>

@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+:root{
+    --cor1: #355a26;
+    --cor2: #497935;
+
+    --fonte1:  ;
+    --fonte2:  ;
+}
+
+/*Configurações Gerais*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body, html{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+header{
+    width: 100%;
+    height: 30vh;
+    background-color: black;
+}
+header div{
+    background-color: black;
+    background: url(../images/banner2.png) center center no-repeat;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+
+main{
+    padding: 20px 30px;
+}
+section{
+    margin: 40px 0px;
+}
+h1{
+    font-size: 2.7em;
+    margin-bottom: 20px;
+    color: var(--cor1);
+}
+h2{
+    font-size: 2em;
+    color: var(--cor2);
+}
+
+/*Seção das Tarefas*/
+
+#tarefas h2{
+    margin-bottom: 20px;
+}
+div#pontos{
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+div.listatarefa{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: black;
+    
+}
+ul li{
+    padding: 5px;
+    list-style-position: inside;
+}
+
+
+/*Seção Produto*/
+
+#produtos h2{
+    margin-bottom: 20px;
+}
+.produtos-grid{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    gap: 6px;
+    margin: auto;
+}
+.produtos-grid a{
+    display: flex;
+}
+.produtos-grid img{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid black;
+}
+
+/*Seção notícias*/
+.noticia{
+    width: 80%;
+}
+.noticia > h3 > a{
+    text-decoration: none;
+    color: var(--cor1);
+}
+.noticia h3{
+    margin: 10px 0px;
+}
+.noticia p{
+    margin: 10px 0px;
+}
+.noticia small{
+    display: block;
+    margin-bottom: 15px;
+}
+
+/*Rodapé*/
+
+footer#rodape{
+    background-color: black;
+    color: rgb(213, 213, 213);
+    padding: 20px;
+}
+#rodape p{
+    padding: 20px 0px;
+    text-align: justify;
+    font-size: 0.8em;
+    line-height: 1.5em;
+}
+#rodape img{
+    width: 120px;
+    height: 120px;
+}

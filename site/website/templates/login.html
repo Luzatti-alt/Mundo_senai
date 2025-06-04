@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Quando dar pull deixa o de baixo comentado!!! -->
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}"> 
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/mediaquery.css') }}">  -->
     <link rel="stylesheet" href="../static/styles/login.css"> 
-    <link rel="stylesheet" href="../static/styles/mediaquery.css">
-    <link rel="shortcut icon" href="../static/images/favicon/favicon-dumbbell.ico" type="image/x-icon">
-    <title>Entrar | Treina aí</title>
+    <link rel="stylesheet" href="../static/styles/mediaquery-login.css">
+    <link rel="shortcut icon" href="../static/images/favicon-dumbbell.ico" type="image/x-icon">
+    <title>Entrar | Treina Aí</title>
 </head>
 <body>
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -18,15 +15,15 @@
             {% if category == "error" %}
                 <div class="mensagem erro">
                     {{ message }}
-                    <button type="button" class="close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="close" onclick="fecharMensagem(this)">
+                        &times;
                     </button>
                 </div>
             {% else %}
                 <div class="mensagem sucesso">
                     {{ message }}
-                    <button type="button" class="close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="close" onclick="fecharMensagem(this)">
+                        &times;
                     </button>
                 </div>
             {% endif %}

@@ -1,12 +1,11 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.exceptions import BadRequestKeyError
 from . import db
-from .models import User
+from .models import Usuario
 
 auth = Blueprint('auth', __name__)
-
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -18,9 +17,9 @@ def login():
         senha = request.form.get('senha')
         lembrar = request.form.get('lembrar') == 'on'
 
-        user = User.query.filter_by(email=email).first()
+        user = Usuario.query.filter_by(email=email).first()
         if user and check_password_hash(user.senha, senha):
-            flash('Logado com uscesso!', category='success')
+            flash('Logado com sucesso!', category='success')
             # LEMBRAR DE MIM NÃO FUNCIONANDO, CONSERTAR DEPOIS
             login_user(user, remember=lembrar)
             return redirect(url_for('views.home'))  
@@ -46,7 +45,7 @@ def sign_up():
         senha1 = request.form.get('senha1')
         senha2 = request.form.get('senha2')
 
-        user = User.query.filter_by(email=email).first()
+        user = Usuario.query.filter_by(email=email).first()
         if user:
             flash('Email já registrado.', category='error')
 
@@ -69,7 +68,7 @@ def sign_up():
             flash('As senhas não coincidem.', category='error')
 
         else:
-            new_user = User(nome=nome, email=email, senha=generate_password_hash(senha1))
+            new_user = Usuario(nome=nome, email=email, senha=generate_password_hash(senha1))
             db.session.add(new_user)
             db.session.commit()
             flash('Conta criada com sucesso!', category='success')

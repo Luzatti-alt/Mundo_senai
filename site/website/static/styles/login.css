@@ -22,7 +22,7 @@ body, html{
     width: 100vw;
 }
 div.mensagem{
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,12 +39,15 @@ div.erro{
     background-color: #e24a4a;
 }
 div.sucesso{
-    background-color: #8dff89;
+    background-color: #379f34;
 }
 button.close{
-    background: none;
+    z-index: 10;
+    background: transparent;
     border-style: none;
     font-size: 2em;
+    color: #fff;
+    cursor: pointer;
 }
 main{
     position: relative;
@@ -71,7 +74,7 @@ section#login{
 }
 section#login > div#titulo{
     background-color: #8dff89;
-    background: url(../images/logo/logo5.png) no-repeat center center;
+    background: url(../images/logo2.png) no-repeat center center;
     background-size: cover;
     height: 200px;
     
@@ -111,6 +114,7 @@ div.campo{
 .checkbox *{
     vertical-align: middle;
     margin-right: 5px;
+    cursor: pointer;
 }
 #botoes > .botao{
     display: block;

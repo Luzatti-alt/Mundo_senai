@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atribuir Tarefa | Admin</title>
+</head>
+<body>
+    {% for modelo in modelos %}
+        <li>
+            <a href="{{ url_for('admin.criar_tarefa', usuario_id=id, modelo_id=modelo.id) }}">{{ modelo.titulo }}</a>
+        </li>
+    {% endfor %}
+</body>
+</html>

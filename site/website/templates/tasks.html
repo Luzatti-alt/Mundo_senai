@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/task.css">
+    <link rel="stylesheet" href="../static/styles/mediaquery-task.css">
+    <link rel="shortcut icon" href="../static/images/favicon-dumbbell.ico" type="image/x-icon">
+    <title>Tarefas | Treina.Aí</title>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('views.home') }}">
+            <div></div>
+        </a>
+    </header>
+    <main>
+        <div class="tarefas">
+            <h2>Tarefas Pendentes</h2>
+            <ul>
+                {% for tarefa in pendentes %}
+                    <li class="pendentes">
+                        <a href="{{ url_for('views.concluir_tarefa', tarefa_id=tarefa.id) }}">
+                            <h3>{{ tarefa.modelo.titulo }}</h3>
+                            <small>Data de expiração: {{ tarefa.data_expiracao.strftime('%d/%m %H:%M') }}</small>
+                            <p>{{ tarefa.modelo.descricao }}</p>
+                            <strong>{{ tarefa.modelo.pontos }} pontos</strong>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="tarefas">
+            <h2>Tarefas Concluídas</h2>
+            <ul>
+                {% for tarefa in concluidas %}
+                    <li class="concluidas">
+                        <h3>{{ tarefa.modelo.titulo }}</h3>
+                        <small>Concluída em: {{ tarefa.data_expiracao.strftime('%d/%m %H:%M') }}</small>
+                        <p>{{ tarefa.modelo.descricao }}</p>
+                        <strong>{{ tarefa.modelo.pontos }} pontos</strong>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+    <footer id="rodape">
+        <p>Treina.Aí é um projeto corporativo desenvolvido por uma equipe de desenvolvedores juvenis que atualmente não possuem espaço no mercado de trabalho, no entanto, a partir deste projeto, que tem o foco de proporcionar uma melhor qualidade de vida através de uma assinatura que disponibiliza diversos benefícios como: tarefas semanais envolvendo o tipo de treino que você precisa para alcançar suas metas de vida, pontos adquiríveis que podem ser gastos em produtos para treino ou uso comum, que se não forem comprados por meio de pontos, possuem um ótimo desconto em relação ao seu preço original no mercado. </p>
+        <hr>
+        <p>Treina.Aí &#169; 2025 - todos os direitos reservados  
+            <br>
+            <br>
+            Treina.Aí S.A
+            <br>
+            CNPJ: 99.999.999/0001-51
+            <br>
+            Endereço: Avenida Aguaçu, 079
+        </p>
+        <img src="../static/images/logo4.svg" alt="logo Treina Aí">
+    </footer>
+</body>
+</html>

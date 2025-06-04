@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos | Admin</title>
+</head>
+<body>
+    {% for modelo in modelos %}
+    <li>
+        <strong>{{ modelo.titulo }}</strong> ({{ modelo.pontos }} pontos) <br>
+        {{ modelo.descricao }} <br>
+        <a href="{{ url_for('admin.editar_modelo', id=modelo.id) }}">Editar</a>
+        <form method="post" action="{{ url_for('admin.excluir_modelo', id=modelo.id)}}" style="display: inline;">
+            <button type="submit" onclick="return confirm('Tem certeza que quer excluir essa tarefa?')">Excluir</button>
+        </form>
+    </li>
+    {% endfor %}
+    <a href="{{ url_for('admin.criar_modelo') }}">Criar novo modelo de tarefas</a>
+</body>
+</html>

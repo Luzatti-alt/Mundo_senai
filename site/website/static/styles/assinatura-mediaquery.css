@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+
+@media screen and (min-width: 999px){
+   #assinatura{
+      width: 50%;
+   }
+   #content{
+      padding: 20px;
+      font-size: 1.2em;
+   }
+}
