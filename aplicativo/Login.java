@@ -140,19 +140,23 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     conta_criando.add(nome_conta);
     nome_conta.setEditable(false);
     conta_criando.add(entrar_nome);
+    entrar_nome.setFont(new Font("Arial", Font.PLAIN, 30));
     nome_conta.setFont(new Font("Arial", Font.PLAIN, 30));
     conta_criando.add(email);
     email.setEditable(false);
     email.setFont(new Font("Arial", Font.PLAIN, 30));
     conta_criando.add(entrar_email);
+    entrar_email.setFont(new Font("Arial", Font.PLAIN, 30));
     conta_criando.add(senha_criar);
     senha_criar.setEditable(false);
     senha_criar.setFont(new Font("Arial", Font.PLAIN, 30));
     conta_criando.add(entrar_senha_criando);
+    entrar_senha_criando.setFont(new Font("Arial", Font.PLAIN, 30));
     conta_criando.add(confirmar_senha);
     confirmar_senha.setEditable(false);
     confirmar_senha.setFont(new Font("Arial", Font.PLAIN, 30));
     conta_criando.add(entrar_confirma_senha);
+    entrar_confirma_senha.setFont(new Font("Arial", Font.PLAIN, 30));
     criar_nova_conta_botao.setBackground(Color.green);
     }
     @Override
