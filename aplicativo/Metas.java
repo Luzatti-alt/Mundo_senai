@@ -80,6 +80,7 @@ public class Metas extends JPanel implements ActionListener, ComponentListener{
         Meta_diario.add(Qual_diaria);
         Qual_diaria.setEditable(false);
         pnts_e_comprovacao_diaria.setEditable(false);
+        comprovar_meta_diaria.addActionListener(this);
         Meta_diario.add(dividir_dia);
         dividir_dia.setLayout(new GridLayout(1,2));
         dividir_dia.add(pnts_e_comprovacao_diaria);
@@ -92,6 +93,7 @@ public class Metas extends JPanel implements ActionListener, ComponentListener{
         Metas_semanais_txt.setBackground(new Color(61, 153, 32));
         Metas_semanais_txt.setEditable(false);
         Metas_semanais_txt.setFont(new Font("Arial", Font.PLAIN, 60));
+        comprovar_meta_semanal.addActionListener(this);
         Meta_semanal.setLayout(new GridLayout(3,1));
         Meta_semanal.add(Qual_semanal);
         Qual_semanal.setEditable(false);
@@ -112,6 +114,7 @@ public class Metas extends JPanel implements ActionListener, ComponentListener{
         Meta_mensal.add(Qual_mensal);
         Qual_mensal.setEditable(false);
         pnts_e_comprovacao_mensal.setEditable(false);
+        comprovar_meta_mensal.addActionListener(this);
         Meta_mensal.add(dividir_mes);
         dividir_mes.setLayout(new GridLayout(1,2));
         dividir_mes.add(pnts_e_comprovacao_mensal);
@@ -160,15 +163,21 @@ public void actionPerformed(ActionEvent e) {
         configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
         this.revalidate();
         this.repaint();
-    }else if(e.getSource()==pnts_e_comprovacao_diaria){
+    }else if(e.getSource()==comprovar_meta_diaria){
         this.removeAll();
         comprove();
-    }else if(e.getSource()==pnts_e_comprovacao_semanal){
+        this.revalidate();
+        this.repaint();
+    }else if(e.getSource()==comprovar_meta_semanal){
         this.removeAll();
         comprove();
-    }else if(e.getSource()==pnts_e_comprovacao_mensal){
+        this.revalidate();
+        this.repaint();
+    }else if(e.getSource()==comprovar_meta_mensal){
         this.removeAll();
         comprove();
+        this.revalidate();
+        this.repaint();
     }
 }
 @Override
