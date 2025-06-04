@@ -40,14 +40,10 @@
         <section id="produtos">
             <h2>Produtos</h2>
             <div class="produtos-grid">
-                <a href="produtos/camisa.html"><img src="../static/images/camisaesportiva.jpg" alt="Produto camisa"></a>
-                <a href="produtos/creatina.html"><img src="../static/images/creatina.jpg" alt="Produto creatina"></a>
-                <a href="produtos/whey.html"><img src="../static/images/whey.png" alt="Produto whey"></a>
-                <a href="produtos/garrafa.html"><img src="../static/images/garrafaesportiva.png" alt="Produto garrafa"></a>
-                <!-- <img src="../static/images/camisaesportiva.jpg" alt="Produto camisa">
-                <img src="../static/images/creatina.jpg" alt="Produto creatina">
-                <img src="../static/images/whey.png" alt="Produto whey">
-                <img src="../static/images/garrafaesportiva.png" alt="Produto garrafa"> -->
+                <a href="{{ url_for('products.camisa') }}"><img src="../static/images/camisaesportiva.jpg" alt="Produto camisa"></a>
+                <a href="{{ url_for('products.creatina') }}"><img src="../static/images/creatina.jpg" alt="Produto creatina"></a>
+                <a href="{{ url_for('products.whey') }}"><img src="../static/images/whey.png" alt="Produto whey"></a>
+                <a href="{{ url_for('products.garrafa') }}"><img src="../static/images/garrafaesportiva.png" alt="Produto garrafa"></a>
             </div>
         </section>
         <section id="noticias">
