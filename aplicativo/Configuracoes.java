@@ -46,8 +46,10 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
     ImageIcon Loja_original = new ImageIcon(getClass().getResource("imagens/logo_loja.png"));
     Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Loja_icon = new ImageIcon(Loja_img);
-
-    public Configuracoes() {
+public Configuracoes(){
+    Configuracoes();
+}
+    public void Configuracoes() {
         this.setLayout(null);
         int largura_atual = this.getWidth();
         int altura_atual = this.getHeight();
@@ -215,6 +217,7 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
 
         this.addComponentListener(this);
     }
+
     @Override
     public void componentResized(ComponentEvent e) {
         int largura_atual = this.getWidth();
@@ -229,6 +232,7 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
         dados_pagamento.setBounds(largura_atual / 2, 61, largura_atual / 2, altura_atual - 61);
         mes.setBounds(50, 100, 120, 50);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sobre_nos) {
@@ -261,6 +265,7 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
             this.repaint();
         }
     }
+
     @Override
     public void componentMoved(ComponentEvent e) { }
 
