@@ -210,6 +210,10 @@ if (encontrado) {
     }else if(e.getSource()==criar_nova_conta_botao){
         if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && entrar_email.getText().contains("@") && entrar_email.getText().contains(".") && !entrar_senha_criando.getText().isEmpty() && entrar_confirma_senha.getText().equals(entrar_senha_criando.getText()) && entrar_senha_criando.getText().length() > 7 && entrar_senha_criando.getText().length() < 33){       
             try {
+            String new_acc = entrar_nome.getText();
+            FileWriter dados = new FileWriter("nome.txt", false);
+            dados.write(new_acc + "\n");
+            dados.close();
             URL url_login = new URL("http://127.0.0.1:5000/api/usuarios");
             HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
             conectar.setConnectTimeout(2000);
@@ -228,8 +232,6 @@ if (encontrado) {
     }
     int responseCode = conectar.getResponseCode();
 System.out.println("POST response code: " + responseCode);
-
-// Ler a resposta (opcional, mas útil para debug)
 BufferedReader br = new BufferedReader(new InputStreamReader(conectar.getInputStream(), "utf-8"));
 StringBuilder response = new StringBuilder();
 String responseLine;
@@ -237,11 +239,6 @@ while ((responseLine = br.readLine()) != null) {
     response.append(responseLine.trim());
 }
 System.out.println("Resposta da API: " + response.toString());
-
-            String new_acc = entrar_nome.getText();
-            FileWriter dados = new FileWriter("nome.txt", false);
-            dados.write(new_acc + "\n");//mesma coida + 
-            dados.close();
     } catch (IOException ex) {
         ex.printStackTrace();
         JOptionPane.showMessageDialog(this, "Erro ao salvar dados: " + ex.getMessage());
