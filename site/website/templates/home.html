@@ -24,17 +24,17 @@
             <ul>
                 <a href="{{ url_for('views.tarefas') }}" target="_self" rel="internal">
                     <div class="listatarefa">
-                        <!-- {% for tarefa in usuario.tarefas[:6] %}
+                        {% for tarefa in usuario.tarefas[:6] %}
                         <li>
                             {{ tarefa.modelo.titulo }}
                         </li>
-                        {% endfor %} -->
-                        <li>listitem1</li>
+                        {% endfor %}
+                        <!-- <li>listitem1</li>
                         <li>listitem2</li>
                         <li>listitem3</li>
                         <li>listitem4</li>
                         <li>listitem5</li>
-                        <li>listitem89</li>
+                        <li>listitem89</li> -->
                     </div>
                 </a>
             </ul>
@@ -54,14 +54,17 @@
         </section>
         <section id="noticias">
             <h2>Notícias</h2>
-            <!-- {% for noticia in noticias[:10] %}
+            {% for noticia in noticias[:10] %}
                 <div class="noticia">
                     <h3><a href="{{ noticia.url }}" target="_blank">{{ noticia.title }}</a></h3>
                     <p>{{ noticia.description }}</p>
                     <small>{{ noticia.publishedAt }}</small>
                 </div>
-            {% endfor %} -->
-            <div class="noticia">
+                {% if not loop.last %}
+                    <hr>
+                {% endif %}
+            {% endfor %}
+            <!-- <div class="noticia">
                 <h3><a href="#" target="_blank">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</a></h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quo autem illo totam? Voluptatum earum, sequi iste laborum fugit ipsam quo praesentium sed quod!</p>
                 <small>??/??/???? ??:??</small>
@@ -77,7 +80,7 @@
                 <h3><a href="#" target="_blank">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</a></h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quo autem illo totam? Voluptatum earum, sequi iste laborum fugit ipsam quo praesentium sed quod!</p>
                 <small>??/??/???? ??:??</small>
-            </div>
+            </div> -->
         </section>
     </main>
     <!--Terminar os conteúdos do footer--> 

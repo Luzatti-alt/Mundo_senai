@@ -17,8 +17,8 @@
         <div class="tarefas">
             <h2>Tarefas Pendentes</h2>
             <ul>
-                <!-- {% for tarefa in pendentes %}
-                    <li>
+                {% for tarefa in pendentes %}
+                    <li class="pendentes">
                         <a href="{{ url_for('views.concluir_tarefa', tarefa_id=tarefa.id) }}">
                             <h3>{{ tarefa.modelo.titulo }}</h3>
                             <small>Data de expiração: {{ tarefa.data_expiracao.strftime('%d/%m %H:%M') }}</small>
@@ -26,8 +26,8 @@
                             <strong>{{ tarefa.modelo.pontos }} pontos</strong>
                         </a>
                     </li>
-                {% endfor %} -->
-                <li class="pendentes">
+                {% endfor %}
+                <!-- <li class="pendentes">
                     <h3>Titulo1</h3>
                     <small>Data de expiração: </small>
                     <p>descrição Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus laborum cumque?</p>
@@ -37,22 +37,22 @@
                     <h3>Titulo2</h3>
                     <small>Data de expiração: </small>
                     <p>descrição Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus laborum cumque?</p>
-                   <strong>0 pontos</strong>
-                </li>
+                    <strong>0 pontos</strong>
+                </li> -->
             </ul>
         </div>
         <div class="tarefas">
             <h2>Tarefas Concluídas</h2>
             <ul>
-                <!-- {% for tarefa in concluidas %}
-                    <li>
+                {% for tarefa in concluidas %}
+                    <li class="concluidas">
                         <h3>{{ tarefa.modelo.titulo }}</h3>
                         <small>Concluída em: {{ tarefa.data_expiracao.strftime('%d/%m %H:%M') }}</small>
                         <p>{{ tarefa.modelo.descricao }}</p>
                         <strong>{{ tarefa.modelo.pontos }} pontos</strong>
                     </li>
-                {% endfor %} -->
-                <li class="concluidas">
+                {% endfor %}
+                <!-- <li class="concluidas">
                     <h3>Titulo1</h3>
                     <small>Concluída em: </small>
                     <p>descrição Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus laborum cumque?</p>
@@ -63,7 +63,7 @@
                     <small>Concluída em: </small>
                     <p>descrição Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus laborum cumque?</p>
                     <strong>0 pontos</strong>
-                </li>
+                </li> -->
             </ul>
         </div>
     </main>

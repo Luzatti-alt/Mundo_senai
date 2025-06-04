@@ -1,5 +1,4 @@
 import random
-from flask import current_app
 from . import db
 from .models import Usuario, Tarefa, ModeloDeTarefa
 
@@ -19,8 +18,8 @@ def gerar_tarefas(usuario):
         tarefa = Tarefa(usuario_id=usuario.id, modelo_id=modelo.id)
         db.session.add(tarefa)
 
-def atualizar_usuarios():
-    with current_app.app_context():
+def atualizar_usuarios(app):
+    with app.app_context():
         for usuario in Usuario.query.all():
             gerar_tarefas(usuario)
         db.session.commit()

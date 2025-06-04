@@ -26,8 +26,6 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-    iniciar_scheduler(app)
-
     from .views import views
     from .auth import auth
     from .admin import admin
@@ -41,6 +39,7 @@ def create_app():
     from .models import Usuario
 
     criar_database(app)
+    iniciar_scheduler(app)
 
     login_manager = LoginManager()
     login_manager.session_protection = 'basic'
@@ -61,19 +60,16 @@ def criar_database(app):
         print('Banco de dados criado!')
 
 def iniciar_scheduler(app):
-    # def job():
-    #     with app.app_context():
-    #         atualizar_usuarios()
+    with app.app_context():
+        if not scheduler.running:
+            from .tasks import atualizar_usuarios
+            scheduler.add_job(func=lambda: atualizar_usuarios(app), trigger='interval', weeks=1, next_run_time=datetime.now())
+            scheduler.start()
 
-    if not scheduler.running:
-        from .tasks import atualizar_usuarios
-        scheduler.add_job(func=atualizar_usuarios, trigger='interval', weeks=1, next_run_time=datetime.now())
-        scheduler.start()
-
-    @app.teardown_appcontext
-    def shutdown_session(exception=None):
-        try:
-            if scheduler.running:
-                scheduler.shutdown(wait=False)
-        except SchedulerNotRunningError:
-            pass
+        @app.teardown_appcontext
+        def shutdown_session(exception=None):
+            try:
+                if scheduler.running:
+                    scheduler.shutdown(wait=False)
+            except SchedulerNotRunningError:
+                pass

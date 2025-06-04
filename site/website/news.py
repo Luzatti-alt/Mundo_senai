@@ -3,18 +3,23 @@ import json
 from dotenv import load_dotenv
 import requests
 from datetime import datetime, timedelta
-from flask import request
 
 load_dotenv()
 
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+SITE_DIR = os.path.dirname(CURRENT_DIR)
+
 NEWS_API_URL = 'https://newsapi.org/v2/everything'
 NEWS_API_KEY = os.getenv('NEWS_API_KEY')
-NEWS_CACHE_FILE = '..\cache_noticias.json'
+NEWS_CACHE_FILE = os.path.join(SITE_DIR, 'cache_noticias.json')
 CACHE_EXPIRATION_HOURS = 8
 
 def fetch_news():
+    print(f"Verificando arquivo: {os.path.abspath(NEWS_CACHE_FILE)}")
+    print("Existe?", os.path.exists(NEWS_CACHE_FILE))
     if os.path.exists(NEWS_CACHE_FILE):
         with open(NEWS_CACHE_FILE, 'r') as f:
+            print(json.load(f))
             cache = json.load(f)
             timestamp = datetime.fromisoformat(cache['timestamp'])
             if datetime.now() - timestamp < timedelta(hours=CACHE_EXPIRATION_HOURS):
@@ -22,7 +27,6 @@ def fetch_news():
                 return cache['noticias']
     
     print('Buscando novas notícias da API')
-    url = NEWS_API_URL
     params = {
         'q': 'fitness',
         'apiKey': NEWS_API_KEY,
