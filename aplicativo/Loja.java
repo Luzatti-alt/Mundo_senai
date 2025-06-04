@@ -37,6 +37,7 @@ public class Loja extends JPanel implements ActionListener, ComponentListener, A
 public Loja() {
     loja();
     this.add(fundo_1);
+    fundo_1.setSize(largura_atual,altura_atual);
     fundo_1.addComponentListener(this);
     }
     public void loja(){
@@ -109,7 +110,7 @@ public Loja() {
         scroll_bar.setBounds(largura_atual-50,0,largura_atual/20,(altura_atual/2)-50);
     }
     });
-        fundo.add(scroll_bar);
+        fundo_1.add(scroll_bar);
         scroll_bar.addAdjustmentListener(this);
         fundo_1.add(produtos);
         produtos.addActionListener(this);
@@ -144,7 +145,7 @@ public void actionPerformed(ActionEvent e) {
     }else  if(e.getSource()==parceiros){
         //
     }else  if(e.getSource()==configs){
-        fundo_1.removeAll();
+        this.removeAll();
         Configuracoes configuracoes = new Configuracoes();
         fundo_1.add(configuracoes);
         configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
