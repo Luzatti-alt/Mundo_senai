@@ -60,7 +60,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         ex.printStackTrace();
     }
 }
-    public void login(){
+    public Login(){
         this.setTitle("Projeto Mundo Senai: Treina Aí");
         this.setMinimumSize(new Dimension(600, 300));
         this.setSize(new Dimension(700, 700));
@@ -204,11 +204,11 @@ if (encontrado) {
         JOptionPane.showMessageDialog(this,"Esqueceu a senha");//ver se vamos criar automação de email no futuro
     }else if (e.getSource()==voltar_login){
         this.getContentPane().removeAll();
-        login();      
+        new Login();      
         this.repaint();
         this.revalidate();  
     }else if(e.getSource()==criar_nova_conta_botao){
-        if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && !entrar_senha_criando.getText().isEmpty() && entrar_confirma_senha.getText().equals(entrar_senha_criando.getText()) && entrar_senha_criando.getText().length() > 7 && entrar_senha_criando.getText().length() < 33){       
+        if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && entrar_email.getText().contains("@") && entrar_email.getText().contains(".") && !entrar_senha_criando.getText().isEmpty() && entrar_confirma_senha.getText().equals(entrar_senha_criando.getText()) && entrar_senha_criando.getText().length() > 7 && entrar_senha_criando.getText().length() < 33){       
             try {
             URL url_login = new URL("http://127.0.0.1:5000/api/usuarios");
             HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
@@ -267,6 +267,5 @@ public void componentShown(ComponentEvent e) {}
 public void componentHidden(ComponentEvent e) {}
 public static void main(String[] args) {
         Login login = new Login();
-        login.login();
     }
 }
