@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/homemobile.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon/favicon-dumbbell.ico') }}" type="image/x-icon"> -->
-    <link rel="stylesheet" href="../static/styles/homemobile.css">
+    <link rel="stylesheet" href="../static/styles/home.css">
     <link rel="stylesheet" href="../static/styles/mediaquery-home.css">
     <link rel="shortcut icon" href="../static/images/favicon-dumbbell.ico" type="image/x-icon">
     <title>Home | Treina.Aí</title>
@@ -43,17 +41,15 @@
         </section>
         <section id="produtos">
             <h2>Produtos</h2>
-            <div class="produtos">
-                <div class="coluna">
-                    <img src="../static/images/camisaesportiva.jpg" alt="Produto camisa" >
-                </div>
-                <div class="coluna coluna-dupla">
-                    <img src="../static/images/creatina.jpg" alt="Produto creatina" >
-                    <img src="../static/images/whey.png" alt="Produto whey" >
-                </div>
-                <div class="coluna">
-                    <img src="../static/images/garrafaesportiva.png" alt="Produto garrafa" >
-                </div>
+            <div class="produtos-grid">
+                <a href="produtos/camisa.html"><img src="../static/images/camisaesportiva.jpg" alt="Produto camisa"></a>
+                <a href="produtos/creatina.html"><img src="../static/images/creatina.jpg" alt="Produto creatina"></a>
+                <a href="produtos/whey.html"><img src="../static/images/whey.png" alt="Produto whey"></a>
+                <a href="produtos/garrafa.html"><img src="../static/images/garrafaesportiva.png" alt="Produto garrafa"></a>
+                <!-- <img src="../static/images/camisaesportiva.jpg" alt="Produto camisa">
+                <img src="../static/images/creatina.jpg" alt="Produto creatina">
+                <img src="../static/images/whey.png" alt="Produto whey">
+                <img src="../static/images/garrafaesportiva.png" alt="Produto garrafa"> -->
             </div>
         </section>
         <section id="noticias">

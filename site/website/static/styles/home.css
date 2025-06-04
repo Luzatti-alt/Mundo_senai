@@ -77,35 +77,22 @@ ul li{
 #produtos h2{
     margin-bottom: 20px;
 }
-.produtos{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 75%;
-    height: 1000px;
+.produtos-grid{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
     gap: 6px;
+    margin: auto;
 }
-.coluna{
+.produtos-grid a{
     display: flex;
-    flex-direction: row;
-    flex: 1 1 100px;
 }
-.coluna img {
-    /* display: block; */
+.produtos-grid img{
     width: 100%;
-    height: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 10px;
     transition: all 0.3s ease;
-    z-index: 1;
     border: 1px solid black;
-}
-.coluna-dupla{
-    /* flex: 1 1 100px; */
-    gap: 6px;
-}
-.coluna-dupla img{
-    width: calc(50% - 3px);
 }
 
 /*Rodapé*/
