@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Metas extends JPanel implements ActionListener, ComponentListener{
+public class Metas extends JFrame implements ActionListener, ComponentListener{
     int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
     JPanel fundo = new JPanel();
@@ -50,6 +50,8 @@ public class Metas extends JPanel implements ActionListener, ComponentListener{
         this.addComponentListener(this);
     }
     public void metas(){
+        this.setSize(700,700);
+        this.setMinimumSize(new Dimension(700,700));
         this.addComponentListener(new ComponentAdapter() {});
         this.add(produtos);
         produtos.addActionListener(this);
@@ -151,18 +153,18 @@ public class Metas extends JPanel implements ActionListener, ComponentListener{
     @Override
 public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
-        //
+        new Loja().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==quests){
-        //
+        new Metas().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==parceiros){
-        //
+        new Parceiros().setVisible(true);;
+        this.dispose();
     }else if(e.getSource()==configs){
         this.removeAll();
-        Configuracoes configuracoes = new Configuracoes();
-        this.add(configuracoes);
-        configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        new Configuracoes().setVisible(true);;
+        this.dispose();
     }else if(e.getSource()==comprovar_meta_diaria){
         this.removeAll();
         comprove();
