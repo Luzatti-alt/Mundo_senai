@@ -55,8 +55,7 @@ public class Parceiros extends JFrame implements ActionListener, ComponentListen
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         titulo.setBounds(0, 26, largura_atual, 35);
         fundo.setBounds(0,60,largura_atual,altura_atual-63);
-        titulo.setBounds(0,26,largura_atual,35);
-        parça.setBounds(0, 61, largura_atual, 1000);
+        parça.setBounds(0, 61, largura_atual, altura_atual-61);
     }
     }); 
         titulo.setText("Instituições parceiras");
