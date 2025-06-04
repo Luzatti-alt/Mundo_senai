@@ -1,152 +1,256 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Parceiros extends JPanel implements ActionListener, ComponentListener{
-    int largura_atual = this.getWidth();
-    int altura_atual = this.getHeight();
-    JTextArea titulo = new JTextArea();
-    JButton produtos = new JButton("Produtos");
-    JButton quests = new JButton("Metas");
-    JButton parceiros = new JButton("Parceiros");
-	JButton configs = new JButton("Configurações");
-    JPanel parça = new JPanel();
-    JPanel academia_1 = new JPanel();
-    JTextArea nome_e_dist_aca_1 = new JTextArea("academia 1");
-    JTextArea endereco_aca_1 = new JTextArea("endereço rua 1 , num");
-    JPanel academia_2 = new JPanel();
-    JTextArea nome_e_dist_aca_2 = new JTextArea("academia 2");
-    JTextArea endereco_aca_2 = new JTextArea("endereço rua 2 , num");
-    JPanel academia_3 = new JPanel();
-    JTextArea nome_e_dist_aca_3 = new JTextArea("academia 3");
-    JTextArea endereco_aca_3 = new JTextArea("endereço rua 3 , num");
-    JPanel academia_4 = new JPanel();
-    JTextArea nome_e_dist_aca_4 = new JTextArea("academia 4");
-    JTextArea endereco_aca_4 = new JTextArea("endereço rua 4 , num");
-    JPanel academia_5 = new JPanel();
-    JTextArea nome_e_dist_aca_5 = new JTextArea("academia 5");
-    JTextArea endereco_aca_5 = new JTextArea("endereço rua 5 , num");
-    JPanel fundo = new JPanel();
-    ImageIcon Config_original = new ImageIcon(getClass().getResource("imagens/Configs-removebg.png"));
-    Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Config_icon = new ImageIcon(Config_img);
-    ImageIcon Metas_original = new ImageIcon(getClass().getResource("imagens/Metas-removebg.png"));
-    Image Metas_img = Metas_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Metas_icon = new ImageIcon(Metas_img);
-    ImageIcon Parca_original = new ImageIcon(getClass().getResource("imagens/Parceiros-removebg.png"));
-    Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Parca_icon = new ImageIcon(Parca_img);
-    ImageIcon Loja_original = new ImageIcon(getClass().getResource("imagens/logo_loja.png"));
-    Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
-    ImageIcon Loja_icon = new ImageIcon(Loja_img);
-    public Parceiros(){}
-    public void parceiros(){
+import java.net.*;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+public class Login extends JFrame implements ActionListener, ComponentListener{
+    JPanel box_login = new JPanel();
+    boolean encontrado = false;
+    int largura_atual = this.getWidth();  
+    JButton voltar_login = new JButton("voltar a aba de login");
+    JTextField usuario_login = new JTextField();
+    JTextField senha_login = new JTextField();
+    JButton criar_conta = new JButton();
+    JButton Logar = new JButton();
+    JButton esqueceu_senha = new JButton();
+    JTextArea usuario_text = new JTextArea("Usuario");
+    JTextArea senha_text = new JTextArea("Senha");
+    //criando conta
+    JButton criar_nova_conta_botao = new JButton("Criar conta");
+    JPanel conta_criando = new JPanel();
+    JTextArea nome_conta = new JTextArea("digite seu nome: ");
+    JTextField entrar_nome = new JTextField();
+    JTextArea email = new JTextArea("digite seu email:");
+    JTextField entrar_email = new JTextField();
+    JTextArea senha_criar = new JTextArea("digite sua senha:");
+    JTextField entrar_senha_criando = new JTextField();
+    JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
+    JTextField entrar_confirma_senha = new JTextField();
+    public void requests() throws Exception {
+    URL url_login = new URL("http://127.0.0.1:5000/api/usuarios");
+    HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
+    conectar.setRequestMethod("GET");
+    conectar.setConnectTimeout(2000);
+    conectar.setReadTimeout(2000);
+    int resposta = conectar.getResponseCode();
+    System.out.println("resp: " + resposta);
+    if (resposta == 200) {
+        BufferedReader ler = new BufferedReader(new InputStreamReader(conectar.getInputStream()));
+        StringBuilder Json = new StringBuilder();
+        String linha;
+        while ((linha = ler.readLine()) != null) {
+            Json.append(linha).append("\n");
+        }
+        ler.close();
+        // Salva o conteúdo no arquivo
+        try (
+            FileWriter client_txt = new FileWriter("teste.txt", false)) {
+            client_txt.write(Json.toString());
+        }
+    }
+}
+    public void reset(){
+    try {
+        FileWriter client_txt = new FileWriter("teste.txt", false);
+        client_txt.write("");
+        client_txt.close();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+}
+    public Login(){
+        this.setTitle("Projeto Mundo Senai: Treina Aí");
+        this.setMinimumSize(new Dimension(600, 300));
+        this.setSize(new Dimension(700, 700));
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLayout(null); 
         this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
-        int largura_atual = Parceiros.this.getWidth();
-        int altura_atual = Parceiros.this.getHeight();
-        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
-        quests.setBounds((largura_atual/2), 0, 100, 28);
-        configs.setBounds((largura_atual/2)+100, 0, 100, 28);
-        titulo.setBounds(0, 26, largura_atual, 35);
-        fundo.setBounds(0,60,largura_atual,altura_atual-63);
-        titulo.setBounds(0,26,largura_atual,35);
-        parça.setBounds(0, 61, largura_atual, 1000);
+        int largura_atual = Login.this.getWidth();
+        box_login.setBounds((largura_atual/2)-250, 100, 500, 225);
+        usuario_login.setBounds(10, 60, 480, 40);
+        senha_login.setBounds(10, 150, 480, 40);  
+        criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
+        Logar.setBounds((largura_atual/2)-150, 350, 300, 50);  
+        esqueceu_senha.setBounds(0, 600,largura_atual,50);
+        Login.this.repaint();
+        Login.this.revalidate();
     }
-    }); 
-        titulo.setText("Instituições parceiras");
-        this.add(produtos);
-        produtos.addActionListener(this);
-        this.add(quests);
-        quests.addActionListener(this);
-        this.add(configs);
-        configs.addActionListener(this);
-        this.add(titulo);
-        this.add(parça);
-        produtos.setIcon(Loja_icon);
-        configs.setIcon(Config_icon);
-        parceiros.setIcon(Parca_icon);
-        quests.setIcon(Metas_icon);
-        parça.setBounds(0, 61, largura_atual, 1000);
-        parça.setBackground(Color.lightGray);
-        this.add(titulo);
-        titulo.setBackground(new Color(61, 153, 32));
-        titulo.setEditable(false);
-        titulo.setFont(new Font("arial",Font.PLAIN,30));
-        parça.setLayout(new GridLayout(5,1));
-        //1 academia
-        parça.add(academia_1);
-        academia_1.setLayout(new GridLayout(2,1));
-        academia_1.add(nome_e_dist_aca_1);
-        nome_e_dist_aca_1.setEditable(false);
-        nome_e_dist_aca_1.setFont(new Font("arial",Font.PLAIN,30));
-        academia_1.add(endereco_aca_1);
-        endereco_aca_1.setEditable(false);
-        endereco_aca_1.setFont(new Font("arial",Font.PLAIN,30));
-         //2 academia
-        parça.add(academia_2);
-        academia_2.setLayout(new GridLayout(2,1));
-        academia_2.add(nome_e_dist_aca_2);
-        nome_e_dist_aca_2.setEditable(false);
-        nome_e_dist_aca_2.setFont(new Font("arial",Font.PLAIN,30));
-        academia_2.add(endereco_aca_2);
-        endereco_aca_2.setEditable(false);
-        endereco_aca_2.setFont(new Font("arial",Font.PLAIN,30));
-         //3 academia
-        parça.add(academia_3);
-        academia_3.setLayout(new GridLayout(2,1));
-        academia_3.add(nome_e_dist_aca_3);
-        nome_e_dist_aca_3.setEditable(false);
-        nome_e_dist_aca_3.setFont(new Font("arial",Font.PLAIN,30));
-        academia_3.add(endereco_aca_3);
-        endereco_aca_3.setEditable(false);
-        endereco_aca_3.setFont(new Font("arial",Font.PLAIN,30));
-         //4 academia
-        parça.add(academia_4);
-        academia_4.setLayout(new GridLayout(2,1));
-        academia_4.add(nome_e_dist_aca_4);
-        nome_e_dist_aca_4.setEditable(false);
-        nome_e_dist_aca_4.setFont(new Font("arial",Font.PLAIN,30));
-        academia_4.add(endereco_aca_4);
-        endereco_aca_4.setEditable(false);
-        endereco_aca_4.setFont(new Font("arial",Font.PLAIN,30));
-         //5 academia
-        parça.add(academia_5);
-        academia_5.setLayout(new GridLayout(2,1));
-        academia_5.add(nome_e_dist_aca_5);
-        nome_e_dist_aca_5.setEditable(false);
-        nome_e_dist_aca_5.setFont(new Font("arial",Font.PLAIN,30));
-        academia_5.add(endereco_aca_5);
-        endereco_aca_5.setEditable(false);
-        endereco_aca_5.setFont(new Font("arial",Font.PLAIN,30));
+    });
+        voltar_login.setBackground(Color.gray);
+        box_login.setLayout(null);
+        box_login.setBackground(Color.lightGray);
+        usuario_text.setBackground(null);
+        usuario_text.setEditable(false);
+        usuario_text.setFont(new Font("Arial", Font.PLAIN, 30));
+        box_login.add(usuario_text);
+        usuario_login.setBorder(BorderFactory.createEmptyBorder());
+        usuario_text.setBounds(largura_atual/2, 10, 480, 60);
+        usuario_login.setBackground(new Color(200, 255, 206));
+        box_login.add(usuario_login);
+        senha_text.setBounds(0, 100, 480, 60);
+        senha_text.setBackground(null);
+        senha_text.setEditable(false);
+        senha_text.setFont(new Font("Arial", Font.PLAIN, 30)); 
+        box_login.add(senha_text);
+        senha_login.setBorder(BorderFactory.createEmptyBorder()); 
+        senha_login.setBackground(new Color(200, 255, 206));
+        box_login.add(senha_login);
+        this.add(box_login);
+        this.add(criar_conta);
+        criar_conta.setBackground(new Color(122,159,125));
+        criar_conta.setFocusable(false);
+        criar_conta.setText("Criar conta");
+		this.add(esqueceu_senha);
+        esqueceu_senha.setBackground(new Color(122,159,125));
+		esqueceu_senha.setFocusable(false);
+		esqueceu_senha.setText("esqueceu sua senha");
+		esqueceu_senha.addActionListener(this);
+        Logar.setText("Logar");
+        criar_conta.addActionListener(this);
+        voltar_login.addActionListener(this);
+        Logar.setBackground(new Color(122,159,125));
+        Logar.addActionListener(this);
+        this.add(Logar);
+        this.setVisible(true);
+    }
+    public void Criar_nova_conta(){
+        this.add(criar_nova_conta_botao);
+        this.add(voltar_login);
+        this.add(conta_criando);
+        conta_criando.setBackground(Color.white);
+        this.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = Login.this.getWidth();
+        int altura_atual = Login.this.getHeight();
+        criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+        conta_criando.setBounds((largura_atual/2)-(largura_atual/5)-50,100, (largura_atual/2), altura_atual/2);
+        voltar_login.setBounds((largura_atual/2)-(largura_atual/5),0,largura_atual/3,100);
+    }
+    });
+    criar_nova_conta_botao.addActionListener(this);
+    conta_criando.setLayout(new GridLayout(8,1));//nome email senha confirma_senha
+    conta_criando.add(nome_conta);
+    nome_conta.setEditable(false);
+    conta_criando.add(entrar_nome);
+    nome_conta.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(email);
+    email.setEditable(false);
+    email.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_email);
+    conta_criando.add(senha_criar);
+    senha_criar.setEditable(false);
+    senha_criar.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_senha_criando);
+    conta_criando.add(confirmar_senha);
+    confirmar_senha.setEditable(false);
+    confirmar_senha.setFont(new Font("Arial", Font.PLAIN, 30));
+    conta_criando.add(entrar_confirma_senha);
+    criar_nova_conta_botao.setBackground(Color.green);
     }
     @Override
 public void actionPerformed(ActionEvent e) {
-    if(e.getSource()==produtos){
-        //
-    }else  if(e.getSource()==quests){
-        this.removeAll();
-        Metas metas = new Metas();
-        this.add(metas);
-        metas.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
+    if (e.getSource() == criar_conta) {
+            this.getContentPane().removeAll();
+            int largura_atual = this.getWidth();  
+            int altura_atual = this.getHeight();
+            criar_nova_conta_botao.setBounds(0,altura_atual-200,largura_atual,50);
+            voltar_login.setBounds((largura_atual/2)-(largura_atual/5),0,largura_atual/3,100);
+            conta_criando.setBounds((largura_atual/2)-(largura_atual/5)-50,100, (largura_atual/2), altura_atual/2);
+            Criar_nova_conta();
+            this.repaint();
+            this.revalidate();
+        }else if (e.getSource() == Logar) {
+        String val_user = usuario_login.getText();
+        //senha_login.getText();
+        boolean encontrado = false;
+        //em login_salvo.txt add nome data de criação e tipo de assinatura conta fazer o skip do login
+        try {
+    requests();
+    String jsonStr = new String(Files.readAllBytes(Paths.get("teste.txt")));
+    // Criar padrões simples para procurar email ou nome
+    String emailPattern = "\"email\"\\s*:\\s*\"" + val_user + "\"";
+    String nomePattern = "\"nome\"\\s*:\\s*\"" + val_user + "\"";
+    if (jsonStr.matches("(?s).*" + emailPattern + ".*") || jsonStr.matches("(?s).*" + nomePattern + ".*")) {
+        encontrado = true;
+    }
+} catch (Exception ex) {
+    ex.printStackTrace();
+    JOptionPane.showMessageDialog(this, "Erro ao conectar: " + ex.getMessage());
+}
+if (encontrado) {
+    try {
+        FileWriter dados = new FileWriter("nome.txt", false);
+        dados.write(val_user + "\n");//mesma coida + 
+        dados.close();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Erro ao salvar dados: " + ex.getMessage());
+    }
+    this.getContentPane().removeAll();
+    Configuracoes configuracoesPanel = new Configuracoes();
+    this.setContentPane(configuracoesPanel);
+    this.revalidate();
+    this.repaint();
+    reset();
+}else {
+    JOptionPane.showMessageDialog(this, "Usuário inválido!");
+}
+    }else if (e.getSource() == esqueceu_senha) {
+        JOptionPane.showMessageDialog(this,"Esqueceu a senha");//ver se vamos criar automação de email no futuro
+    }else if (e.getSource()==voltar_login){
+        this.getContentPane().removeAll();
+        new Login();      
         this.repaint();
-    }else  if(e.getSource()==parceiros){
-        //
-    }else  if(e.getSource()==configs){
-        this.removeAll();
-        Configuracoes configuracoes = new Configuracoes();
-        this.add(configuracoes);
-        configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
-    }else  if(e.getSource()==produtos){
-        this.removeAll();
-        Loja loja = new Loja();
-        this.add(loja);
-        loja.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        this.revalidate();  
+    }else if(e.getSource()==criar_nova_conta_botao){
+        if(!entrar_nome.getText().isEmpty() && !entrar_email.getText().isEmpty() && entrar_email.getText().contains("@") && entrar_email.getText().contains(".") && !entrar_senha_criando.getText().isEmpty() && entrar_confirma_senha.getText().equals(entrar_senha_criando.getText()) && entrar_senha_criando.getText().length() > 7 && entrar_senha_criando.getText().length() < 33){       
+            try {
+            String new_acc = entrar_nome.getText();
+            FileWriter dados = new FileWriter("nome.txt", false);
+            dados.write(new_acc + "\n");
+            dados.close();
+            URL url_login = new URL("http://127.0.0.1:5000/api/usuarios");
+            HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
+            conectar.setConnectTimeout(2000);
+            conectar.setReadTimeout(2000);
+            conectar.setRequestMethod("POST");
+            conectar.setDoOutput(true);
+            conectar.setRequestProperty("Content-Type", "application/json");
+            String jsonInputString = "{"
+            + "\"email\":\"" + entrar_email.getText() + "\","
+            + "\"nome\":\"" + entrar_nome.getText() + "\","
+            + "\"senha\":\"" + entrar_senha_criando.getText() + "\""
+            + "}";
+    try (OutputStream os = conectar.getOutputStream()) {
+        byte[] input = jsonInputString.getBytes("utf-8");
+        os.write(input, 0, input.length);
+    }
+    int responseCode = conectar.getResponseCode();
+System.out.println("POST response code: " + responseCode);
+BufferedReader br = new BufferedReader(new InputStreamReader(conectar.getInputStream(), "utf-8"));
+StringBuilder response = new StringBuilder();
+String responseLine;
+while ((responseLine = br.readLine()) != null) {
+    response.append(responseLine.trim());
+}
+System.out.println("Resposta da API: " + response.toString());
+    } catch (IOException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Erro ao salvar dados: " + ex.getMessage());
+    }
+            Configuracoes configuracoesPanel = new Configuracoes();
+            this.setContentPane(configuracoesPanel);
+            this.revalidate();
+            this.repaint();
+            reset();
+}else{
+            JOptionPane.showMessageDialog(this,"algo é invalido");
+        }
     }
 }
 @Override
@@ -158,5 +262,7 @@ public void componentMoved(ComponentEvent e) {}
 public void componentShown(ComponentEvent e) {}
 @Override
 public void componentHidden(ComponentEvent e) {}
-public static void main(){}
+public static void main(String[] args) {
+        Login login = new Login();
+    }
 }
