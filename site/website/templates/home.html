@@ -10,16 +10,14 @@
 </head>
 <body>
     <header>
-        <div>
-
-        </div>
+        <div></div>
     </header>
     <main>
         <h1>Bem-vindo, {{ usuario.nome }}!</h1>
         <section id="tarefas">
             <h2>Tarefas</h2>
             <div id="pontos">
-                        Pontos: {{ usuario.pontos }}
+                Pontos: {{ usuario.pontos }}
             </div>
             <ul>
                 <a href="{{ url_for('views.tarefas') }}" target="_self" rel="internal">
