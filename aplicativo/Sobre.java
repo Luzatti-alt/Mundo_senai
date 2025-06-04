@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Sobre extends JPanel implements ActionListener, ComponentListener{
+public class Sobre extends JFrame implements ActionListener, ComponentListener{
     int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
     ImageIcon Config_original = new ImageIcon(getClass().getResource("imagens/Configs-removebg.png"));
@@ -33,18 +33,24 @@ public class Sobre extends JPanel implements ActionListener, ComponentListener{
     "4. Parcerias & Cupons:\n - Descontos em lojas de suplemento.\n - Aulas em academias (spinning, yoga etc.).\n - Consultorias com nutricionistas ou personal trainers (online).\n Extras e Gamificação:\n - Recompensas por nível: iniciante, intermediário, avançado.\n - Sistema de raridade: comum, raro, épico.\n - Resgates via baús surpresa e missões especiais."
 );
 public Sobre() {
-        sobre();
-        this.addComponentListener(this);
+    sobre();
+    this.addComponentListener(this);
     }
     public void sobre(){
+    this.setSize(700,700);
+    this.setMinimumSize(new Dimension(700,700));
     this.setLayout(null);
     this.add(produtos);
+    produtos.setIcon(Loja_icon);
     produtos.addActionListener(this);
     this.add(parceiros);
+    parceiros.setIcon(Parca_icon);
     parceiros.addActionListener(this);
     this.add(quests);
+    quests.setIcon(Metas_icon);
     quests.addActionListener(this);
     this.add(configs);
+    configs.setIcon(Config_icon);
     configs.addActionListener(this);
     produtos.setIcon(Loja_icon);
     this.setLayout(null);
@@ -78,36 +84,20 @@ public Sobre() {
     }
     @Override
 public void actionPerformed(ActionEvent e) {
-    if(e.getSource()==produtos){
-        //
-    }else  if(e.getSource()==quests){
-        this.removeAll();
-        Metas metas = new Metas();
-        this.add(metas);
-        metas.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+    if(e.getSource()==quests){
+        new Metas().setVisible(true);
+        this.dispose();
     }else  if(e.getSource()==parceiros){
-        this.removeAll();
-        Parceiros parceiros = new Parceiros();
-        this.add(parceiros);
-        parceiros.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        new Parceiros().setVisible(true);
+        this.dispose();
     }else  if(e.getSource()==configs){
         this.removeAll();
-        Configuracoes configuracoes = new Configuracoes();
-        this.add(configuracoes);
-        configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        new Configuracoes().setVisible(true);
+        this.dispose();
     }else  if(e.getSource()==produtos){
         this.removeAll();
-        Loja loja = new Loja();
-        this.add(loja);
-        loja.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        new Loja().setVisible(true);
+        this.dispose();
     }
 }
 @Override
@@ -117,7 +107,15 @@ public void componentShown(ComponentEvent e) {}
 @Override
 public void componentHidden(ComponentEvent e) {}
 public static void main(String[] args) {
-    Sobre sobre = new Sobre();
-    sobre.sobre();
+    JFrame frame = new JFrame("Teste Sobre");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLayout(new BorderLayout());
+        Sobre sobre = new Sobre();
+        frame.add(sobre, BorderLayout.CENTER);
+        frame.setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+    sobre.componentResized(null);
+});
     }
 }

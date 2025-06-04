@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
-public class Configuracoes extends JPanel implements ActionListener, ComponentListener{
+public class Configuracoes extends JFrame implements ActionListener, ComponentListener{
+    File dado_paga = new File("dados_pagamento.txt");
     JTextArea titulo = new JTextArea();
     JPanel Menu = new JPanel();
     JPanel tela_configs = new JPanel();
@@ -12,7 +12,7 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
     JPanel dados_pagamento = new JPanel();
     JTextArea nome_txt = new JTextArea("Usuario");
     JLabel nome = new JLabel();
-    JPanel tipo_assinatura = new JPanel();
+    JLabel tipo_assinatura = new JLabel();
     JTextArea tipo_assinatura_txt = new JTextArea("Assinatura");
     JPanel data_cria_conta = new JPanel();
     JTextArea data_cria_conta_txt = new JTextArea("Data da criação da conta");
@@ -47,9 +47,9 @@ public class Configuracoes extends JPanel implements ActionListener, ComponentLi
     Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Loja_icon = new ImageIcon(Loja_img);
 public Configuracoes(){
-    Configuracoes();
+    configuracoes();
 }
-    public void Configuracoes() {
+    public void configuracoes() {
         this.setLayout(null);
         int largura_atual = this.getWidth();
         int altura_atual = this.getHeight();
@@ -100,7 +100,7 @@ public Configuracoes(){
         try {
             FileReader leitor = new FileReader("nome.txt");
             BufferedReader br = new BufferedReader(leitor);
-            String data = br.readLine(); // lê a primeira linha como String
+            String data = br.readLine(); 
             if (data != null) {
                 nome.setText(data);
             }
@@ -130,7 +130,9 @@ public Configuracoes(){
         tipo_assinatura_txt.setEditable(false);
 
         conta.add(tipo_assinatura);
+        tipo_assinatura.setOpaque(true);
         tipo_assinatura.setBackground(new Color(122, 159, 125));
+        tipo_assinatura.setFont(new Font("arial",Font.PLAIN,30));
         tipo_assinatura.setBounds(0, 120, 1000, 60);
 
         conta.add(data_cria_conta_txt);
@@ -232,37 +234,92 @@ public Configuracoes(){
         dados_pagamento.setBounds(largura_atual / 2, 61, largura_atual / 2, altura_atual - 61);
         mes.setBounds(50, 100, 120, 50);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sobre_nos) {
             this.removeAll();
-            Sobre sobre = new Sobre();
-            sobre.setBounds(0, 0, this.getWidth(), this.getHeight());
-            this.add(sobre);
-            this.revalidate();
-            this.repaint();
+            new Sobre().setVisible(true);
+            this.dispose();
         } else if (e.getSource() == quests) {
             this.removeAll();
-            Metas metas = new Metas();
-            metas.setBounds(0, 0, this.getWidth(), this.getHeight());
-            this.add(metas);
-            this.revalidate();
-            this.repaint();
+            new Metas().setVisible(true);
+            this.dispose();
         } else if (e.getSource() == produtos) {
             this.removeAll();
-            Loja loja = new Loja();
-            loja.setBounds(0, 0, this.getWidth(), this.getHeight());
-            this.add(loja);
-            this.revalidate();
-            this.repaint();
+            new Loja().setVisible(true);
+            this.dispose();
         } else if (e.getSource() == parceiros) {
             this.removeAll();
-            Parceiros parceiros = new Parceiros();
-            parceiros.setBounds(0, 0, this.getWidth(), this.getHeight());
-            this.add(parceiros);
-            this.revalidate();
-            this.repaint();
+            new Parceiros().setVisible(true);
+            this.dispose();
+            }else if (e.getSource() == mes) {
+            try {
+                FileWriter tipo_pagamento = new FileWriter("dados_pagamento.txt");
+                tipo_pagamento.write("Mensal");
+                tipo_pagamento.close();
+                FileReader leitor_pagamento = new FileReader("dados_pagamento.txt");
+                BufferedReader br_pagamento = new BufferedReader(leitor_pagamento);
+                String assinatura_tipo = br_pagamento.readLine();
+                if (assinatura_tipo != null) {
+                    tipo_assinatura.setText(assinatura_tipo);
+                }
+                br_pagamento.close();
+                leitor_pagamento.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao salvar tipo de pagamento: " + ex.getMessage());
+            }
+        } else if (e.getSource() == tres_meses) {
+            try {
+                FileWriter tipo_pagamento = new FileWriter("dados_pagamento.txt");
+                tipo_pagamento.write("Três mensal");
+                tipo_pagamento.close();
+                FileReader leitor_pagamento = new FileReader("dados_pagamento.txt");
+                BufferedReader br_pagamento = new BufferedReader(leitor_pagamento);
+                String assinatura_tipo = br_pagamento.readLine();
+                if (assinatura_tipo != null) {
+                    tipo_assinatura.setText(assinatura_tipo);
+                }
+                br_pagamento.close();
+                leitor_pagamento.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao salvar tipo de pagamento: " + ex.getMessage());
+            }
+        } else if (e.getSource() == seis_meses) {
+            try {
+                FileWriter tipo_pagamento = new FileWriter("dados_pagamento.txt");
+                tipo_pagamento.write("Meio ano");
+                tipo_pagamento.close();
+                FileReader leitor_pagamento = new FileReader("dados_pagamento.txt");
+                BufferedReader br_pagamento = new BufferedReader(leitor_pagamento);
+                String assinatura_tipo = br_pagamento.readLine();
+                if (assinatura_tipo != null) {
+                    tipo_assinatura.setText(assinatura_tipo);
+                }
+                br_pagamento.close();
+                leitor_pagamento.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao salvar tipo de pagamento: " + ex.getMessage());
+            }
+        } else if (e.getSource() == doze_meses) {
+            try {
+                FileWriter tipo_pagamento = new FileWriter("dados_pagamento.txt");
+                tipo_pagamento.write("Um ano");
+                tipo_pagamento.close();
+                FileReader leitor_pagamento = new FileReader("dados_pagamento.txt");
+                BufferedReader br_pagamento = new BufferedReader(leitor_pagamento);
+                String assinatura_tipo = br_pagamento.readLine();
+                if (assinatura_tipo != null) {
+                    tipo_assinatura.setText(assinatura_tipo);
+                }
+                br_pagamento.close();
+                leitor_pagamento.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao salvar tipo de pagamento: " + ex.getMessage());
+            }
         }
     }
 
@@ -276,7 +333,5 @@ public Configuracoes(){
     public void componentHidden(ComponentEvent e) { }
 
     public static void main(String[] args) {
-        Configuracoes configuracoes = new Configuracoes();
-        // configuracoes.configuracoes();  // Não precisa chamar mais, tudo está no construtor
     }
 }

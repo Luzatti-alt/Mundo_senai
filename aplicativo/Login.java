@@ -29,7 +29,8 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     JTextArea confirmar_senha = new JTextArea("confirme sua senha:");
     JTextField entrar_confirma_senha = new JTextField();
     public void requests() throws Exception {
-    URL url_login = new URL("http://127.0.0.1:5000/api/usuarios");
+        //IP
+    URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
     HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
     conectar.setRequestMethod("GET");
     conectar.setConnectTimeout(2000);
@@ -192,10 +193,8 @@ if (encontrado) {
         JOptionPane.showMessageDialog(this, "Erro ao salvar dados: " + ex.getMessage());
     }
     this.getContentPane().removeAll();
-    Configuracoes configuracoesPanel = new Configuracoes();
-    this.setContentPane(configuracoesPanel);
-    this.revalidate();
-    this.repaint();
+    new Configuracoes();
+    this.dispose();
     reset();
 }else {
     JOptionPane.showMessageDialog(this, "Usuário inválido!");
@@ -214,7 +213,8 @@ if (encontrado) {
             FileWriter dados = new FileWriter("nome.txt", false);
             dados.write(new_acc + "\n");
             dados.close();
-            URL url_login = new URL("http://127.0.0.1:5000/api/usuarios");
+            //IP
+            URL url_login = new URL("http://192.168.100.34:5000/api/usuarios");
             HttpURLConnection conectar = (HttpURLConnection) url_login.openConnection();
             conectar.setConnectTimeout(2000);
             conectar.setReadTimeout(2000);
@@ -238,13 +238,12 @@ String responseLine;
 while ((responseLine = br.readLine()) != null) {
     response.append(responseLine.trim());
 }
-System.out.println("Resposta da API: " + response.toString());
     } catch (IOException ex) {
         ex.printStackTrace();
         JOptionPane.showMessageDialog(this, "Erro ao salvar dados: " + ex.getMessage());
     }
-            Configuracoes configuracoesPanel = new Configuracoes();
-            this.setContentPane(configuracoesPanel);
+            new Configuracoes();
+            this.dispose();
             this.revalidate();
             this.repaint();
             reset();

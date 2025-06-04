@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Parceiros extends JPanel implements ActionListener, ComponentListener{
+public class Parceiros extends JFrame implements ActionListener, ComponentListener{
     int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
     JTextArea titulo = new JTextArea();
@@ -38,8 +38,13 @@ public class Parceiros extends JPanel implements ActionListener, ComponentListen
     ImageIcon Loja_original = new ImageIcon(getClass().getResource("imagens/logo_loja.png"));
     Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Loja_icon = new ImageIcon(Loja_img);
-    public Parceiros(){}
+    public Parceiros(){
+        parceiros();
+        this.addComponentListener(this);
+    }
     public void parceiros(){
+        this.setSize(700,700);
+        this.setMinimumSize(new Dimension(700,700));
         this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
@@ -123,30 +128,16 @@ public class Parceiros extends JPanel implements ActionListener, ComponentListen
     @Override
 public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
-        //
+        new Loja().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==quests){
         this.removeAll();
-        Metas metas = new Metas();
-        this.add(metas);
-        metas.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
-    }else  if(e.getSource()==parceiros){
-        //
+        new Metas().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==configs){
         this.removeAll();
-        Configuracoes configuracoes = new Configuracoes();
-        this.add(configuracoes);
-        configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
-    }else  if(e.getSource()==produtos){
-        this.removeAll();
-        Loja loja = new Loja();
-        this.add(loja);
-        loja.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        new Configuracoes().setVisible(true);;
+        this.dispose();
     }
 }
 @Override

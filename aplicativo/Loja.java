@@ -1,10 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Loja extends JPanel implements ActionListener, ComponentListener, AdjustmentListener{
-    JPanel fundo_1 = new JPanel();
-    int largura_atual = fundo_1.getWidth();
-    int altura_atual = fundo_1.getHeight();
+public class Loja extends JFrame implements ActionListener, ComponentListener, AdjustmentListener{
+    int largura_atual = this.getWidth();
+    int altura_atual = this.getHeight();
     ImageIcon carrinho_original = new ImageIcon(getClass().getResource("imagens/Carrinho-removebg.png"));
     Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
@@ -32,16 +31,17 @@ public class Loja extends JPanel implements ActionListener, ComponentListener, A
     JTextField pesquisa = new JTextField("pesquise aqui o seu produto");
     JTextArea pontuacao = new JTextArea("Pontos");
     JPanel fundo = new JPanel();
-    JScrollBar scroll_bar = new JScrollBar();//add em loja e carrinho
+    JScrollPane scroll_bar = new JScrollPane();//add em loja e carrinho
     JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
 public Loja() {
     loja();
-    this.add(fundo_1);
-    fundo_1.setSize(largura_atual,altura_atual);
-    fundo_1.addComponentListener(this);
+    this.setSize(largura_atual,altura_atual);
+    this.addComponentListener(this);
     }
     public void loja(){
-        fundo_1.add(temp);
+        this.setSize(700,700);
+        this.setMinimumSize(new Dimension(700,700));
+        this.add(temp);
         temp.addActionListener(this);
         this.addComponentListener(new ComponentAdapter() {
         @Override
@@ -62,29 +62,28 @@ public Loja() {
         Loja.this.repaint();
     }
     });
-        fundo_1.add(produtos);
+        this.add(produtos);
         produtos.addActionListener(this);
-        fundo_1.add(quests);
+        this.add(quests);
         quests.addActionListener(this);
-        fundo_1.add(configs);
+        this.add(configs);
         configs.addActionListener(this);
-        fundo_1.add(titulo);
+        this.add(titulo);
         produtos.setIcon(Loja_icon);
-        fundo_1.add(Carrinho_bot);
+        this.add(Carrinho_bot);
         configs.setIcon(Config_icon);
         parceiros.setIcon(Parca_icon);
         quests.setIcon(Metas_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
-        fundo_1.add(titulo);
+        this.add(titulo);
         titulo.setEditable(false);
         titulo.setText("Produtos a venda");
         titulo.setBackground(Color.green);
         Carrinho_bot.addActionListener(this);
-        fundo_1.add(pesquisa);
-        fundo_1.add(pontuacao);
+        this.add(pesquisa);
+        this.add(pontuacao);
         fundo.setBackground(Color.blue);
-        fundo_1.add(scroll_bar);
-        scroll_bar.addAdjustmentListener(this);
+        this.add(scroll_bar);
         pontuacao.setEditable(false);
     }
     public void carrinho(){
@@ -93,7 +92,7 @@ public Loja() {
         quests.setIcon(Metas_icon);
         produtos.setIcon(Loja_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
-        fundo_1.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
         int largura_atual = Loja.this.getWidth();
@@ -107,61 +106,55 @@ public Loja() {
         dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
         valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
         fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
-        scroll_bar.setBounds(largura_atual-50,0,largura_atual/20,(altura_atual/2)-50);
+        scroll_bar.setBounds(largura_atual-50,0,100,(altura_atual/2)-50);
     }
     });
-        fundo_1.add(scroll_bar);
-        scroll_bar.addAdjustmentListener(this);
-        fundo_1.add(produtos);
+        this.add(scroll_bar);
+        this.add(produtos);
         produtos.addActionListener(this);
-        fundo_1.add(parceiros);
+        this.add(parceiros);
         parceiros.addActionListener(this);
-        fundo_1.add(quests);
+        this.add(quests);
         quests.addActionListener(this);
-        fundo_1.add(configs);
+        this.add(configs);
         configs.addActionListener(this);
-        fundo_1.add(titulo);
-        fundo_1.add(fundo);
+        this.add(titulo);
+        this.add(fundo);
         fundo.setBackground(Color.LIGHT_GRAY);
-        fundo_1.add(valor_a_pagar);
+        this.add(valor_a_pagar);
         valor_a_pagar.setBackground(Color.green);
         valor_a_pagar.setFont(new Font("Arial", Font.PLAIN, 56));
-        fundo_1.add(volte);
-        fundo_1.add(dinheiro);
+        this.add(volte);
+        this.add(dinheiro);
         titulo.setBackground(Color.green);
         titulo.setText("carrinho");
     }
     @Override
 public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
-        //
+        new Loja().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==quests){
-        fundo_1.removeAll();
-        Metas metas = new Metas();
-        fundo_1.add(metas);
-        metas.setBounds(0,0,this.getWidth(), this.getHeight());
-        fundo_1.revalidate();
-        fundo_1.repaint();
+        new Metas().setVisible(true);;
+        this.dispose();
+        this.repaint();
     }else  if(e.getSource()==parceiros){
-        //
+        new Parceiros().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==configs){
-        this.removeAll();
-        Configuracoes configuracoes = new Configuracoes();
-        fundo_1.add(configuracoes);
-        configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
-        fundo_1.revalidate();
-        fundo_1.repaint();
+        new Configuracoes().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==Carrinho_bot){
-        fundo_1.removeAll();
+        this.removeAll();
         carrinho();
-        Loja.this.revalidate();
-        Loja.this.repaint();
+        this.revalidate();
+        this.repaint();
     }
 }
 @Override
-    public void adjustmentValueChanged(AdjustmentEvent arg0){
-        System.out.println("scrollbar: "+scroll_bar.getValue());
-    }
+public void adjustmentValueChanged(AdjustmentEvent e) {
+    // Implemente aqui o que deve acontecer quando o scroll for ajustado, se necessário
+}
 @Override
 public void componentResized(ComponentEvent e) {}
 @Override
