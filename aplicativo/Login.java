@@ -73,7 +73,9 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         int largura_atual = Login.this.getWidth();
         box_login.setBounds((largura_atual/2)-250, 100, 500, 225);
         usuario_login.setBounds(10, 60, 480, 40);
-        senha_login.setBounds(10, 150, 480, 40);  
+        usuario_login.setFont(new Font("Arial",Font.PLAIN,30));
+        senha_login.setBounds(10, 150, 480, 40); 
+        senha_login.setFont(new Font("Arial",Font.PLAIN,30)); 
         criar_conta.setBounds((largura_atual/2)-150, 425, 300, 50);
         Logar.setBounds((largura_atual/2)-150, 350, 300, 50);  
         esqueceu_senha.setBounds(0, 600,largura_atual,50);
@@ -169,7 +171,7 @@ public void actionPerformed(ActionEvent e) {
         String val_user = usuario_login.getText();
         //senha_login.getText();
         boolean encontrado = false;
-        //em login_salvo.txt add nome data de criação e tipo de assinatura conta fazer o skip do login
+        //em login_salvo.txt add data de criação e tipo de assinatura conta fazer o skip do login
         try {
     requests();
     String jsonStr = new String(Files.readAllBytes(Paths.get("teste.txt")));

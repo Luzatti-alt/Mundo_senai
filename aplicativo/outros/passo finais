@@ -1,14 +1,8 @@
 add a funcinalidade ao scroll em carrinho(na loja nn terá muitos produtos)
 add ir para descrição x aparecendo imagem do produto x na tela de descrição do produto x
 
-algo mais visual mas tem que resolver:
-em algumas telas o jpanel fica em branco resolver isso logo, solução incluir a herança do JFrame aos outros arquivos 
-arrumar gui em loja e carrinho que estão bagunçadas nn sei o porque
-fazer metodo de herança a todas as janelas provavelmente via app_mundo_senai
-
-
 progressão total
-gui 97%
-funcionalidade do app 35(api tem que ter request)%
+gui 98%
+funcionalidade do app 55(api tem que ter request)%
 
 transformar em jar/exe assim que tudo estiver pronto
