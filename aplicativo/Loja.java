@@ -60,8 +60,11 @@ public Loja() {
     }
     });
         this.add(produtos);
+        produtos.addActionListener(this);
         this.add(quests);
+        quests.addActionListener(this);
         this.add(configs);
+        configs.addActionListener(this);
         this.add(titulo);
         produtos.setIcon(Loja_icon);
         this.add(Carrinho_bot);
