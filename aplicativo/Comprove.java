@@ -67,9 +67,9 @@ public class Comprove extends JFrame implements ActionListener, ComponentListene
         configs.setBounds((largura_atual/2)+100, 0, 100, 28);
         titulo.setBounds(0, 28, largura_atual, 35);
         Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
-        vid.setBounds(100,altura_atual-500,largura_atual/2,50);
-        laudo.setBounds(100,altura_atual-400,largura_atual/2,50);
-        cons_profi.setBounds(100,altura_atual-300,largura_atual/2,50);
+        vid.setBounds((altura_atual/2)-100,altura_atual-500,largura_atual/2,50);
+        laudo.setBounds((altura_atual/2)-100,altura_atual-400,largura_atual/2,50);
+        cons_profi.setBounds((altura_atual/2)-100,altura_atual-300,largura_atual/2,50);
     }
 @Override
 public void actionPerformed(ActionEvent e) {
