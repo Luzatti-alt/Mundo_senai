@@ -4,7 +4,8 @@ import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-public class Descricao extends JPanel implements ActionListener, ComponentListener{
+public class Descricao extends JFrame implements ActionListener, ComponentListener{
+    JPanel fundo = new JPanel();
     JTextArea titulo = new JTextArea();
     JButton prod = new JButton();
     JLabel descricao = new JLabel();
@@ -12,6 +13,18 @@ public class Descricao extends JPanel implements ActionListener, ComponentListen
     JButton quests = new JButton("Metas");
     JButton parceiros = new JButton("Parceiros");
 	JButton configs = new JButton("Configurações");
+    ImageIcon Config_original = new ImageIcon(getClass().getResource("/imagens/Configs-removebg.png"));
+    Image Config_img = Config_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Config_icon = new ImageIcon(Config_img);
+    ImageIcon Metas_original = new ImageIcon(getClass().getResource("/imagens/Metas-removebg.png"));
+    Image Metas_img = Metas_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Metas_icon = new ImageIcon(Metas_img);
+    ImageIcon Parca_original = new ImageIcon(getClass().getResource("/imagens/Parceiros-removebg.png"));
+    Image Parca_img = Parca_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Parca_icon = new ImageIcon(Parca_img);
+    ImageIcon Loja_original = new ImageIcon(getClass().getResource("/imagens/logo_loja.png"));
+    Image Loja_img = Loja_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+    ImageIcon Loja_icon = new ImageIcon(Loja_img);
     JPanel item = new JPanel();
     JPanel desc = new JPanel();
     JButton dinheiro = new JButton("Comprar");
@@ -71,21 +84,24 @@ public class Descricao extends JPanel implements ActionListener, ComponentListen
         public void componentResized(ComponentEvent e) {
         int largura_atual = Descricao.this.getWidth();
         int altura_atual = Descricao.this.getHeight();
+        fundo.setBounds(50,80,largura_atual/2,altura_atual/2);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
         parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
         quests.setBounds((largura_atual/2), 0, 100, 30);
         configs.setBounds((largura_atual/2)+100, 0, 100, 30);
-        item.setBounds(50,80,largura_atual/2-50,altura_atual/2);
-        desc.setBounds(largura_atual/2+50,80,largura_atual/2-100,altura_atual/2);
+        item.setBounds(0,80,largura_atual/2-50,altura_atual/2);
+        desc.setBounds(0,80,largura_atual/2-100,altura_atual/2);
         titulo.setBounds(0,30,largura_atual,30);
         dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
         volte.setBounds(0,altura_atual-100,largura_atual,60);
     }
     }); 
-        this.add(item);
+    fundo.setBackground(Color.lightGray);
+    fundo.setLayout(new GridLayout(2,1));
+        fundo.add(item);
         volte.addActionListener(this);
         item.setBackground(Color.lightGray);
-        this.add(desc);
+        fundo.add(desc);
         desc.setBackground(Color.gray);
         this.add(dinheiro);
         this.add(titulo);
@@ -98,30 +114,24 @@ public class Descricao extends JPanel implements ActionListener, ComponentListen
     @Override
 public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
-        //
+        new Loja().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==quests){
-        this.removeAll();
-        Metas metas = new Metas();
-        this.add(metas);
-        metas.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        new Metas().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==parceiros){
-        //
+        new Parceiros().setVisible(true);
+        this.dispose();
     }else  if(e.getSource()==configs){
-        this.removeAll();
-        Configuracoes configuracoes = new Configuracoes();
-        this.add(configuracoes);
-        configuracoes.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        new Configuracoes().setVisible(true);;
+        this.dispose();
     }else  if(e.getSource()==produtos){
-        this.removeAll();
-        Loja loja = new Loja();
-        this.add(loja);
-        loja.setBounds(0,0,this.getWidth(), this.getHeight());
-        this.revalidate();
-        this.repaint();
+        new Loja().setVisible(true);;
+        this.dispose();
+    }
+    else if(e.getSource()==volte){
+        new Loja().setVisible(true);;
+        this.dispose();
     }
 }
 @Override
