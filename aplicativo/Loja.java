@@ -11,7 +11,7 @@ public class Loja extends JFrame implements ActionListener, ComponentListener, A
     Image Whey_img = Whey_original.getImage().getScaledInstance(96, 96, Image.SCALE_SMOOTH);
     ImageIcon Whey_icon = new ImageIcon(Whey_img);
     ImageIcon bar_prot_original = new ImageIcon(getClass().getResource("/imagens/barra_prot.png"));
-    Image bar_prot_img = Whey_original.getImage().getScaledInstance(96, 96, Image.SCALE_SMOOTH);
+    Image bar_prot_img = bar_prot_original.getImage().getScaledInstance(96, 96, Image.SCALE_SMOOTH);
     ImageIcon bar_prot_icon = new ImageIcon(bar_prot_img);
     ImageIcon toalha_original = new ImageIcon(getClass().getResource("/imagens/toalha.jpg"));
     Image toalha_img = toalha_original.getImage().getScaledInstance(96, 96, Image.SCALE_SMOOTH);
@@ -76,11 +76,11 @@ public Loja() {
         scroll_bar.setBounds(0,105,altura_atual/15,altura_atual-90);
         temp.setBounds((largura_atual/2)+200, 500, 100, 30);
         Carrinho_bot.setBounds(0,60,largura_atual/2,30);
-        prod_1.setBounds((largura_atual/10),200,largura_atual/10,200);
-        prod_2.setBounds((largura_atual/10)+(largura_atual/10),200,largura_atual/10,200);
-        prod_3.setBounds((largura_atual/10)+2*(largura_atual/10),200,largura_atual/10,200);
-        prod_4.setBounds((largura_atual/10)+3*(largura_atual/10),200,largura_atual/10,200);
-        prod_5.setBounds((largura_atual/10)+4*(largura_atual/10),200,largura_atual/10,200);
+        prod_1.setBounds((largura_atual/6)-100,200,largura_atual/6,200);
+        prod_2.setBounds((largura_atual/6)+(largura_atual/6)-100,200,largura_atual/6,200);
+        prod_3.setBounds((largura_atual/6)+2*(largura_atual/6)-100,200,largura_atual/6,200);
+        prod_4.setBounds((largura_atual/6)+3*(largura_atual/6)-100,200,largura_atual/6,200);
+        prod_5.setBounds((largura_atual/6)+4*(largura_atual/6)-100,200,largura_atual/6,200);
         titulo.setBounds(0,30,largura_atual,30);
         Loja.this.revalidate();
         Loja.this.repaint();
