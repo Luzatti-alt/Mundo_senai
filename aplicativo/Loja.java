@@ -60,6 +60,7 @@ public Loja() {
         this.setMinimumSize(new Dimension(700,700));
         this.add(temp);
         temp.addActionListener(this);
+        temp.setText("voltar a tela login(temporario para ajudar na demonstração)");
         this.addComponentListener(new ComponentAdapter() {
         @Override
         public void componentResized(ComponentEvent e) {
