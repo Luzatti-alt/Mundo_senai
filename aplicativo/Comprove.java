@@ -54,6 +54,9 @@ public class Comprove extends JFrame implements ActionListener, ComponentListene
         parceiros.setIcon(Parca_icon);
         produtos.setIcon(Loja_icon);
         quests.setIcon(Metas_icon);
+        vid.addActionListener(this);
+        laudo.addActionListener(this);
+        cons_profi.addActionListener(this);
     }
     @Override
         public void componentResized(ComponentEvent e) {
