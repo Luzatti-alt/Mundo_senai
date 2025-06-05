@@ -123,7 +123,7 @@ public Loja() {
         this.add(titulo);
         titulo.setEditable(false);
         titulo.setText("Produtos a venda");
-        titulo.setBackground(Color.green);
+        titulo.setBackground(new Color(122, 159, 125));
         Carrinho_bot.addActionListener(this);
         this.add(pesquisa);
         this.add(pontuacao);
