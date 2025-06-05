@@ -71,8 +71,6 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
     }
         //add funcionalidade para produtos especificos
         this.add(produtos);
-        item.add(prod);
-        desc.add(prod);
         produtos.addActionListener(this);
         this.add(quests);
         quests.addActionListener(this);
@@ -84,20 +82,21 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
         public void componentResized(ComponentEvent e) {
         int largura_atual = Descricao.this.getWidth();
         int altura_atual = Descricao.this.getHeight();
-        fundo.setBounds(50,80,largura_atual/2,altura_atual/2);
+        fundo.setBounds(largura_atual/4,80,largura_atual/2,altura_atual/2);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
         parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
         quests.setBounds((largura_atual/2), 0, 100, 30);
         configs.setBounds((largura_atual/2)+100, 0, 100, 30);
-        item.setBounds(0,80,largura_atual/2-50,altura_atual/2);
-        desc.setBounds(0,80,largura_atual/2-100,altura_atual/2);
         titulo.setBounds(0,30,largura_atual,30);
         dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
         volte.setBounds(0,altura_atual-100,largura_atual,60);
     }
     }); 
+    this.add(fundo);
     fundo.setBackground(Color.lightGray);
-    fundo.setLayout(new GridLayout(2,1));
+    fundo.setLayout(new GridLayout(1,2));
+    item.add(prod);
+        desc.add(prod);
         fundo.add(item);
         volte.addActionListener(this);
         item.setBackground(Color.lightGray);
