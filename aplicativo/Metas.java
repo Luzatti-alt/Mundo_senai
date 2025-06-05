@@ -138,16 +138,13 @@ public void actionPerformed(ActionEvent e) {
         this.dispose();
     }else if(e.getSource()==comprovar_meta_diaria){
         new Comprove().setVisible(true);
-        this.revalidate();
-        this.repaint();
+        this.dispose();
     }else if(e.getSource()==comprovar_meta_semanal){
         new Comprove().setVisible(true);
-        this.revalidate();
-        this.repaint();
+        this.dispose();
     }else if(e.getSource()==comprovar_meta_mensal){
         new Comprove().setVisible(true);
-        this.revalidate();
-        this.repaint();
+        this.dispose();
     }
 }
 @Override
