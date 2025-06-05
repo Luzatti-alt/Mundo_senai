@@ -157,6 +157,8 @@ public void actionPerformed(ActionEvent e) {
         }catch(IOException ex){
             ex.printStackTrace();
         }
+        new Descricao().setVisible(true);
+        this.dispose();
     }else  if(e.getSource()==prod_2){
         try{
             FileWriter tipo_prod = new FileWriter("produto.txt");
@@ -165,6 +167,8 @@ public void actionPerformed(ActionEvent e) {
         }catch(IOException ex){
             ex.printStackTrace();
         }
+        new Descricao().setVisible(true);
+        this.dispose();
     }else  if(e.getSource()==prod_3){
         try{
             FileWriter tipo_prod = new FileWriter("produto.txt");
@@ -173,6 +177,8 @@ public void actionPerformed(ActionEvent e) {
         }catch(IOException ex){
             ex.printStackTrace();
         }
+        new Descricao().setVisible(true);
+        this.dispose();
     }else  if(e.getSource()==prod_4){
         try{
             FileWriter tipo_prod = new FileWriter("produto.txt");
@@ -181,6 +187,8 @@ public void actionPerformed(ActionEvent e) {
         }catch(IOException ex){
             ex.printStackTrace();
         }
+        new Descricao().setVisible(true);
+        this.dispose();
     }else  if(e.getSource()==prod_5){
         try{
             FileWriter tipo_prod = new FileWriter("produto.txt");
@@ -189,6 +197,8 @@ public void actionPerformed(ActionEvent e) {
         }catch(IOException ex){
             ex.printStackTrace();
         }
+        new Descricao().setVisible(true);
+        this.dispose();
     }else if(e.getSource()==temp){
         new Login().setVisible(true);;
         this.dispose();
