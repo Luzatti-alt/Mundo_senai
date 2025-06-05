@@ -84,11 +84,11 @@ public class Carrinho extends JFrame implements ActionListener, ComponentListene
         this.add(fundo);
         fundo.setBackground(Color.LIGHT_GRAY);
         this.add(valor_a_pagar);
-        valor_a_pagar.setBackground(Color.green);
+        valor_a_pagar.setBackground(new Color(122, 159, 125));
         valor_a_pagar.setFont(new Font("Arial", Font.PLAIN, 56));
         this.add(volte);
         this.add(dinheiro);
-        titulo.setBackground(Color.green);
+        titulo.setBackground(new Color(122, 159, 125));
         titulo.setText("carrinho");
         titulo.setFont(new Font("arial",Font.PLAIN,30));
     }
