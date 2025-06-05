@@ -66,7 +66,7 @@ public Configuracoes(){
         titulo.setText("Opções de assinatura & conta");
         this.add(conta);
         this.add(dados_pagamento);
-        this.setMinimumSize(new Dimension(600, 300));
+        this.setMinimumSize(new Dimension(1200, 800));
         this.setLayout(null);
         this.add(tela_configs);
         tela_configs.setSize(tamanho_tela);
