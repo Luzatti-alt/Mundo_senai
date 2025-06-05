@@ -35,6 +35,7 @@ public class Comprove extends JFrame implements ActionListener, ComponentListene
         this.add(titulo);
         this.setLayout(null);
         titulo.setText("Métodos de comprovantes");
+        this.setBackground(Color.lightGray);
         titulo.setBackground(Color.green);
         this.setBackground(Color.lightGray);
         this.add(vid);
