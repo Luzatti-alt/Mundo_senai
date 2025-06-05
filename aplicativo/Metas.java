@@ -42,9 +42,6 @@ public class Metas extends JFrame implements ActionListener, ComponentListener{
     JButton comprovar_meta_diaria = new JButton("Comprovar meta");
     JButton comprovar_meta_semanal = new JButton("Comprovar meta");
     JButton comprovar_meta_mensal = new JButton("Comprovar meta");
-    JButton vid = new JButton("Vídeo");
-    JButton laudo = new JButton("Laudo médico");
-    JButton cons_profi = new JButton("Confirmação profisional parceiro da plataforma");
     public Metas() {
         metas();
         this.addComponentListener(this);
@@ -124,32 +121,6 @@ public class Metas extends JFrame implements ActionListener, ComponentListener{
         comprovar_meta_mensal.setFocusable(false);
         comprovar_meta_mensal.addActionListener(this);
 	}
-    public void comprove(){
-        this.add(titulo);
-        this.setLayout(null);
-        titulo.setText("Métodos de comprovantes");
-        titulo.setBackground(Color.green);
-        this.setBackground(Color.lightGray);
-        this.add(vid);
-        vid.setBackground(Color.green);
-        this.add(laudo);
-        laudo.setBackground(Color.green);
-        this.add(cons_profi);
-        cons_profi.setBackground(Color.green);
-    }
-    @Override
-        public void componentResized(ComponentEvent e) {
-        int largura_atual = this.getWidth();
-        int altura_atual = this.getHeight();
-        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
-        parceiros.setBounds((largura_atual/2), 0, 100, 28);
-        configs.setBounds((largura_atual/2)+100, 0, 100, 28);
-        titulo.setBounds(0, 28, largura_atual, 35);
-        Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
-        vid.setBounds(100,altura_atual-500,largura_atual/2,50);
-        laudo.setBounds(100,altura_atual-400,largura_atual/2,50);
-        cons_profi.setBounds(100,altura_atual-300,largura_atual/2,50);
-    } 
     @Override
 public void actionPerformed(ActionEvent e) {
     if(e.getSource()==produtos){
@@ -163,25 +134,32 @@ public void actionPerformed(ActionEvent e) {
         this.dispose();
     }else if(e.getSource()==configs){
         this.removeAll();
-        new Configuracoes().setVisible(true);;
+        new Configuracoes().setVisible(true);
         this.dispose();
     }else if(e.getSource()==comprovar_meta_diaria){
-        this.removeAll();
-        comprove();
+        new Comprove().setVisible(true);
         this.revalidate();
         this.repaint();
     }else if(e.getSource()==comprovar_meta_semanal){
-        this.removeAll();
-        comprove();
+        new Comprove().setVisible(true);
         this.revalidate();
         this.repaint();
     }else if(e.getSource()==comprovar_meta_mensal){
-        this.removeAll();
-        comprove();
+        new Comprove().setVisible(true);
         this.revalidate();
         this.repaint();
     }
 }
+@Override
+        public void componentResized(ComponentEvent e) {
+        int largura_atual = this.getWidth();
+        int altura_atual = this.getHeight();
+        produtos.setBounds((largura_atual/2)-100, 0, 100, 28);
+        parceiros.setBounds((largura_atual/2), 0, 100, 28);
+        configs.setBounds((largura_atual/2)+100, 0, 100, 28);
+        titulo.setBounds(0, 28, largura_atual, 35);
+        Sistema_metas.setBounds(0,60,largura_atual,altura_atual-63);
+    }
 @Override
 public void componentMoved(ComponentEvent e) {}
 @Override
