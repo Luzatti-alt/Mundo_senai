@@ -7,7 +7,6 @@ import java.io.IOException;
 public class Descricao extends JFrame implements ActionListener, ComponentListener{
     JPanel fundo = new JPanel();
     JTextPane titulo = new JTextPane();
-    
     JButton prod = new JButton();
     JTextArea descricao = new JTextArea();
     JButton produtos = new JButton("Produtos");
@@ -116,7 +115,7 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
         desc.setBackground(Color.gray);
         this.add(dinheiro);
         this.add(titulo);
-        titulo.setBackground(Color.green);
+        titulo.setBackground(new Color(122, 159, 125));
         titulo.setText("Descrição do produto");
         titulo.setFont(new Font("Arial", Font.PLAIN, 30));
         titulo.setEditable(false);
