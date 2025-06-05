@@ -8,7 +8,7 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
     JPanel fundo = new JPanel();
     JTextArea titulo = new JTextArea();
     JButton prod = new JButton();
-    JLabel descricao = new JLabel();
+    JTextArea descricao = new JTextArea();
     JButton produtos = new JButton("Produtos");
     JButton quests = new JButton("Metas");
     JButton parceiros = new JButton("Parceiros");
@@ -47,6 +47,7 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
     this.addComponentListener(this);
     }
     public void descricao(){
+        descricao.setEditable(false);
         prod.setBackground(Color.WHITE);
         try{
     FileReader leitor = new FileReader("produto.txt");
@@ -83,7 +84,10 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
         public void componentResized(ComponentEvent e) {
         int largura_atual = Descricao.this.getWidth();
         int altura_atual = Descricao.this.getHeight();
+        descricao.setFont(new Font("Arial", Font.PLAIN, largura_atual/10));
         fundo.setBounds(largura_atual/4,80,largura_atual/2,altura_atual/2);
+        item.setSize(largura_atual/2,altura_atual/2);
+        desc.setSize(largura_atual/2,altura_atual/2);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
         parceiros.setBounds((largura_atual/2)-200, 0, 100, 30);
         quests.setBounds((largura_atual/2), 0, 100, 30);
@@ -91,14 +95,15 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
         titulo.setBounds(0,30,largura_atual,30);
         dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
         volte.setBounds(0,altura_atual-100,largura_atual,60);
-        prod.setSize(largura_atual/2,altura_atual/2);
-        desc.setSize(largura_atual/2,altura_atual/2);
     }
     }); 
     this.add(fundo);
+    fundo.setLayout(new GridLayout(1, 2));
     fundo.setBackground(Color.lightGray);
-    fundo.setLayout(new GridLayout(1,2));
-    item.add(desc);
+    item.add(descricao);
+    desc.setLayout(new BorderLayout());
+item.setLayout(new BorderLayout());
+
         desc.add(prod);
         volte.addActionListener(this);
         item.setBackground(Color.lightGray);
