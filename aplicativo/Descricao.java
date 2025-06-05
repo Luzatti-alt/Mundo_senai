@@ -28,6 +28,11 @@ public class Descricao extends JPanel implements ActionListener, ComponentListen
     ImageIcon toalha_original = new ImageIcon(getClass().getResource("/imagens/toalha.jpg"));
     Image toalha_img = toalha_original.getImage().getScaledInstance(96, 96, Image.SCALE_SMOOTH);
     ImageIcon toalha_icon = new ImageIcon(toalha_img);
+    public Descricao() {
+    descricao();
+    this.setSize(700,700);
+    this.addComponentListener(this);
+    }
     public void descricao(){
         try{
     FileReader leitor = new FileReader("produto.txt");
