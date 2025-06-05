@@ -4,6 +4,11 @@ import java.awt.event.*;
 public class Loja extends JFrame implements ActionListener, ComponentListener, AdjustmentListener{
     int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
+    JButton prod_1 = new JButton();
+    JButton prod_2 = new JButton();
+    JButton prod_3 = new JButton();
+    JButton prod_4 = new JButton();
+    JButton prod_5 = new JButton();
     ImageIcon carrinho_original = new ImageIcon(getClass().getResource("imagens/Carrinho-removebg.png"));
     Image carrinho_img = carrinho_original.getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH);
     ImageIcon Carrinho_icon = new ImageIcon(carrinho_img);
@@ -62,6 +67,16 @@ public Loja() {
         Loja.this.repaint();
     }
     });
+        this.add(prod_1);
+        prod_1.addActionListener(this);
+        this.add(prod_2);
+        prod_2.addActionListener(this);
+        this.add(prod_3);
+        prod_3.addActionListener(this);
+        this.add(prod_4);
+        prod_4.addActionListener(this);
+        this.add(prod_5);
+        prod_5.addActionListener(this);
         this.add(produtos);
         produtos.addActionListener(this);
         this.add(quests);
