@@ -62,6 +62,11 @@ public Loja() {
         scroll_bar.setBounds(0,105,altura_atual/15,altura_atual-90);
         temp.setBounds((largura_atual/2)+200, 500, 100, 30);
         Carrinho_bot.setBounds(0,60,largura_atual/2,30);
+        prod_1.setBounds(x,y,largura_atual/10,200);
+        prod_2.setBounds(x,y,largura_atual/10,200);
+        prod_3.setBounds(x,y,largura_atual/10,200);
+        prod_4.setBounds(x,y,largura_atual/10,200);
+        prod_5.setBounds(x,y,largura_atual/10,200);
         titulo.setBounds(0,30,largura_atual,30);
         Loja.this.revalidate();
         Loja.this.repaint();
