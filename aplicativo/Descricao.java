@@ -47,22 +47,23 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
     this.addComponentListener(this);
     }
     public void descricao(){
+        prod.setBackground(Color.WHITE);
         try{
     FileReader leitor = new FileReader("produto.txt");
     BufferedReader br = new BufferedReader(leitor);
     String qual_prod = br.readLine(); 
-            if (qual_prod == "halter") {
+            if (qual_prod.equals("halter")) {
                 prod.setIcon(Halter_icon);
-                descricao.setText("");
-            }else if (qual_prod == "barra") {
+                descricao.setText("Equipamento de musculação usado para treinos de força, ideal para exercícios de braços, peito e ombros.");
+            }else if (qual_prod.equals("barra")) {
                 prod.setIcon(bar_prot_icon);
-                descricao.setText("");
-            }else if (qual_prod == "whey") {
+                descricao.setText("Suplemento proteico de rápida absorção, excelente para recuperação muscular após o treino.");
+            }else if (qual_prod.equals("whey")) {
                 prod.setIcon(Whey_icon);
-                descricao.setText("");
-            }else if (qual_prod == "toalha") {
+                descricao.setText("alimento nutritivo com alta concentração de proteínas, perfeito para consumir antes ou depois do treino");
+            }else if (qual_prod.equals("toalha")) {
                 prod.setIcon(toalha_icon);
-                descricao.setText("");
+                descricao.setText("Toalha prática e absorvente, essencial para manter a higiene pessoal durante os exercícios." );
             }
             br.close();
             leitor.close();
@@ -90,17 +91,19 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
         titulo.setBounds(0,30,largura_atual,30);
         dinheiro.setBounds(0,altura_atual-200,largura_atual,60);
         volte.setBounds(0,altura_atual-100,largura_atual,60);
+        prod.setSize(largura_atual/2,altura_atual/2);
+        desc.setSize(largura_atual/2,altura_atual/2);
     }
     }); 
     this.add(fundo);
     fundo.setBackground(Color.lightGray);
     fundo.setLayout(new GridLayout(1,2));
-    item.add(prod);
+    item.add(desc);
         desc.add(prod);
-        fundo.add(item);
         volte.addActionListener(this);
         item.setBackground(Color.lightGray);
         fundo.add(desc);
+        fundo.add(item);
         desc.setBackground(Color.gray);
         this.add(dinheiro);
         this.add(titulo);
