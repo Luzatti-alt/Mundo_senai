@@ -52,6 +52,7 @@ public class Carrinho extends JFrame implements ActionListener, ComponentListene
         quests.setIcon(Metas_icon);
         produtos.setIcon(Loja_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
+        volte.addActionListener(this);
         JScrollPane scroll_bar = new JScrollPane();//add em loja e carrinho
         JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
         this.addComponentListener(new ComponentAdapter() {
