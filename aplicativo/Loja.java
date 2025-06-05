@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 public class Loja extends JFrame implements ActionListener, ComponentListener, AdjustmentListener{
     int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
@@ -147,6 +148,49 @@ public void actionPerformed(ActionEvent e) {
         this.dispose();
     }else  if(e.getSource()==Carrinho_bot){
         new Carrinho().setVisible(true);
+        this.dispose();
+    }else  if(e.getSource()==prod_1){
+        try{
+            FileWriter tipo_prod = new FileWriter("produto.txt");
+            tipo_prod.write("halter");
+            tipo_prod.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }else  if(e.getSource()==prod_2){
+        try{
+            FileWriter tipo_prod = new FileWriter("produto.txt");
+            tipo_prod.write("barra");
+            tipo_prod.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }else  if(e.getSource()==prod_3){
+        try{
+            FileWriter tipo_prod = new FileWriter("produto.txt");
+            tipo_prod.write("whey");
+            tipo_prod.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }else  if(e.getSource()==prod_4){
+        try{
+            FileWriter tipo_prod = new FileWriter("produto.txt");
+            tipo_prod.write("toalha");
+            tipo_prod.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }else  if(e.getSource()==prod_5){
+        try{
+            FileWriter tipo_prod = new FileWriter("produto.txt");
+            tipo_prod.write("sem nada ainda");
+            tipo_prod.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }else if(e.getSource()==temp){
+        new Login().setVisible(true);;
         this.dispose();
     }
 }
