@@ -141,7 +141,7 @@ public void actionPerformed(ActionEvent e) {
         this.dispose();
         this.repaint();
     }else  if(e.getSource()==parceiros){
-        new Parceiros().setVisible(true);;
+        new Parceiros().setVisible(true);
         this.dispose();
     }else  if(e.getSource()==configs){
         new Configuracoes().setVisible(true);;
