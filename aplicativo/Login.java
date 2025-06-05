@@ -83,7 +83,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
         Login.this.revalidate();
     }
     });
-        voltar_login.setBackground(Color.gray);
+        voltar_login.setBackground(new Color(122,159,125));
         box_login.setLayout(null);
         box_login.setBackground(Color.lightGray);
         usuario_text.setBackground(null);
@@ -122,6 +122,7 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     }
     public void Criar_nova_conta(){
         this.add(criar_nova_conta_botao);
+        criar_nova_conta_botao.setBackground(new Color(122,159,125));
         this.add(voltar_login);
         this.add(conta_criando);
         conta_criando.setBackground(Color.white);
@@ -157,7 +158,6 @@ public class Login extends JFrame implements ActionListener, ComponentListener{
     confirmar_senha.setFont(new Font("Arial", Font.PLAIN, 30));
     conta_criando.add(entrar_confirma_senha);
     entrar_confirma_senha.setFont(new Font("Arial", Font.PLAIN, 30));
-    criar_nova_conta_botao.setBackground(Color.green);
     }
     @Override
 public void actionPerformed(ActionEvent e) {
