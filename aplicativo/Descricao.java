@@ -56,16 +56,16 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
     String qual_prod = br.readLine(); 
             if (qual_prod.equals("halter")) {
                 prod.setIcon(Halter_icon);
-                descricao.setText("Equipamento de musculação usado para treinos de força, ideal para exercícios de braços, peito e ombros.");
+                descricao.setText("Equipamento de musculação usado para treinos de força, \n ideal para exercícios de braços, peito e ombros.");
             }else if (qual_prod.equals("barra")) {
                 prod.setIcon(bar_prot_icon);
-                descricao.setText("Suplemento proteico de rápida absorção, excelente para recuperação muscular após o treino.");
+                descricao.setText("Suplemento proteico de rápida absorção,\n excelente para recuperação muscular após o treino.");
             }else if (qual_prod.equals("whey")) {
                 prod.setIcon(Whey_icon);
-                descricao.setText("alimento nutritivo com alta concentração de proteínas, perfeito para consumir antes ou depois do treino");
+                descricao.setText("alimento nutritivo com alta concentração de proteínas,\n perfeito para consumir antes ou depois do treino");
             }else if (qual_prod.equals("toalha")) {
                 prod.setIcon(toalha_icon);
-                descricao.setText("Toalha prática e absorvente, essencial para manter a higiene pessoal durante os exercícios." );
+                descricao.setText("Toalha prática e absorvente,\n essencial para manter a higiene pessoal durante os exercícios." );
             }
             br.close();
             
@@ -87,10 +87,9 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
         public void componentResized(ComponentEvent e) {
         int largura_atual = Descricao.this.getWidth();
         int altura_atual = Descricao.this.getHeight();
-        int largura_botao = 200;
         descricao.setFont(new Font("Arial", Font.PLAIN, largura_atual/40));
-        descricao.setSize(largura_atual/2,altura_atual/2);
-        fundo.setBounds(largura_atual/4,80,largura_atual/2,altura_atual/2);
+        descricao.setSize(largura_atual/6,altura_atual/2);
+        fundo.setBounds(largura_atual/8,80,largura_atual-200,altura_atual/2);
         item.setSize(largura_atual/2,altura_atual/2);
         desc.setSize(largura_atual/2,altura_atual/2);
         produtos.setBounds((largura_atual/2)-100, 0, 100, 30);
@@ -105,9 +104,11 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
     this.add(fundo);
     fundo.setLayout(new GridLayout(1, 2));
     fundo.setBackground(Color.lightGray);
-    item.add(descricao);
+    item.setLayout(new BorderLayout());
+    desc.setLayout(new BorderLayout());
+    item.add(descricao,BorderLayout.CENTER);
     descricao.setBackground(null);
-        desc.add(prod);
+        desc.add(prod,BorderLayout.CENTER);
         volte.addActionListener(this);
         item.setBackground(Color.lightGray);
         fundo.add(desc);
