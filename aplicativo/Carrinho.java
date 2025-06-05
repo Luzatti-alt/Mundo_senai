@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 public class Carrinho extends JFrame implements ActionListener, ComponentListener, AdjustmentListener{
     int largura_atual = this.getWidth();
     int altura_atual = this.getHeight();
@@ -53,7 +54,6 @@ public class Carrinho extends JFrame implements ActionListener, ComponentListene
         produtos.setIcon(Loja_icon);
         Carrinho_bot.setIcon(Carrinho_icon);
         volte.addActionListener(this);
-        JScrollPane scroll_bar = new JScrollPane();//add em loja e carrinho
         JTextArea valor_a_pagar = new JTextArea("Total a pagar: ");
         this.addComponentListener(new ComponentAdapter() {
         @Override
@@ -69,10 +69,9 @@ public class Carrinho extends JFrame implements ActionListener, ComponentListene
         dinheiro.setBounds(0,altura_atual-175,largura_atual,60);
         valor_a_pagar.setBounds(0, altura_atual-250, largura_atual, 60);
         fundo.setBounds(0, altura_atual-625, largura_atual, (altura_atual/2)-50);
-        scroll_bar.setBounds(largura_atual-50,0,100,(altura_atual/2)-50);
     }
     });
-        this.add(scroll_bar);
+
         this.add(produtos);
         produtos.addActionListener(this);
         this.add(parceiros);
