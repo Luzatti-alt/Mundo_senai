@@ -163,11 +163,4 @@ public void componentMoved(ComponentEvent e) {}
 public void componentShown(ComponentEvent e) {}
 @Override
 public void componentHidden(ComponentEvent e) {}
-public static void main(String[] args) {
-        JFrame frame = new JFrame("Metas");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        frame.setContentPane(new Metas());
-        frame.setVisible(true);
-    }
 }
