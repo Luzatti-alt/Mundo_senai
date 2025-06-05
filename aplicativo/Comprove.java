@@ -69,7 +69,28 @@ public class Comprove extends JFrame implements ActionListener, ComponentListene
         cons_profi.setBounds(100,altura_atual-300,largura_atual/2,50);
     }
 @Override
-public void actionPerformed(ActionEvent e) {}
+public void actionPerformed(ActionEvent e) {
+    if(e.getSource()==produtos){
+        new Loja().setVisible(true);;
+        this.dispose();
+    }else  if(e.getSource()==quests){
+        new Metas().setVisible(true);;
+        this.dispose();
+    }else  if(e.getSource()==parceiros){
+        new Parceiros().setVisible(true);;
+        this.dispose();
+    }else if(e.getSource()==configs){
+        this.removeAll();
+        new Configuracoes().setVisible(true);
+        this.dispose();
+    }else if(e.getSource()==vid){
+        JOptionPane.showMessageDialog(this,"enviando o video para a comprovação");
+    }else if(e.getSource()==laudo){
+        JOptionPane.showMessageDialog(this,"enviando o laudo para a comprovação");
+    }else if(e.getSource()==cons_profi){
+        JOptionPane.showMessageDialog(this,"entrando em consulta profissional para a comprovação");
+    }
+}
 @Override
 public void componentMoved(ComponentEvent e) {}
 @Override
