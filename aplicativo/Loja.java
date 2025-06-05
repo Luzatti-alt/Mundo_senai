@@ -139,7 +139,6 @@ public void actionPerformed(ActionEvent e) {
     }else  if(e.getSource()==quests){
         new Metas().setVisible(true);;
         this.dispose();
-        this.repaint();
     }else  if(e.getSource()==parceiros){
         new Parceiros().setVisible(true);
         this.dispose();
