@@ -26,7 +26,12 @@ public class Comprove extends JFrame implements ActionListener, ComponentListene
     JButton vid = new JButton("Vídeo");
     JButton laudo = new JButton("Laudo médico");
     JButton cons_profi = new JButton("Confirmação profisional parceiro da plataforma");
+    public Comprove() {
+        comprove();
+        this.addComponentListener(this);
+    }
     public void comprove(){
+        this.setMinimumSize(new Dimension(900,600));
         this.add(titulo);
         this.setLayout(null);
         titulo.setText("Métodos de comprovantes");
