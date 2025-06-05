@@ -6,7 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 public class Descricao extends JFrame implements ActionListener, ComponentListener{
     JPanel fundo = new JPanel();
-    JTextArea titulo = new JTextArea();
+    JTextPane titulo = new JTextPane();
+    
     JButton prod = new JButton();
     JTextArea descricao = new JTextArea();
     JButton produtos = new JButton("Produtos");
@@ -67,12 +68,14 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
                 descricao.setText("Toalha prática e absorvente, essencial para manter a higiene pessoal durante os exercícios." );
             }
             br.close();
+            
             leitor.close();
     }catch(IOException ex){
         ex.printStackTrace();
     }
         //add funcionalidade para produtos especificos
         this.add(produtos);
+        this.setLayout(null);
         produtos.addActionListener(this);
         this.add(quests);
         quests.addActionListener(this);
@@ -84,7 +87,9 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
         public void componentResized(ComponentEvent e) {
         int largura_atual = Descricao.this.getWidth();
         int altura_atual = Descricao.this.getHeight();
-        descricao.setFont(new Font("Arial", Font.PLAIN, largura_atual/10));
+        int largura_botao = 200;
+        descricao.setFont(new Font("Arial", Font.PLAIN, largura_atual/40));
+        descricao.setSize(largura_atual/2,altura_atual/2);
         fundo.setBounds(largura_atual/4,80,largura_atual/2,altura_atual/2);
         item.setSize(largura_atual/2,altura_atual/2);
         desc.setSize(largura_atual/2,altura_atual/2);
@@ -101,9 +106,7 @@ public class Descricao extends JFrame implements ActionListener, ComponentListen
     fundo.setLayout(new GridLayout(1, 2));
     fundo.setBackground(Color.lightGray);
     item.add(descricao);
-    desc.setLayout(new BorderLayout());
-item.setLayout(new BorderLayout());
-
+    descricao.setBackground(null);
         desc.add(prod);
         volte.addActionListener(this);
         item.setBackground(Color.lightGray);
