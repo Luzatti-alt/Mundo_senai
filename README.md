@@ -4,7 +4,7 @@ No branch main está em sua maioria o aplicativo, no branch home-site a parte do
 Github que a equipe usou no desenvolvimento do projeto
 ## desenvolvedores
 ### Api e funcionalidade do site:
-- Felipe
+- Fellipe
 ### Site:
 - João
 ### Aplicativo(GUI) e linkar api com o aplicativo
